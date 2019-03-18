@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="project.aban.test.dao.MemberMapper">
+
+	<select id="loginCheck" parameterType="Member"
+		resultType="Member">
+		select id, pw from member where id=#{id} and pw=#{pw}
+	</select>
+
+
+	<insert id="insert_Member" parameterType="Member">
+		insert into member
+		(
+		ID
+		,PW
+		,EMAIL
+		,NAME
+		,DISPLAY_NAME
+		,GENDER
+		,ADDRESS
+		,PHONE
+		)
+		values
+		(
+		#{id}
+		,#{pw}
+		,#{email}
+		,#{name}
+		,#{display_name}
+		,#{gender}
+		,#{address}
+		,#{phone}
+		)
+
+	</insert>
+	
+	<select id="getOne" parameterType="Member" resultType="Member">
+		select id, pw from member where id=#{id} 
+	</select>
+	
+</mapper>
