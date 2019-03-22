@@ -1,9 +1,12 @@
-var path = require('path');
- 
+const path = require('path');
+const webpack = require('webpack');
+
 module.exports = {
-    context: path.resolve(__dirname, '../main/jsx'),
+    context: path.resolve(__dirname, '../main/js'),
     entry: {
-        main: './Main.jsx',
+        index: './index.js',
+        App: './App.js',
+        RequestButton: './RequestButton.js'
     },
     devtool: 'sourcemaps',
     cache: true,
@@ -14,8 +17,8 @@ module.exports = {
     mode: 'none',
     module: {
         rules: [ {
-            test: /\.jsx?$/,
-            exclude: /(node_modules)/,
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',
                 options: {
@@ -26,5 +29,9 @@ module.exports = {
             test: /\.css$/,
             use: [ 'style-loader', 'css-loader' ]
         } ]
-    }
+    },
+    resolve: {
+    extensions: ['*', '.js', '.jsx']
+    },
+
 };

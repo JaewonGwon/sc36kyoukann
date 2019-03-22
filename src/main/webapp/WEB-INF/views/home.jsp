@@ -3,9 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<head><link
+  rel="stylesheet"
+  href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+/></head>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <body class="index-page sidebar-collapse">
-<%@ include file="/WEB-INF/views/include/navbar.jsp"%>
+<%-- <%@ include file="/WEB-INF/views/include/navbar.jsp"%> --%>
+
 <style>
 .carousel-control-next2, .carousel-control-prev2 {
 	position: absolute;
@@ -56,6 +61,10 @@
 	background-image:
 		url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E")
 }
+.title {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
 </style>
 	<div class="wrapper">
 		<div class="page-header clear-filter" filter-color="orange">
@@ -80,7 +89,8 @@
 		<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 	</div>
 	<%@ include file="/WEB-INF/views/include/coreJsFile.jsp"%>
-	<script src="resources/react/main.bundle.js"></script>
+	<script type="text/javascript" src="resources/react/index.bundle.js"></script>
+	<!-- <script type="text/javascript" src="resources/react/main.bundle.js"></script> -->
 </body>
 
 </html>
