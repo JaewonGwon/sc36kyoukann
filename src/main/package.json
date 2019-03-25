@@ -24,5 +24,13 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
+  },
+  "babel": {
+    "plugins": [
+        ["@babel/plugin-proposal-class-properties", { "loose": true }]
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.0"
   }
 }

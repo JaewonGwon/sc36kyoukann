@@ -6,7 +6,10 @@ module.exports = {
     entry: {
         index: './index.js',
         App: './App.js',
-        RequestButton: './RequestButton.js'
+        RequestButton: './RequestButton.js',
+        MyProfileApp: './MyProfileApp.js',
+        MyProfile: './MyProfile.js',
+        MyPage: './MyPage.js'
     },
     devtool: 'sourcemaps',
     cache: true,

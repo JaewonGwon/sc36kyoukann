@@ -5,7 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  
 @Controller
 public class MyController {
- 
+	@RequestMapping("/profile")
+	public String profile() {
+		return "mypage";
+	}
 	@RequestMapping("/react")
 	public String react() {
 		return "home";
