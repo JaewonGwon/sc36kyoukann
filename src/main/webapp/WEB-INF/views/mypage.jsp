@@ -18,6 +18,18 @@ img {
 .profileContainer {
 	margin-top: 5%
 }
+
+.bookCover {
+	width: 100px
+}
+
+.table {
+	background-color: transparent;
+}
+
+.profileFrame {
+	background-color: rgba(0, 0, 0, 0.3);
+}
 </style>
 <body class="index-page sidebar-collapse">
 <%-- <%@ include file="/WEB-INF/views/include/navbar.jsp"%> --%>

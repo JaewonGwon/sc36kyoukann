@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import MyProfile from './MyProfile'
+import MyProfile from './MyProfile';
+import MyBookshelf from './MyBookshelf';
 
 
 class MyProfileApp extends Component {
@@ -25,9 +26,14 @@ class MyProfileApp extends Component {
 
     render() {
         return (
-                <div className="ProfileApp">
+            <div className = "row profileFrame">
+                <div className="col-7 ProfileApp">
                 {this.state ? <MyProfile id = {this.state.id} name = {this.state.name} display_name = {this.state.display_name} email = {this.state.email} gender = {this.state.gender} address = {this.state.address} phone = {this.state.phone} /> : this.loadingSpinner()}
                 </div>
+                <div className="col-5">
+                {this.state ? <MyBookshelf id = {this.state.id}/> : this.loadingSpinner()}
+                </div>
+            </div>
          )
     }
 

@@ -27,10 +27,10 @@ public class AjaxController {
 	public Member testProfile() {
 		Member result = new Member();
 		
-		result.setId("@iuisright");
+		result.setId("@mr.ha");
 	 	result.setPw("not allowed");
 	 	result.setEmail("testemail");
-		result.setName("이지은");
+		result.setName("하정우");
 		result.setDisplay_name("testnick");
 		result.setGender("male");
 		result.setAddress("Gangnam");
