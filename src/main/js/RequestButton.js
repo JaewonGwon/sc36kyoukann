@@ -9,8 +9,7 @@ class RequestButton extends Component {
 				<div>
                   <Form>
                         <TextArea placeholder='Tell us more' />
-                        <button className='btn btn-primary'>bootstrap button</button>
-                    </Form>
+                  </Form>
 				</div>
 		);
 	}
