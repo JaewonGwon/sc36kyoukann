@@ -26,6 +26,7 @@ public class Member {
 		this.phone = phone;
 		this.point = point;
 	}
+	
 	public String getId() {
 		return id;
 	}

@@ -21,8 +21,8 @@ class MyProfile extends Component {
                 <div className = "col-8">
                     <div className="card col-12">
                         <div className="card-body text-black">
-                        <h5 className="card-title">Profile Summary</h5>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        <h5 className="card-title">TEST</h5>
+                           L:asdafqw sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                         </div>
                     </div>
                     <div className = "col-12">

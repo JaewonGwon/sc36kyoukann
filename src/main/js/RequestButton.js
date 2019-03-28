@@ -9,7 +9,7 @@ class RequestButton extends Component {
 				<div>
                   <Form>
                         <TextArea placeholder='Tell us more' />
-                    </Form>
+                  </Form>
 				</div>
 		);
 	}
