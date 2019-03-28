@@ -6,7 +6,18 @@ module.exports = {
     entry: {
         index: './index.js',
         App: './App.js',
-        RequestButton: './RequestButton.js'
+        RequestButton: './RequestButton.js',
+        Card_reco: './Card_reco.js',
+        Card: './Card.js',
+        data_reco: './data/data_reco.js',
+        data: './data/data.js',
+        custom: './InputTag/custom.js',
+        CallLimiter: './ChipsSrc/CallLimiter.js',
+        Chip: './ChipsSrc/Chip.js',
+        Chips: './ChipsSrc/Chips.js',
+        CustomChip: './ChipsSrc/CustomChip.js',
+        theme: './ChipsSrc/theme.js'
+
     },
     devtool: 'sourcemaps',
     cache: true,
@@ -22,7 +33,8 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: [ '@babel/preset-env', '@babel/preset-react' ]
+                    presets: [ '@babel/preset-env', '@babel/preset-react',{
+                          'plugins': ['@babel/plugin-proposal-class-properties']}]
                 }
             }
         }, {
