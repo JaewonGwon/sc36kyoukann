@@ -28,11 +28,6 @@ section,
 summary {
   display: block;
 }
-.footer{
-position: absolute !important;
-
-}
-
 audio,
 canvas,
 progress,

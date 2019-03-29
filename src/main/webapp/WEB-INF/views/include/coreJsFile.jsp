@@ -9,9 +9,13 @@
   <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
   <script src="resources/assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
   <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
   <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
   <script src="resources/assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
+  
+  
+  
+  
   <script>
     $(document).ready(function() {
       // the body of this function is in resources/assets/js/now-ui-kit.js

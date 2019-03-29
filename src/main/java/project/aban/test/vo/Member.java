@@ -3,30 +3,29 @@ package project.aban.test.vo;
 public class Member {
 	private String id;
 	private String pw;
-	private String email;
 	private String name;
 	private String display_name;
 	private String gender;
+	private int age;
+	private String phone;
 	private String address;
-	private int phone;
 	private int point;
 	public Member() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-	public Member(String id, String pw, String email, String name, String display_name, String gender, String address,
-			int phone, int point) {
-		super();
+	public Member(String id, String pw, String name, String display_name, String gender, int age, String phone,
+			String address, int point) {
 		this.id = id;
 		this.pw = pw;
-		this.email = email;
 		this.name = name;
 		this.display_name = display_name;
 		this.gender = gender;
-		this.address = address;
+		this.age = age;
 		this.phone = phone;
+		this.address = address;
 		this.point = point;
 	}
-	
 	public String getId() {
 		return id;
 	}
@@ -38,12 +37,6 @@ public class Member {
 	}
 	public void setPw(String pw) {
 		this.pw = pw;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	public String getName() {
 		return name;
@@ -63,17 +56,23 @@ public class Member {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
 		this.address = address;
-	}
-	public int getPhone() {
-		return phone;
-	}
-	public void setPhone(int phone) {
-		this.phone = phone;
 	}
 	public int getPoint() {
 		return point;
@@ -83,10 +82,10 @@ public class Member {
 	}
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", pw=" + pw + ", email=" + email + ", name=" + name + ", display_name="
-				+ display_name + ", gender=" + gender + ", address=" + address + ", phone=" + phone + ", point=" + point
-				+ "]";
+		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", display_name=" + display_name + ", gender="
+				+ gender + ", age=" + age + ", phone=" + phone + ", address=" + address + ", point=" + point + "]";
 	}
+
 	
 	
 

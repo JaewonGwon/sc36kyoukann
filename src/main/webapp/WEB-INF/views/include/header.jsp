@@ -14,5 +14,4 @@
   <link href="resources/assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="resources/assets/demo/demo.css" rel="stylesheet" />
-  <link href="resources/assets/scss/bootstrap.scss" />
 </head>

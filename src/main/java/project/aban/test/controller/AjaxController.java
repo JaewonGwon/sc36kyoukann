@@ -22,20 +22,4 @@ public class AjaxController {
 		return result;
 	}
 	
-	@RequestMapping(value="/testProfile", method=RequestMethod.GET)
-	@ResponseBody
-	public Member testProfile() {
-		Member result = new Member();
-		
-		result.setId("@mr.ha");
-	 	result.setPw("not allowed");
-	 	result.setEmail("testemail");
-		result.setName("ÇÏÁ¤¿ì");
-		result.setDisplay_name("testnick");
-		result.setGender("male");
-		result.setAddress("Gangnam");
-		result.setPhone(1055104718);
-		
-		return result;
-	}
 }

@@ -9,5 +9,11 @@ public interface MemberMapper {
 	public int insert_Member(Member member);
 
 	public Member getOne(Member member);
+
+	public Member idFind(Member member);
+
+	public Member pwCheck(Member member);
+
+	public void pwUpdate(Member member);
 	
 }
