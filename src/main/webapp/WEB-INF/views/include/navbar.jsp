@@ -21,41 +21,22 @@
           <span class="navbar-toggler-bar bottom-bar"></span>
         </button>
       </div>
-      
-      <!-- <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="resources/assets/img/blurred-image-1.jpg"> -->
       <div class="collapse navbar-collapse justify-content-end" id="navigation">
         <ul class="navbar-nav">
           <li class="nav-item"> 
-            <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
+            <a class="nav-link" href="recommend">
               <i class="now-ui-icons ui-2_like"></i>
               <p>도서 추천</p>
             </a>
           </li>
-          <!-- <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
-              <i class="now-ui-icons ui-2_chat-round"></i>
-              <p>도서 리뷰</p>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
-              <a class="dropdown-item" href="./index.html">
-                <i class="now-ui-icons business_chart-pie-36"></i> All components
-              </a>
-              <a class="dropdown-item" target="_blank" href="https://demos.creative-tim.com/now-ui-kit/docs/1.0/getting-started/introduction.html">
-                <i class="now-ui-icons design_bullet-list-67"></i> Documentation
-              </a>
-            </div>
-          </li> -->
-          
           <li class="nav-item">
-<!--             <a class="nav-link btn btn-neutral" href="https://www.creative-tim.com/product/now-ui-kit-pro" target="_blank">
- -->        <a class="nav-link" href="bookreview">
+       <a class="nav-link" href="bookreview">
               <i class="now-ui-icons ui-2_chat-round"></i>
               <p>도서 리뷰</p>
             </a>
           </li>
           <li class="nav-item">
-<!--             <a class="nav-link btn btn-neutral" href="https://www.creative-tim.com/product/now-ui-kit-pro" target="_blank">
- -->        <a class="nav-link" href="#">
+       <a class="nav-link" href="profile">
               <i class="now-ui-icons education_agenda-bookmark"></i>
               <p>내 서재</p>
             </a>

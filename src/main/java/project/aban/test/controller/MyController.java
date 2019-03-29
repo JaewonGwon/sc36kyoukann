@@ -17,8 +17,8 @@ public class MyController {
 	public String profile() {
 		return "mypage";
 	}
-	@RequestMapping("/react")
-	public String react() {
+	@RequestMapping("/recommend")
+	public String recommend() {
 		return "home";
 	}
 	@RequestMapping("/testingJson")
