@@ -1,0 +1,9 @@
+diff a/project190308/src/main/java/project/aban/test/controller/MemberController.java b/project190308/src/main/java/project/aban/test/controller/MemberController.java	(rejected hunks)
+@@ -31,7 +31,6 @@
+ 			return "member/loginForm";
+ 		}*/
+ 		try {
+-			ms.loginCheck(member);
+ 			Member m = ms.loginCheck(member);
+ 			session.setAttribute("loginId", m.getId());
+ 		} catch (Exception e) {

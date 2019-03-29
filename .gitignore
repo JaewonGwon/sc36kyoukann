@@ -1,2 +1,48 @@
 src/main/node_modules/
-test/
+target/
+.settings/
+.classpath
+.project
+
+#log files
+*.log
+npm-debug.log*
+logs
+
+#compiled files
+*.class
+*.dll
+*.exe
+
+#packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+*.jar
+
+#eclipse settings
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.project
+.externalToolBuilders/
+*.launch
+.classpath
+.factorypath
+.buildpath
+.target
+.tern-project
+.springBeans
+.recommenders/
