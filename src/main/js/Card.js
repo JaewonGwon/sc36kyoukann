@@ -6,7 +6,8 @@ const Card = ({property}) => {
     const {index, picture, city, address, bedrooms, bathrooms, carSpaces} = property;
     return (
         <div id={`card-${index}`} className="card">
-            <img src={picture} alt={city} />
+            <img src={picture} alt={city} /><div className="tags">dddddddddddddddddddddddddddddddddddddddddddddd</div>
+            
             <div className="details">
                 <span className="index">{index+1}</span>
                 <p className="location">

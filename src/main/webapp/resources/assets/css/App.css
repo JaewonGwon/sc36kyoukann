@@ -170,7 +170,7 @@ section {
  
 
     flex: 1;
-    min-width: 200px;
+    min-width: 350px;
     opacity: 0.7;
     transform: scale(0.6);
     box-shadow: none;
@@ -187,7 +187,10 @@ section {
 
 }
       
-
+ .tags{
+    width: 200;
+    border : solid green 1px;
+}
 .cards-slider.active-slide-0 #card-0 {
   opacity: 1;
   transform: scale(1);

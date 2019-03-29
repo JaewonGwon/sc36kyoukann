@@ -7,6 +7,7 @@
 <link rel="stylesheet"
 	href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
 <link href="resources/assets/css/App.css" rel="stylesheet" />
+<!-- <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,greek' rel='stylesheet' type='text/css'/> -->
 
 <style type="text/css">
 	.index-page sidebar-collapse{
