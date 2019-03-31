@@ -1,15 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Button } from 'semantic-ui-react';
+import Modal_detail from './Modal_detail';
+
+
+
 
 const Card = ({property}) => {
     const {index, picture, city, address, bedrooms, bathrooms, carSpaces} = property;
     return (
         <div id={`card-${index}`} className="card">
-            <img src={picture} alt={city} /><div className="tags">dddddddddddddddddddddddddddddddddddddddddddddd</div>
+            <img src={picture} alt={city} />
             
             <div className="details">
-                <span className="index">{index+1}</span>
+                <span className="index">{index+1}</span><br/>
+                
+
                 <p className="location">
                     {city}<br />
                     {address}
@@ -31,6 +37,18 @@ const Card = ({property}) => {
                     {carSpaces} <span>parking spots</span>
                     </li>
                     
+
+                    {/* <Modal_detail 
+                    picture={picture}
+                    bedrooms={bedrooms}
+                    carSpaces={carSpaces} /> */}
+                    {/* <img src={this.props.picture}></img><br/>
+           <b>bedrooms : {this.props.bedrooms}</b><br/>
+           <b>carSpaces : {this.props.carSpaces}</b> */}
+                    
+                    <li>
+                        <Modal_detail img={picture}/>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -10,6 +10,7 @@ import Card from './Card';
 import CustomExample from './InputTag/custom';
 import { Backwards } from 'react-bytesize-icons';
 import { Forwards } from 'react-bytesize-icons';
+import { Header, Icon, Image, Modal } from 'semantic-ui-react';
 
 
 class App extends Component {
@@ -63,6 +64,7 @@ class App extends Component {
                     <br /><br />
                     <CustomExample />
                 </div>
+                
                 <div className="recommand">
                     <div className="user_reco">
                         {/* 버튼_reco */}
@@ -85,10 +87,11 @@ class App extends Component {
                                     width={60} height={60} color="#DB8E00" />
                             </Button>
                        </div>
+                       
                         {/* reco 페이지 */}
                         <div className="page">
                             <div className="col">
-                            <div>취향(처음 가입시 입력)추천111</div>
+                            <div>취향(처음 가입시 입력)추천222</div>
                                 <div className={`cards-slider active-slide-${property_reco.index}`}>
                                     <div className="cards-slider-wrapper" style={{
                                         'transform': `translateX(-${property_reco.index * (100 / properties_reco.length)}%)`

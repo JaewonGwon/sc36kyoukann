@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from 'semantic-ui-react';
-
+import Modal_detail from './Modal_detail';
 const Card_reco = ({property_reco}) => {
     const {index, picture, city, address, bedrooms, bathrooms, carSpaces} = property_reco;
     return (
@@ -29,7 +29,9 @@ const Card_reco = ({property_reco}) => {
                     color='blue' />
                     {carSpaces} <span>parking spots</span>
                     </li>
-
+                    <li>
+                        <Modal_detail img={picture}/>
+                    </li>
 
                 </ul>
             </div>

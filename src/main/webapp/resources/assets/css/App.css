@@ -19,7 +19,8 @@ body {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
-    padding: 30px;
+    margin-bottom: 0;
+    
 }
 
 .card {
@@ -163,19 +164,17 @@ section {
   display: flex;
   position: absolute;
   transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955); 
-  border : solid red 1px;
+  border : solid blue 1px;
 }
- 
   .cards-slider-wrapper .card {
  
-
     flex: 1;
-    min-width: 350px;
+    min-width: 200px;
     opacity: 0.7;
     transform: scale(0.6);
     box-shadow: none;
     background-color: transparent;
-    border-color: transparent;
+    border-color: solid red 1px;
     transition: opacity 300ms linear, border-color 300ms linear, background-color 300ms linear, transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955); 
     }
     .cards-slider-wrapper .card .details {
@@ -187,10 +186,6 @@ section {
 
 }
       
- .tags{
-    width: 200;
-    border : solid green 1px;
-}
 .cards-slider.active-slide-0 #card-0 {
   opacity: 1;
   transform: scale(1);

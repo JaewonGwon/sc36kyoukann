@@ -7,7 +7,6 @@
 <link rel="stylesheet"
 	href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
 <link href="resources/assets/css/App.css" rel="stylesheet" />
-<!-- <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,greek' rel='stylesheet' type='text/css'/> -->
 
 <style type="text/css">
 	.index-page sidebar-collapse{
@@ -39,8 +38,9 @@ box-sizing: border-box;
 				style="background-image: url('resources/assets/img/header.jpg'); ">
 			</div>
 
-				<div class="row" style="width: 100%; height:100%; border: 1px solid blue; margin-left: auto; margin-right: auto;">
+				<div class="row" style="width: 100%; height:100%; border: 1px solid red; margin-left: auto; margin-right: auto;">
 					<div class="col-12" style="border: 1px solid green;margin-top: 40px;">
+							<!-- React page -->
 							<div id="root"></div>
 					</div>
 				</div>
