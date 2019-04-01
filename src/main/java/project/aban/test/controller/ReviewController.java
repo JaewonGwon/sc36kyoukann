@@ -29,9 +29,14 @@ public class ReviewController {
 
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Review> bookreview(Review rev_num, HttpSession session) {
+	public List<Review> bookreview() {
 		List<Review> list = new ArrayList<>();
 		list=rs.bookreview();
+		if (list==null) {
+			System.out.println("비어있음");
+		}else {
+			System.out.println("들어있음");
+		}
 		return list;
 	}
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
@@ -52,28 +57,21 @@ public class ReviewController {
 		return "review/review";
 	}
 	@RequestMapping(value = "/reviewDetail", method = RequestMethod.GET)
-	public String reviewDetail(int rev_num, HttpSession session) {
+	public String reviewDetail() {
 		
-		session.setAttribute("rev_num",rev_num);
+		/*session.setAttribute("rev_num",rev_num);*/
 		return "review/reviewDetail";
 	}
 	@RequestMapping(value = "/searchReview", method = RequestMethod.POST)
 	@ResponseBody
-	public Review reviewDetail(HttpSession session) {
+	public Review searchReview(HttpSession session) {
 		int rev_num=(int)session.getAttribute("rev_num");
 		Review review = rs.selectOne(rev_num);
 		
 		return review;
 	}
 	
-	
-	
-	
-	@RequestMapping(value = "/reviewDetailTest", method = RequestMethod.GET)
-	public String reviewDetail() {
-		
-		return "review/reviewDetailTest";
-	}
+
 	
 }
 

@@ -17,7 +17,6 @@
 				0
 			)
 	</insert>
-	
 	<select id="select_book" parameterType="Book" resultType="Book">
 		select distinct
 			book_num,
