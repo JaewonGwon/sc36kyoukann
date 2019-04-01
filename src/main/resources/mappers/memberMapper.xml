@@ -5,40 +5,50 @@
 
 <mapper namespace="project.aban.test.dao.MemberMapper">
 
-	<select id="loginCheck" parameterType="Member"
-		resultType="Member">
-		select id, pw from member where id=#{id} and pw=#{pw}
-	</select>
+   <select id="loginCheck" parameterType="Member"
+      resultType="Member">
+      select id, pw from member where id=#{id} and pw=#{pw}
+   </select>
 
 
-	<insert id="insert_Member" parameterType="Member">
-		insert into member
-		(
-		ID
-		,PW
-		,EMAIL
-		,NAME
-		,DISPLAY_NAME
-		,GENDER
-		,ADDRESS
-		,PHONE
-		)
-		values
-		(
-		#{id}
-		,#{pw}
-		,#{email}
-		,#{name}
-		,#{display_name}
-		,#{gender}
-		,#{address}
-		,#{phone}
-		)
+   <insert id="insert_Member" parameterType="Member">
+      insert into member
+      (
+      ID
+      ,PW
+      ,NAME
+      ,DISPLAY_NAME
+      ,GENDER
+      ,AGE
+      ,PHONE
+      ,ADDRESS
+      ,POINT
+      )
+      values
+      (
+      #{id}
+      ,#{pw}
+      ,#{name}
+      ,#{display_name}
+      ,#{gender}
+      ,#{age}
+      ,#{phone}
+      ,#{address}
+      ,default
+      )
 
-	</insert>
-	
-	<select id="getOne" parameterType="Member" resultType="Member">
-		select id, pw from member where id=#{id} 
-	</select>
-	
+   </insert>
+   
+   <select id="getOne" parameterType="Member" resultType="Member">
+      select id, pw from member where id=#{id} 
+   </select>
+   <select id="idFind" parameterType="Member" resultType="Member">
+      select * from member where name=#{name} and display_name=#{display_name}
+   </select>
+   <select id="pwCheck" parameterType="Member" resultType="Member">
+      select * from member where id=#{id} and name=#{name} and display_name=#{display_name}
+   </select>
+   <update id="pwUpdate" parameterType="Member">
+   update member set pw=#{pw} where id=#{id} and name=#{name}
+   </update>
 </mapper>
