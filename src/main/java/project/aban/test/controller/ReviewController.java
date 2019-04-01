@@ -57,7 +57,7 @@ public class ReviewController {
 		return "review/review";
 	}
 	@RequestMapping(value = "/reviewDetail", method = RequestMethod.GET)
-	public String reviewDetail(int rev_num, HttpSession session) {
+	public String reviewDetail() {
 		
 		/*session.setAttribute("rev_num",rev_num);*/
 		return "review/reviewDetail";

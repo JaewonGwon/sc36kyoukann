@@ -28,7 +28,7 @@ function output(resp) {
 	   var reviewlink = "'reviewDetail'";
 	   
 	   $.each(resp, function(index, tt) {
-		  listwriter += '<div class="item" style="cursor:pointer;" OnClick="javascript:location.href='+reviewlink+'">';
+		  listwriter += '<div class="item">';
 	      listwriter += '<div class="carousel-content text-carousel-st2">';
 		  listwriter += '<div class="in-div-text-carousel-st2">';
 		  listwriter += '<p class="main-review-title">'+tt.rev_title+'</p>';
@@ -36,10 +36,11 @@ function output(resp) {
 		  listwriter += '<a href="#" data-toggle="tooltip" title="<img src='+ img +'>">';
 		  
 		  
+		  
 		  listwriter += tt.book_title;
 		  listwriter += '</a>';
 		  listwriter += '</p>';
-		  listwriter += '<p class="main-review-content2">';
+		  listwriter += '<p class="main-review-content2" style="cursor:pointer;" OnClick="javascript:location.href='+reviewlink+'">';
 		  listwriter += tt.rev_content;
 		  listwriter += '</p>'
 	      listwriter += '<p class="main-review-tag">';
