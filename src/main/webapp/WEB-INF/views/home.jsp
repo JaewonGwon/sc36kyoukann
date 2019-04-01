@@ -53,7 +53,7 @@ box-sizing: border-box;
 	<%@ include file="/WEB-INF/views/include/footer.jsp"%> 
 	</div>
 	<%@ include file="/WEB-INF/views/include/coreJsFile.jsp"%>
-	<script type="text/javascript" src="resources/react/index.bundle.js"></script>
+		
 	<!-- <script type="text/javascript" src="resources/react/main.bundle.js"></script> -->
 	</div>
 </body>
