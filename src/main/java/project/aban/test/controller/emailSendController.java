@@ -34,6 +34,7 @@ public class emailSendController {
 		
 		String subject = "[공감]"+m.getId()+", "+m.getName() + " 님의 임시비밀번호입니다.";
 		String body = "임시비밀번호는 "+Sendsession.getAttribute("sendPw")+" 입니다.";
+		body += "";
 		
 		Properties props = System.getProperties();
 	

@@ -36,8 +36,12 @@ $(function(){
 	});
 
 
+
 </script>
 <body class="index-page sidebar-collapse">
+if('${메시지명}' != '') {
+	alert('${메시지명}');
+}
 
 <!-- Navbar include -->
   <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
