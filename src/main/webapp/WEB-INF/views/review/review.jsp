@@ -25,19 +25,22 @@ function init() {
 function output(resp) {
 	   var listwriter = '';
 	   var img = 'resources/assets/img/book_img01.jpg';
-	   var reviewDetail = 'review/reviewDetail';
+	   var reviewlink = "'reviewDetail'";
+	   
 	   $.each(resp, function(index, tt) {
-		  listwriter += '<div class="item" OnClick="location.href='+reviewDetail+'" style="cursor:pointer;">';
+		  listwriter += '<div class="item">';
 	      listwriter += '<div class="carousel-content text-carousel-st2">';
 		  listwriter += '<div class="in-div-text-carousel-st2">';
 		  listwriter += '<p class="main-review-title">'+tt.rev_title+'</p>';
 		  listwriter += '<p class="main-review-title2">';
 		  listwriter += '<a href="#" data-toggle="tooltip" title="<img src='+ img +'>">';
 		  
+		  
+		  
 		  listwriter += tt.book_title;
 		  listwriter += '</a>';
 		  listwriter += '</p>';
-		  listwriter += '<p class="main-review-content2">';
+		  listwriter += '<p class="main-review-content2" style="cursor:pointer;" OnClick="javascript:location.href='+reviewlink+'">';
 		  listwriter += tt.rev_content;
 		  listwriter += '</p>'
 	      listwriter += '<p class="main-review-tag">';

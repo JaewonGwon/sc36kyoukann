@@ -7876,4 +7876,57 @@ figure.snip1283.hover figcaption {
 }		
 /*리뷰 디테일 페이지 리뷰 컨텐츠 스타일 끝*/
 
+/* 리뷰 디테일 수정페이지 책 제목 검색부분 CSS 시작*/
+.autocomplete-suggestions {
+    text-align: left;
+    cursor: default;
+    border: 1px solid #ccc;
+    border-top: 0;
+    background: #fff;
+    box-shadow: -1px 1px 3px rgba(0,0,0,.1);
+
+    /* core styles should not be changed */
+    position: absolute;
+    display: none;
+    z-index: 9999;
+    max-height: 254px;
+    overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+.autocomplete-suggestion {
+	position: relative;
+	padding: 0 .6em;
+	line-height: 23px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 1.02em;
+	color: #333;
+}
+.autocomplete-suggestion b {
+	font-weight: normal;
+	color: #1f8dd6;
+}
+.autocomplete-suggestion.selected {
+	background: #f0f0f0;
+}
+.review-mod-input-st{
+	width: 100%;
+}
+textarea{
+	border:1px solid #999999;
+	width:100% !important;
+	padding:3px;
+	overflow: auto;
+	min-height: 50px;
+	display:block;
+	height: 200px;
+} 		
+/* 리뷰 디테일 수정페이지 책 제목 검색부분 CSS 시작*/
+
+
+
+
+
 /*# sourceMappingURL=kit-free.css.map */

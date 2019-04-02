@@ -57,28 +57,21 @@ public class ReviewController {
 		return "review/review";
 	}
 	@RequestMapping(value = "/reviewDetail", method = RequestMethod.GET)
-	public String reviewDetail(int rev_num, HttpSession session) {
+	public String reviewDetail() {
 		
-		session.setAttribute("rev_num",rev_num);
+		/*session.setAttribute("rev_num",rev_num);*/
 		return "review/reviewDetail";
 	}
 	@RequestMapping(value = "/searchReview", method = RequestMethod.POST)
 	@ResponseBody
-	public Review reviewDetail(HttpSession session) {
+	public Review searchReview(HttpSession session) {
 		int rev_num=(int)session.getAttribute("rev_num");
 		Review review = rs.selectOne(rev_num);
 		
 		return review;
 	}
 	
-	
-	
-	
-	@RequestMapping(value = "/reviewDetailTest", method = RequestMethod.GET)
-	public String reviewDetail() {
-		
-		return "review/reviewDetailTest";
-	}
+
 	
 }
 

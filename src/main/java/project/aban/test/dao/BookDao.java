@@ -17,4 +17,10 @@ public class BookDao {
 		int result = mapper.insert_book(book);
 		return result;
 	}
+	
+	public Book select_book(Book book) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		Book result = mapper.select_book(book);
+		return result;
+	}
 }
