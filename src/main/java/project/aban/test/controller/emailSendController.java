@@ -23,18 +23,19 @@ import project.aban.test.vo.Member;
 public class emailSendController {
 	@RequestMapping(value="/emailSend", method= RequestMethod.POST)
 	public String emailSend(HttpServletRequest request, ModelMap mo, String email, HttpSession Sendsession) throws AddressException, MessagingException {
-		String host = "smtp.naver.com"; 
+		String host = "smtp.gmail.com"; 
 		int port=465; 
 		//465=네이버, 587=지메일
 		
-		final String username = "redemption580";//발신자 사람의 메일 아이디
-		final String password = "gonggam@@";//발신자의 비번 
+		final String username = "kyoukann365365";//발신자 사람의 메일 아이디
+		final String password = "365365365";//발신자의 비번 
 		String recipient = email;
 		Member m =(Member) Sendsession.getAttribute("pwCheckMember");
 		
 		String subject = "[공감]"+m.getId()+", "+m.getName() + " 님의 임시비밀번호입니다.";
 		String body = "임시비밀번호는 "+Sendsession.getAttribute("sendPw")+" 입니다.";
-		body += "";
+		body += "비밀번호를 재설정하시려면 아래의 링크를 클릭해주세요";
+		body += "http://localhost:8888/test/memberCheck";
 		
 		Properties props = System.getProperties();
 	
@@ -57,7 +58,7 @@ public class emailSendController {
 		session.setDebug(true);
 		try {
 			Message mimeMessage = new MimeMessage(session);
-			mimeMessage.setFrom(new InternetAddress("redemption580@naver.com"));//발신자주소
+			mimeMessage.setFrom(new InternetAddress("kyoukann365365@gmail.com"));//발신자주소
 			mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient)); 
 			mimeMessage.setSubject(subject); //제목셋팅 	
 			mimeMessage.setText(body); //내용셋팅 	

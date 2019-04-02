@@ -108,6 +108,15 @@ public class MemberService {
 	}
 
 
+public void updateMem(Member mem) throws Exception {
+		 String encPassword = passwordEncoder.encode(mem.getPw());
+		 mem.setPw(encPassword);
+		 
+		 dao.updateMember(mem);
+	
+	}
+
+
 	
 	
 }

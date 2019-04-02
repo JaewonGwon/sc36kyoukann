@@ -51,4 +51,18 @@
 	<update id="pwUpdate" parameterType="Member">
 	update member set pw=#{pw} where id=#{id} and name=#{name}
 	</update>
+	
+		<update id="updateMember" parameterType="Member">
+		update member
+		set
+			pw = #{pw}
+			, name = #{name}
+			, display_name = #{display_name}
+			, gender = #{gender}
+			, age = #{age}
+			, phone = #{phone}
+			, address = #{address}
+		where
+			id = #{id}
+	</update>
 </mapper>

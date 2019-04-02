@@ -58,19 +58,7 @@ function execDaumPostcode() {
 }
 /* 다음 주소  API 끝 */
 
-/*아이디 한글입력 안되게 하는 소스 시작*/
-$(document).ready(function(){
-  
-  //한글입력 안되게 처리
-  $("input[name=id]").keyup(function(event){ 
-   if (!(event.keyCode >=37 && event.keyCode<=40)) {
-    var inputVal = $(this).val();
-    $(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
-   
-   }
-  });
-});
-/*아이디 한글입력 안되게 하는 소스 끝*/
+
 
 /*휴대폰번호 숫자만 입력되게 하는 소스 시작*/
 function numkeyCheck(e){
@@ -82,71 +70,56 @@ function numkeyCheck(e){
    }
 /*휴대폰번호 숫자만 입력되게 하는 소스 끝*/
 
+/*기존 비밀번호랑 일치하는지 여부*/
 $(function(){
    
-   $("#id").on('keyup', function() {
+   $("#update").on('click', function() {
       
-   	var id=$("#id").val();
+   	var oripw=$("#oripw").val();
          $.ajax({
             method : 'post'
-            , url  : 'duplicateCheck'
+            , url  : 'originalpwCheck'
             , data : {
-            	id : id
+            	oripw : oripw
             }
             , success : function(resp) {
-               if(resp == 0) {
-                  $("#successDiv").attr('class','form-group has-success');
-                  $("#id").css("color", "#40ff00");
-                  $("#send").attr('href','javascript: formCheck();');
-               } else {
-                 
-                  $("#successDiv").attr('class','form-group has-danger');
-                  $("#id").css("color", "red");
-                  $("#send").attr('href','javascript:void(0);');
+               if(resp.trim() =="fail") {
+                  alert("기존 비밀번호가 정확하지 않습니다");
                   return false;
                }
             }
          }); 
-   });
-   
-    
+   });   
 });
 
+/*기존 비밀번호랑 새로운 비밀번호랑 일치하지 않아야함 */
 function formCheck() {
-	var id = document.getElementById("id").value;
-	var pw = document.getElementById("pw").value;
-    var repw= document.getElementById("repw").value;
-    var name= document.getElementById("name").value;
+
+	var oripw = document.getElementById("oripw").value;
+    var newpw= document.getElementById("newpw").value;
+
     var disname= document.getElementById("display_name").value;
     
-    	if(id.length==0){
-    		alert("아이디를 입력해주세요");
+
+    	if(newpw.length==0){
+    		alert("변경하실 비밀번호를 입력해주세요");
     		return false;
     	}
     	
-    	if(pw.length==0){
-    		alert("비밀번호를 입력해주세요");
-    		return false;
-    	}
-    	
-		if(pw.length < 4 || pw.length > 10) {
+		if(newpw.length < 4 || newpw.length > 10) {
 			alert("비밀번호는 4~10자리 입니다.");
 			return;
 		}
-		if(pw!= repw) {
-			alert("비밀번호와 비밀번호 확인값이 다릅니다.");
-			return;
-		}
-		
-		if(name.length==0) {
-			alert("이름을 입력해주세요");
+		if(oripw== newpw) {
+			alert("기존비밀번호와 새로운 비밀번호는 일치할 수 없습니다!");
 			return;
 		}
 		
 		if(disname.length==0) {
-			alert("닉네임을 입력해주세요");
+			alert("이름을 입력해주세요");
 			return;
 		}
+		
    
    var phone1= document.getElementById("phone1").value; 
    var phone2= document.getElementById("phone2");
@@ -160,7 +133,7 @@ function formCheck() {
    var addr2= document.getElementById("addr2");
    
    document.getElementById("address").value = post.value+roadaddr.value+addr1+addr2.value;
-   $("#joinus").submit();
+   $("#update").submit();
 }
    
 
@@ -178,7 +151,7 @@ function formCheck() {
             <div class="col-lg-6 col-md-9 col-sm-12" style="margin:0 auto; background: none; min-width: 300px;">
             
             <!--  여기서 부터 form 시작!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-              <form class="form" id="joinus" method="post" action="joinus">
+              <form class="form" id="updateForm" method="post" action="updateForm">
                <div class="card-header text-center">
                   <h3 class="card-title title-up" style="color: white; font-size: 22pt; box-shadow:none;">회원정보수정</h3>
                </div>
@@ -192,26 +165,26 @@ function formCheck() {
                  
                   <div class="col-lg-9 text-center">
                    <div class="form-group" id="successDiv" >
-                     <input type="text" value="" id="id" name="id" placeholder="${sessionScope.loginId}" class="form-control" required />
+                     <input  name="id" value="${sessionScope.loginId}" class="form-control" readonly="readonly" required />
                    </div>
                    
                    </div>
                   
                   <div class="col-lg-3 text-center" style="padding: 8px 0px;">
-                    <span style="color: white; font-size: 12pt; font-weight: 600;">비밀번호</span>
+                    <span style="color: white; font-size: 12pt; font-weight: 600;">기존 비밀번호</span>
                   </div>
                   <div class="col-lg-9 text-center">
                    <div class="form-group">
-                      <input type="password" id="pw" name="pw" value="" placeholder="비밀번호를 입력하세요.." class="form-control" required />
+                      <input type="password" id="oripw" name="oripw" value="" placeholder="기존 비밀번호를 입력하세요.." class="form-control" required />
                    </div>
                    </div>
                   
                   <div class="col-lg-3 text-center" style="padding: 8px 0px;">
-                    <span style="color: white; font-size: 12pt; font-weight: 600;">비밀번호 확인</span>
+                    <span style="color: white; font-size: 12pt; font-weight: 600;">새로운 비밀번호</span>
                   </div>
                   <div class="col-lg-9 text-center">
                    <div class="form-group">
-                      <input type="password" id="repw" value="" placeholder="비밀번호를 다시 한번 입력하세요.." class="form-control" required />
+                      <input type="password" id="newpw" name="newpw" value="" placeholder="바꾸실  비밀번호를 입력해 주세요.." class="form-control" required />
                    </div>
                    </div>
      
@@ -221,7 +194,7 @@ function formCheck() {
                   </div>
                   <div class="col-lg-9 text-center">
                    <div class="form-group">
-                      <input type="text" id="name" name="name" value="" placeholder="이름을 입력하세요.." class="form-control" required />
+                      <input id="name" name="name" value="${sessionScope.name}" readonly="readonly" class="form-control" required />
                    </div>
                    </div>
                   
@@ -230,7 +203,7 @@ function formCheck() {
                   </div>
                   <div class="col-lg-9 text-center">
                    <div class="form-group">
-                      <input type="text" id="display_name" name="display_name" value="" placeholder="사용할 닉네임을 입력하세요.." class="form-control" required />
+                      <input type="text" id="display_name" name="display_name" value="${sessionScope.display_name}" placeholder="사용할 닉네임을 입력하세요.." class="form-control" required />
                    </div>
                    </div>
                   
@@ -338,7 +311,7 @@ function formCheck() {
                 </div>
                 <div class="card-footer text-center" style="background: none; border: none;">   
                            
-                  <a href="javascript: formCheck();" id="send" class="btn btn-login btn-round btn-lg">다 음 <i class="now-ui-icons arrows-1_minimal-right"></i></a> 
+                  <a href="javascript: formCheck();" class="btn btn-login btn-round btn-lg">수정 완료 <i class="now-ui-icons arrows-1_minimal-right"></i></a> 
                               
                 </div>
                           
