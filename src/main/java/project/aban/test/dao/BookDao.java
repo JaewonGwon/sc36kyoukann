@@ -21,11 +21,20 @@ public class BookDao {
 		return result;
 	}
 
+
 	public List<TestVO> show_all_book() {
 		BookMapper mapper = session.getMapper(BookMapper.class);
 		List<TestVO> result = mapper.show_all_book();
 		
 		System.out.println(result);
+		return result;
+	}
+
+	
+	public Book select_book(Book book) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		Book result = mapper.select_book(book);
+
 		return result;
 	}
 }

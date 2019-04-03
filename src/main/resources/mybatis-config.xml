@@ -7,12 +7,13 @@
 		<typeAlias type="project.aban.test.vo.Member" alias="Member"/>
 		<typeAlias type="project.aban.test.vo.Book" alias="Book"/>
         <typeAlias type="project.aban.test.vo.TestVO" alias="TestVO"/>
+		<typeAlias type="project.aban.test.vo.Review" alias="Review"/>
 
-       
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/memberMapper.xml"/>
 		<mapper resource="mappers/bookMapper.xml"/>
+		<mapper resource="mappers/reviewMapper.xml"/>
 	</mappers>
 </configuration>
 

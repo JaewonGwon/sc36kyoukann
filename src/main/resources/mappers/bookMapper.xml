@@ -22,10 +22,27 @@
 	</insert>
 
 
+
     <select id="show_all_book" resultType="TestVO">
         SELECT * FROM book
         where BOOK_TITLE in('연금술사', '데미안')
             
+	</select>
+
+
+	<select id="select_book" parameterType="Book" resultType="Book">
+		select distinct
+			book_num,
+			book_title,
+			book_image,
+			book_writer,
+			book_date,
+			book_publisher,
+			book_likecount
+		from book
+			where book_title = #{book_title}
+			and book_image = #{book_image}
+			and book_publisher = #{book_publisher}
 	</select>
 
 </mapper>

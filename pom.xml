@@ -19,7 +19,18 @@
 	        <url>https://code.lds.org/nexus/content/groups/main-repo</url>
 	    </repository>
 	</repositories>
+	   
 	<dependencies>
+		<dependency>
+          <groupId>org.codehaus.jackson</groupId> 
+         <artifactId>jackson-mapper-asl</artifactId> 
+         <version>1.9.13</version> 
+      </dependency>
+      <dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.9.6</version>
+		</dependency>
 		<dependency>
 		    <groupId>com.oracle</groupId>
 		    <artifactId>ojdbc6</artifactId>
@@ -170,19 +181,19 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>4.1.0.RELEASE</version>
+            <version>4.1.1.RELEASE</version>
         </dependency>
         <!--스프링시큐리티 core 라이브러리-->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>4.1.0.RELEASE</version>
+            <version>4.1.1.RELEASE</version>
         </dependency>
         <!--스프링시큐리티 config 라이브러리-->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>4.1.0.RELEASE</version>
+            <version>4.1.1.RELEASE</version>
         </dependency>
                 
 	</dependencies>
