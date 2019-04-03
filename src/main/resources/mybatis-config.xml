@@ -6,6 +6,9 @@
 	<typeAliases>
 		<typeAlias type="project.aban.test.vo.Member" alias="Member"/>
 		<typeAlias type="project.aban.test.vo.Book" alias="Book"/>
+        <typeAlias type="project.aban.test.vo.TestVO" alias="TestVO"/>
+
+       
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/memberMapper.xml"/>

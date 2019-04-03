@@ -42,7 +42,7 @@ public class DataService {
 				response.append('\r');
 			}
 			rd.close();
-			System.out.println(call_dao(response) + "°³ÀÇ Ã¥Á¤º¸ Ãß°¡");
+			System.out.println(call_dao(response) + "ï¿½ï¿½ï¿½ï¿½ Ã¥ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -50,7 +50,7 @@ public class DataService {
 	}
 	
 	public int call_dao(StringBuffer response) {
-		//Ã¥ ÄÚµå Ãß°¡ÇØ¾ßÇÔ!
+		//Ã¥ ï¿½Úµï¿½ ï¿½ß°ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½!
 		ArrayList<String> genres_list = new ArrayList<>();
 		genres_list.add("100");
 		genres_list.add("110");

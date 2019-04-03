@@ -20,4 +20,12 @@
                 0
 			)
 	</insert>
+
+
+    <select id="show_all_book" resultType="TestVO">
+        SELECT * FROM book
+        where BOOK_TITLE in('연금술사', '데미안')
+            
+	</select>
+
 </mapper>

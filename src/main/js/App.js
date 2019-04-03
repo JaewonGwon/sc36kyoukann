@@ -25,6 +25,7 @@ class App extends Component {
             property_reco: data_reco.properties_reco[0]
         }
     }
+    
     //버튼
     nextProperty = () => {
         const newBOOK_NUM = this.state.property.BOOK_NUM + 1;
