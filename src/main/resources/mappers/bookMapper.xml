@@ -8,15 +8,28 @@
 		insert into book
 			values(
 				BOOK_NUM_SEQ.NEXTVAL,
+                BOOK_INDEX_SEQ.NEXTVAL,
 				#{book_title},
 				#{book_image},
 				#{book_writer},
 				#{book_date},
 				#{book_publisher},
 				#{book_content},
-				0
+				0,
+                0,
+                0
 			)
 	</insert>
+
+
+
+    <select id="show_all_book" resultType="TestVO">
+        SELECT * FROM book
+        where BOOK_TITLE in('연금술사', '데미안')
+            
+	</select>
+
+
 	<select id="select_book" parameterType="Book" resultType="Book">
 		select distinct
 			book_num,
@@ -31,4 +44,5 @@
 			and book_image = #{book_image}
 			and book_publisher = #{book_publisher}
 	</select>
+
 </mapper>

@@ -38,8 +38,9 @@ box-sizing: border-box;
 				style="background-image: url('resources/assets/img/header.jpg'); ">
 			</div>
 
-				<div class="row" style="width: 100%; height:100%; border: 1px solid blue; margin-left: auto; margin-right: auto;">
+				<div class="row" style="width: 100%; height:100%; border: 1px solid red; margin-left: auto; margin-right: auto;">
 					<div class="col-12" style="border: 1px solid green;margin-top: 40px;">
+							<!-- React page -->
 							<div id="root"></div>
 					</div>
 				</div>
@@ -54,7 +55,7 @@ box-sizing: border-box;
 	</div>
 	<%@ include file="/WEB-INF/views/include/coreJsFile.jsp"%>
 		
-	<!-- <script type="text/javascript" src="resources/react/main.bundle.js"></script> -->
+	<script type="text/javascript" src="resources/react/index.bundle.js"></script>
 	</div>
 </body>
 

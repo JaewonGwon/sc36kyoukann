@@ -1,10 +1,13 @@
 package project.aban.test.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import project.aban.test.vo.Book;
+import project.aban.test.vo.TestVO;
 
 @Repository
 public class BookDao {
@@ -17,10 +20,21 @@ public class BookDao {
 		int result = mapper.insert_book(book);
 		return result;
 	}
+
+
+	public List<TestVO> show_all_book() {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		List<TestVO> result = mapper.show_all_book();
+		
+		System.out.println(result);
+		return result;
+	}
+
 	
 	public Book select_book(Book book) {
 		BookMapper mapper = session.getMapper(BookMapper.class);
 		Book result = mapper.select_book(book);
+
 		return result;
 	}
 }
