@@ -1,8 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<%@ include file="/WEB-INF/views/include/header.jsp" %>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 <script src="resources/jquery-3.3.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
@@ -70,47 +71,24 @@ function numkeyCheck(e){
    }
 /*휴대폰번호 숫자만 입력되게 하는 소스 끝*/
 
-/*기존 비밀번호랑 일치하는지 여부*/
-$(function(){
-   
-   $("#update").on('click', function() {
-      
-   	var oripw=$("#oripw").val();
-         $.ajax({
-            method : 'post'
-            , url  : 'originalpwCheck'
-            , data : {
-            	oripw : oripw
-            }
-            , success : function(resp) {
-               if(resp.trim() =="fail") {
-                  alert("기존 비밀번호가 정확하지 않습니다");
-                  return false;
-               }
-            }
-         }); 
-   });   
-});
 
-/*기존 비밀번호랑 새로운 비밀번호랑 일치하지 않아야함 */
 function formCheck() {
-
-	var oripw = document.getElementById("oripw").value;
-    var newpw= document.getElementById("newpw").value;
+	var pw = document.getElementById("pw").value;
+    var repw= document.getElementById("repw").value;
 
     var disname= document.getElementById("display_name").value;
     
 
-    	if(newpw.length==0){
+    	if(pw.length==0){
     		alert("변경하실 비밀번호를 입력해주세요");
     		return false;
     	}
     	
-		if(newpw.length < 4 || newpw.length > 10) {
+		if(pw.length < 4 || pw.length > 10) {
 			alert("비밀번호는 4~10자리 입니다.");
 			return;
 		}
-		if(oripw== newpw) {
+		if(pw!= repw) {
 			alert("기존비밀번호와 새로운 비밀번호는 일치할 수 없습니다!");
 			return;
 		}
@@ -133,7 +111,7 @@ function formCheck() {
    var addr2= document.getElementById("addr2");
    
    document.getElementById("address").value = post.value+roadaddr.value+addr1+addr2.value;
-   $("#update").submit();
+   $("#updateForm").submit();
 }
    
 
@@ -141,195 +119,228 @@ function formCheck() {
 </script>
 
 <body class="index-page sidebar-collapse">
-<!-- Navbar include -->
-  <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
+	<!-- Navbar include -->
+	<%@ include file="/WEB-INF/views/include/navbar.jsp"%>
 
-  <div class="wrapper">
-      <div class="section section-signup" style="background-image: url('resources/assets/img/bg14.jpg'); background-size: cover; background-position: top center; min-height: 600px;">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 col-md-9 col-sm-12" style="margin:0 auto; background: none; min-width: 300px;">
-            
-            <!--  여기서 부터 form 시작!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-              <form class="form" id="updateForm" method="post" action="updateForm">
-               <div class="card-header text-center">
-                  <h3 class="card-title title-up" style="color: white; font-size: 22pt; box-shadow:none;">회원정보수정</h3>
-               </div>
-                          
-               <div class="row" style="margin: 10px;">
-                  
-                  <div class="col-lg-3 text-center" style="padding: 8px 0px;">
-                    <span style="color: white; font-size: 12pt; font-weight: 600;">아이디</span>
-                  </div>
+	<div class="wrapper">
+		<div class="section section-signup"
+			style="background-image: url('resources/assets/img/bg14.jpg'); background-size: cover; background-position: top center; min-height: 600px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-9 col-sm-12"
+						style="margin: 0 auto; background: none; min-width: 300px;">
 
-                 
-                  <div class="col-lg-9 text-center">
-                   <div class="form-group" id="successDiv" >
-                     <input  name="id" value="${sessionScope.loginId}" class="form-control" readonly="readonly" required />
-                   </div>
-                   
-                   </div>
-                  
-                  <div class="col-lg-3 text-center" style="padding: 8px 0px;">
-                    <span style="color: white; font-size: 12pt; font-weight: 600;">기존 비밀번호</span>
-                  </div>
-                  <div class="col-lg-9 text-center">
-                   <div class="form-group">
-                      <input type="password" id="oripw" name="oripw" value="" placeholder="기존 비밀번호를 입력하세요.." class="form-control" required />
-                   </div>
-                   </div>
-                  
-                  <div class="col-lg-3 text-center" style="padding: 8px 0px;">
-                    <span style="color: white; font-size: 12pt; font-weight: 600;">새로운 비밀번호</span>
-                  </div>
-                  <div class="col-lg-9 text-center">
-                   <div class="form-group">
-                      <input type="password" id="newpw" name="newpw" value="" placeholder="바꾸실  비밀번호를 입력해 주세요.." class="form-control" required />
-                   </div>
-                   </div>
-     
-                  
-                  <div class="col-lg-3 text-center" style="padding: 8px 0px;">
-                    <span style="color: white; font-size: 12pt; font-weight: 600;">이름</span>
-                  </div>
-                  <div class="col-lg-9 text-center">
-                   <div class="form-group">
-                      <input id="name" name="name" value="${sessionScope.name}" readonly="readonly" class="form-control" required />
-                   </div>
-                   </div>
-                  
-                  <div class="col-lg-3 text-center" style="padding: 8px 0px;">
-                    <span style="color: white; font-size: 12pt; font-weight: 600;">닉네임</span>
-                  </div>
-                  <div class="col-lg-9 text-center">
-                   <div class="form-group">
-                      <input type="text" id="display_name" name="display_name" value="${sessionScope.display_name}" placeholder="사용할 닉네임을 입력하세요.." class="form-control" required />
-                   </div>
-                   </div>
-                  
-                  <div class="col-lg-3 text-center" style="padding: 8px 0px;">
-                    <span style="color: white; font-size: 12pt; font-weight: 600;">성별</span>
-                  </div>
-                  <div class="col-lg-9 text-center">
-                  <div class="form-check form-check-radio" style="width: 49%; display: inline-block;">
-                     <label class="form-check-label">
-                     <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="남">
-                     <span class="form-check-sign"></span>
-                        남      
-                     </label>
-                   </div>
-                  <div class="form-check form-check-radio" style="width: 49%; display: inline-block;">
-                     <label class="form-check-label">
-                     <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="여">
-                     <span class="form-check-sign"></span>
-                        여   
-                     </label>
-                   </div>
-                   </div>
-                 
-                 
-                 <div class="col-lg-3 text-center mt-10" style="padding: 8px 0px;">
-                    <span style="color: white; font-size: 12pt; font-weight: 600;">연령대</span>
-                  </div>
-                  
-                  <div class="col-lg-9 text-center mt-10">
-                   <div class="form-group">
-                      <select id="age" name="age" class="form-control" required>
-                      <option value="10" selected  style="color: #000 !important;">10대</option>
-                      <option value="20" style="color: #000 !important;">20대</option>
-                      <option value="30" style="color: #000 !important;">30대</option>
-                      <option value="40" style="color: #000 !important;">40대</option>
-                      <option value="50" style="color: #000 !important;">50대</option>
-                      <option value="60" style="color: #000 !important;">60대 이상</option>
-                      </select>
-                   </div>
-                   </div>
-                   
-                 
-                
-                 <div class="col-lg-3 text-center mt-10" style="padding: 8px 0px;">
-                    <span style="color: white; font-size: 12pt; font-weight: 600;">휴대폰 번호</span>
-                  </div>
-                  <div class="col-lg-3 text-center mt-10">
-                   <div class="form-group">
-                      <select id="phone1"class="form-control" required>
-                      <option value="010" selected  style="color: #000 !important;">010</option>
-                      <option value="011" style="color: #000 !important;">011</option>
-                      <option value="016" style="color: #000 !important;">016</option>
-                      <option value="017" style="color: #000 !important;">017</option>
-                      <option value="019" style="color: #000 !important;">019</option>
-                      </select>
-                   </div>
-                   </div>
-                  <div class="col-lg-3 text-center mt-10" style="padding: 0x 4x;">
-                   <div class="form-group">
-                      <input type="text" id="phone2" value="" placeholder="휴대폰 번호" class="form-control" maxlength="4" required onKeyPress="return numkeyCheck(event)" />
-                   </div>
-                   </div>
-                   
-                  <div class="col-lg-3 text-center mt-10" style="padding: 0x 4px;">
-                   <div class="form-group">
-                      <input type="text" id="phone3" value="" placeholder="휴대폰 번호" class="form-control"  maxlength="4" required onKeyPress="return numkeyCheck(event)" />
-                   </div>
-                   </div>
-                  <input id="phone" type="hidden" name="phone" value="" />
-                  
-                  <div class="col-lg-3 text-center" style="padding: 20px 0px 4px 0px;">
-                    <span style="color: white; font-size: 12pt; font-weight: 600;">주소</span>
-                  </div>
-                  <div class="col-lg-6 text-center" style="padding: 12px 8px 4px 8px;">
-                   <div class="form-group">
-                      <input type="text" id="post" readonly value="" placeholder="우편번호 " class="form-control"  required />
-                   </div>
-                   </div>
-                   
-                  <div class="col-lg-3 text-center" style="padding-top: 2px;">
-                   <div class="form-group">
-                      <button class="btn btn-primary btn-simple btn-round" onclick="execDaumPostcode()" type="button" style="width: 100%; background-color: #fff; display: inline-block;">
-                  <i class="now-ui-icons ui-1_zoom-bold"></i>
-                 </button>
-                   </div>
-                   </div>
-                  
-                  <div class="col-lg-3 text-center" style="padding: 8px 0px;">
-                    <span style="color: white; font-size: 12pt; font-weight: 600;"></span>
-                  </div>
-                  <div class="col-lg-9 text-center">
-                   <div class="form-group">
-                      <input type="text" id="roadaddr" value="" placeholder="도로명 주소" class="form-control" required />
-                   </div>
-                   <div class="form-group">
-                      <input type="text" id="addr1" value="" placeholder="지번 주소" class="form-control" required />
-                   </div>
-                   <div class="form-group">
-                      <input type="text" id="addr2" value="" placeholder="나머지 주소" class="form-control" required />
-                   </div>
-                   <span id="guide" style="color:#999"></span>
+						<!--  여기서 부터 form 시작!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+						<form class="form" id="updateForm" method="post"
+							action="updateForm">
+							<div class="card-header text-center">
+								<h3 class="card-title title-up"
+									style="color: white; font-size: 22pt; box-shadow: none;">회원정보수정</h3>
+							</div>
 
-                   </div>
-                      <input id="address" type="hidden" name="address" value="" />
-                </div>
-                <div class="card-footer text-center" style="background: none; border: none;">   
-                           
-                  <a href="javascript: formCheck();" class="btn btn-login btn-round btn-lg">수정 완료 <i class="now-ui-icons arrows-1_minimal-right"></i></a> 
-                              
-                </div>
-                          
-              
-              </form>
-                       
-  
-              
-            </div>
-          </div>
-        </div>
-      </div>
-   <!-- main 태크 끝 -->
+							<div class="row" style="margin: 10px;">
 
-    <%@ include file="/WEB-INF/views/include/modal.jsp" %>
-    <%@ include file="/WEB-INF/views/include/footer.jsp" %>
-  </div>
-  <%@ include file="/WEB-INF/views/include/coreJsFile.jsp" %>
+								<div class="col-lg-3 text-center" style="padding: 8px 0px;">
+									<span style="color: white; font-size: 12pt; font-weight: 600;">아이디</span>
+								</div>
+
+
+								<div class="col-lg-9 text-center">
+									<div class="form-group" id="successDiv">
+										<input name="id" value="${sessionScope.loginId}"
+											class="form-control" readonly="readonly" required />
+									</div>
+
+								</div>
+
+								<div class="col-lg-3 text-center" style="padding: 8px 0px;">
+									<span style="color: white; font-size: 12pt; font-weight: 600;">비밀번호</span>
+								</div>
+								<div class="col-lg-9 text-center">
+									<div class="form-group">
+										<input type="password" id="pw" name="pw" value=""
+											placeholder="비밀번호를 입력하세요.." class="form-control" required />
+									</div>
+								</div>
+
+								<div class="col-lg-3 text-center" style="padding: 8px 0px;">
+									<span style="color: white; font-size: 12pt; font-weight: 600;">비밀번호
+										확인</span>
+								</div>
+								<div class="col-lg-9 text-center">
+									<div class="form-group">
+										<input type="password" id="repw" value=""
+											placeholder="비밀번호를 다시 한번 입력하세요.." class="form-control"
+											required />
+									</div>
+								</div>
+
+
+								<div class="col-lg-3 text-center" style="padding: 8px 0px;">
+									<span style="color: white; font-size: 12pt; font-weight: 600;">이름</span>
+								</div>
+								<div class="col-lg-9 text-center">
+									<div class="form-group">
+										<input id="name" name="name" value="${member.name}"
+											readonly="readonly" class="form-control" required />
+									</div>
+								</div>
+
+								<div class="col-lg-3 text-center" style="padding: 8px 0px;">
+									<span style="color: white; font-size: 12pt; font-weight: 600;">닉네임</span>
+								</div>
+								<div class="col-lg-9 text-center">
+									<div class="form-group">
+										<input type="text" id="display_name" name="display_name"
+											value="${member.display_name}"
+											 class="form-control" required />
+									</div>
+								</div>
+
+								<div class="col-lg-3 text-center" style="padding: 8px 0px;">
+									<span style="color: white; font-size: 12pt; font-weight: 600;">성별</span>
+								</div>
+								<div class="col-lg-9 text-center">
+									<div class="form-check form-check-radio"
+										style="width: 49%; display: inline-block;">
+										<label class="form-check-label"> <input
+											class="form-check-input" type="radio" name="gender"
+											id="exampleRadios1" value="남"> <span
+											class="form-check-sign"></span> 남
+										</label>
+									</div>
+									<div class="form-check form-check-radio"
+										style="width: 49%; display: inline-block;">
+										<label class="form-check-label"> <input
+											class="form-check-input" type="radio" name="gender"
+											id="exampleRadios1" value="여"> <span
+											class="form-check-sign"></span> 여
+										</label>
+									</div>
+								</div>
+
+
+								<div class="col-lg-3 text-center mt-10"
+									style="padding: 8px 0px;">
+									<span style="color: white; font-size: 12pt; font-weight: 600;">연령대</span>
+								</div>
+
+								<div class="col-lg-9 text-center mt-10">
+									<div class="form-group">
+										<select id="age" name="age" class="form-control" required>
+											<option value="10" selected style="color: #000 !important;">10대</option>
+											<option value="20" style="color: #000 !important;">20대</option>
+											<option value="30" style="color: #000 !important;">30대</option>
+											<option value="40" style="color: #000 !important;">40대</option>
+											<option value="50" style="color: #000 !important;">50대</option>
+											<option value="60" style="color: #000 !important;">60대
+												이상</option>
+										</select>
+									</div>
+								</div>
+
+
+
+								<div class="col-lg-3 text-center mt-10"
+									style="padding: 8px 0px;">
+									<span style="color: white; font-size: 12pt; font-weight: 600;">휴대폰
+										번호</span>
+								</div>
+								<div class="col-lg-3 text-center mt-10">
+									<div class="form-group">
+										<select id="phone1" class="form-control" required>
+											<option value="010" selected style="color: #000 !important;">010</option>
+											<option value="011" style="color: #000 !important;">011</option>
+											<option value="016" style="color: #000 !important;">016</option>
+											<option value="017" style="color: #000 !important;">017</option>
+											<option value="019" style="color: #000 !important;">019</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-3 text-center mt-10" style="padding: 0x 4x;">
+									<div class="form-group">
+										<input type="text" id="phone2" value="" placeholder="휴대폰 번호"
+											class="form-control" maxlength="4" required
+											onKeyPress="return numkeyCheck(event)" />
+									</div>
+								</div>
+
+								<div class="col-lg-3 text-center mt-10" style="padding: 0x 4px;">
+									<div class="form-group">
+										<input type="text" id="phone3" value="" placeholder="휴대폰 번호"
+											class="form-control" maxlength="4" required
+											onKeyPress="return numkeyCheck(event)" />
+									</div>
+								</div>
+								<input id="phone" type="hidden" name="phone" value="" />
+
+								<div class="col-lg-3 text-center"
+									style="padding: 20px 0px 4px 0px;">
+									<span style="color: white; font-size: 12pt; font-weight: 600;">주소</span>
+								</div>
+								<div class="col-lg-6 text-center"
+									style="padding: 12px 8px 4px 8px;">
+									<div class="form-group">
+										<input type="text" id="post" readonly value=""
+											placeholder="우편번호 " class="form-control" required />
+									</div>
+								</div>
+
+								<div class="col-lg-3 text-center" style="padding-top: 2px;">
+									<div class="form-group">
+										<button class="btn btn-primary btn-simple btn-round"
+											onclick="execDaumPostcode()" type="button"
+											style="width: 100%; background-color: #fff; display: inline-block;">
+											<i class="now-ui-icons ui-1_zoom-bold"></i>
+										</button>
+									</div>
+								</div>
+
+								<div class="col-lg-3 text-center" style="padding: 8px 0px;">
+									<span style="color: white; font-size: 12pt; font-weight: 600;"></span>
+								</div>
+								<div class="col-lg-9 text-center">
+									<div class="form-group">
+										<input type="text" id="roadaddr" value="" placeholder="도로명 주소"
+											class="form-control" required />
+									</div>
+									<div class="form-group">
+										<input type="text" id="addr1" value="" placeholder="지번 주소"
+											class="form-control" required />
+									</div>
+									<div class="form-group">
+										<input type="text" id="addr2" value="" placeholder="나머지 주소"
+											class="form-control" required />
+									</div>
+									<span id="guide" style="color: #999"></span>
+
+								</div>
+								<input id="address" type="hidden" name="address" value="" />
+							</div>
+							<div class="card-footer text-center"
+								style="background: none; border: none;">
+
+								<a href="javascript: formCheck();"
+									class="btn btn-login btn-round btn-lg">수정 완료 <i
+									class="now-ui-icons arrows-1_minimal-right"></i></a>
+
+							</div>
+
+
+						</form>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- main 태크 끝 -->
+
+		<%@ include file="/WEB-INF/views/include/modal.jsp"%>
+		<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+	</div>
+	<%@ include file="/WEB-INF/views/include/coreJsFile.jsp"%>
 </body>
 
 </html>

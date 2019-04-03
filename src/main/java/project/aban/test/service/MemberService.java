@@ -108,13 +108,27 @@ public class MemberService {
 	}
 
 
-public void updateMem(Member mem) throws Exception {
-		 String encPassword = passwordEncoder.encode(mem.getPw());
-		 mem.setPw(encPassword);
-		 
-		 dao.updateMember(mem);
-	
-	}
+	/*회원정보삽입*/
+    public void updateMem(Member vo) throws Exception {
+       
+			 System.out.println("수정된 비번 암호화...");
+
+		        String encPassword = passwordEncoder.encode(vo.getPw());
+		        vo.setPw(encPassword);
+		        //System.out.println("암호화된 비밀번호 : "+user.getUserPassword());
+
+		        dao.updateMember(vo);
+		        System.out.println(vo);
+		
+    }
+
+
+public Member selectid(String id) {
+
+	Member m = dao.selectid(id);
+	return m;
+}
+
 
 
 	

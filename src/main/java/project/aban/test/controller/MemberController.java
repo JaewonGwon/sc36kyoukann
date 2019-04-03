@@ -5,9 +5,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import project.aban.test.service.MemberService;
 import project.aban.test.vo.Member;
@@ -18,7 +20,7 @@ public class MemberController {
    @Autowired
    MemberService ms;
    
-   @RequestMapping(value="login", method=RequestMethod.GET)
+   @RequestMapping(value="loginCheck", method=RequestMethod.GET)
    public String login() {
       return "member/loginForm";
    }
@@ -37,7 +39,11 @@ public class MemberController {
             return "fail";
          }
          String id = m.getId();
+         String name = m.getName();
+         String disname = m.getDisplay_name();
          session.setAttribute("loginId", id);
+         session.setAttribute("name", name);
+         session.setAttribute("disname", disname);
          
       } catch (Exception e) {
          // TODO Auto-generated catch block
@@ -102,12 +108,42 @@ public class MemberController {
       return "member/joinSurvey";
    }
    
+   //회원정보수정페이지 들어가기전에 체크
    @RequestMapping(value="/memberCheck", method= RequestMethod.GET)
    public String memberCheck() {
       
 
       return "member/memberCheck";
    }
+   
+   //회원정보 수정페이지 접근
+   @RequestMapping(value="/updateForm", method= RequestMethod.GET)
+   public String updateForm(HttpSession session,Model model) {
+      System.out.println("회원정보수정페이지접근");
+      String id = (String)session.getAttribute("loginId");
+      Member member = ms.selectid(id);
+      
+      model.addAttribute("member",member);
+      return "member/updateMember";
+   }
+   
+   @RequestMapping(value="/updateForm", method= RequestMethod.POST)
+   public String updateForm(Member member) {
+
+      System.out.println("회원정보수정중");
+      
+      try {
+         ms.updateMem(member);
+         
+      } catch (Exception e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+      
+      
+      return "redirect:/";
+   }
+   
    @RequestMapping(value="/findmyinfo", method= RequestMethod.GET)
    public String findmyinfo() {
       

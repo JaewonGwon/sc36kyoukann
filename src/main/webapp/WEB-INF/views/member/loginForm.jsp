@@ -83,7 +83,7 @@ $(function(){
                         <i class="now-ui-icons ui-1_lock-circle-open"></i>
                       </span>
                     </div>
-                    <input type="text" placeholder="패스워드를 입력하세요..." name="pw" id="pw" class="form-control" />
+                    <input type="password" placeholder="패스워드를 입력하세요..." name="pw" id="pw" class="form-control" />
                   </div>
                   <!-- <div class="input-group no-border">
                     <div class="input-group-prepend">

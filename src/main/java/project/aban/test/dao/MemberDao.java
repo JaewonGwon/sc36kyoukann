@@ -63,4 +63,12 @@ public class MemberDao {
 	}
 	
 
+
+	public Member selectid(String id) {
+		MemberMapper mapper = session.getMapper(MemberMapper.class);
+		Member m = mapper.selectid(id);
+		return m;
+	}
+	
+
 }

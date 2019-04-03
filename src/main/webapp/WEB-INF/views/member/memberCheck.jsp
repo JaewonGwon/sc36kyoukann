@@ -20,12 +20,12 @@ $(function(){
 	            , success : function(resp) {
 	               if(resp.trim() == "fail") {
 	             
-	                  $("#id").val('일치하는 회원정보가 없습니다!');
+	                  $("#id").val('비밀번호를 다시 입력해주십시오!');
 	                  $("#id").css("color", "red");
 	                  return false;
 	               } else {
 	            	  $("#loginForm").submit();
-	                  return "/member/updateMember";
+	            	  location.href='http://localhost:8888/test/updateForm';
 	                 
 	               }
 	            }
@@ -83,7 +83,7 @@ $(function(){
                         <i class="now-ui-icons ui-1_lock-circle-open"></i>
                       </span>
                     </div>
-                    <input type="text" placeholder="임시비밀번호를 입력하세요..." name="pw" id="pw" class="form-control" />
+                    <input type="password" placeholder="임시비밀번호를 입력하세요..." name="pw" id="pw" class="form-control" />
                   </div>
                   <!-- <div class="input-group no-border">
                     <div class="input-group-prepend">
