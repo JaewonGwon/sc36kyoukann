@@ -7,4 +7,7 @@
 	<select id="bookreview" resultType="Review">
 	select * from review
 	</select>
+	<select id="selectOne" parameterType="int" resultType="Review">
+	select * from review where rev_num=#{rev_num}
+	</select>
 </mapper>

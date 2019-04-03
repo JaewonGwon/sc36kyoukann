@@ -22,11 +22,12 @@ function init() {
 	   
 	   })
 	}
+	
+	
 function output(resp) {
 	   var listwriter = '';
-	   var img = 'resources/assets/img/book_img01.jpg';
-	   var reviewlink = "'reviewDetail'";
-	   
+	   var img = "resources/assets/img/book_img01.jpg";
+	   var reviewlink = "'reviewDetail?rev_num=";
 	   $.each(resp, function(index, tt) {
 		  listwriter += '<div class="item">';
 	      listwriter += '<div class="carousel-content text-carousel-st2">';
@@ -37,12 +38,15 @@ function output(resp) {
 		  
 		  
 		  
+		  //<a href="boardDetail?boardnum=${board.boardnum}">${board.title}</a>
 		  listwriter += tt.book_title;
 		  listwriter += '</a>';
 		  listwriter += '</p>';
-		  listwriter += '<p class="main-review-content2" style="cursor:pointer;" OnClick="javascript:location.href='+reviewlink+'">';
+		  listwriter += '<a href="reviewDetail?rev_num='+tt.rev_num+'">';
+		  listwriter += "<p class='main-review-content2'>";
 		  listwriter += tt.rev_content;
-		  listwriter += '</p>'
+		  listwriter += '</p>';
+		  listwriter += '</a>';
 	      listwriter += '<p class="main-review-tag">';
 	      listwriter +='<span class="badge badge-success">SF</span>';
 	      listwriter +='<span class="badge badge-success">환타지</span>';
@@ -260,6 +264,9 @@ $(function () {
           </div>
         </div>
       </div>
+      <form id="reviewDetailForm" action="reviewDetail" method="get">
+      	<input id="rev_num" type="hidden">
+      </form>
    <!-- main 태크 끝 -->
 
     <%@ include file="/WEB-INF/views/include/modal.jsp" %>
