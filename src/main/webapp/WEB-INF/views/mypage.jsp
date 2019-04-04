@@ -33,6 +33,7 @@ img {
 </style>
 <body class="index-page sidebar-collapse">
 <%-- <%@ include file="/WEB-INF/views/include/navbar.jsp"%> --%>
+<a href="memberCheck">회원정보수정(임시)</a>
 	<div class="wrapper">
 		<div class="page-header clear-filter" filter-color="orange">
 			<div class="page-header-image" data-parallax="true"
@@ -48,7 +49,7 @@ img {
 				</div>
 			</div>
 		</div>
-
+		
 		<!-- main 태크 시작 -->
 		<div class="main"></div>
 		<!-- main 태크 끝 -->

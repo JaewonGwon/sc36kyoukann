@@ -51,4 +51,24 @@
    <update id="pwUpdate" parameterType="Member">
    update member set pw=#{pw} where id=#{id} and name=#{name}
    </update>
+   
+   	<select id="selectid" parameterType="string" resultType="Member">
+		select * from member where id = #{id}
+	</select>
+	
+		<update id="updateMember" parameterType="Member">
+		update member
+		set
+
+      pw=#{pw}
+      ,name=#{name}
+      ,display_name=#{display_name}
+      ,gender=#{gender}
+      ,age=#{age}
+      ,phone=#{phone}
+      ,address=#{address}
+      ,point=default
+		where
+			id = #{id}
+	</update>
 </mapper>

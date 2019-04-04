@@ -26,7 +26,7 @@ public class MemberDao {
 		result = mapper.insert_Member(member);
 		return result;
 	}
-	/*암호 디코드를 위한 id 조회*/
+	/*�븫�샇 �뵒肄붾뱶瑜� �쐞�븳 id 議고쉶*/
 	public Member getOne(Member member) {
 		MemberMapper mapper = session.getMapper(MemberMapper.class);
 		Member m = mapper.getOne(member);
@@ -53,5 +53,22 @@ public class MemberDao {
 		
 		
 	}
+	
+	public int updateMember(Member member) {
+		MemberMapper mapper = session.getMapper(MemberMapper.class);
+		int result = 0;
+		
+		result = mapper.updateMember(member);
+		return result;
+	}
+	
+
+
+	public Member selectid(String id) {
+		MemberMapper mapper = session.getMapper(MemberMapper.class);
+		Member m = mapper.selectid(id);
+		return m;
+	}
+	
 
 }
