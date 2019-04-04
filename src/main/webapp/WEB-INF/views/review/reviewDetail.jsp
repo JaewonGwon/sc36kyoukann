@@ -415,10 +415,6 @@ $(function (){
 			            <h3 class="h3fontblack">Review Detail</h3>
 			          </div>		          
 
- 				  <style>
-		  
- 				  			  
- 				  </style>
 						<div class="row review_content_wrap" id="itemwrap">
 						
 							<!-- <div class='col-lg-8 review_content'>

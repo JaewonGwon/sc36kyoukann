@@ -83,7 +83,12 @@ public class ReviewController {
 		return review;
 	}
 	
-
+	@RequestMapping(value = "/reviewWrite", method = RequestMethod.GET)
+	public String reviewWrite() {
+		
+		/*session.setAttribute("rev_num",rev_num);*/
+		return "review/reviewWrite";
+	}
 	
 }
 
