@@ -4,24 +4,34 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="project.aban.test.dao.BookMapper">
-	<insert id="insert_book" parameterType="Book">
-		insert into book
-			values(
-				BOOK_NUM_SEQ.NEXTVAL,
-                BOOK_INDEX_SEQ.NEXTVAL,
-				#{book_title},
-				#{book_image},
-				#{book_writer},
-				#{book_date},
-				#{book_publisher},
-				#{book_content},
+	<insert id="insert_book" parameterType="java.util.List">
+	<foreach collection="list" item="book" index="index" separator=" " open="INSERT ALL " close="SELECT * FROM DUAL">
+		into book(
+         	book_num,
+			book_title,
+			book_image,
+			book_writer,
+			book_date,
+			book_publisher,
+			book_content,
+			book_likecount,
+			book_viewcount,
+			book_scrapcount
+      		)values
+			(
+				#{book.book_num},
+				#{book.book_title},
+				#{book.book_image},
+				#{book.book_writer},
+				#{book.book_date},
+				#{book.book_publisher},
+				#{book.book_content},
 				0,
                 0,
                 0
-			)
+            )
+		</foreach>
 	</insert>
-
-
 
     <select id="show_all_book" resultType="TestVO">
         SELECT * FROM book
