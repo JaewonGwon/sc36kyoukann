@@ -31,9 +31,10 @@ public class DataService {
 	
 	@Value("/resources/assets/data/crawled_data.json")
 	private Resource jsonResource;
+	@Value("/resources/assets/data/tags_data.json")
+	private Resource tagResource;
 	private JsonObject obj;
 	private Gson gson = new Gson();
-	private JsonParser parser = new JsonParser();
 	
 	public void testJson()  {
 		try {
@@ -113,5 +114,10 @@ public class DataService {
 		String result = df.format(d) + "-" + genre + "-" + uuid.substring(0, 7);
 
 		return result;
+	}
+	
+	public int insert_tags() {
+		
+		return 0;
 	}
 }
