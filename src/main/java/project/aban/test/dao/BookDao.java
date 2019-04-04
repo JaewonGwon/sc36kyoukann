@@ -1,5 +1,6 @@
 package project.aban.test.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,9 +16,9 @@ public class BookDao {
 	@Autowired
 	SqlSession session;
 	
-	public int insert_book(Book book) {
+	public int insert_book(ArrayList<Book> buffer_data) {
 		BookMapper mapper = session.getMapper(BookMapper.class);
-		int result = mapper.insert_book(book);
+		int result = mapper.insert_book(buffer_data);
 		return result;
 	}
 

@@ -1,5 +1,6 @@
 package project.aban.test.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ public class AjaxController {
 	
 	@RequestMapping("/search")
 	@ResponseBody
-	public List<TestVO> search() {
-		List<TestVO> result = dao.show_all_book();
+	public ArrayList<TestVO> search() {
+		ArrayList<TestVO> result = (ArrayList<TestVO>) dao.show_all_book();
 		
 		System.out.println(result);
 		

@@ -3,7 +3,7 @@ import Chips from '../ChipsSrc/Chips';
 import CustomChip from '../ChipsSrc/CustomChip';
 
 const data = [
-  {name: 'SF', image: 'http://i.stack.imgur.com/Mmww2.png'},
+
   {name: '호러', image: 'https://www.codementor.io/assets/tutorial_icon/ruby-on-rails.png' },
   {name: '로맨스', image: 'http://www.iconarchive.com/download/i73027/cornmanthe3rd/plex/Other-python.ico' },
   {name: 'Love', image: 'https://cdn2.iconfinder.com/data/icons/metro-ui-dock/128/Java.png' },

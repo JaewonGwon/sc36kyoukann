@@ -1,8 +1,7 @@
 package project.aban.test.vo;
 
 public class Book {
-	private int book_num;
-	private String book_index;
+	private String book_num;
 	private String book_title;
 	private String book_image;
 	private String book_writer;
@@ -15,12 +14,11 @@ public class Book {
 	public Book() {
 		super();
 	}
-	public Book(int book_num, String book_index, String book_title, String book_image, String book_writer,
-			String book_date, String book_publisher, String book_content, String book_likecount, String book_viewcount,
+	public Book(String book_num, String book_title, String book_image, String book_writer, String book_date,
+			String book_publisher, String book_content, String book_likecount, String book_viewcount,
 			String book_scrapcount) {
 		super();
 		this.book_num = book_num;
-		this.book_index = book_index;
 		this.book_title = book_title;
 		this.book_image = book_image;
 		this.book_writer = book_writer;
@@ -31,17 +29,11 @@ public class Book {
 		this.book_viewcount = book_viewcount;
 		this.book_scrapcount = book_scrapcount;
 	}
-	public int getBook_num() {
+	public String getBook_num() {
 		return book_num;
 	}
-	public void setBook_num(int book_num) {
+	public void setBook_num(String book_num) {
 		this.book_num = book_num;
-	}
-	public String getBook_index() {
-		return book_index;
-	}
-	public void setBook_index(String book_index) {
-		this.book_index = book_index;
 	}
 	public String getBook_title() {
 		return book_title;
@@ -99,12 +91,11 @@ public class Book {
 	}
 	@Override
 	public String toString() {
-		return "Book [book_num=" + book_num + ", book_index=" + book_index + ", book_title=" + book_title
-				+ ", book_image=" + book_image + ", book_writer=" + book_writer + ", book_date=" + book_date
-				+ ", book_publisher=" + book_publisher + ", book_content=" + book_content + ", book_likecount="
-				+ book_likecount + ", book_viewcount=" + book_viewcount + ", book_scrapcount=" + book_scrapcount + "]";
+		return "Book [book_num=" + book_num + ", book_title=" + book_title + ", book_image=" + book_image
+				+ ", book_writer=" + book_writer + ", book_date=" + book_date + ", book_publisher=" + book_publisher
+				+ ", book_content=" + book_content + ", book_likecount=" + book_likecount + ", book_viewcount="
+				+ book_viewcount + ", book_scrapcount=" + book_scrapcount + "]";
 	}
-	
 	
 	
 }
