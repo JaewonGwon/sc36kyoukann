@@ -5,9 +5,16 @@
 
 <mapper namespace="project.aban.test.dao.ReviewMapper">
 	<select id="bookreview" resultType="Review">
-	select * from review
+		select * from review
 	</select>
 	<select id="selectOne" parameterType="int" resultType="Review">
-	select * from review where rev_num=#{rev_num}
+		select * from review where rev_num=#{rev_num}
 	</select>
+	<update id="update" parameterType="Review">
+		update review set
+		book_title=#{book_title}, regdate=sysdate,
+		rev_title=#{rev_title},rev_content=#{rev_content}
+		where rev_num=#{rev_num}
+	</update>
+	
 </mapper>

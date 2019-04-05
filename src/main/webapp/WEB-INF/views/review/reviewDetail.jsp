@@ -11,9 +11,103 @@
 
 <script>
 $(function(){
+	//$('#reviewmod').on('click', reviewUpdate);
 	init();
 });
-function init(){
+
+function reviewUpdate() {
+	var rev_num = ${rev_num};
+	$.ajax({
+		url : "getreviewDetail",
+		data : {rev_num : rev_num},
+		type : "post",
+		success: updateView
+	});
+}
+function updateView(resp) {
+	var write="";
+	
+	write +='	<div class="col-lg-8 review_content">';
+	write +='	   <div class="carousel-content text-carousel-st2">';
+	write +='	   <div class="in-div-text-carousel-st2">';
+	write +='	     <p class="main-review-title">  ';
+	write +='	     <input class="review-mod-input-st" type="text" value='+resp.rev_title+' name="booktitle" id="booktitle"/>';//리뷰제목
+	write +='	      </p>';
+    write +='	    <p class="main-review-title2">';
+           
+	write +='	     <input class="review-mod-input-st" id="myInput" type="text" name="booktitle" value='+resp.book_title+' />';//책제목
+
+	write +='	       </p>';
+	write +='	     <p class="main-review-content2">';
+	write +='	     <textarea class="review-mod-ta-st" id="tt" style="width: 50vw;">';
+	write +=		 resp.rev_content;
+	write +='	     </textarea>';
+	write +='	    </p>';                           
+        // 베스트 리뷰 태크 부분 시작
+    write +='	     <p class="main-review-tag">';
+    write +='	        <span class="badge badge-success">SF</span>';
+    write +='	        <span class="badge badge-success">환타지</span>';
+    write +='	        <span class="badge badge-success">호구와트</span>';
+    write +='	        <span class="badge badge-success">마법</span>';
+    write +='	        <span class="badge badge-success">해리포터</span>';
+    write +='	     </p>';
+    write +='	     <p class="tags">';
+         
+    write +='	     </p>';
+   //베스트 리뷰 태크 부분 끝
+   //베스트 리뷰  태크, user name, hitcount 있는부분 시작
+    write +='	     <p class="main-review-tag">';                           
+   	write +='	  <div class="row">';
+   	write +='	          <div class="col-lg-7" style="text-align: left;padding-top: 4px;">';
+   	write +='	             <img src="resources/assets/img/julie.jpg" alt="Circle Image" class="rounded-circle review-user-img">';
+   	write +='	           <button class="btn btn-link btn-info uname-st">'+resp.id+'</button>';
+   	write +='	        </div>';
+   	write +='	          <div class="col-lg-5" style="text-align: right; padding-top: 4px;">';
+   	write +='	           <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">';
+   	write +='	                  <i class="now-ui-icons ui-2_favourite-28" style="font-size: 0.8em; font-weight: 600;"></i>';
+   	write +='	              203';
+   	write +='	           </button>';
+   	write +='	           <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">';
+   	write +='	                  <i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i>';
+   	write +='	              15';
+   	write +='	           </button>';
+   	write +='	        </div>';
+   	write +='	       </div>';
+   	write +='	        </p>';
+   	write +='	</div>';
+   	write +='	</div>';
+   	write +='	</div>';
+   	
+   	$("#itemwrap").html(write);
+   	$('#reviewmod').on('click', update);
+   	
+}
+function update() {
+   	var rev_num=${rev_num};
+	var book_title=$("#myInput").val();
+   	var rev_title=$("#booktitle").val();
+   	var id = $(".btn btn-link btn-info uname-st").val();
+   	var rev_content = $("#tt").val();
+   
+	$.ajax({
+			url : "update",
+			data : {rev_num : rev_num
+					, book_title : book_title
+					, id : id
+					, rev_title : rev_title
+					, rev_content : rev_content
+					},
+			type : "post",
+			success: updateCheck
+		});
+}
+function updateCheck(resp){
+	if (resp=="success") {
+		alert("게시글이 수정되었습니다.");
+		init();
+	}
+}
+function init() {
 	var rev_num = ${rev_num};
 	
 	$.ajax({
@@ -54,7 +148,7 @@ function output(resp) {
 	write += "           <div class='row'>";
 	write += "           	<div class='col-lg-7' style='text-align: left;padding-top: 4px;'>";
 	write += "           		<img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>";
-	write += "					<button class='btn btn-link btn-info uname-st'>USER NAME</button>";
+	write += "					<button class='btn btn-link btn-info uname-st'>"+resp.id+"</button>";
 	write += "				</div>";
 	write += "           	<div class='col-lg-5' style='text-align: right; padding-top: 4px;'>";
 	write += "					<button class='btn btn-round' type='button' style='padding: 4px 8px 4px 8px; background-color: #ec407a;'>";
@@ -72,6 +166,7 @@ function output(resp) {
 	write += "   </div>";
 	write += "  </div>";
 	$("#itemwrap").html(write);
+	$('#reviewmod').on('click', reviewUpdate);
  }
 
 </script>
@@ -420,63 +515,7 @@ $(function (){
  				  			  
  				  </style>
 						<div class="row review_content_wrap" id="itemwrap">
-						
-							<!-- <div class='col-lg-8 review_content'>
-								 <div class='carousel-content text-carousel-st2'>
-							     <div class='in-div-text-carousel-st2'>
-							     	<p class='main-review-title'>
-							     		
-							     		
-							     		<input class="review-mod-input-st" type="text" value="Harry Potter And the Sorcerer's Stone을 읽고.." name="booktitle" id="booktitle"/>
-
-				     	
-							     	</p>
-							     	<p class='main-review-title2'>
-								     	
-										<input class="review-mod-input-st" id="myInput" type="text" name="booktitle" value="Harry Potter And the Sorcerer's Stone" />
-
-							     	</p>
-							         <p class='main-review-content2'>
-										<textarea class="review-mod-ta-st" style="width: 50vw;">
-해리포터시리즈에서 특별한 점이라고 생각했던 것 중 하나가 꿈에 대한 묘사이다. 해리는 자신의 이마에 있는 번개 모양의 흉터를 만들어 놓은 숙적 볼드모트와 꿈으로 연결되어 있다. 꿈은 중요한 줄거리를 담당할 뿐만 아니라 해리의 감정 상태, 그리고 캐릭터를 더욱 현실적으로 보이게 하는 역할을 한다. 복선을 담당하기도 한다.
-작가는 큰 줄거리 사이사이에 복선을 여기저기 장치해 놓았다. 이 것들이 독자들을 방대한양의 시리즈인 7권 까지 읽게 하는 힘이다. 궁금 했던 것들이 하나하나 풀려져 가면서 느끼는 재미는 다음 권을 계속 읽고 싶게 만든다. 이 것들은 절대 억지스럽게 풀리지 않는다. 하나하나 모두 타당한 이유가 있고, 유치하지 않다.
-										</textarea>
-									</p>									
-							         베스트 리뷰 태크 부분 시작
-							         <p class='main-review-tag'>
-							         	<span class='badge badge-success'>SF</span>
-							         	<span class='badge badge-success'>환타지</span>
-							         	<span class='badge badge-success'>호구와트</span>
-							         	<span class='badge badge-success'>마법</span>
-							         	<span class='badge badge-success'>해리포터</span>
-							         </p>
-							         <p class="tags">
-										
-							         </p>
-							         베스트 리뷰 태크 부분 끝
-							         베스트 리뷰  태크, user name, hitcount 있는부분 시작
-							         <p class='main-review-tag'>                           
-							           <div class='row'>
-							           	<div class='col-lg-7' style='text-align: left;padding-top: 4px;'>
-							           		<img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-												<button class='btn btn-link btn-info uname-st'>USER NAME</button>
-											</div>
-							           	<div class='col-lg-5' style='text-align: right; padding-top: 4px;'>
-												<button class='btn btn-round' type='button' style='padding: 4px 8px 4px 8px; background-color: #ec407a;'>
-									                <i class='now-ui-icons ui-2_favourite-28' style='font-size: 0.8em; font-weight: 600;'></i>
-													203
-												</button>
-												<button class='btn btn-round' type='button' style='padding: 4px 8px 4px 8px; background-color: #2CA8FF;'>
-									                <i class='now-ui-icons ui-2_chat-round' style='font-size: 0.8em; font-weight: 600;'></i>
-													15
-												</button>
-											</div>
-							           </div>
-							            </p>
-							      </div>
-							   </div>
-							  </div>
- -->
+			
 						</div>	
 						
 						<div class="row">
