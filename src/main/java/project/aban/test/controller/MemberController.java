@@ -139,7 +139,7 @@ public class MemberController {
 		
 	    
 	if (m == null) {
-			model.addAttribute("message", "정보가 다릅니다 다시 입력해주세요");
+			model.addAttribute("message", "정보가 다릅니다 다시 입력해주세요.");
 			return "member/pwFind";
 		}else {
 			m.setPw(b);

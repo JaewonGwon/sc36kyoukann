@@ -163,10 +163,33 @@ function formCheck() {
    $("#joinus").submit();
 }
    
+/*이메일 직접입력 선택 소스 시작*/
+function email_change(){
+	if(document.join.email.options[document.join.email.selectedIndex].value == '0'){
+	 document.join.email2.disabled = true;
+	 document.join.email2.value = "";
+	}
 
+	if(document.join.email.options[document.join.email.selectedIndex].value == '9'){
+	 document.join.email2.disabled = false;
+	 document.join.email2.value = "";
+	 document.join.email2.focus();
+	} else {
+	 document.join.email2.disabled = true;
+	 document.join.email2.value = document.join.email.options[document.join.email.selectedIndex].value;
+	}
+}
+/*이메일 직접입력 선택 소스 끝*/
 
 </script>
+ <style>
 
+ select option{
+ background-color: #fff !important;
+ color: #000;
+ }
+
+ </style> 
 <body class="index-page sidebar-collapse">
 <!-- Navbar include -->
   <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
@@ -177,8 +200,9 @@ function formCheck() {
           <div class="row">
             <div class="col-lg-6 col-md-9 col-sm-12" style="margin:0 auto; background: none; min-width: 300px;">
             
+            
             <!--  여기서 부터 form 시작!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-              <form class="form" id="joinus" method="post" action="joinus">
+              <form class="form" id="joinus" method="post" action="joinus" name="join">
                <div class="card-header text-center">
                   <h3 class="card-title title-up" style="color: white; font-size: 22pt; box-shadow:none;">회원가입</h3>
                </div>
@@ -253,8 +277,57 @@ function formCheck() {
                      </label>
                    </div>
                    </div>
+ 
                  
-                 
+
+                
+                
+                  <div class="col-lg-3 text-center mt-10" style="padding: 14px 0px;">
+                   <span style="color: white; font-size: 12pt; font-weight: 600;">이메일</span>
+                  </div>
+                  <div class="col-lg-9 text-center mt-10">
+                   <div class="form-group">
+                   
+ 					<div class="row" style="padding: 8px 0px; margin-bottom: -16px;">
+                   	
+	                   	<div class="col-5" style="padding-right: 0px;">
+	                     <input type="text" id="email1" name="email1" placeholder="이메일을 입력하세요.." class="form-control emailst" required  onfocus="this.value='';"/>
+	                    </div>
+ 
+ 	                   	<div class="col-2" style="padding-top: 4px;">
+	                    <p style="color: #fff; font-weight: 500">@</p>
+	                    </div>
+   
+	                   	<div class="col-5" style="padding-left: 0px;">
+	                     <input type="text" id="email2" name="email2" placeholder="이메일을 입력하세요.." class="form-control emailst" required disabled />                   
+	                    </div>
+                    
+                    </div>
+                    
+                   </div>
+                  </div>
+  
+                
+                  <div class="col-lg-3 text-center">
+                   <span style="color: white; font-size: 12pt; font-weight: 600;"></span>
+                  </div>
+                  
+                  <div class="col-lg-9 text-center">
+                   <div class="form-group">
+                      <select id="age" name="email" class="form-control selectst" onchange="email_change()" required>
+                      <option value="0" selected">선택하세요</option>
+                      <option value="9">직접입력</option>
+                      <option value="gmail.com">gmail.com</option>
+                      <option value="nate.com">nate.com</option>
+                      <option value="naver.com">naver.com</option>
+                      <option value="daum.net">daum.net</option>
+                      </select>
+                   </div>
+                   </div>
+                   
+                   
+                   
+                   
                  <div class="col-lg-3 text-center mt-10" style="padding: 8px 0px;">
                     <span style="color: white; font-size: 12pt; font-weight: 600;">연령대</span>
                   </div>
