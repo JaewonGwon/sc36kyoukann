@@ -5,11 +5,12 @@
 
 <mapper namespace="project.aban.test.dao.ReviewMapper">
 	<select id="bookreview" resultType="Review">
-	select * from review
+		select * from review
 	</select>
 	<select id="selectOne" parameterType="int" resultType="Review">
-	select * from review where rev_num=#{rev_num}
+		select * from review where rev_num=#{rev_num}
 	</select>
+<<<<<<< HEAD
 	
 	<update id="like_check" parameterType="HashMap">
     UPDATE liketo
@@ -22,4 +23,13 @@
     SET rev_like = 0
     WHERE id=#{id} AND rev_num=#{rev_num}
   </update>
+=======
+	<update id="update" parameterType="Review">
+		update review set
+		book_title=#{book_title}, regdate=sysdate,
+		rev_title=#{rev_title},rev_content=#{rev_content}
+		where rev_num=#{rev_num}
+	</update>
+	
+>>>>>>> 5bc4231b950d53a7845e321ad3fd2ed8d415b7bc
 </mapper>

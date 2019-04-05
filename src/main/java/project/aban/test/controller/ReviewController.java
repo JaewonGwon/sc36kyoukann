@@ -76,6 +76,15 @@ public class ReviewController {
 		return review;
 	}
 	
+	@RequestMapping(value = "/addLike", method = RequestMethod.POST)
+	@ResponseBody
+	public Review addLike(int rev_num) {
+		//System.out.println(rev_num);
+		System.out.println(rev_num);
+		Review review = rs.selectOne(rev_num);
+		
+		return review;
+	}
 	
 	@RequestMapping(value = "/searchReview", method = RequestMethod.POST)
 	@ResponseBody
