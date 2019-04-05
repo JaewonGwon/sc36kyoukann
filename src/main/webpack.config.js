@@ -16,7 +16,9 @@ module.exports = {
         Chip: './ChipsSrc/Chip.js',
         Chips: './ChipsSrc/Chips.js',
         CustomChip: './ChipsSrc/CustomChip.js',
-        theme: './ChipsSrc/theme.js'
+        theme: './ChipsSrc/theme.js',
+        Modal_detail: './Modal_detail.js'
+       
 
     },
     devtool: 'sourcemaps',

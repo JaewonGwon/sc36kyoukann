@@ -16,4 +16,7 @@ public interface MemberMapper {
 
 	public void pwUpdate(Member member);
 	
+	public int updateMember(Member member);
+
+	public Member selectid(String id);
 }
