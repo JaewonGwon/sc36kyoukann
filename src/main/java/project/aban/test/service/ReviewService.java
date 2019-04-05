@@ -31,8 +31,9 @@ public class ReviewService {
 		return review;
 	}
 
-	public void update(Review review) {
-
-		dao.update(review);
+	public int update(Review review) {
+		int a =0;
+		a = dao.update(review);
+		return a;
 	}
 }
