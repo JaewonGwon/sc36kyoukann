@@ -6,13 +6,11 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.aban.test.service.ReviewService;
@@ -53,10 +51,17 @@ public class ReviewController {
 		return "review/reviewUpdate";
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	@ResponseBody
 	public String reviewupdate(Review review) {
-		rs.update(review);
-		
-		return "review/review";
+		System.out.println(review.toString());
+		int a = rs.update(review);
+		System.out.println(a);
+		if (a == 1) {
+			System.out.println("성공");
+			return "success";
+		}else {
+			return "fail";
+		}
 	}
 	@RequestMapping(value = "/reviewDetail", method = RequestMethod.GET)
 	public String reviewDetail(int rev_num, Model model) {
@@ -68,23 +73,14 @@ public class ReviewController {
 	@ResponseBody
 	public Review getreviewDetail(int rev_num) {
 		//System.out.println(rev_num);
-		System.out.println(rev_num);
+		
 		Review review = rs.selectOne(rev_num);
-	
+		
 		//session.setAttribute("reviewD",review);
 		//model.addAttribute("revnum", rev_num);
 		return review;
 	}
 	
-	@RequestMapping(value = "/addLike", method = RequestMethod.POST)
-	@ResponseBody
-	public Review addLike(int rev_num) {
-		//System.out.println(rev_num);
-		System.out.println(rev_num);
-		Review review = rs.selectOne(rev_num);
-		
-		return review;
-	}
 	
 	@RequestMapping(value = "/searchReview", method = RequestMethod.POST)
 	@ResponseBody
@@ -94,10 +90,5 @@ public class ReviewController {
 		
 		return review;
 	}
-	
-	
-	
-
-	
 }
 

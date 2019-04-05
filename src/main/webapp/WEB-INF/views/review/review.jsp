@@ -25,92 +25,6 @@ function init() {
 	
 	
 function output(resp) {
-<<<<<<< HEAD
-		
-      var listwriter = '';
-      var img = "resources/assets/img/book_img01.jpg";
-      var reviewlink = "'getreviewDetail?rev_num=";
-      $.each(resp, function(index, tt) {
-        listwriter += '<div class="item">';
-         listwriter += '<div class="carousel-content text-carousel-st2">';
-        listwriter += '<div class="in-div-text-carousel-st2">';
-        listwriter += '<p class="main-review-title">'+tt.rev_title+'</p>';
-        listwriter += '<p class="main-review-title2">';
-        listwriter += '<a href="#" data-toggle="tooltip" title="<img src='+ img +'>">';
-        
-        
-        
-        //<a href="boardDetail?boardnum=${board.boardnum}">${board.title}</a>
-        listwriter += tt.book_title;
-        listwriter += '</a>';
-        listwriter += '</p>';
-        listwriter += '<a href="reviewDetail?rev_num='+tt.rev_num+'">';
-        listwriter += "<p class='main-review-content2'>";
-        listwriter += tt.rev_content;
-        listwriter += '</p>';
-        listwriter += '</a>';
-         listwriter += '<p class="main-review-tag">';
-         listwriter +='<span class="badge badge-success">SF</span>';
-         listwriter +='<span class="badge badge-success">환타지</span>';
-         listwriter +='<span class="badge badge-success">호구와트</span>';
-         listwriter +='<span class="badge badge-success">마법</span>';
-         listwriter +='<span class="badge badge-success">해리포터</span>';
-         listwriter +='</p>';
-         listwriter +='<p class="main-review-tag">';
-         listwriter +='<div class="row">';
-         listwriter +='<div class="col-lg-7" style="text-align: left;padding-top: 4px;">';
-         listwriter +='<button class="btn btn-link btn-info uname-st">USER NAME</button>';
-         listwriter +='</div>';
-         listwriter +='<div class="col-lg-5" id="rev_like" style="text-align: right; padding-top: 4px;">';
-         listwriter +='<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">';
-         listwriter +='<i class="now-ui-icons ui-2_favourite-28" style="font-size: 0.8em; font-weight: 600;"></i>';
-         listwriter += tt.rev_like;
-         listwriter +='</button>';
-         listwriter +='<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">';
-         listwriter +='<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15';
-         listwriter +='</button>';
-         listwriter +='</div>';
-         listwriter +='</div>';   
-         listwriter +='</p>';
-         listwriter +='</div>';
-         listwriter +='</div>';
-         listwriter +='</div>';
-      });
-      
-      $('#itemwrap').html(listwriter);
-   }
-function bookdelete() {
-      var rev_num = $(this).attr("data-value");
-     
-      $.ajax({
-         url : 'delete'
-         , method : 'POST'
-         , data : {rev_num : rev_num}
-         , success : init
-      })
-      
-   }
-  
- 
-
-$(function(){
-	
-	var rev_num = $(this).attr("data-value");
-	   
-	   $("#rev_like").on("click", function() {
-
-	         $.ajax({
-	            method : 'POST'
-	            , url  : 'getreviewDetail'
-	            , data : {rev_num : rev_num}
-	            , success : init 
-	            
-	            })
-	   });
-	   
-  
-	});
-=======
 	   var listwriter = '';
 	   var img = "resources/assets/img/book_img01.jpg";
 	   var reviewlink = "'reviewDetail?rev_num=";
@@ -173,7 +87,6 @@ function bookdelete() {
 	   })
 	   
 	}
->>>>>>> 5bc4231b950d53a7845e321ad3fd2ed8d415b7bc
 
 </script>
 

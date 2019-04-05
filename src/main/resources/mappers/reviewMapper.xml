@@ -10,20 +10,6 @@
 	<select id="selectOne" parameterType="int" resultType="Review">
 		select * from review where rev_num=#{rev_num}
 	</select>
-<<<<<<< HEAD
-	
-	<update id="like_check" parameterType="HashMap">
-    UPDATE liketo
-    SET rev_like = rev_like + 1 
-    WHERE id=#{id} AND rev_num=#{rev_num}
-  </update>
-  
-  <update id="like_check_cancel" parameterType="HashMap">
-    UPDATE liketo
-    SET rev_like = 0
-    WHERE id=#{id} AND rev_num=#{rev_num}
-  </update>
-=======
 	<update id="update" parameterType="Review">
 		update review set
 		book_title=#{book_title}, regdate=sysdate,
@@ -31,5 +17,4 @@
 		where rev_num=#{rev_num}
 	</update>
 	
->>>>>>> 5bc4231b950d53a7845e321ad3fd2ed8d415b7bc
 </mapper>
