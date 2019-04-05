@@ -35,9 +35,11 @@ public class ReviewDao {
 		return review;
 	}
 
-	public void update(Review review) {
+	public int update(Review review) {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
-		mapper.update(review);
+		int a = 0;
+		a = mapper.update(review);
+		return a;
 	}
 
 }

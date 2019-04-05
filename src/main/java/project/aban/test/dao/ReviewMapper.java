@@ -12,7 +12,7 @@ public interface ReviewMapper {
 
 	Review selectOne(int rev_num);
 
-	void update(Review review);
+	int update(Review review);
 	
 	
 

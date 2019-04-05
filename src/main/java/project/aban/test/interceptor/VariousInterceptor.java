@@ -31,7 +31,7 @@ public class VariousInterceptor extends HandlerInterceptorAdapter {
 			String contextPath = request.getContextPath();
 			
 /*			FlashMap map = new FlashMap();
-			map.put("error","·Î±×ÀÎ ÈÄ ÀÌ¿ë °¡´É");
+			map.put("error","ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			FlashMapManager flashMapManager = RequestContextUtils.getFlashMapManager(request);
 			flashMapManager.saveOutputFlashMap(map, request, response);*/
 			response.sendRedirect(contextPath + "/login");
