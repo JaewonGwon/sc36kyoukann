@@ -48,8 +48,8 @@
 	<context:component-scan base-package="project.aban.test" />
 	
 	<!-- 인터셉터 빈 등록 :code here -->
-	<beans:bean id="TheInterceptor" class="project.aban.test.interceptor.VariousInterceptor"></beans:bean>
 	
+	<beans:bean id="TheInterceptor" class="project.aban.test.interceptor.VariousInterceptor"></beans:bean>
 	
 		<!-- 인터셉터 경로 설정  :code here -->
 	<interceptors>

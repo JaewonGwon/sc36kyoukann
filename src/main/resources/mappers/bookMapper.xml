@@ -54,5 +54,25 @@
 			and book_image = #{book_image}
 			and book_publisher = #{book_publisher}
 	</select>
+	
+	<insert id="insert_tag" parameterType="java.util.List">
+		<foreach collection="list" item="tag" index="index" separator=" " open="INSERT ALL " close="SELECT * FROM DUAL">
+		into tag(
+			tag_seq,
+			tag,
+			tag_count,
+			hit_count,
+			tag_count,
+			tag_image
+		)values(
+			TAG_SEQ.NEXTVAL,
+			#{tag},
+			#{tag_count},
+			0,
+			0,
+			#{tag_image}
+		)
+		</foreach>
+	</insert>
 
 </mapper>

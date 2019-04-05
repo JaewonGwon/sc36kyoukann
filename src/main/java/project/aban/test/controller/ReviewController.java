@@ -51,10 +51,17 @@ public class ReviewController {
 		return "review/reviewUpdate";
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	@ResponseBody
 	public String reviewupdate(Review review) {
-		rs.update(review);
-		
-		return "review/review";
+		System.out.println(review.toString());
+		int a = rs.update(review);
+		System.out.println(a);
+		if (a == 1) {
+			System.out.println("성공");
+			return "success";
+		}else {
+			return "fail";
+		}
 	}
 	@RequestMapping(value = "/reviewDetail", method = RequestMethod.GET)
 	public String reviewDetail(int rev_num, Model model) {
@@ -66,13 +73,14 @@ public class ReviewController {
 	@ResponseBody
 	public Review getreviewDetail(int rev_num) {
 		//System.out.println(rev_num);
-		System.out.println(rev_num);
+		
 		Review review = rs.selectOne(rev_num);
 		
 		//session.setAttribute("reviewD",review);
 		//model.addAttribute("revnum", rev_num);
 		return review;
 	}
+	
 	
 	@RequestMapping(value = "/searchReview", method = RequestMethod.POST)
 	@ResponseBody
@@ -82,8 +90,5 @@ public class ReviewController {
 		
 		return review;
 	}
-	
-
-	
 }
 

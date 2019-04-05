@@ -23,10 +23,12 @@ public class MyController {
 	}
 	@RequestMapping("/testingJson")
 	public void dsTest() {
-		System.out.println("TEST");
-		ds.testJson();
+		ds.insert_books();
 	}
 
-
+	@RequestMapping("/insertTags")
+	public void insert_tags() {
+		ds.insert_tags();
+	}
 	
 }
