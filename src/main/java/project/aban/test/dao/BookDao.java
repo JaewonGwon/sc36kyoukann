@@ -23,9 +23,9 @@ public class BookDao {
 	}
 
 
-	public List<TestVO> show_all_book() {
+	public List<Book> show_all_book() {
 		BookMapper mapper = session.getMapper(BookMapper.class);
-		List<TestVO> result = mapper.show_all_book();
+		List<Book> result = mapper.show_all_book();
 		
 		System.out.println(result);
 		return result;

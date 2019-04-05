@@ -7,7 +7,7 @@ import Modal_detail from './Modal_detail';
 
 
 const Card = ({property}) => {
-    const {book_index, book_title, book_image, book_writer, book_date, book_publisher, book_content, book_likecount, book_viewcount, bokk_scrapcount}  = property;
+    const {book_index, book_num, book_title, book_image, book_writer, book_date, book_publisher, book_content, book_likecount, book_viewcount, book_scrapcount}  = property;
     return (
             <div id={`card-${book_index}`} className="card">
             <img src={book_image} alt={book_title} />
@@ -31,7 +31,7 @@ const Card = ({property}) => {
                     <li><Icon  
                     name="save"
                     color='blue' />
-                    {bokk_scrapcount}
+                    {book_scrapcount}
                     </li>
                     <li>
                         <Modal_detail 

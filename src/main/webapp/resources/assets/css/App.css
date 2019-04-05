@@ -29,21 +29,6 @@ body {
 
 }
 
-.button_left{
-    background-color: transparent !important;
-    position: absolute;
-    z-index: 3;
-    top: 230px;
-    left: 0;
-}
-
-.button_right{
-    background-color: transparent !important;
-    position: absolute;
-    z-index: 3;
-    top: 230px;
-    right: 0;
-}
 
 .button_left_bottom{
     background-color: transparent !important;

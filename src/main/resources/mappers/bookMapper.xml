@@ -33,9 +33,9 @@
 		</foreach>
 	</insert>
 
-    <select id="show_all_book" resultType="TestVO">
+    <select id="show_all_book" resultType="Book">
         SELECT * FROM book
-        where BOOK_TITLE in('연금술사', '데미안')
+        where BOOK_TITLE in('공중그네','데미안','변신')
             
 	</select>
 

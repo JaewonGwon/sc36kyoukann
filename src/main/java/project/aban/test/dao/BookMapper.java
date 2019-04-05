@@ -10,7 +10,7 @@ public interface BookMapper {
 	public int insert_book(ArrayList<Book> buffer_data);
 
 
-	public List<TestVO> show_all_book();
+	public List<Book> show_all_book();
 
 	public Book select_book(Book book);
 
