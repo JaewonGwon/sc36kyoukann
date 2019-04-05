@@ -29,7 +29,7 @@ class ModalExample extends React.Component {
           <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
           <ModalBody>
             <img src={this.props.img}></img>
-            <p>{this.props.BOOK_CONTENT}</p>
+            <p>{this.props.content}</p>
           </ModalBody>
           <ModalFooter>
             <Button color="red" onClick={this.toggle}>Do Something</Button>{' '}

@@ -32,70 +32,73 @@ class App extends Component {
             property: this.state.properties[newBook_num]
         })
     }
-    
 
-    _renderingCards = ({properties, property} = this.state) => {
-            return(
+
+    _renderingCards = ({ properties, property } = this.state) => {
+        return (
             <div className="wrapper">
-                        <div className="tagInput">
-                    
-                            <CustomExample />
-                        </div>
+                <div className="tagInput">
 
-                        <div className="recommand">
-                            <div className="user_reco">
+                    <CustomExample />
+                </div>
 
-                                <br /><br />
-                                <div className="tag_reco">
-                                    {/* 버튼 */}
-                                    <div className="button">
-                                    
-                                        <Button
-                                            className="button_left_bottom"
-                                            onClick={() => this.nextProperty()}
-                                            disabled={property.book_index === properties.length - 1}>
+                <div className="recommand">
+                    <div className="user_reco">
 
-                                            <Backwards
-                                                width={60} height={60} color="#DB8E00" />
-                                        </Button>
+                        <br /><br />
+                        <div className="tag_reco">
+
+                            {/* 페이지 */}
+                            <div className="page">
+                                <div className="col">
+                                    <div className="test123">Tag추천222</div>
+                                    <div className={`cards-slider active-slide-${property.book_index}`}>
+                                        <div className="cards-slider-wrapper" style={{
+                                            'transform': `translateX(-${property.book_index * (100 / properties.length)}%)`
+                                        }}>
+                                            {
+                                                properties.map(property => <Card key={property.book_num} property={property} />)
+                                            }
+
+                                            {/* 버튼 */}
+                                            <div className="button">
+
+                                                <Button
+                                                    className="button_left_bottom"
+                                                    onClick={() => this.nextProperty()}
+                                                    disabled={property.book_index === properties.length - 1}>
+
+                                                    <Backwards
+                                                        width={60} height={60} color="#DB8E00" />
+                                                </Button>
 
 
-                                        <Button
-                                            className="button_right_bottom"
-                                            onClick={() => this.prevProperty()}
-                                            disabled={property.book_index === 0}>
-                                            <Forwards
-                                                width={60} height={60} color="#DB8E00" />
-                                        </Button>
+                                                <Button
+                                                    className="button_right_bottom"
+                                                    onClick={() => this.prevProperty()}
+                                                    disabled={property.book_index === 0}>
+                                                    <Forwards
+                                                        width={60} height={60} color="#DB8E00" />
+                                                </Button>
 
-                                    </div>
-                                    {/* 페이지 */}
-                                    <div className="page">
-                                        <div className="col">
-                                            <div className="test123">Tag추천222</div>
-                                            <div className={`cards-slider active-slide-${property.book_index}`}>
-                                                <div className="cards-slider-wrapper" style={{
-                                                    'transform': `translateX(-${property.book_index * (100 / properties.length)}%)`
-                                                }}>
-                                                    {
-                                                        properties.map(property => <Card key={property.book_num} property={property} />)
-                                                    }
-
-                                                </div>
                                             </div>
                                         </div>
 
+
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
-            );
+                </div>
+            </div>
+        );
     }
 
     //값 받아서 render
     render() {
-            return (
+        return (
             this.state.properties ? this._renderingCards() : 'no'
         );
     }
@@ -105,21 +108,21 @@ class App extends Component {
             .then(books => {
                 let book_list = books.data
 
-                 for (var i = 0; i < book_list.length; i++) {
-                  book_list[i].book_index = i ;
-                
+                for (var i = 0; i < book_list.length; i++) {
+                    book_list[i].book_index = i;
+
                 }
-                    this.setState({
+                this.setState({
                     properties: book_list,
                     property: book_list[0]
                 });
-                
+
                 console.log(book_list);
             })
             .catch(function (error) {
                 console.log(error);
             });
-        }
-
     }
+
+}
 export default App;

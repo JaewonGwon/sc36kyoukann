@@ -35,8 +35,8 @@ const Card = ({property}) => {
                     </li>
                     <li>
                         <Modal_detail 
-                        book_content={book_content}
-                        img={book_image}/>
+                        content= {book_content}
+                        img= {book_image}/>
                     </li>
                 </ul>
             </div>

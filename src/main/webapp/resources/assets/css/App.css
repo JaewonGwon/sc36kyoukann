@@ -34,7 +34,7 @@ body {
     background-color: transparent !important;
     position: absolute;
     z-index: 3;
-    top: 700px;
+    top: 0px;
     left: 0;
 }
 
@@ -42,7 +42,7 @@ body {
     background-color: transparent !important;
     position: absolute;
     z-index: 3;
-    top: 700px;
+    top: 0px;
     right: 0;
 }
 
