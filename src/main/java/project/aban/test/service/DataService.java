@@ -7,7 +7,9 @@ import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +20,10 @@ import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import project.aban.test.dao.BookDao;
 import project.aban.test.vo.Book;
+import project.aban.test.vo.Tag;
 
 @Service
 public class DataService {
@@ -36,7 +38,7 @@ public class DataService {
 	private JsonObject obj;
 	private Gson gson = new Gson();
 	
-	public void testJson()  {
+	public void insert_books()  {
 		try {
 			InputStream jis = jsonResource.getInputStream();
 			BufferedReader rd = new BufferedReader(new InputStreamReader(jis, StandardCharsets.UTF_8));
@@ -47,14 +49,14 @@ public class DataService {
 				response.append('\r');
 			}
 			rd.close();
-			System.out.println(call_dao(response) + "권의 책이 실행되었습니다.");
+			System.out.println(insert_books(response) + "권의 책이 실행되었습니다.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 	}
 	
-	public int call_dao(StringBuffer response) {
+	public int insert_books(StringBuffer response) {
 		System.out.println(response);
 		//temp_list for validation
 		ArrayList<String> temp_list = new ArrayList<>();
@@ -108,16 +110,38 @@ public class DataService {
 	
 	public String book_num_gen(String genre) {
 		Date d = new Date();
-		DateFormat df = new SimpleDateFormat("yyyymmdd");
-		
+		DateFormat df = new SimpleDateFormat("YYYYMMDD");
 		String uuid = UUID.randomUUID().toString().replace("-", "");
 		String result = df.format(d) + "-" + genre + "-" + uuid.substring(0, 7);
 
 		return result;
 	}
 	
-	public int insert_tags() {
-		
-		return 0;
+	public void insert_tags() {
+		try {
+			InputStream jis = tagResource.getInputStream();
+			BufferedReader rd = new BufferedReader(new InputStreamReader(jis, StandardCharsets.UTF_8));
+			String line;
+			StringBuffer response = new StringBuffer();
+			System.out.println(response);
+			while ((line = rd.readLine()) != null) {
+				response.append(line);
+				response.append('\r');
+			}
+			rd.close();
+			insert_tags(response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
+	
+	public int insert_tags(StringBuffer response) {
+		System.out.println(response);
+		Tag[] _tempList = gson.fromJson(response.toString(), Tag[].class);
+		List<Tag> tag_list = Arrays.asList(_tempList);
+		for (int i = 0 ; i < tag_list.size() ; i++) {
+			System.out.println(tag_list.get(i));
+		}
+		return 0;
+	}	
 }
