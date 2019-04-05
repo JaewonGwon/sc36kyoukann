@@ -32,6 +32,7 @@ public class ReviewDao {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
 		Review review= mapper.selectOne(rev_num);
 		
+		mapper.likeCount(rev_num);
 		return review;
 	}
 

@@ -20,7 +20,7 @@ public class MemberController {
    @Autowired
    MemberService ms;
    
-   @RequestMapping(value="loginCheck", method=RequestMethod.GET)
+   @RequestMapping(value="login", method=RequestMethod.GET)
    public String login() {
       return "member/loginForm";
    }

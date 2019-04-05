@@ -25,9 +25,10 @@ function init() {
    
    
 function output(resp) {
+		
       var listwriter = '';
       var img = "resources/assets/img/book_img01.jpg";
-      var reviewlink = "'reviewDetail?rev_num=";
+      var reviewlink = "'getreviewDetail?rev_num=";
       $.each(resp, function(index, tt) {
         listwriter += '<div class="item">';
          listwriter += '<div class="carousel-content text-carousel-st2">';
@@ -59,9 +60,10 @@ function output(resp) {
          listwriter +='<div class="col-lg-7" style="text-align: left;padding-top: 4px;">';
          listwriter +='<button class="btn btn-link btn-info uname-st">USER NAME</button>';
          listwriter +='</div>';
-         listwriter +='<div class="col-lg-5" style="text-align: right; padding-top: 4px;">';
+         listwriter +='<div class="col-lg-5" id="rev_like" style="text-align: right; padding-top: 4px;">';
          listwriter +='<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">';
-         listwriter +='<i class="now-ui-icons ui-2_favourite-28" style="font-size: 0.8em; font-weight: 600;"></i> 203';
+         listwriter +='<i class="now-ui-icons ui-2_favourite-28" style="font-size: 0.8em; font-weight: 600;"></i>';
+         listwriter += tt.rev_like;
          listwriter +='</button>';
          listwriter +='<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">';
          listwriter +='<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15';
@@ -87,6 +89,26 @@ function bookdelete() {
       })
       
    }
+  
+ 
+
+$(function(){
+	
+	var rev_num = $(this).attr("data-value");
+	   
+	   $("#rev_like").on("click", function() {
+
+	         $.ajax({
+	            method : 'POST'
+	            , url  : 'getreviewDetail'
+	            , data : {rev_num : rev_num}
+	            , success : init 
+	            
+	            })
+	   });
+	   
+  
+	});
 
 </script>
 

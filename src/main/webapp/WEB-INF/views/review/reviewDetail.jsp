@@ -483,10 +483,10 @@ $(function (){
 							<div class="col-12 text-center" id="btn-wrap">
 								<button class="btn btn-success btn-round" id="reviewmod" type="button">수정</button>
 								<button class="btn btn-primary btn-round" id="reviewdel" type="button">삭제</button>
-								<button class="btn btn-round" id="reviewback" type="button">목록</button>
+								<button class="btn btn-round" id="reviewback" type="button" onclick="location.href='bookreview' ">목록</button>
 							</div>				
 						</div>	        
-						   
+						  
 
 			        </div>
 		          </div>
