@@ -57,11 +57,15 @@ public class AjaxController {
 	
 	@RequestMapping("/request_taglist")
 	@ResponseBody
-	public ArrayList<Tag> request_taglist(Object request_data) {
+	public ArrayList<Book> request_taglist(Object request_data) {
 		
 		ArrayList<String> request_tags = new ArrayList<>();
-		ArrayList<Tag> result = dao.request_taglist(request_tags);
-		
+		request_tags.add("이야기");
+		request_tags.add("수학");
+		ArrayList<Book> result = dao.request_taglist(request_tags);
+		for(int i = 0 ; i < result.size() ; i++) {
+			System.out.println(result.get(i));
+		}
 		return result;
 	}
 	

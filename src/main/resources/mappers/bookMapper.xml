@@ -107,7 +107,7 @@
 		</foreach>
 	</insert>
 	
-	<select id = "request_tags" parameterType = "java.util.List">
+	<select id = "request_tags" parameterType = "java.util.List" resultType = "Book">
 		SELECT
 		    BOOK.BOOK_NUM,
 		    BOOK.BOOK_TITLE,
@@ -124,8 +124,8 @@
 		    BOOK, TAGLIST
 		WHERE
 		    BOOK.BOOK_NUM = TAGLIST.BOOK_NUM
-			<foreach index="index" collection="list" item="tag" open="AND" close="">
-			
+			<foreach index="index" collection="list" item="tag" open=" " close=" ">
+			AND TAGLIST.TAG = #{tag}
 			</foreach>
 	</select>
 	

@@ -88,10 +88,10 @@ public class BookDao {
 	}
 
 
-	public ArrayList<Tag> request_taglist(ArrayList<String> request_data) {
+	public ArrayList<Book> request_taglist(ArrayList<String> request_data) {
 		// TODO Auto-generated method stub
 		BookMapper mapper = session.getMapper(BookMapper.class);
-		ArrayList<Tag> result = mapper.request_tags(request_data);
+		ArrayList<Book> result = mapper.request_tags(request_data);
 		return result;
 	}
 
