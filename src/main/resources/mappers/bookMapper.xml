@@ -32,14 +32,20 @@
             )
 		</foreach>
 	</insert>
-
+	
+	<select id="select_book_recommend" resultType="Book">
+        SELECT 
+           *
+        FROM book
+        where rownum between 1 and 30
+   </select>
+   
     <select id="show_all_book" resultType="Book">
         SELECT 
         	BOOK_NUM,
         	BOOK_CONTENT
         FROM book
 	</select>
-
 
 	<select id="select_book" parameterType="Book" resultType="Book">
 		select distinct
@@ -79,13 +85,13 @@
 		order by tag_count desc
 	</select>
 
-    <select id="show_tags" resultType="Tag">
+	<select id="show_tags" resultType="Tag">
         SELECT 
             *
         FROM tag
         ORDER BY
 	        tag_count DESC
-</select>
+	</select>
 
 
 	

@@ -6,7 +6,6 @@ import java.util.Map;
 
 import project.aban.test.vo.Book;
 import project.aban.test.vo.Tag;
-import project.aban.test.vo.TestVO;
 
 public interface BookMapper {
 	public int insert_book(ArrayList<Book> buffer_data);
@@ -27,5 +26,7 @@ public interface BookMapper {
 	
 	public int delete_tag();
 
+	public List<Book> select_book_recommend();
+	
 
 }
