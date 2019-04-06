@@ -14,8 +14,10 @@ module.exports = {
         Chips: './ChipsSrc/Chips.js',
         CustomChip: './ChipsSrc/CustomChip.js',
         theme: './ChipsSrc/theme.js',
-        Modal_detail: './Modal_detail.js'
-
+        Modal_detail: './Modal_detail.js',
+        MyPage : './MyPage.js',
+        MyProfile : './MyProfile.js',
+        MyProfileApp : './MyProfileApp.js'
     },
     devtool: 'sourcemaps',
     cache: true,

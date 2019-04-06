@@ -34,8 +34,10 @@
 	</insert>
 
     <select id="show_all_book" resultType="Book">
-        SELECT * FROM book  
-        where rownum between 1 and 30
+        SELECT 
+        	BOOK_NUM,
+        	BOOK_CONTENT
+        FROM book
 	</select>
 
 
@@ -77,14 +79,10 @@
 		order by tag_count desc
 	</select>
 
-
-
     <select id="show_tags" resultType="Tag">
         SELECT 
             *
-
         FROM tag
-        where rownum between 1 and 30
         ORDER BY
 	        tag_count DESC
 </select>

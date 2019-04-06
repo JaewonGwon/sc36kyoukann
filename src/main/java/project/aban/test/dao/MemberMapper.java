@@ -19,4 +19,6 @@ public interface MemberMapper {
 	public int updateMember(Member member);
 
 	public Member selectid(String id);
+
+	public Member getProfile(Member _temp);
 }
