@@ -23,7 +23,7 @@ logs
 *.tar
 *.zip
 *.jar
-*.bundle.js
+src/main/webapp/resources/react/
 
 #eclipse settings
 .metadata
