@@ -20,10 +20,10 @@ public class AjaxController {
 	
 	@RequestMapping("/search")
 	@ResponseBody
+
 	public ArrayList<Book> search() {
 		ArrayList<Book> result = (ArrayList<Book>) dao.show_all_book();
-		
-		System.out.println(result);
+
 		
 		return result;
 	}

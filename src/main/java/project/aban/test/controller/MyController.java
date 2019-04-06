@@ -28,7 +28,11 @@ public class MyController {
 
 	@RequestMapping("/insertTags")
 	public void insert_tags() {
-		ds.insert_tags();
+		ds.insert_tag();
 	}
 	
+	@RequestMapping("/updateTags")
+	public void update_tags() {
+		ds.update_tag();
+	}
 }
