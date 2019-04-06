@@ -23,6 +23,7 @@ logs
 *.tar
 *.zip
 *.jar
+*.bundle.js
 
 #eclipse settings
 .metadata
