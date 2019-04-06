@@ -7,36 +7,36 @@ import Modal_detail from './Modal_detail';
 
 
 const Card = ({property}) => {
-    const {BOOK_NUM, BOOK_TITLE, BOOK_IMAGE, BOOK_WRITER, BOOK_DATE, BOOK_PUBLISHER, BOOK_CONTENT, BOOK_LIKECOUNT, BOOK_VIEWCOUNT, BOKK_SCRAPCOUNT}  = property;
+    const {book_index, book_num, book_title, book_image, book_writer, book_date, book_publisher, book_content, book_likecount, book_viewcount, book_scrapcount}  = property;
     return (
-            <div id={`card-${BOOK_NUM}`} className="card">
-            <img src={BOOK_IMAGE} alt={BOOK_TITLE} />
+            <div id={`card-${book_index}`} className="card">
+            <img src={book_image} alt={book_title} />
             <div className="details">
-                <span className="index">{BOOK_NUM+1}</span>
+                <span className="index">{book_index+1}</span>
                 <p className="content">
-                    {BOOK_TITLE}<br />
-                    {BOOK_WRITER}
+                    {book_title}<br />
+                    {book_writer}
                 </p>
                 <ul className="features">
 
                      <li><Icon name='eye' />
-                    {BOOK_VIEWCOUNT}
+                    {book_viewcount}
                     <span>bedrooms</span>
                     </li>
                     <li><Icon 
                         color='red'
                         name="heart" />
-                    {BOOK_LIKECOUNT}
+                    {book_likecount}
                     </li>
                     <li><Icon  
                     name="save"
                     color='blue' />
-                    {BOKK_SCRAPCOUNT}
+                    {book_scrapcount}
                     </li>
                     <li>
                         <Modal_detail 
-                        BOOK_CONTENT={BOOK_CONTENT}
-                        img={BOOK_IMAGE}/>
+                        content= {book_content}
+                        img= {book_image}/>
                     </li>
                 </ul>
             </div>

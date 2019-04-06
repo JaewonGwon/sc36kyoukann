@@ -14,8 +14,8 @@ public class Book {
 	public Book() {
 		super();
 	}
-	public Book(String book_num, String book_title, String book_image, String book_writer,
-			String book_date, String book_publisher, String book_content, String book_likecount, String book_viewcount,
+	public Book(String book_num, String book_title, String book_image, String book_writer, String book_date,
+			String book_publisher, String book_content, String book_likecount, String book_viewcount,
 			String book_scrapcount) {
 		super();
 		this.book_num = book_num;
@@ -35,7 +35,6 @@ public class Book {
 	public void setBook_num(String book_num) {
 		this.book_num = book_num;
 	}
-
 	public String getBook_title() {
 		return book_title;
 	}
@@ -92,12 +91,11 @@ public class Book {
 	}
 	@Override
 	public String toString() {
-		return "Book [book_num=" + book_num + ", book_title=" + book_title
-				+ ", book_image=" + book_image + ", book_writer=" + book_writer + ", book_date=" + book_date
-				+ ", book_publisher=" + book_publisher + ", book_content=" + book_content + ", book_likecount="
-				+ book_likecount + ", book_viewcount=" + book_viewcount + ", book_scrapcount=" + book_scrapcount + "]";
+		return "Book [book_num=" + book_num + ", book_title=" + book_title + ", book_image=" + book_image
+				+ ", book_writer=" + book_writer + ", book_date=" + book_date + ", book_publisher=" + book_publisher
+				+ ", book_content=" + book_content + ", book_likecount=" + book_likecount + ", book_viewcount="
+				+ book_viewcount + ", book_scrapcount=" + book_scrapcount + "]";
 	}
-	
 	
 	
 }

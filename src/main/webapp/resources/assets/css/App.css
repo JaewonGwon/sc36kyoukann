@@ -18,6 +18,7 @@ body {
     color: #FFF;
     width: 70%;
     margin-left: auto;
+    margin-top: 3%;
     margin-right: auto;
     margin-bottom: 0;
     
@@ -29,44 +30,25 @@ body {
 
 }
 
-.button_left{
-    background-color: transparent !important;
-    position: absolute;
-    z-index: 3;
-    top: 230px;
-    left: 0;
-}
 
-.button_right{
-    background-color: transparent !important;
-    position: absolute;
-    z-index: 3;
-    top: 230px;
-    right: 0;
-}
 
 .button_left_bottom{
     background-color: transparent !important;
     position: absolute;
     z-index: 3;
-    top: 700px;
+    top: 50% !important;
     left: 0;
 }
 
 .button_right_bottom{
     background-color: transparent !important;
     position: absolute;
+    top: 50% !important;
     z-index: 3;
-    top: 700px;
     right: 0;
 }
 
-.button_reco{
-  text-align: center;}
 
-.button{
-  text-align: center;
-}
 .App {
   text-align: center;
   position: relative; }
@@ -185,7 +167,8 @@ section {
       font-weight: bold;
 
 }
-      
+
+
 .cards-slider.active-slide-0 #card-0 {
   opacity: 1;
   transform: scale(1);
@@ -425,6 +408,15 @@ section {
   border-color: #f3f3f3; }
   .cards-slider.active-slide-29 #card-29 .details {
     opacity: 1; }
+
+    .cards-slider.active-slide-30 #card-30 {
+  opacity: 1;
+  transform: scale(1);
+  background-color: #f3f3f3;
+  border-color: #f3f3f3; }
+  .cards-slider.active-slide-30 #card-30 .details {
+    opacity: 1; }
+
 
  .col {
   height: 264px;

@@ -51,6 +51,15 @@ public class BookDao {
 		List<String> result = mapper.select_all_tag();
 		return result;
 	}
+
+
+
+	public ArrayList<Tag> show_tags() {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		ArrayList<Tag> result = mapper.show_tags();
+
+		return result;
+	}
 	
 	public int insert_taglist(List<Map<String, String>> taglist) {
 		BookMapper mapper = session.getMapper(BookMapper.class);
@@ -67,6 +76,7 @@ public class BookDao {
 	public int delete_tag() {
 		BookMapper mapper =session.getMapper(BookMapper.class);
 		int result = mapper.delete_tag();
+
 		return result;
 	}
 }
