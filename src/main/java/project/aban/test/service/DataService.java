@@ -79,13 +79,28 @@ public class DataService {
 		ArrayList<String> temp_list = new ArrayList<>();
 		ArrayList<Book> buffer_data = new ArrayList<>();
 		//장르의 리스트 설정
-		ArrayList<String> genres_list = new ArrayList<>();
-		genres_list.add("100");
-		genres_list.add("110");
-		genres_list.add("160");
-		genres_list.add("170");
-		genres_list.add("120");
-		genres_list.add("190");
+		ArrayList<String> genres_list = new ArrayList<>(
+		Arrays.asList(
+				"100",	
+				"110",	
+				"160",	
+				"170",	
+				"120",	
+				"190",	
+				"180",	
+				"250",	
+				"210",	
+				"200",	
+				"310",	
+				"320",	
+				"130",	
+				"140",	
+				"150",	
+				"270",	
+				"290",	
+				"280",	
+				"330",	
+				"290"));
 		int result = 0;
 		obj = gson.fromJson(response.toString(), JsonObject.class);
 		for(int i = 0 ; i < genres_list.size() ; i++) {
@@ -179,13 +194,24 @@ public class DataService {
 						temp_vo.put("book_num", book_list.get(i).getBook_num());
 						temp_vo.put("tag", tag_list.get(j));
 						temp_tags.add(temp_vo);
-						//++tag_counter;
 					}
 				}
 			}
 		}
-		int result = dao.insert_taglist(temp_tags);
-		System.out.println(result + "개의 Relation이 추가되었습니다.");
+		int buffer_size = 3000;
+		int buffer_max = temp_tags.size()/buffer_size;
+		int result = 0;
+		for (int i = 0 ; i < buffer_max ; i++) {
+			if (i != buffer_max-1) {
+				int inserted_qnt = dao.insert_taglist(temp_tags.subList((int)Math.pow(2, i-1)*buffer_size, ((int)Math.pow(2, i)*buffer_size)-1));
+				System.out.println(inserted_qnt + "개의 Relation이 추가되었습니다.");
+				result += inserted_qnt;
+			} else {
+				int inserted_qnt = dao.insert_taglist(temp_tags.subList((int)Math.pow(2, i-1)*buffer_size, temp_tags.size()));
+				System.out.println(inserted_qnt + "개의 Relation이 추가되었습니다.");
+				result += inserted_qnt;
+			}
+		}
 		return result;
 	}
 }
