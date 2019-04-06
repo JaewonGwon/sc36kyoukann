@@ -18,7 +18,6 @@ public class MyController {
 		int a = (int)Math.pow(2,  -1);
 		System.out.println(a);
 	}
-	
 	@RequestMapping("/profile")
 	public String profile() {
 		return "mypage";
