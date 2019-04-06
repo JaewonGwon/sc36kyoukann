@@ -79,4 +79,12 @@ public class BookDao {
 
 		return result;
 	}
+
+
+	public List<Book> select_book_recommend() {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		List<Book> result = mapper.select_book_recommend();
+		return result;
+	}
+
 }

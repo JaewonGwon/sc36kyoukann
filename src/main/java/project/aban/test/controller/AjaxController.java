@@ -23,7 +23,7 @@ public class AjaxController {
 	@ResponseBody
 
 	public ArrayList<Book> search() {
-		ArrayList<Book> result = (ArrayList<Book>) dao.show_all_book();
+		ArrayList<Book> result = (ArrayList<Book>) dao.select_book_recommend();
 
 		
 		return result;
