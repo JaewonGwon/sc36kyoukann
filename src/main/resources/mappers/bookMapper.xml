@@ -106,6 +106,29 @@
 		)
 		</foreach>
 	</insert>
+	
+	<select id = "request_tags" parameterType = "java.util.List">
+		SELECT
+		    BOOK.BOOK_NUM,
+		    BOOK.BOOK_TITLE,
+		    BOOK.BOOK_IMAGE,
+		    BOOK.BOOK_WRITER,
+		    BOOK.BOOK_DATE,
+		    BOOK.BOOK_PUBLISHER,
+		    BOOK.BOOK_CONTENT,
+		    BOOK.BOOK_LIKECOUNT,
+		    BOOK.BOOK_VIEWCOUNT,
+		    BOOK.BOOK_SCRAPCOUNT,
+		    TAGLIST.TAG
+		FROM
+		    BOOK, TAGLIST
+		WHERE
+		    BOOK.BOOK_NUM = TAGLIST.BOOK_NUM
+			<foreach index="index" collection="list" item="tag" open="AND" close="">
+			
+			</foreach>
+	</select>
+	
 	<delete id = "delete_taglist">
 	delete taglist
 	</delete>

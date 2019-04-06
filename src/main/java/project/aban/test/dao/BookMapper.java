@@ -27,6 +27,8 @@ public interface BookMapper {
 	public int delete_tag();
 
 	public List<Book> select_book_recommend();
+
+	public ArrayList<Tag> request_tags(ArrayList<String> request_data);
 	
 
 }
