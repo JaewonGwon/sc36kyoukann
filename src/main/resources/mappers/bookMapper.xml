@@ -75,4 +75,24 @@
 		select tag from tag
 		order by tag_count desc
 	</select>
+	
+	<insert id = "insert_taglist" parameterType = "java.util.List">
+		<foreach collection="list" item="taglist" index="index" separator=" " open="INSERT ALL " close="SELECT * FROM DUAL">
+		INTO TAGLIST(
+			BOOK_NUM,
+			TAG
+		) VALUES (
+			#{taglist.book_num},
+			#{taglist.tag}
+		)
+		</foreach>
+	</insert>
+	<delete id = "delete_taglist">
+	delete taglist
+	</delete>
+	
+	<delete id = "delete_tag">
+	delete tag
+	</delete>
+	
 </mapper>

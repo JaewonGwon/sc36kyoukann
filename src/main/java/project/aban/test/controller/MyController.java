@@ -21,18 +21,8 @@ public class MyController {
 	public String recommend() {
 		return "home";
 	}
-	@RequestMapping("/testingJson")
-	public void dsTest() {
-		ds.insert_books();
-	}
-
-	@RequestMapping("/insertTags")
+	@RequestMapping("/insert_data")
 	public void insert_tags() {
-		ds.insert_tag();
-	}
-	
-	@RequestMapping("/updateTags")
-	public void update_tags() {
-		ds.update_tag();
+		ds.data_handler();
 	}
 }

@@ -2,6 +2,7 @@ package project.aban.test.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import project.aban.test.vo.Book;
 import project.aban.test.vo.Tag;
-import project.aban.test.vo.TestVO;
 
 @Repository
 public class BookDao {
@@ -27,7 +27,6 @@ public class BookDao {
 	public List<Book> show_all_book() {
 		BookMapper mapper = session.getMapper(BookMapper.class);
 		List<Book> result = mapper.show_all_book();
-		System.out.println(result);
 		return result;
 	}
 
@@ -50,6 +49,24 @@ public class BookDao {
 	public List<String> select_all_tag( ) {
 		BookMapper mapper = session.getMapper(BookMapper.class);
 		List<String> result = mapper.select_all_tag();
+		return result;
+	}
+	
+	public int insert_taglist(List<Map<String, String>> taglist) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		int result = mapper.insert_taglist(taglist);
+		return result;
+	}
+	
+	public int delete_taglist() {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		int result = mapper.delete_taglist();
+		return result;
+	}
+	
+	public int delete_tag() {
+		BookMapper mapper =session.getMapper(BookMapper.class);
+		int result = mapper.delete_tag();
 		return result;
 	}
 }
