@@ -46,7 +46,7 @@ const theme = {
       left: 0,
       top: '100%',
       width: '100%',
-      backgroundColor: 'rgba(0,0,0,0.3);',
+      backgroundColor: 'transparnet',
       listStyle: 'none',
       padding: 0,
       margin: 0,

@@ -17,8 +17,15 @@ class CustomExample extends Component {
     this.setState({ value });
   }
 
+
+
   render() {
+    
+    let aaa = this.state.value;
+    this.searchTags(aaa);
+
     return (
+    
       <Chips
         className = "chipsStyle"
         value={this.state.value}
@@ -41,6 +48,8 @@ class CustomExample extends Component {
         )}
         getSuggestionValue={suggestion => suggestion.name}
       	/>
+          
+          
     );
   }
   componentDidMount() {
@@ -54,10 +63,11 @@ class CustomExample extends Component {
                 delete obj.tag;
                 obj.image = obj.tag_image;
                 delete obj.tag_image;
-                console.log(i);
+                
                 result.push(obj);
             }
             console.log(result);
+            
             return result;
         }).then(tag_list => {
         this.setState({
