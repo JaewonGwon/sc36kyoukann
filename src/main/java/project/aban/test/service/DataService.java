@@ -117,7 +117,7 @@ public class DataService {
 		return result;
 	}
 	
-	public void insert_tags() {
+	public void insert_tag() {
 		try {
 			InputStream jis = tagResource.getInputStream();
 			BufferedReader rd = new BufferedReader(new InputStreamReader(jis, StandardCharsets.UTF_8));
@@ -129,19 +129,38 @@ public class DataService {
 				response.append('\r');
 			}
 			rd.close();
-			insert_tags(response);
+			insert_tag(response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public int insert_tags(StringBuffer response) {
+	public int insert_tag(StringBuffer response) {
 		System.out.println(response);
 		Tag[] _tempList = gson.fromJson(response.toString(), Tag[].class);
 		List<Tag> tag_list = Arrays.asList(_tempList);
-		for (int i = 0 ; i < tag_list.size() ; i++) {
-			System.out.println(tag_list.get(i));
+		for(int i = 0 ; i < tag_list.size() ; i++) {
+			tag_list.get(i).setTag_seq(i);
+		}
+		dao.insert_tag(tag_list);
+		return 0;
+	}
+
+	public int update_tag() {
+		List<Book> book_list = dao.show_all_book();
+		List<String> tag_list = dao.select_all_tag();
+		List<String> temp_tags = new ArrayList<String>();
+		for (int i = 0 ; i < book_list.size() ; i++) {
+			String _temp_content = book_list.get(i).getBook_content();
+			System.out.println(book_list.get(i).getBook_title() + "의 태그 등록을 시작합니다.");
+			temp_tags.add(book_list.get(i).getBook_title());
+			for(int j = 0 ; j < tag_list.size(); i++) {
+				if (_temp_content.contains(tag_list.get(i)))
+					temp_tags.add(tag_list.get(i));
+				System.out.println(tag_list.get(i));
+			}
+			
 		}
 		return 0;
-	}	
+	}
 }

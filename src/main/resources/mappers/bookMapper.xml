@@ -33,10 +33,8 @@
 		</foreach>
 	</insert>
 
-    <select id="show_all_book" resultType="TestVO">
-        SELECT * FROM book
-        where BOOK_TITLE in('연금술사', '데미안')
-            
+    <select id="show_all_book" resultType="Book">
+        SELECT * FROM book   
 	</select>
 
 
@@ -62,17 +60,19 @@
 			tag,
 			tag_count,
 			hit_count,
-			tag_count,
 			tag_image
 		)values(
-			TAG_SEQ.NEXTVAL,
-			#{tag},
-			#{tag_count},
+			#{tag.tag_seq},
+			#{tag.tag},
+			#{tag.tag_count},
 			0,
-			0,
-			#{tag_image}
+			null
 		)
 		</foreach>
 	</insert>
-
+	
+	<select id ="select_all_tag" resultType = "String">
+		select tag from tag
+		order by tag_count desc
+	</select>
 </mapper>

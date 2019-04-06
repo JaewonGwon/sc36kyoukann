@@ -19,11 +19,8 @@ public class AjaxController {
 	@RequestMapping("/search")
 	@ResponseBody
 	public List<TestVO> search() {
-		List<TestVO> result = dao.show_all_book();
 		
-		System.out.println(result);
-		
-		return result;
+		return null;
 	}
 	
 }
