@@ -18,4 +18,6 @@ public interface BookMapper {
 
 	public List<String> select_all_tag();
 
+	public ArrayList<Tag> show_tags();
+
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Chips from '../ChipsSrc/Chips';
 import CustomChip from '../ChipsSrc/CustomChip';
+import axios from 'axios';
 
 const data = [
 
@@ -57,6 +58,17 @@ class CustomExample extends Component {
       	/>
     );
   }
+  componentDidMount() {
+ axios.get('/test/search_tag')
+        .then(res => {
+            let tag_list = res.data
+            console.log(tag_list);
+        
+        this.setState({
+                   data: tag_list
+                });
+        })
+    }
 }
 
 const style = {
@@ -65,5 +77,8 @@ const style = {
   padding: '2px 6px',
   cursor: 'default'
 }
+
+
+
 
 export default CustomExample;
