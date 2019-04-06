@@ -5,13 +5,13 @@ import ReactDOM from 'react-dom';
 import { Button } from 'reactstrap';
 import Card from './Card';
 import CustomExample from './InputTag/custom';
-import { Backwards } from 'react-bytesize-icons';
-import { Forwards } from 'react-bytesize-icons';
+import { CaretLeft } from 'react-bytesize-icons';
+import { CaretRight } from 'react-bytesize-icons';
 import { Header, Icon, Image, Modal } from 'semantic-ui-react';
 
 
 class App extends Component {
-
+    
 
     constructor(props) {
         super(props);
@@ -35,6 +35,10 @@ class App extends Component {
 
 
     _renderingCards = ({ properties, property } = this.state) => {
+       
+    
+         
+    
         return (
             <div className="wrapper">
                 <div className="tagInput">
@@ -51,16 +55,9 @@ class App extends Component {
                             {/* 페이지 */}
                             <div className="page">
                                 <div className="col">
-                                    <div className="test123">Tag추천222</div>
-                                    <div className={`cards-slider active-slide-${property.book_index}`}>
-                                        <div className="cards-slider-wrapper" style={{
-                                            'transform': `translateX(-${property.book_index * (100 / properties.length)}%)`
-                                        }}>
-                                            {
-                                                properties.map(property => <Card key={property.book_num} property={property} />)
-                                            }
-
-                                            {/* 버튼 */}
+                                    <div className="test123">Tag추천</div>
+                                        <div className="line">
+                                        {/* 버튼 */}
                                             <div className="button">
 
                                                 <Button
@@ -68,8 +65,8 @@ class App extends Component {
                                                     onClick={() => this.nextProperty()}
                                                     disabled={property.book_index === properties.length - 1}>
 
-                                                    <Backwards
-                                                        width={60} height={60} color="#DB8E00" />
+                                                    <CaretLeft
+                                                        width={80} height={80} color="#708090" />
                                                 </Button>
 
 
@@ -77,10 +74,18 @@ class App extends Component {
                                                     className="button_right_bottom"
                                                     onClick={() => this.prevProperty()}
                                                     disabled={property.book_index === 0}>
-                                                    <Forwards
-                                                        width={60} height={60} color="#DB8E00" />
+                                                    <CaretRight
+                                                        width={80} height={80} color="#708090" />
                                                 </Button>
+                                        <div className={`cards-slider active-slide-${property.book_index}`}>
+                                            <div className="cards-slider-wrapper" style={{
+                                                'transform': `translateX(-${property.book_index * (100 / properties.length)}%)`
+                                            }}>
+                                                {
+                                                    properties.map(property => <Card key={property.book_num} property={property} />)
+                                                }
 
+                                            </div>
                                             </div>
                                         </div>
 
