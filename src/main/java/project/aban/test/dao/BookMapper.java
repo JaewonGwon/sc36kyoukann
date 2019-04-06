@@ -2,6 +2,7 @@ package project.aban.test.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import project.aban.test.vo.Book;
 import project.aban.test.vo.Tag;
@@ -18,6 +19,16 @@ public interface BookMapper {
 
 	public List<String> select_all_tag();
 
+<<<<<<< HEAD
 	public ArrayList<Tag> show_tags();
+=======
+	public int insert_taglist(List<Map<String, String>> taglist);
+	
+	public int delete_taglist();
+	
+	public int delete_tag();
+	
+	
+>>>>>>> 134a6be88ce9ae423962df46f3badc58e7d07a02
 
 }
