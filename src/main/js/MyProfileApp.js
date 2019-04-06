@@ -8,9 +8,12 @@ import MyBookshelf from './MyBookshelf';
 class MyProfileApp extends Component {
     state = {}
     _callJson = () => {
-        axios.get('/test/testProfile')
-		  .then((response) => 
+        axios.get('/test/request_profile')
+		  .then((response) => {
+            console.log(response);
             this.setState(response.data)
+            
+          }
 		  ).catch(function (error) {
 		    console.log(error)
           })

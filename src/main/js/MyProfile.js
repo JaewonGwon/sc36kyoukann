@@ -15,7 +15,7 @@ class MyProfile extends Component {
                         <h4>{this.props.id}</h4>
                     </div>
                     <div className="profileName">
-                        <h5>{this.props.name}</h5>
+                        <h5>{this.props.display_name}</h5>
                     </div>
                 </div>
                 <div className = "col-8">

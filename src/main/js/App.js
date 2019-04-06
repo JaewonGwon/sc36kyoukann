@@ -61,20 +61,20 @@ class App extends Component {
                                             <div className="button">
 
                                                 <Button
-                                                    className="button_left_bottom"
+                                                    className="button_right_bottom"
                                                     onClick={() => this.nextProperty()}
                                                     disabled={property.book_index === properties.length - 1}>
 
-                                                    <CaretLeft
+                                                    <CaretRight
                                                         width={80} height={80} color="#708090" />
                                                 </Button>
 
 
                                                 <Button
-                                                    className="button_right_bottom"
+                                                    className="button_left_bottom"
                                                     onClick={() => this.prevProperty()}
                                                     disabled={property.book_index === 0}>
-                                                    <CaretRight
+                                                    <CaretLeft
                                                         width={80} height={80} color="#708090" />
                                                 </Button>
                                         <div className={`cards-slider active-slide-${property.book_index}`}>
