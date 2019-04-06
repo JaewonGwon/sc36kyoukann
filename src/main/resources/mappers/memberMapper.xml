@@ -71,4 +71,15 @@
 		where
 			id = #{id}
 	</update>
+	
+	<select id = "getProfile" resultType = "Member" parameterType = "Member">
+	SELECT 
+		ID,
+		DISPLAY_NAME,
+		GENDER,
+		POINT
+	FROM MEMBER
+	WHERE 
+		ID = #{id}
+	</select>
 </mapper>

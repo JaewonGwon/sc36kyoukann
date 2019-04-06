@@ -3,6 +3,7 @@ package project.aban.test.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.aban.test.service.DataService;
 
@@ -20,6 +21,7 @@ public class MyController {
 	}
 	@RequestMapping("/profile")
 	public String profile() {
+		
 		return "mypage";
 	}
 	@RequestMapping("/recommend")
