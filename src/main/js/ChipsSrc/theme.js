@@ -30,7 +30,7 @@ const theme = {
       padding: 5,
       margin: 2.5,
       backgroundColor: 'transparent',
-      fontcolor : 'red'
+      fontcolor : '#FEFEFE'
      
       
     },
@@ -46,7 +46,7 @@ const theme = {
       left: 0,
       top: '100%',
       width: '100%',
-      backgroundColor: '#fff',
+      backgroundColor: 'rgba(0,0,0,0.3);',
       listStyle: 'none',
       padding: 0,
       margin: 0,
@@ -55,7 +55,7 @@ const theme = {
       padding: '5px 15px'
     },
     suggestionHighlighted: {
-      background: '#ddd'
+      background: '#2d0c00'
     },
     sectionContainer: {
   
