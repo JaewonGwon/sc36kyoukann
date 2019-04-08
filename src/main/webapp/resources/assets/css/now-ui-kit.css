@@ -7802,7 +7802,7 @@ figure.snip1283.hover figcaption {
   font-size: .85em;
 }
 .item {
-    display: inline-block;
+    display: inline-block !important;
     background: #fff;
     padding: 1em;
     margin: 0 0 1.5em;
@@ -7812,6 +7812,8 @@ figure.snip1283.hover figcaption {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-shadow: 2px 2px 4px 0 #ccc;
+    
+    
 }
 .item img{max-width:100%;}
 

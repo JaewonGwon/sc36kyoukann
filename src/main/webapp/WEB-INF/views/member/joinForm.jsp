@@ -182,7 +182,7 @@ function email_change(){
 /*이메일 직접입력 선택 소스 끝*/
 
 </script>
- <style>
+<style>
 
  select option{
  background-color: #fff !important;
