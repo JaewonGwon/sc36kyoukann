@@ -7,11 +7,10 @@
 
 
 <script>
+$(document).ready(function() {
+	 init();
+});
 
-$(function() {
-	   init();
-	   
-	});
 function init() {
 	   $.ajax({
 	      url : 'review'
@@ -23,13 +22,12 @@ function init() {
 	   })
 	}
 	
-	
 function output(resp) {
 	   var listwriter = '';
 	   var img = "resources/assets/img/book_img01.jpg";
 	   var reviewlink = "'reviewDetail?rev_num=";
 	   $.each(resp, function(index, tt) {
-		  listwriter += '<div class="item">';
+		  listwriter += '<div class="item" style="display: inline-block;">';
 	      listwriter += '<div class="carousel-content text-carousel-st2">';
 		  listwriter += '<div class="in-div-text-carousel-st2">';
 		  listwriter += '<p class="main-review-title">'+tt.rev_title+'</p>';
@@ -136,7 +134,6 @@ $(function () {
 /* 리뷰 제목부분 툴팁 그림 나오게 하는 소스 끝*/
  
 </script>
-
 
 
 <body class="index-page sidebar-collapse">
