@@ -22,6 +22,8 @@ public class ReviewController {
 	@Autowired
 	ReviewService rs;
 	
+	
+
 	@RequestMapping(value = "/bookreview", method = RequestMethod.GET)
 	public String review() {
 		return "review/review";
@@ -39,6 +41,18 @@ public class ReviewController {
 		}
 		return list;
 	}
+	@RequestMapping(value = "/reviewDelete", method = RequestMethod.POST)
+	public String reviewDelete(int rev_num, Model model) {
+		int a=0;
+		a=rs.reviewDelete(rev_num);
+		System.out.println(a);
+		
+		if (a==1) {
+			model.addAttribute("message", "삭제완료");
+		}
+		return "review/review";
+	}
+
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public String reviewdelete(int rev_num) {
 		rs.bookdelete(rev_num);

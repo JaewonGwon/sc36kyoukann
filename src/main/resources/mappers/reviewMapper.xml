@@ -16,5 +16,7 @@
 		rev_title=#{rev_title},rev_content=#{rev_content}
 		where rev_num=#{rev_num}
 	</update>
-	
+	<delete id="reviewDelete" parameterType="int">
+		delete review where rev_num=#{rev_num} 
+	</delete>
 </mapper>

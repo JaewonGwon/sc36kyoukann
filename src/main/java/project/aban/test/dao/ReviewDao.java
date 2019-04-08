@@ -42,4 +42,11 @@ public class ReviewDao {
 		return a;
 	}
 
+	public int reviewDelete(int rev_num) {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		int a = 0;
+		a = mapper.reviewDelete(rev_num);
+		return a;
+	}
+
 }

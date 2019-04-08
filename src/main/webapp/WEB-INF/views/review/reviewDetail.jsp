@@ -10,8 +10,20 @@
 
 
 <script>
+$(function(){
+	
 	init();
-
+	$('#reviewmod').on('click', reviewUpdate);
+	$('#reviewdel').on('click', reviewDelete);
+	$('#reviewback').on('click', reviewback);
+	
+});
+function reviewback(){
+	$('#reviewcome').submit();
+}
+function reviewDelete(){
+	$('#reviewDelete').submit();
+}
 function reviewUpdate() {
 	var rev_num = ${rev_num};
 	$.ajax({
@@ -77,6 +89,7 @@ function updateView(resp) {
    	
    	$("#itemwrap").html(write);
    	$('#reviewmod').on('click', update);
+   	
    	
 }
 function update() {
@@ -491,7 +504,8 @@ $(function (){
 
 
 <body class="index-page sidebar-collapse">
-
+<form action="index" id="reviewcome">
+</form>
 <!-- Navbar include -->
   <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
 
@@ -511,14 +525,16 @@ $(function (){
 			
 						</div>	
 						
+					<form action="reviewDelete" id="reviewDelete" method="POST">
 						<div class="row">
 							<div class="col-12 text-center" id="btn-wrap">
 								<button class="btn btn-success btn-round" id="reviewmod" type="button">수정</button>
 								<button class="btn btn-primary btn-round" id="reviewdel" type="button">삭제</button>
 								<button class="btn btn-round" id="reviewback" type="button">목록</button>
+								<input type="hidden" name="rev_num" value="${rev_num}">
 							</div>				
 						</div>	        
-						   
+						</form>
 
 			        </div>
 		          </div>

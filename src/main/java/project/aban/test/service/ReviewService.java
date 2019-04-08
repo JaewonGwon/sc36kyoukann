@@ -36,4 +36,9 @@ public class ReviewService {
 		a = dao.update(review);
 		return a;
 	}
+
+	public int reviewDelete(int rev_num) {
+		int a = dao.reviewDelete(rev_num);
+		return a;
+	}
 }
