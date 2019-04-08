@@ -8,6 +8,7 @@
 		<typeAlias type="project.aban.test.vo.Book" alias="Book"/>
         <typeAlias type="project.aban.test.vo.TestVO" alias="TestVO"/>
 		<typeAlias type="project.aban.test.vo.Review" alias="Review"/>
+        <typeAlias type="project.aban.test.vo.Tag" alias="Tag"/>
 
 	</typeAliases>
 	<mappers>

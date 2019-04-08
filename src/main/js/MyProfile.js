@@ -15,13 +15,13 @@ class MyProfile extends Component {
                         <h4>{this.props.id}</h4>
                     </div>
                     <div className="profileName">
-                        <h5>{this.props.name}</h5>
+                        <h5>{this.props.display_name}</h5>
                     </div>
                 </div>
                 <div className = "col-8">
                     <div className="card col-12">
                         <div className="card-body text-black">
-                        <h5 className="card-title">TEST</h5>
+                        <h5 className="card-title">Profile</h5>
                            L:asdafqw sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                         </div>
                     </div>

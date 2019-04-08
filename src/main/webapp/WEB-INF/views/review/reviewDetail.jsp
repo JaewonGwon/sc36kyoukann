@@ -10,10 +10,7 @@
 
 
 <script>
-$(function(){
-	//$('#reviewmod').on('click', reviewUpdate);
 	init();
-});
 
 function reviewUpdate() {
 	var rev_num = ${rev_num};
