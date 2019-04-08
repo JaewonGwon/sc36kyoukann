@@ -16,15 +16,10 @@ class CustomExample extends Component {
   onChange = value => {
     this.setState({ value });
   }
-
-
+  
 
   render() {
-    
-   
-
     return (
-    
       <Chips
         className = "chipsStyle"
         value={this.state.value}
@@ -65,8 +60,6 @@ class CustomExample extends Component {
                 
                 result.push(obj);
             }
-            console.log(result);
-            
             return result;
         }).then(tag_list => {
         this.setState({
@@ -74,7 +67,15 @@ class CustomExample extends Component {
                 });
 
         })
+      
     }
+  
+  componentDidUpdate(prevState) {
+    console.log("did update");
+    for (var i = 0 ; i < this.state.value.length ; i++) {
+      console.log(this.state.value[i]['name']);
+    }
+  }
 }
 
 const style = {
