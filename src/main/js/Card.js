@@ -19,35 +19,35 @@ const Card = ({property}) => {
         <div className="cardlist">
             <div id={`card-${book_index}`} className="card">
             <img style={styles} src={book_image} alt={book_title} />
-            <div className="details">
-                <span className="index">{book_index+1}</span>
-                <p className="content">
-                    {book_title}<br />
-                    {book_writer}
-                </p>
+            
+                <div className="Line">
                 <ul className="features">
 
                      <li><Icon name='eye' />
                     {book_viewcount}
                     <span>bedrooms</span>
                     </li>
+
                     <li><Icon 
                         color='red'
                         name="heart" />
                     {book_likecount}
                     </li>
+
                     <li><Icon  
                     name="save"
                     color='blue' />
                     {book_scrapcount}
                     </li>
+                    <br/>
                     <li>
                         <Modal_detail 
                         content= {book_content}
                         img= {book_image}/>
                     </li>
                 </ul>
-            </div>
+                </div>
+            
         </div>
         </div>
     )

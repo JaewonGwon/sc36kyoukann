@@ -21,8 +21,7 @@ class CustomExample extends Component {
 
   render() {
     
-    let aaa = this.state.value;
-    this.searchTags(aaa);
+   
 
     return (
     
