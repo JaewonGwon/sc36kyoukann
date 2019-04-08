@@ -14,6 +14,8 @@ public interface ReviewMapper {
 
 	int update(Review review);
 	
+	int addLike(int rev_num);
+	
 	
 
 }

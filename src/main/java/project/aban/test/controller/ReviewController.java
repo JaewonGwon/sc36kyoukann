@@ -29,7 +29,7 @@ public class ReviewController {
 
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Review> bookreview() {
+	public List<Review> bookreview(HttpSession session) {
 		List<Review> list = new ArrayList<>();
 		list=rs.bookreview();
 		if (list==null) {
@@ -37,6 +37,7 @@ public class ReviewController {
 		}else {
 			System.out.println("들어있음");
 		}
+		
 		return list;
 	}
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
@@ -75,6 +76,21 @@ public class ReviewController {
 		//System.out.println(rev_num);
 		
 		Review review = rs.selectOne(rev_num);
+		
+		//session.setAttribute("reviewD",review);
+		//model.addAttribute("revnum", rev_num);
+		return review;
+	}
+	
+
+	
+	@RequestMapping(value = "/addLike", method = RequestMethod.POST)
+	@ResponseBody
+	public Review addLike(int rev_num) {
+		//System.out.println(rev_num);
+		
+		Review review = rs.addLike(rev_num);
+		System.out.println("좋아요버튼 누름");
 		
 		//session.setAttribute("reviewD",review);
 		//model.addAttribute("revnum", rev_num);

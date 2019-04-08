@@ -1,8 +1,17 @@
+<%   response.setHeader("Cache-Control","no-cache");
+ 
+     response.setHeader("Pragma","no-cache");
+ 
+     response.setDateHeader("Expires",0); %> 
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+<meta http-equiv="Pragma" content="no-cache"/>
 <script src="resources/jquery-3.3.1.min.js"></script>
 
 
@@ -14,8 +23,9 @@ $(function() {
 	});
 function init() {
 	   $.ajax({
-	      url : 'review'
+	      url : 'review?'+ Math.random()
 	      , method : 'POST'
+	      , cache : false
 	      , success : function(resp) {
 	         output(resp);
 	      }
@@ -60,8 +70,11 @@ function output(resp) {
 	      listwriter +='<button class="btn btn-link btn-info uname-st">'+tt.id+'</button>';
 	      listwriter +='</div>';
 	      listwriter +='<div class="col-lg-5" style="text-align: right; padding-top: 4px;">';
-	      listwriter +='<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">';
-	      listwriter +='<i class="now-ui-icons ui-2_favourite-28" style="font-size: 0.8em; font-weight: 600;"></i> 203';
+	      listwriter +='<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;" data-value="';
+	      listwriter += tt.rev_num;
+	      listwriter +='">';
+	      listwriter +='<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i>';
+	      listwriter += tt.rev_like;
 	      listwriter +='</button>';
 	      listwriter +='<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">';
 	      listwriter +='<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15';
@@ -75,6 +88,7 @@ function output(resp) {
 	   });
 	   
 	   $('#itemwrap').html(listwriter);
+	   $('#rev_like').on('click', revlike);
 	}
 function bookdelete() {
 	   var rev_num = $(this).attr("data-value");
@@ -86,6 +100,19 @@ function bookdelete() {
 	      , success : init
 	   })
 	   
+	}
+	
+function revlike(rev_num){
+	  
+	var rev_num = $(this).attr("data-value");	
+
+	         $.ajax({
+	            method : 'post'
+	            , url  : 'addLike'
+	            , data : {rev_num:rev_num}
+	            , success : output
+	         }) 
+
 	}
 
 </script>
@@ -140,6 +167,7 @@ $(function () {
 
 
 <body class="index-page sidebar-collapse">
+
 
 <!-- Navbar include -->
   <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
