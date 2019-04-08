@@ -69,6 +69,14 @@ public class MemberDao {
 		Member m = mapper.selectid(id);
 		return m;
 	}
+
+	public Member getProfile(Member _temp) {
+		// TODO Auto-generated method stub
+		MemberMapper mapper = session.getMapper(MemberMapper.class);
+		Member m = mapper.getProfile(_temp);
+		
+		return m;
+	}
 	
 
 }

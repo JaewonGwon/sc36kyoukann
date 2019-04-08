@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 import Radium from 'radium';
@@ -85,6 +86,7 @@ class Chips extends Component {
   }
 
   renderChips = () => {
+     
     return this.props.value.map((chip, idx) => {
       return (
         React.cloneElement(this.props.renderChip(chip, this.props.chipTheme), {
@@ -146,6 +148,7 @@ class Chips extends Component {
     this.lastEvent = e;
     this.addChip(suggestion);
     this.setState({ value: '' });
+    
   }
 
   onChange = (e, { newValue }) => {
@@ -157,10 +160,13 @@ class Chips extends Component {
     } else {
       this.setState({value: newValue});
     }
+
+    
   }
 
   render() {
 
+      
     const { loading, value, suggestions } = this.state;
     const { placeholder, renderLoading } = this.props;
     const themr = themeable(this.props.theme);
@@ -173,7 +179,7 @@ class Chips extends Component {
       onBlur: this.onBlur,
       onFocus: this.onFocus
     };
-
+    
     return (
       <div {...themr(200, 'chipsContainer')} ref="wrapper" >
         {this.renderChips()}
@@ -191,6 +197,15 @@ class Chips extends Component {
       </div>
     );
   }
+   componentDidMount() {
+
+        
+
+       
+
+    
+        
+    }
 }
 
 Chips.propTypes = {
@@ -238,5 +253,7 @@ Chips.defaultProps = {
   suggestionsFilter: (opt, val) => opt.toLowerCase().indexOf(val.toLowerCase()) !== -1,
   getChipValue: (item) => item,
 };
+
+
 
 export default Radium(Chips);

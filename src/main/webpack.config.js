@@ -7,19 +7,17 @@ module.exports = {
         index: './index.js',
         App: './App.js',
         RequestButton: './RequestButton.js',
-        Card_reco: './Card_reco.js',
         Card: './Card.js',
-        data_reco: './data/data_reco.js',
-        data: './data/data.js',
         custom: './InputTag/custom.js',
         CallLimiter: './ChipsSrc/CallLimiter.js',
         Chip: './ChipsSrc/Chip.js',
         Chips: './ChipsSrc/Chips.js',
         CustomChip: './ChipsSrc/CustomChip.js',
         theme: './ChipsSrc/theme.js',
-        Modal_detail: './Modal_detail.js'
-       
-
+        Modal_detail: './Modal_detail.js',
+        MyPage : './MyPage.js',
+        MyProfile : './MyProfile.js',
+        MyProfileApp : './MyProfileApp.js'
     },
     devtool: 'sourcemaps',
     cache: true,
