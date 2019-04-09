@@ -90,10 +90,13 @@ public class ReviewController {
 	
 	@RequestMapping(value = "/getreviewDetail", method = RequestMethod.POST)
 	@ResponseBody
-	public Review getreviewDetail(int rev_num) {
+	public Review getreviewDetail(int rev_num,Model model,HttpSession session) {
 		//System.out.println(rev_num);
 		
 		Review review = rs.selectOne(rev_num);
+		String id = review.getId();
+		session.setAttribute("loginId", id);
+		model.addAttribute("review",review);
 		
 		//session.setAttribute("reviewD",review);
 		//model.addAttribute("revnum", rev_num);
