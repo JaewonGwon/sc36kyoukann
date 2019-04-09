@@ -22,6 +22,11 @@ public class ReviewController {
 	@Autowired
 	ReviewService rs;
 	
+	
+	@RequestMapping(value = "/reviewWrite", method = RequestMethod.GET)
+	public String reviewWrite() {
+		return "review/reviewWrite";
+	}
 	@RequestMapping(value = "/bookreview", method = RequestMethod.GET)
 	public String review() {
 		return "review/review";
@@ -29,7 +34,7 @@ public class ReviewController {
 
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Review> bookreview() {
+	public List<Review> bookreview(HttpSession session) {
 		List<Review> list = new ArrayList<>();
 		list=rs.bookreview();
 		if (list==null) {
@@ -37,8 +42,21 @@ public class ReviewController {
 		}else {
 			System.out.println("들어있음");
 		}
+		
 		return list;
 	}
+	@RequestMapping(value = "/reviewDelete", method = RequestMethod.POST)
+	public String reviewDelete(int rev_num, Model model) {
+		int a=0;
+		a=rs.reviewDelete(rev_num);
+		System.out.println(a);
+		
+		if (a==1) {
+			model.addAttribute("message", "삭제완료");
+		}
+		return "review/review";
+	}
+
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public String reviewdelete(int rev_num) {
 		rs.bookdelete(rev_num);
@@ -58,6 +76,7 @@ public class ReviewController {
 		System.out.println(a);
 		if (a == 1) {
 			System.out.println("성공");
+			System.out.println("수정반복");
 			return "success";
 		}else {
 			return "fail";
@@ -75,6 +94,21 @@ public class ReviewController {
 		//System.out.println(rev_num);
 		
 		Review review = rs.selectOne(rev_num);
+		
+		//session.setAttribute("reviewD",review);
+		//model.addAttribute("revnum", rev_num);
+		return review;
+	}
+	
+
+	
+	@RequestMapping(value = "/addLike", method = RequestMethod.POST)
+	@ResponseBody
+	public Review addLike(int rev_num) {
+		//System.out.println(rev_num);
+		
+		Review review = rs.addLike(rev_num);
+		System.out.println("좋아요버튼 누름");
 		
 		//session.setAttribute("reviewD",review);
 		//model.addAttribute("revnum", rev_num);

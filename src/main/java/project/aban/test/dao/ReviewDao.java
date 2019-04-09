@@ -31,14 +31,26 @@ public class ReviewDao {
 	public Review selectOne(int rev_num) {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
 		Review review= mapper.selectOne(rev_num);
-		
 		return review;
 	}
-
+	
+	public Review addLike(int rev_num) {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		Review review= mapper.selectOne(rev_num);
+		mapper.addLike(rev_num);
+		return review;
+	}
 	public int update(Review review) {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
 		int a = 0;
 		a = mapper.update(review);
+		return a;
+	}
+
+	public int reviewDelete(int rev_num) {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		int a = 0;
+		a = mapper.reviewDelete(rev_num);
 		return a;
 	}
 
