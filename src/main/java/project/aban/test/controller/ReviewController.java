@@ -22,10 +22,18 @@ public class ReviewController {
 	@Autowired
 	ReviewService rs;
 	
-	
 	@RequestMapping(value = "/reviewWrite", method = RequestMethod.GET)
 	public String reviewWrite() {
 		return "review/reviewWrite";
+	}
+	@RequestMapping(value = "/reviewInsert", method = RequestMethod.GET)
+	public String reviewInsert(Review review) {
+		System.out.println(review.toString());
+		int a = rs.reviewWrite(review);
+		if (a==1) {
+			return "review/review";
+		}
+		return "fail";
 	}
 	@RequestMapping(value = "/bookreview", method = RequestMethod.GET)
 	public String review() {
@@ -37,18 +45,14 @@ public class ReviewController {
 	public List<Review> bookreview() {
 		List<Review> list = new ArrayList<>();
 		list=rs.bookreview();
-		if (list==null) {
-			System.out.println("비어있음");
-		}else {
-			System.out.println("들어있음");
-		}
+		
 		return list;
 	}
 	@RequestMapping(value = "/reviewDelete", method = RequestMethod.POST)
 	public String reviewDelete(int rev_num, Model model) {
 		int a=0;
 		a=rs.reviewDelete(rev_num);
-		System.out.println(a);
+		
 		
 		if (a==1) {
 			model.addAttribute("message", "삭제완료");
@@ -70,9 +74,9 @@ public class ReviewController {
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	@ResponseBody
 	public String reviewupdate(Review review) {
-		System.out.println(review.toString());
+	
 		int a = rs.update(review);
-		System.out.println(a);
+	
 		if (a == 1) {
 			System.out.println("성공");
 			return "success";

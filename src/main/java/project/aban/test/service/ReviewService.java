@@ -41,4 +41,9 @@ public class ReviewService {
 		int a = dao.reviewDelete(rev_num);
 		return a;
 	}
+
+	public int reviewWrite(Review review) {
+		int a = dao.reviewWrite(review);
+		return a;
+	}
 }
