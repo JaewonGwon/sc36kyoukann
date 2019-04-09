@@ -23,7 +23,10 @@ public class ReviewController {
 	ReviewService rs;
 	
 	
-
+	@RequestMapping(value = "/reviewWrite", method = RequestMethod.GET)
+	public String reviewWrite() {
+		return "review/reviewWrite";
+	}
 	@RequestMapping(value = "/bookreview", method = RequestMethod.GET)
 	public String review() {
 		return "review/review";

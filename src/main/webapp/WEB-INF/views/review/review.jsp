@@ -9,6 +9,7 @@
 <script>
 $(document).ready(function() {
 	 init();
+	 
 });
 
 function init() {
@@ -189,7 +190,7 @@ $(function () {
 							</div>
 									          
 							<div class="dropdown m-30" style="display: inline;">
-							  <a id="dropdownMenu1" class="latest-st" data-toggle="dropdown" aria-expanded="true" href="#">
+							  <a class="latest-st" href="reviewWrite">
 							    <i class="now-ui-icons text_align-left"></i>					    
 	                            <span>리뷰작성</span>                           
 							  </a>

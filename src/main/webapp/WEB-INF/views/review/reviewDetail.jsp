@@ -19,7 +19,7 @@ $(function(){
 	
 });
 function reviewback(){
-	$('#reviewcome').submit();
+	location.href='http://localhost:8888/test/bookreview';
 }
 function reviewDelete(){
 	$('#reviewDelete').submit();
@@ -113,7 +113,7 @@ function update() {
 }
 function updateCheck(resp){
 	if (resp=="success") {
-		alert("게시글이 수정되었습니다.");
+		//alert("게시글이 수정되었습니다.");
 		init();
 	}
 }
