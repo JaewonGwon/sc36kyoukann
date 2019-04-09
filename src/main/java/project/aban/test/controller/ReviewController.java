@@ -26,17 +26,17 @@ public class ReviewController {
 	public String review() {
 		return "review/review";
 	}
+	@RequestMapping(value = "/reviewWrite", method = RequestMethod.GET)
+	public String reviewWrite() {
+		System.out.println("asdasd");
+		return "review/reviewWrite";
+	}
 
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Review> bookreview() {
 		List<Review> list = new ArrayList<>();
 		list=rs.bookreview();
-		if (list==null) {
-			System.out.println("비어있음");
-		}else {
-			System.out.println("들어있음");
-		}
 		return list;
 	}
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)

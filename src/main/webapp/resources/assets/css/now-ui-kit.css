@@ -7801,8 +7801,9 @@ figure.snip1283.hover figcaption {
   column-gap: 1.5em;
   font-size: .85em;
 }
+
 .item {
-    display: inline-block !important;
+    display: none;
     background: #fff;
     padding: 1em;
     margin: 0 0 1.5em;
@@ -7812,8 +7813,6 @@ figure.snip1283.hover figcaption {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-shadow: 2px 2px 4px 0 #ccc;
-    
-    
 }
 .item img{max-width:100%;}
 
@@ -7846,7 +7845,9 @@ figure.snip1283.hover figcaption {
    }
 }
 
-.item { display:none; }
+
+/* .item { display:none; } */
+
 
 .item.active {
     display: inline-block !important;
