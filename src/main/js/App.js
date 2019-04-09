@@ -18,6 +18,16 @@ class App extends Component {
         this.state = {}
     }
 
+    callBackList = (dataFromChild) => {
+        let booklist = dataFromChild;
+        for (var i = 0; i < booklist.length; i++) {
+            booklist[i].book_index = i;
+        }
+        this.setState({properties : booklist,
+                       property : booklist[0]
+        });
+    }
+
     //버튼
     nextProperty = () => {
         const newBook_num = this.state.property.book_index + 1;
@@ -42,8 +52,7 @@ class App extends Component {
         return (
             <div className="wrapper">
                 <div className="tagInput">
-
-                    <CustomExample />
+                    <CustomExample callbackFromParent = {this.callBackList}/>
                 </div>
 
                 <div className="recommand">
@@ -115,7 +124,6 @@ class App extends Component {
 
                 for (var i = 0; i < book_list.length; i++) {
                     book_list[i].book_index = i;
-
                 }
                 this.setState({
                     properties: book_list,
