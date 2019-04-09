@@ -59,9 +59,12 @@ function output(resp) {
 	      listwriter +='<button class="btn btn-link btn-info uname-st">'+tt.id+'</button>';
 	      listwriter +='</div>';
 	      listwriter +='<div class="col-lg-5" style="text-align: right; padding-top: 4px;">';
-	      listwriter +='<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">';
-	      listwriter +='<i class="now-ui-icons ui-2_favourite-28" style="font-size: 0.8em; font-weight: 600;"></i> 203';
-	      listwriter +='</button>';
+	         listwriter +='<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;" data-value="';
+	         listwriter += tt.rev_num;
+	         listwriter +='">';
+	         listwriter +='<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i>';
+	         listwriter += tt.rev_like;
+	         listwriter +='</button>';
 	      listwriter +='<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">';
 	      listwriter +='<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15';
 	      listwriter +='</button>';
@@ -74,6 +77,7 @@ function output(resp) {
 	   });
 	   
 	   $('#itemwrap').html(listwriter);
+	   $('#rev_like').on('click', revlike);
 	}
 function bookdelete() {
 	   var rev_num = $(this).attr("data-value");
@@ -86,6 +90,18 @@ function bookdelete() {
 	   })
 	   
 	}
+
+function revlike(rev_num){
+    
+	   var rev_num = $(this).attr("data-value");   
+
+	            $.ajax({
+	               method : 'post'
+	               , url  : 'addLike'
+	               , data : {rev_num:rev_num}
+	               , success : output
+	            }) 
+}
 
 </script>
 
