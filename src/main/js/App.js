@@ -69,7 +69,6 @@ class App extends Component {
                                                         width={80} height={80} color="#708090" />
                                                 </Button>
 
-
                                                 <Button
                                                     className="button_left_bottom"
                                                     onClick={() => this.prevProperty()}
@@ -127,11 +126,7 @@ class App extends Component {
             .catch(function (error) {
                 console.log(error);
             });
-
-       
-
-    
-        
+ 
     }
 
 }

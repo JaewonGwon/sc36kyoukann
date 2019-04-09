@@ -7,12 +7,13 @@ import Modal_detail from './Modal_detail';
 
 
 const Card = ({ property }) => {
+    
     var styles = {
         width: "100%"
 
 
     };
-
+   
     const { book_index, book_num, book_title, book_image, book_writer, book_date, book_publisher, book_content, book_likecount, book_viewcount, book_scrapcount } = property;
     return (
 
@@ -47,8 +48,19 @@ const Card = ({ property }) => {
                         
                             <div className="detailButton">
                                 <Modal_detail
-                                    content={book_content}
-                                    img={book_image} />
+                                    book_content={book_content}
+                                    book_image={book_image} 
+                                    book_title={book_title}
+                                    book_num={book_num}
+                                    book_writer={book_writer}
+                                    book_date={book_date}
+                                    book_publisher={book_publisher}
+                                    book_content={book_content}
+                                    book_likecount={book_likecount}
+                                    book_viewcount={book_viewcount}
+                                    book_scrapcount={book_scrapcount} />
+
+
                             </div>
                    
                 </div>

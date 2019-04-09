@@ -69,5 +69,14 @@ public class AjaxController {
 		return result;
 	}
 	
+	@RequestMapping("/request_modalTag")
+	@ResponseBody
+	public ArrayList<Book> request_modalTag(Object request_data) {
+		
+		
+		}
+		return result;
+	}
+	
 }
 
