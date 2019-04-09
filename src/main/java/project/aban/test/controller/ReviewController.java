@@ -73,6 +73,7 @@ public class ReviewController {
 		System.out.println(a);
 		if (a == 1) {
 			System.out.println("성공");
+			System.out.println("수정반복");
 			return "success";
 		}else {
 			return "fail";

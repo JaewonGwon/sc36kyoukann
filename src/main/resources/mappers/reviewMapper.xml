@@ -19,4 +19,14 @@
 	<delete id="reviewDelete" parameterType="int">
 		delete review where rev_num=#{rev_num} 
 	</delete>
+	
+	   <update id="addLike" parameterType="int">
+      update
+         review
+      set
+         rev_like = rev_like + 1
+      where
+         rev_num = #{rev_num}
+   </update>
+	
 </mapper>
