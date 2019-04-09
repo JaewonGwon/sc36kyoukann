@@ -13,6 +13,10 @@ public interface ReviewMapper {
 	Review selectOne(int rev_num);
 
 	int update(Review review);
+
+	int reviewDelete(int rev_num);
+	
+	int addLike(int rev_num);
 	
 	
 
