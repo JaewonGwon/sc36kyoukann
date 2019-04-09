@@ -7845,10 +7845,6 @@ figure.snip1283.hover figcaption {
    }
 }
 
-
-/* .item { display:none; } */
-
-
 .item.active {
     display: inline-block !important;
     /*visibility:hidden !important; <->  visible */
