@@ -55,7 +55,7 @@ class App extends Component {
                             {/* 페이지 */}
                             <div className="page">
                                 <div className="col">
-                                    <div className="test123">Tag추천</div>
+                                    <div className="tagListName">태그 검색</div>
                                         <div className="line">
                                         {/* 버튼 */}
                                             <div className="button">
