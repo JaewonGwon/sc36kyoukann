@@ -1,7 +1,9 @@
 package project.aban.test.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,22 +28,28 @@ public class AjaxController {
 	
 	@RequestMapping("/search")
 	@ResponseBody
-
 	public ArrayList<Book> search() {
 		ArrayList<Book> result = (ArrayList<Book>) dao.select_book_recommend();
 
-		
 		return result;
 	}
 	
+	@RequestMapping("/request_taglist")
+	@ResponseBody
+	public ArrayList<Tag> request_taglist() {
+		ArrayList<Tag> result = (ArrayList<Tag>) dao.show_tags();
+		return result;
+	}
 	
 	@RequestMapping("/search_tag")
 	@ResponseBody
-
-	public ArrayList<Tag> search_tag() {
-		ArrayList<Tag> result = (ArrayList<Tag>) dao.show_tags();
-
-		
+	public ArrayList<Book> search_tag(String tag) {
+		ArrayList<String> request_data = new ArrayList<>();
+		String[] list = tag.split(",");
+		for (int i = 0 ; i < list.length ; i++) {
+			request_data.add(list[i]);
+		}
+		ArrayList<Book> result = dao.search_book(request_data);
 		return result;
 	}
 	
@@ -54,20 +62,5 @@ public class AjaxController {
 		Member result = mDao.getProfile(_temp);
 		return result;
 	}
-	
-	@RequestMapping("/request_taglist")
-	@ResponseBody
-	public ArrayList<Book> request_taglist(Object request_data) {
-		
-		ArrayList<String> request_tags = new ArrayList<>();
-		request_tags.add("이야기");
-		request_tags.add("수학");
-		ArrayList<Book> result = dao.request_taglist(request_tags);
-		for(int i = 0 ; i < result.size() ; i++) {
-			System.out.println(result.get(i));
-		}
-		return result;
-	}
-	
 }
 
