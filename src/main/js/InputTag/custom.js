@@ -45,10 +45,12 @@ class CustomExample extends Component {
     );
   }
   componentDidMount() {
+  console.log("didmount");
  axios.get('/test/request_taglist')
         .then(res => {
             let tag_list = res.data
             let result = []
+
             for(var i = 0 ; i < tag_list.length ; i++) {
                 let obj = tag_list[i];
                 obj.name = obj.tag;
@@ -68,7 +70,9 @@ class CustomExample extends Component {
       
     }
   
-  componentDidUpdate(prevState) {
+    componentDidUpdate(prevProps, prevState) {
+    console.log("prevState : " + prevState.value[0]);
+    if (prevState.value != this.state.value){
     let tag_list = [];
     for (var i = 0 ; i < this.state.value.length ; i++) {
       tag_list.push(this.state.value[i]['name']);
@@ -86,6 +90,7 @@ class CustomExample extends Component {
       .then(res => {this.props.callbackFromParent(res.data)})
     }
   }
+}
 }
 
 const style = {

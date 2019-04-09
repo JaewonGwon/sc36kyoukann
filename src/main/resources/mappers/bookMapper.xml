@@ -122,9 +122,8 @@
 		    BOOK, TAGLIST
 		WHERE
 		    BOOK.BOOK_NUM = TAGLIST.BOOK_NUM
-			<foreach index="index" collection="list" item="tag" open=" " close=" ">
-			AND TAGLIST.TAG = #{tag}
-			</foreach>
+		    AND TAGLIST.TAG IN
+			#{tag}
 			AND ROWNUM BETWEEN 1 AND 30
 	</select>
 	
