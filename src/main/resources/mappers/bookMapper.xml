@@ -92,8 +92,6 @@
         ORDER BY
 	        tag_count DESC
 	</select>
-
-
 	
 	<insert id = "insert_taglist" parameterType = "java.util.List">
 		<foreach collection="list" item="taglist" index="index" separator=" " open="INSERT ALL " close="SELECT * FROM DUAL">
@@ -107,7 +105,7 @@
 		</foreach>
 	</insert>
 	
-	<select id = "request_tags" parameterType = "java.util.List" resultType = "Book">
+	<select id = "search_book" parameterType = "java.util.List" resultType = "Book">
 		SELECT
 		    BOOK.BOOK_NUM,
 		    BOOK.BOOK_TITLE,
@@ -127,6 +125,7 @@
 			<foreach index="index" collection="list" item="tag" open=" " close=" ">
 			AND TAGLIST.TAG = #{tag}
 			</foreach>
+			AND ROWNUM BETWEEN 1 AND 30
 	</select>
 	
 	<delete id = "delete_taglist">
