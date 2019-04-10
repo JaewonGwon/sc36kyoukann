@@ -96,8 +96,8 @@ public class ReviewController {
 	public String reviewDetail(int rev_num, Model model,HttpSession session) {
 		model.addAttribute("rev_num", rev_num);
 		Review review = rs.selectOne(rev_num);
-		String id = review.getId();
-		session.setAttribute("loginId", id);
+
+	
 		model.addAttribute("review",review);
 		return "review/reviewDetail";
 	}
@@ -108,7 +108,9 @@ public class ReviewController {
 		//System.out.println(rev_num);
 		
 		Review review = rs.selectOne(rev_num);
+		
 
+		model.addAttribute("review",review);
 		
 		//session.setAttribute("reviewD",review);
 		//model.addAttribute("revnum", rev_num);
