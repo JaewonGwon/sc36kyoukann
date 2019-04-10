@@ -110,7 +110,7 @@ public class ReviewController {
 		Review review = rs.selectOne(rev_num);
 		
 
-		model.addAttribute("review",review);
+		//model.addAttribute("review",review);
 		
 		//session.setAttribute("reviewD",review);
 		//model.addAttribute("revnum", rev_num);
