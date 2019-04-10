@@ -22,28 +22,33 @@ public class ReviewService {
 
 	public int bookdelete(int rev_num) {
 		int a = 0;
-		a=dao.bookdelete(rev_num);
+		a = dao.bookdelete(rev_num);
 		return a;
 	}
 
 	public Review selectOne(int rev_num) {
-		Review review =dao.selectOne(rev_num);
+		Review review = dao.selectOne(rev_num);
 		return review;
 	}
-	
+
 	public Review addLike(int rev_num) {
-		Review review =dao.addLike(rev_num);
+		Review review = dao.addLike(rev_num);
 		return review;
 	}
 
 	public int update(Review review) {
-		int a =0;
+		int a = 0;
 		a = dao.update(review);
 		return a;
 	}
 
 	public int reviewDelete(int rev_num) {
 		int a = dao.reviewDelete(rev_num);
+		return a;
+	}
+
+	public int reviewWrite(Review review) {
+		int a = dao.reviewWrite(review);
 		return a;
 	}
 }

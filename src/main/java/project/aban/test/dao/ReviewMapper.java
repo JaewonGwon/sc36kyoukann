@@ -18,6 +18,6 @@ public interface ReviewMapper {
 	
 	int addLike(int rev_num);
 	
-	
+	int reviewWrite(Review review);
 
 }

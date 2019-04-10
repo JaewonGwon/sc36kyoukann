@@ -53,5 +53,12 @@ public class ReviewDao {
 		a = mapper.reviewDelete(rev_num);
 		return a;
 	}
+	
+	public int reviewWrite(Review review) {
+	      ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+	      int a = 0;
+	      a = mapper.reviewWrite(review);
+	      return a;
+	   }
 
 }
