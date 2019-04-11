@@ -528,7 +528,7 @@ $(function (){
 					<form action="reviewDelete" id="reviewDelete" method="POST">
 						<div class="row">
 							<div class="col-12 text-center" id="btn-wrap">
-							<c:if test="${sessionScope.loginId != review.id}">
+							<c:if test="${sessionScope.loginId == review.id}">
 								<button class="btn btn-success btn-round" id="reviewmod" type="button">수정</button>
 								<button class="btn btn-primary btn-round" id="reviewdel" type="button">삭제</button>
 								</c:if>

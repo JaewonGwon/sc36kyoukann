@@ -15,8 +15,12 @@ public interface ReviewMapper {
 	int update(Review review);
 
 	int reviewDelete(int rev_num);
+
+	int reviewWrite(Review review);
 	
 	int addLike(int rev_num);
+
+	List<Review> selectbydate();
 	
 	
 

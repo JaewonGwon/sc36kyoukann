@@ -28,5 +28,18 @@
       where
          rev_num = #{rev_num}
    </update>
-	
+   
+   <insert id="reviewWrite" parameterType="Review">
+      insert into review(REV_NUM,
+      BOOK_TITLE,
+      ID,
+      REGDATE,
+      REV_TITLE,
+      REV_CONTENT) values (
+      REV_SEQ.nextval, #{book_title}, #{id}, sysdate, #{rev_title}, #{rev_content}
+      )
+   </insert>
+	<select id="selectbydate" resultType="Review">
+		select * from review order by REGDATE desc
+	</select>
 </mapper>
