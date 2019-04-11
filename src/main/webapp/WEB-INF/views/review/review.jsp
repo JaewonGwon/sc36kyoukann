@@ -218,12 +218,13 @@
 											class="now-ui-icons ui-1_zoom-bold text-dark"></i> <span>검색</span>
 										</a>
 									</div>
-
+  								<c:if test="${not empty sessionScope.loginId}"> 
 									<div class="dropdown m-30" style="display: inline;">
 										<a class="latest-st" href="reviewWrite"> <i
 											class="now-ui-icons text_align-left"></i> <span>리뷰작성</span>
 										</a>
 									</div>
+									  </c:if>
 								</div>
 							
 								<div class="masonry" id="itemwrap"></div>
