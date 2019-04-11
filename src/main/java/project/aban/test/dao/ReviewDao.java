@@ -31,10 +31,15 @@ public class ReviewDao {
 	public Review selectOne(int rev_num) {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
 		Review review= mapper.selectOne(rev_num);
-		
 		return review;
 	}
-
+	
+	public Review addLike(int rev_num) {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		Review review= mapper.selectOne(rev_num);
+		mapper.addLike(rev_num);
+		return review;
+	}
 	public int update(Review review) {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
 		int a = 0;
@@ -48,12 +53,21 @@ public class ReviewDao {
 		a = mapper.reviewDelete(rev_num);
 		return a;
 	}
-
+	
 	public int reviewWrite(Review review) {
+	      ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+	      int a = 0;
+	      a = mapper.reviewWrite(review);
+	      return a;
+	   }
+
+	public List<Review> selectbydate() {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
-		int a = 0;
-		a = mapper.reviewWrite(review);
-		return a;
+		List<Review> list = new ArrayList<Review>();
+		list =mapper.selectbydate();
+		return list;
 	}
+
+	
 
 }

@@ -9,12 +9,14 @@
         <typeAlias type="project.aban.test.vo.TestVO" alias="TestVO"/>
 		<typeAlias type="project.aban.test.vo.Review" alias="Review"/>
         <typeAlias type="project.aban.test.vo.Tag" alias="Tag"/>
+        <typeAlias type="project.aban.test.vo.Like" alias="Like"/>
 
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/memberMapper.xml"/>
 		<mapper resource="mappers/bookMapper.xml"/>
 		<mapper resource="mappers/reviewMapper.xml"/>
+		<!-- <mapper resource="mappers/likeMapper.xml"/> -->
 	</mappers>
 </configuration>
 

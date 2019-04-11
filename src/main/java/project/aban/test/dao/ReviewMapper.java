@@ -18,6 +18,10 @@ public interface ReviewMapper {
 
 	int reviewWrite(Review review);
 	
+	int addLike(int rev_num);
+
+	List<Review> selectbydate();
+	
 	
 
 }
