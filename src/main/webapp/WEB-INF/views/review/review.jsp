@@ -172,6 +172,7 @@
 
 <body class="index-page sidebar-collapse">
 
+
 	<!-- Navbar include -->
 	<%@ include file="/WEB-INF/views/include/navbar.jsp"%>
 
@@ -234,7 +235,9 @@
 									</div>
 								</div>
 
+
 							</div>
+						
 						</div>
 					</div>
 				</div>
