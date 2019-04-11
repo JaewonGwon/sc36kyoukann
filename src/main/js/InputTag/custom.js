@@ -69,7 +69,7 @@ class CustomExample extends Component {
         })
       
     }
-  
+
     componentDidUpdate(prevProps, prevState) {
     console.log("prevState : " + prevState.value[0]);
     if (prevState.value != this.state.value){
