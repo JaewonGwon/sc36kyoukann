@@ -82,11 +82,11 @@
 							listwriter += '</p>';
 							listwriter += '<p class="main-review-tag">';
 							listwriter += '<div class="row">';
-							listwriter += '<div class="col-lg-7" style="text-align: left;padding-top: 4px;">';
+							listwriter += '<div class="col-7" style="text-align: left;padding-top: 4px;">';
 							listwriter += '<button class="btn btn-link btn-info uname-st">'
 									+ tt.id + '</button>';
 							listwriter += '</div>';
-							listwriter += '<div class="col-lg-5" style="text-align: right; padding-top: 4px;">';
+							listwriter += '<div class="col-5" style="text-align: right; padding-top: 4px;">';
 							listwriter += '<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;" data-value="';
           listwriter += tt.rev_num;
           listwriter +='">';
