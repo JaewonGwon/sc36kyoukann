@@ -61,10 +61,10 @@ function output(resp) {
 	      listwriter +='</p>';
 	      listwriter +='<p class="main-review-tag">';
 	      listwriter +='<div class="row">';
-	      listwriter +='<div class="col-lg-7" style="text-align: left;padding-top: 4px;">';
+	      listwriter +='<div class="col-7" style="text-align: left;padding-top: 4px;">';
 	      listwriter +='<button class="btn btn-link btn-info uname-st">'+tt.id+'</button>';
 	      listwriter +='</div>';
-	      listwriter +='<div class="col-lg-5" style="text-align: right; padding-top: 4px;">';
+	      listwriter +='<div class="col-5" style="text-align: right; padding-top: 4px;">';
           listwriter +='<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;" data-value="';
           listwriter += tt.rev_num;
           listwriter +='">';
@@ -141,7 +141,49 @@ $(function () {
   });
 });
 /* 리뷰 제목부분 툴팁 그림 나오게 하는 소스 끝*/
- 
+
+
+
+/**
+ * Calculate the masonry
+ *
+ * Calculate the average of heights of masonry-bricks and then
+ * set it as the height of the masonry element.
+ *
+ * @since 12212018
+ * @author Rahul Arora
+ * @param grid       Object  The Masonry Element 
+ * @param gridCell   Object  The Masonry bricks
+ * @param gridGutter Integer The Vertical Space between bricks 
+ * @param dGridCol   Integer Number of columns on big screens
+ * @param tGridCol   Integer Number of columns on medium-sized screens
+ * @param mGridCol   Integer Number of columns on small screens
+ */
+function masonry(grid, gridCell, gridGutter, dGridCol, tGridCol, mGridCol) {
+  var g = document.querySelector(grid),
+      gc = document.querySelectorAll(gridCell),
+      gcLength = gc.length, // Total number of cells in the masonry
+      gHeight = 0, // Initial height of our masonry
+      i; // Loop counter
+  
+  // Calculate the net height of all the cells in the masonry
+  for(i=0; i<gcLength; ++i) {
+    gHeight+=gc[i].offsetHeight+parseInt(gridGutter);
+  }
+  
+  /*
+   * Calculate and set the masonry height based on the columns
+   * provided for big, medium, and small screen devices.
+   */ 
+  if(window.screen.width >= 1024) {
+    g.style.height = gHeight/dGridCol + gHeight/(gcLength+1) + "px";
+  } else if(window.screen.width < 1024 && window.screen.width >= 768) {
+    g.style.height = gHeight/tGridCol + gHeight/(gcLength+1) + "px";
+  } else {
+    g.style.height = gHeight/mGridCol + gHeight/(gcLength+1) + "px";
+  }
+}
+
 </script>
 
 
@@ -161,6 +203,7 @@ $(function () {
 			          <div class="title text-center">
 			            <h3 class="h3fontblack">Review</h3>
 			          </div>		          
+
 
 						<div class="col-12 text-center p-20">
 							<div class="dropdown m-30" style="display: inline;">
