@@ -141,7 +141,7 @@
 			data : {
 				rev_num : rev_num
 			},
-			success : output
+			success : init
 		})
 	}
 
