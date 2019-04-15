@@ -1,5 +1,6 @@
 package project.aban.test.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import project.aban.test.vo.Review;
@@ -19,5 +20,7 @@ public interface ReviewMapper {
 	int addLike(int rev_num);
 	
 	int reviewWrite(Review review);
+
+	ArrayList<Review> listReview(String searchText);
 
 }

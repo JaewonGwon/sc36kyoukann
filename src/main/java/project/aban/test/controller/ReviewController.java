@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.aban.test.service.ReviewService;
@@ -34,7 +35,7 @@ public class ReviewController {
 	
 	@RequestMapping(value = "/reviewInsert", method = RequestMethod.GET)
 	   public String reviewInsert(Review review) {
-	      System.out.println(review.toString());
+	      System.out.println("글등록");
 	      int a = rs.reviewWrite(review);
 	      if (a==1) {
 	         return "review/review";
@@ -134,13 +135,6 @@ public class ReviewController {
 	}
 	
 	
-	@RequestMapping(value = "/searchReview", method = RequestMethod.POST)
-	@ResponseBody
-	public Review searchReview(HttpSession session) {
-		int rev_num=(int)session.getAttribute("rev_num");
-		Review review = rs.selectOne(rev_num);
-		
-		return review;
-	}
+
 }
 
