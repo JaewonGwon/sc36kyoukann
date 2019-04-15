@@ -17,7 +17,8 @@ module.exports = {
         Modal_detail: './Modal_detail.js',
         MyPage : './MyPage.js',
         MyProfile : './MyProfile.js',
-        MyProfileApp : './MyProfileApp.js'
+        MyProfileApp : './MyProfileApp.js',
+        Carousel : './Carousel.js'
     },
     devtool: 'sourcemaps',
     cache: true,

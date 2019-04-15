@@ -61,5 +61,13 @@ public class ReviewDao {
 	      return a;
 	   }
 
+	public List<Review> selectbydate() {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		List<Review> list = new ArrayList<Review>();
+		list =mapper.selectbydate();
+		return list;
+	}
+
+	
 
 }
