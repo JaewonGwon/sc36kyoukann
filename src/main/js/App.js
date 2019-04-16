@@ -14,6 +14,7 @@ class App extends Component {
     }
 
     callBackList = (dataFromChild) => {
+        console.log("callBackList")
         let booklist = dataFromChild;
         for (var i = 0; i < booklist.length; i++) {
             booklist[i].book_index = i;
@@ -21,29 +22,18 @@ class App extends Component {
         this.setState({properties : booklist,
                        property : booklist[0]
         });
+        console.log(this.state)
     }
 
-    //버튼
-    nextProperty = () => {
-        const newBook_num = this.state.property.book_index + 1;
-        this.setState({
-            property: this.state.properties[newBook_num]
-        })
-    }
-
-    prevProperty = () => {
-        const newBook_num = this.state.property.book_index - 1;
-        this.setState({
-            property: this.state.properties[newBook_num]
-        })
-    }
-
-    _renderingCards = ({ properties, property } = this.state) => {      
-    
+    _renderingCards = () => {      
+        console.log("rendered")
         return (
             <div className="wrapper">
                 <div className="tagInput">
                     <CustomExample callbackFromParent = {this.callBackList}/>
+                </div>
+                <div className="recommand">
+                    <Carousel bookData = {this.state}/>
                 </div>
                 <div className="recommand">
                     <Carousel bookData = {this.state}/>
@@ -54,15 +44,15 @@ class App extends Component {
 
     //값 받아서 render
     render() {
+        
         return (
             this.state.properties ? this._renderingCards() : 'no'
         );
     }
         
     shouldComponentUpdate(nextProps, nextState) {
-        console.log(nextState);
         //여기에서 Modal Call 해서 Render하기
-        return nextState.properties.length !== 0;
+        return true;
     }
     
     componentDidMount() {
@@ -83,10 +73,12 @@ class App extends Component {
             .catch(function (error) {
                 console.log(error);
             });
-    
-        
     }
-
+    componentDidUpdate(prevProps, prevState) {
+        console.log("didupdate.");
+        console.log(prevProps)
+        console.log(prevState)
+    }
 
 }
 export default App;
