@@ -4,64 +4,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<%@ include file="/WEB-INF/views/include/navbar.jsp" %>
-<style>
-img {
-	width: 200px
-}
-
-.profileID, .profileName {
-	width: 100px
-}
-
-.profileContainer {
-	margin-top: 5%
-}
-
-.bookCover {
-	width: 100px
-}
-
-.table {
-	background-color: transparent;
-}
-
-.profileFrame {
-	background-color: rgba(0, 0, 0, 0.3);
-}
-</style>
+<link href="resources/assets/css/App.css" rel="stylesheet" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
 <body class="index-page sidebar-collapse">
-<%-- <%@ include file="/WEB-INF/views/include/navbar.jsp"%> --%>
-<a href="memberCheck">회원정보수정(임시)</a>
-	<div class="wrapper">
-		<div class="page-header clear-filter" filter-color="orange">
-			<div class="page-header-image" data-parallax="true"
-				style="background-image: url('resources/assets/img/header.jpg');">
-			</div>
-			<div class="container">
-				<div class="content-center brand">
-					<div class="container">
-
-							<div id="root"></div>
-
-					</div>
+	<!-- Navbar include -->
+	<%@ include file="/WEB-INF/views/include/navbar.jsp"%>
+	<div class="wrapper" style="border: 1px solid blue;">
+		<!-- main 태크 시작 -->
+		<div class="main">
+			<div class="section section-signup"
+				style="min-height: 1400px; background-color: #eee;">
+				<div class="container">
 				</div>
 			</div>
-		</div>
-		
-		<!-- main 태크 시작 -->
-		<div class="main"></div>
+		</div>	
 		<!-- main 태크 끝 -->
-
 		<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+		<%@ include file="/WEB-INF/views/include/coreJsFile.jsp"%>
+		<%@ include file="/WEB-INF/views/include/modal.jsp"%>
 	</div>
-	<%@ include file="/WEB-INF/views/include/coreJsFile.jsp"%>
-	<script type="text/javascript" src="resources/react/MyPage.bundle.js"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<!-- <script type="text/javascript" src="resources/react/main.bundle.js"></script> -->
+
+	<script type="text/javascript" src="resources/react/index.bundle.js"></script>
 </body>
 
 </html>
