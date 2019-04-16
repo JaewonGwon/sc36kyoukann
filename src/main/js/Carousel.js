@@ -14,24 +14,26 @@ class Carousel extends Component {
     
     constructor(props) {
         super(props);
+        this.state = {
+        }
     }
 
     //버튼
     nextProperty = () => {
-        const newBook_num = this.props.bookData.property.book_index + 1;
+        const newBook_num = this.state.property.book_index + 1;
         this.setState({
-            property: this.props.bookData.properties[newBook_num]
+            property: this.state.properties[newBook_num]
         })
     }
 
     prevProperty = () => {
-        const newBook_num = this.props.bookData.property.book_index - 1;
+        const newBook_num = this.state.property.book_index - 1;
         this.setState({
-            property: this.props.bookData.properties[newBook_num]
+            property: this.state.properties[newBook_num]
         })
     }
 
-    _renderingCards = ({ properties, property } = this.props.bookData) => {      
+    _renderingCards = ({ properties, property } = this.state) => {   
         return (
                     <div className="user_reco">
 
@@ -82,15 +84,27 @@ class Carousel extends Component {
         );
     }
 
-    componentDidUpdate() {
-
-    }
-
     //값 받아서 render
     render() {
         return (
-            this.props.bookData.properties ? this._renderingCards() : 'no'
+            this.state.properties ? this._renderingCards() : 'no'
         );
     }
+    componentDidMount() {
+        this.setState({
+            properties : this.props.bookData.properties,
+            property : this.props.bookData.property  
+        })
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(this.props.bookData.property !== prevProps.bookData.property) {
+            this.setState({
+                properties : this.props.bookData.properties,
+                property : this.props.bookData.property
+            })
+        }
+    }
+
 }
 export default Carousel;
