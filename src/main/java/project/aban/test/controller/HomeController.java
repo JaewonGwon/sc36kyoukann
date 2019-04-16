@@ -22,5 +22,9 @@ public class HomeController {
 		
 		return "index";
 	}
-	
+	@RequestMapping(value = "index_test", method = RequestMethod.GET)
+	public String home2() {
+		
+		return "index_test";
+	}
 }
