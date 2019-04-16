@@ -23,15 +23,7 @@ public class ReviewController {
 	@Autowired
 	ReviewService rs;
 	
-	@RequestMapping(value = "/selectbydate", method = RequestMethod.GET)
-	@ResponseBody
-	public List<Review> selectbydate(HttpSession session) {
-		List<Review> list = new ArrayList<>();
-		list=rs.selectbydate();
-		
-		
-		return list;
-	}
+	
 	@RequestMapping(value = "/reviewWrite", method = RequestMethod.GET)
 	public String reviewWrite() {
 		return "review/reviewWrite";
@@ -43,10 +35,10 @@ public class ReviewController {
 	
 	@RequestMapping(value = "/reviewInsert", method = RequestMethod.GET)
 	   public String reviewInsert(Review review) {
-	      System.out.println("글등록");
+	      System.out.println(review.toString());
 	      int a = rs.reviewWrite(review);
 	      if (a==1) {
-	         return "review/review";
+	         return "redirect:/bookreview";
 	      }
 	      return "fail";
 	   }
@@ -106,6 +98,7 @@ public class ReviewController {
 		model.addAttribute("rev_num", rev_num);
 		Review review = rs.selectOne(rev_num);
 
+	
 		model.addAttribute("review",review);
 		return "review/reviewDetail";
 	}
@@ -116,9 +109,12 @@ public class ReviewController {
 		//System.out.println(rev_num);
 		
 		Review review = rs.selectOne(rev_num);
+		
 
+		//model.addAttribute("review",review);
 		
-		
+		//session.setAttribute("reviewD",review);
+		//model.addAttribute("revnum", rev_num);
 		return review;
 	}
 	
