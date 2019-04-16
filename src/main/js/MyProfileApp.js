@@ -37,7 +37,7 @@ class MyProfileApp extends Component {
                 {this.state ? <MyBookshelf id = {this.state.id}/> : this.loadingSpinner()}
                 </div>
             </div>
-         )
+        )
     }
 
 
