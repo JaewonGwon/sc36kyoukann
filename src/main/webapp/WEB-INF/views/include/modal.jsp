@@ -12,9 +12,9 @@
     
           <div class="modal-body modal-body-st" style="min-height: 200px;">
   
-	  		  <form action="reviewSearch" id="searchForm">
+	  		  <form action="reviewSearch" id="searchForm" method="get">
 	            <div class="row text-center" style="border:margin-top: 70px;">
-	            	<input type="search" value="" id="reviewSearch" class="reviewSearchBox"/>
+	            	<input type="search" id="reviewSearch" class="reviewSearchBox" />
 	            	<input type="submit" class="submithidden" />
 	            </div>
 	          </form>

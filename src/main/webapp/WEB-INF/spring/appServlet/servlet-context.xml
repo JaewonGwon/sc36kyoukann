@@ -55,9 +55,8 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/profile" />
-			<mapping path="/delete" />
-			<mapping path="/reviewDelete" />
-			<mapping path="/update" />
+			<mapping path="/addLike" />
+
 			
 			<beans:ref bean="TheInterceptor"/>
 		</interceptor>

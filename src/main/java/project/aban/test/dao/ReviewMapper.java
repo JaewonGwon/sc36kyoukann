@@ -1,5 +1,6 @@
 package project.aban.test.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import project.aban.test.vo.Review;
@@ -23,5 +24,7 @@ public interface ReviewMapper {
 	List<Review> selectbydate();
 	
 	
+
+	ArrayList<Review> listReview(String searchText);
 
 }
