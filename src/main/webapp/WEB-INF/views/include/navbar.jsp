@@ -7,7 +7,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="index" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom">
-          	공감
+          	Reed Books : Gong-Gam
         </a>
         <c:if test="${sessionScope.loginId != null}">
 	        <a class="navbar-brand text-warning" rel="tooltip" data-placement="bottom">

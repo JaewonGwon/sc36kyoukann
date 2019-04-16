@@ -131,7 +131,7 @@
 
 	}
 
-	function revlike(rev_num) {
+	function revlike() {
 
 		var rev_num = $(this).attr("data-value");
 
@@ -141,9 +141,11 @@
 			data : {
 				rev_num : rev_num
 			},
-			success : output
+			success : init
 		})
+		
 	}
+	
 
 	/*리뷰 10개씩 뿌려주는 코드 시작 (더보기 버튼)*/
 	function load(id, cnt, btn) {
