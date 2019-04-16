@@ -18,16 +18,17 @@ $(function(){
 		  if (!prev.length) prev = $(this).siblings(':last');
 		  prev.children(':nth-last-child(2)').clone().prependTo($(this));
 		});
-
 });
 
 </script>
+
 <body class="index-page sidebar-collapse">
 
 <!-- Navbar include -->
   <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
   <style type="text/css">
-
+ 
+ 
 
 .multi-item-carousel .carousel-inner {
   width: 180%;
@@ -261,10 +262,113 @@ $(function(){
   box-shadow: 0px 0px 16px 4px rgba(0, 0, 0, 0.3);
 }
 
+.carousel-indicators1 {
+  right: 0;
+  bottom: -30px;
+}
+.carousel-indicators1 li {
+  outline: 1px solid lightgray;
+}
+.carousel-indicators1 .active {
+  outline: 1px solid black;
+}
 
+.main-review-title{
+	font-size: 13pt;
+
+}
+.main-review-uname{
+	font-size: 11pt;
+}
+
+@media screen and (min-width: 1201px) and (max-width: 2400px) {
+	.review-row-bg-st{
+	margin: 0;
+	background-color: #fff;
+	height: 200px;
+	}
+	.card-body-st{
+	 padding: 0px;
+	 margin: 0;
+	 overflow: hidden;
+	 height: 170px;
+	}
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+	.review-row-bg-st{
+	margin: 0;
+	background-color: #fff;
+	height: 200px;
+	}
+	.card-body-st{
+	 padding: 0px;
+	 margin: 0;
+	 overflow: hidden;
+	 height: 170px;
+	}
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 991px) {
+	.review-row-bg-st{
+	margin: 0;
+	background-color: #fff;
+	}
+	.card-body-st{
+	 padding: 0px;
+	 margin: 0;
+	 overflow: hidden;
+	 height: 150px;
+	}
+}
+
+
+@media screen and (min-width: 518px) and (max-width: 768px) {
+	.review-row-bg-st{
+	 margin: 0;
+	 background-color: #fff;
+	}
+	.card-body-st{
+	 padding: 0px;
+	 margin: 0;
+	 overflow: hidden;
+	 height: 150px;
+	}
+}
+
+
+
+@media screen and (min-width: 100px) and (max-width: 517px) {
+	.review-row-bg-st{
+	 margin: 0;
+	 background-color: #fff;
+	}
+	.card-body-st{
+	 padding: 0px;
+	 margin: 0;
+	 overflow: hidden;
+	 height: 150px;
+	}
+}
+
+
+   .author_img{
+   	margin:0;
+   	padding: 0px;
+   }
+   .author_text{
+   	margin:0;
+   	padding-left: 10px;
+   }
+.author_line{
+border-top: 1px dashed #ddd;
+padding-bottom: 22px;
+}
+ 
  </style>
   <div class="wrapper">
-    
+     <!-- main 태크 시작 -->
     <!-- main 태크 시작 -->
     <div class="main">
     
@@ -334,6 +438,7 @@ $(function(){
 							<p class="main-carousel-span-st-publ">By 에릭 라르셀</p>
 							<p class="main-carousel-span-st-cont">
 								단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
+								단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
 							</p>
 							<p>
 								<a href="#" class="btn btn-orange btn-round btn-md">See The Book</a>
@@ -355,178 +460,303 @@ $(function(){
 		  </a>
 		</div>
     
- 
 
     <!-- 추천 리뷰 보여주는 부분 시작 -->
+
+      <div class="section section-tabs">
+        <div class="row" style="padding: 40px; margin:0 auto;">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 ml-auto col-xl-3 col-sm-12">
+              <p class="category">Author of the week</p>
+              <!-- Nav tabs -->
+              
+              <div class="card">
+                <div class="card-header">
+                  <!-- <ul class="nav nav-tabs justify-content-center" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
+                        <i class="now-ui-icons objects_umbrella-13"></i> Home
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
+                        <i class="now-ui-icons shopping_cart-simple"></i> Profile
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#messages" role="tab">
+                        <i class="now-ui-icons shopping_shop"></i> Messages
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#settings" role="tab">
+                        <i class="now-ui-icons ui-2_settings-90"></i> Settings
+                      </a>
+                    </li>
+                  </ul> -->
+                </div>
    
-
-
-      <div class="page-header clear-filter" style="background-color: #eee;">
-      <div class="page-header-image" data-parallax="true">
-      </div>
-      
-      
-      <div class="container main-reiew-cont" style="max-width: 100%;">
-        <div class="content-center brand">
-        
-	      	<div class="container" style="max-width: 96%;">
-	      	
-	      	<div class="row">
-	      	
-	      	<div class="col-lg-3 col-md-12 col-sm-12" style="border: 1px solid blue; padding: 0px;">
-	          <div class="title">
-	            <h3 class="h3fontblack">Author of the week</h3>
-	          </div>
-	          
-	          
-	        </div>
-	      	<div class="col-lg-9 col-md-12 col-sm-12" style="border: 1px solid blue; padding: 0px;">
-	      	
-	          <div class="title">
-	            <h3 class="h3fontblack">Popular by Genre</h3>
-	          </div>
-	    
-  
-	          <div class="col-6" style="border: 1px solid red; padding: 20px;">
-	          
-   
-		          <div class="row justify-content-center">
-		            <div class="col-lg-12 col-md-12">
-		              <div id="text-carousel" class="carousel slide" data-ride="carousel">
-		                <ol class="carousel-indicators">
-		                  <li data-target="#text-carousel" data-slide-to="0" class="active"></li>
-		                  <li data-target="#text-carousel" data-slide-to="1"></li>
-		                  <li data-target="#text-carousel" data-slide-to="2"></li>
-		                </ol>
-		                
-		                 <div class="row">
-	      				  <div class="col-12">
-
-			                <div class="carousel-inner" role="listbox" style="box-shadow: none; background-color: #ddd !impotant;">
-			                  
-			                  
-			                  <div class="carousel-item active">
-			                    <div>
-			                    
-			                    
-			                    
-			                    
-			                    <div class="carousel-content p-40 text-carousel-st">
-			                        <div class="in-div-text-carousel-st">
-			                        	<p class="main-review-title">Harry Potter And the Sorcerer's Stone을 읽고..</p>
-			                            <p class="main-review-content">
-											해리포터시리즈에서 특별한 점이라고 생각했던 것 중 하나가 꿈에 대한 묘사이다. 해리는 자신의 이마에 있는 번개 모양의 흉터를 만들어 놓은 숙적 볼드모트와 꿈으로 연결되어 있다. 꿈은 중요한 줄거리를 담당할 뿐만 아니라 해리의 감정 상태, 그리고 캐릭터를 더욱 현실적으로 보이게 하는 역할을 한다. 복선을 담당하기도 한다.
-	
-	작가는 큰 줄거리 사이사이에 복선을 여기저기 장치해 놓았다. 이 것들이 독자들을 방대한양의 시리즈인 7권 까지 읽게 하는 힘이다. 궁금 했던 것들이 하나하나 풀려져 가면서 느끼는 재미는 다음 권을 계속 읽고 싶게 만든다. 이 것들은 절대 억지스럽게 풀리지 않는다. 하나하나 모두 타당한 이유가 있고, 유치하지 않다.
-										</p>
-			                            <!-- 베스트 리뷰 태크 부분 시작 -->
-			                            <p class="main-review-tag">
-			                            	<span class="badge badge-info">SF</span>
-			                            	<span class="badge badge-info">환타지</span>
-			                            	<span class="badge badge-info">호구와트</span>
-			                            	<span class="badge badge-info">마법</span>
-			                            	<span class="badge badge-info">해리포터</span>
-			                            </p>
-			                            <!-- 베스트 리뷰 태크 부분 끝 -->
-	
-			                            <!-- 베스트 리뷰  태크, user name, hitcount 있는부분 시작-->
-			                            <p class="main-review-tag">	                            
-			                              <div class="row">
-			                              	<div class="col-lg-8" style="text-align: left;padding-top: 4px;">
-												<button class="btn btn-link btn-info uname-st">USER NAME</button>
-											</div>
-			                              	<div class="col-lg-4" style="text-align: right;">
-												<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">
-									                <i class="now-ui-icons ui-2_favourite-28" style="font-size: 0.8em; font-weight: 600;"></i> 203								            </button>
-											</div>
-			                              </div>								  						             
-	              		                </p>
-	 		                            <!-- 베스트 리뷰  태크, user name, hitcount 있는부분 끝-->
-	              		                
-			                        </div>
-		                    	</div>
-		                    	
-		                    	
-		                    	
-		                    	
-			                  </div>
-			                  
-	
-	
-	
-			                  <div class="carousel-item">
-			                    <div class="carousel-content p-40 text-carousel-st">
-			                        <div class="in-div-text-carousel-st">
-			                        	<p class="main-review-title">일주일은 당신의 인생을 바꾸기에 충분한 시간이다.</p>
-			                            <p class="main-review-content">
-											변화를 기피하는 건 인간의 본성이다. 우리는 변화를 힘들고 고통스러운 일이라고 생각하기 때문에 본능적으로 변화를 멀리한다. 《헬위크》는 하루하루를 똑같이 살아가며 스스로에게 실망한 사람들에게 내려진 최후의 처방전이자 특효약이다. 헬위크를 통과하며 우리는 기억에 남을 만한 도전, 새로운 것을 배울 기회, 가슴 벅차게 떠올릴 경험, 삶의 지침으로 삼을 교훈을 얻게 될 것이다.
-										</p>
-			                            <!-- 베스트 리뷰 태크 부분 시작 -->
-			                            <p class="main-review-tag">
-			                            	<span class="badge badge-info">자기계발</span>
-			                            	<span class="badge badge-info">성공</span>
-			                            	<span class="badge badge-info">시간관리</span>
-			                            	<span class="badge badge-info">일주일</span>
-			                            	<span class="badge badge-info">핵빡쎄</span>
-			                            </p>
-			                            <!-- 베스트 리뷰 태크 부분 끝 -->
-	
-			                            <!-- 베스트 리뷰  태크, user name, hitcount 있는부분 시작-->
-			                            <p class="main-review-tag">	                            
-			                              <div class="row">
-			                              	<div class="col-lg-8" style="text-align: left;padding-top: 4px;">
-												<button class="btn btn-link btn-info uname-st">USER NAME</button>
-											</div>
-			                              	<div class="col-lg-4" style="text-align: right;">
-												<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">
-									                <i class="now-ui-icons ui-2_favourite-28" style="font-size: 0.8em; font-weight: 600;"></i> 385								            </button>
-											</div>
-			                              </div>								  						             
-	              		                </p>
-	 		                            <!-- 베스트 리뷰  태크, user name, hitcount 있는부분 끝-->
-			                        </div>
-		                    	</div>
-			                  </div>
-			                </div>
-		                 </div>
+                
+                
+                <div class="card-body">
+                  <!-- Tab panes -->
+                  <div class="tab-content text-center">
+                    <div class="tab-pane active" id="home" role="tabpanel">
+                      <div class="row">
+                     
+                        <div class="col-2 author_img">
+		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
 		                </div>
-		                <a class="carousel-control-prev2" href="#text-carousel" role="button" data-slide="prev">
-		                  <i class="now-ui-icons arrows-1_minimal-left"></i>
-		                </a>
-		                <a class="carousel-control-next2" href="#text-carousel" role="button" data-slide="next">
-		                  <i class="now-ui-icons arrows-1_minimal-right"></i>
-		                </a>
-		              </div>
-		            </div>
-		          </div>
-		          
-	          </div>
-	          <div class="col-6">
-	          asdsd
-	          </div>
-	          
-	          </div>
-	          
-	          
-	          
-	          
-	          
-	          </div>
-	          
-	          
-	          
-	          
-	        </div>
-	        
-	        
-	        
-	        
-	        
-	        
-	        
+		                <div class="col-10 text-left author_text" style="">
+		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
+		                </div>
+		                
+		                <div class="col-12 author_line"></div>
+		                
+                        <div class="col-2 author_img">
+		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
+		                </div>
+		                <div class="col-10 text-left author_text" style="">
+		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
+		                </div>
+		                
+		                <div class="col-12 author_line"></div>
+		                
+		                
+                        <div class="col-2 author_img">
+		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
+		                </div>
+		                <div class="col-10 text-left author_text" style="">
+		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
+		                </div>
+		                
+		                <div class="col-12 author_line"></div>
+		                
+                        <div class="col-2 author_img">
+		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
+		                </div>
+		                <div class="col-10 text-left author_text" style="">
+		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
+		                </div>
+		                
+		                <div class="col-12 author_line"></div>
+		                
+                        <div class="col-2 author_img">
+		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
+		                </div>
+		                <div class="col-10 text-left author_text" style="">
+		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
+		                </div>		               
+		                
+	                  </div>
+                    </div>
+
+
+                  </div>
+         
+                  
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-9 col-md-9 ml-auto col-xl-9 col-sm-12">
+              <div class="row" style="margin: 0; padding: 0px;">
+	              <div class="col-8">
+	              	<p class="category">Popular by Genre</p>
+	              </div>
+	              <!--Controls-->
+	              <div class="col-4">    	          		
+					<div class="controls-top float-right">
+						<a class="btn btn-outline-secondary prev" data-slide="prev" href="#multi-item-example"><i class="fa fa-chevron-left"></i></a> <a class="btn btn-outline-secondary next" data-slide="next" href="#multi-item-example"><i class="fa fa-chevron-right"></i></a>
+					</div>				
+				  </div>
+				  <!--/.Controls-->
+			  </div>
+              <!-- Tabs with Background on Card -->
+              <div class="card" style="background-color: #eee; box-shadow: none;">
+                                
+
+				<div class="container mt-3 mb-5">
+					<div class="row">
+						<div class="col">
+							<!--Carousel Wrapper-->
+							<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
+
+								<!--Slides-->
+								
+								<div class="carousel-inner" role="listbox" style="background-color: none; box-shadow: none;">
+									<!--First slide-->
+									<div class="carousel-item active">
+										<div class="row">
+											<div class="col-md-6">
+											
+												<div class="card" style="box-shadow: none;">
+													<div class="row review-row-bg-st">
+														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
+															<img class="d-block img-st" src="resources/assets/img/book_img03.jpg" alt="First slide" style="margin: 0 auto;">
+														</div>
+														<div class="col-lg-7" style="padding: 10px;">
+															<div class="card-body card-body-st">
+																<p class="main-review-title">Hell Week</p>
+																<p class="main-review-uname">By 에릭 라르셀</p>
+																<p class="main-review-content" style="overflow:hidden !important;">
+																	단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
+																	단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
+																	단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
+																</p>
+															</div>
+														</div>
+													</div>
+													<div>
+														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
+															<p style="margin: 0 auto; padding: 0px; text-align: center;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">
+																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
+																</button>
+																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">
+																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
+																</button>
+															</p>
+														</div>
+													</div>
+												</div>	
+												
+												
+											</div>
+											<div class="col-md-6 clearfix d-none d-md-block">
+																								<div class="card" style="box-shadow: none;">
+													<div class="row review-row-bg-st">
+														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
+															<img class="d-block img-st" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+														</div>
+														<div class="col-lg-7" style="padding: 10px;">
+															<div class="card-body card-body-st">
+																<p class="main-review-title">Harry Potter</p>
+																<p class="main-review-uname">By J.K ROWLING</p>
+																<p class="main-review-content" style="overflow:hidden !important;">
+																	해리포터시리즈에서 특별한 점이라고 생각했던 것 중 하나가 꿈에 대한 묘사이다. 해리는 자신의 이마에 있는 번개 모양의 흉터를 만들어 놓은 숙적 볼드모트와 꿈으로 연결되어 있다. 꿈은 중요한 줄거리를 담당할 뿐만 아니라 해리의 감정 상태, 그리고 캐릭터를 더욱 현실적으로 보이게 하는 역할을 한다. 복선을 담당하기도 한다.
+																</p>
+															</div>
+														</div>
+													</div>
+													<div>
+														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
+															<p style="margin: 0 auto; padding: 0px; text-align: center;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">
+																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
+																</button>
+																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">
+																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
+																</button>
+															</p>
+														</div>
+													</div>
+													
+												</div>	
+
+											</div>
+				
+										</div>
+									</div>
+									<!--/.First slide-->
+
+
+									<!--Second slide-->
+									<div class="carousel-item">
+										<div class="row">
+											<div class="col-md-6">
+											
+												<div class="card" style="box-shadow: none;">
+													<div class="row review-row-bg-st">
+														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
+															<img class="d-block img-st" src="resources/assets/img/book_img02.jpg" alt="First slide" style="margin: 0 auto;">
+														</div>
+														<div class="col-lg-7" style="padding: 10px;">
+															<div class="card-body card-body-st">
+																<p class="main-review-title">Twilight</p>
+																<p class="main-review-uname">By 스테파이 메이어</p>
+																<p class="main-review-content" style="overflow:hidden !important;">
+																	영화 트와일라잇 너무 지루했어...ㅠㅠ나만 그런가...시리즈가 있는 영화들은 항상 1편이 지루하고 재미가 없다.난 그냥 책으로 만족하련다.
+																</p>
+															</div>
+														</div>
+													</div>
+													<div>
+														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
+															<p style="margin: 0 auto; padding: 0px; text-align: center;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">
+																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
+																</button>
+																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">
+																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
+																</button>
+															</p>
+														</div>
+													</div>
+												</div>	
+												
+												
+											</div>
+											<div class="col-md-6 clearfix d-none d-md-block">
+																								<div class="card" style="box-shadow: none;">
+													<div class="row review-row-bg-st">
+														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
+															<img class="d-block img-st" src="resources/assets/img/book_img04.jpg" alt="First slide" style="margin: 0 auto;">
+														</div>
+														<div class="col-lg-7" style="padding: 10px;">
+															<div class="card-body card-body-st">
+																<p class="main-review-title">Hell Week</p>
+																<p class="main-review-uname">By 허지원</p>
+																<p class="main-review-content" style="overflow:hidden !important;">
+																	예쁜 연보라색에 트렌디한 느낌의 표지를 가진 책 <나는 아직 나를 모른다>는, 자신을 나쁘게 평가하여 몰아붙이거나 낙담하는 마음을 가진 이들에게 ‘당신은 사실 당신이 아는 것보다 훨씬 괜찮은 사람이다’라는 메시지를 전합니다.
+																</p>
+															</div>
+														</div>
+													</div>
+													<div>
+														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
+															<p style="margin: 0 auto; padding: 0px; text-align: center;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">
+																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
+																</button>
+																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">
+																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
+																</button>
+															</p>
+														</div>
+													</div>
+													
+												</div>	
+
+											</div>
+				
+										</div>
+									</div>
+									<!--/.Third slide-->
+								</div>
+								<!--/.Slides-->
+				
+							</div>
+							<!--/.Carousel Wrapper-->
+						</div>
+					</div>
+				</div>                
+
+                
+                
+                
+                
+              </div>
+              <!-- End Tabs on plain Card -->
+            </div>
           </div>
         </div>
       </div>
+
+
+
+
+
     <!-- 추천 리뷰 보여주는 부분 끝 -->
     
     
@@ -631,6 +861,9 @@ $(function(){
     
    </div>
    <!-- main 태크 끝 -->
+
+
+
 
     <%@ include file="/WEB-INF/views/include/modal.jsp" %>
     <%@ include file="/WEB-INF/views/include/footer.jsp" %>
