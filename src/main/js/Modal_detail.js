@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { Button, Segment, Icon, Label } from 'semantic-ui-react';
+import { Button, Icon, Label } from 'semantic-ui-react';
 import axios from 'axios';
 
 
@@ -155,15 +155,10 @@ class ModalExample extends React.Component {
 
 
 
-                        <Button as='div' labelPosition='right'>
-                            <Button color='red' onClick={this._LikeCount}>
-                                <Icon name='heart' />
-                                Like
-                            </Button>
-                            <Label as='a' basic color='red' pointing='left'>
-                                {this.state.book_likecount}
-                            </Label>
-                        </Button>
+
+                        <Button className="btn btn-round" type="button" id="rev_like" onClick={this._LikeCount}>
+							<i className="now-ui-icons ui-2_favourite-28" id="revlike"></i>{this.state.book_likecount}
+					    </Button>
 
 
 

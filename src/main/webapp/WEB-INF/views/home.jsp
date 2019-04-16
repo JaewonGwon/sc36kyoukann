@@ -6,7 +6,6 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <script src="resources/jquery-3.3.1.min.js"></script>
 <link href="resources/assets/css/App.css" rel="stylesheet" />
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
 <body class="index-page sidebar-collapse">
 	<!-- Navbar include -->
 	<%@ include file="/WEB-INF/views/include/navbar.jsp"%>
