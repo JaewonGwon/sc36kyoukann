@@ -8,7 +8,9 @@
 
 <script>
 $(document).ready(function() {
+	
 	 init();
+	 $("#test").on("click", orderbydregdate);
 	 /*검색버튼 클릭시 모달창 검색 인풋박스에 포커스 주는 코드 시작*/
 	  $("#modalClick").click(function(){
 		    $("#myModal").modal("show");
@@ -20,6 +22,18 @@ $(document).ready(function() {
 	  /*검색버튼 클릭시 모달창 검색 인풋박스에 포커스 주는 코드 끝*/
 });
 
+
+function orderbydregdate(){
+    $.ajax({
+       url : 'selectbydate',
+       method : 'GET',
+       success : function(resp) {
+          output(resp);
+       }
+
+    })
+ }
+
 function init() {
 	   $.ajax({
 	      url : 'review'
@@ -30,6 +44,8 @@ function init() {
 	   
 	   })
 	}
+	
+	
 	
 function output(resp) {
 	   var listwriter = '';
@@ -53,7 +69,9 @@ function output(resp) {
 		  listwriter += '</p>';
 		  listwriter += '</a>';
 	      listwriter += '<p class="main-review-tag">';
-	      listwriter +='<span class="badge badge-success">SF</span>';
+	      listwriter +='<span class="badge badge-success">';
+	      listwriter += tt.regdate
+	      listwriter += '</span>';
 	      listwriter +='<span class="badge badge-success">환타지</span>';
 	      listwriter +='<span class="badge badge-success">호구와트</span>';
 	      listwriter +='<span class="badge badge-success">마법</span>';
@@ -170,7 +188,7 @@ $(function () {
 							  </a>
 							  <ul class="dropdown-menu latest-drop-ui" role="menu" aria-labelledby="dropdownMenu1">
 							    <li role="presentation">
-							      <a role="menuitem" tabindex="-1" href="#">
+							      <a role="menuitem" tabindex="-1" href="" id="test">
 							        <i class="now-ui-icons tech_watch-time"></i>
 							                  날짜순
 							      </a>
