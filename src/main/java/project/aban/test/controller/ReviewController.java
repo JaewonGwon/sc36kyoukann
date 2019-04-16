@@ -23,6 +23,15 @@ public class ReviewController {
 	@Autowired
 	ReviewService rs;
 	
+	@RequestMapping(value = "/selectbydate", method = RequestMethod.GET)
+	   @ResponseBody
+	   public List<Review> selectbydate(HttpSession session) {
+	      List<Review> list = new ArrayList<>();
+	      list=rs.selectbydate();
+	      
+	      
+	      return list;
+	   }
 	
 	@RequestMapping(value = "/reviewWrite", method = RequestMethod.GET)
 	public String reviewWrite() {
