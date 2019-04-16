@@ -112,26 +112,35 @@
 	</insert>
 	
 	<select id = "search_book" parameterType = "java.util.List" resultType = "Book">
-		SELECT
-		    BOOK.BOOK_NUM,
-		    BOOK.BOOK_TITLE,
-		    BOOK.BOOK_IMAGE,
-		    BOOK.BOOK_WRITER,
-		    BOOK.BOOK_DATE,
-		    BOOK.BOOK_PUBLISHER,
-		    BOOK.BOOK_CONTENT,
-		    BOOK.BOOK_LIKECOUNT,
-		    BOOK.BOOK_VIEWCOUNT,
-		    BOOK.BOOK_SCRAPCOUNT,
-		    TAGLIST.TAG
-		FROM
-		    BOOK, TAGLIST
-		WHERE
-		    BOOK.BOOK_NUM = TAGLIST.BOOK_NUM
-			<foreach index="index" collection="list" item="tag" open=" " close=" ">
-			AND TAGLIST.TAG = #{tag}
-			</foreach>
-			AND ROWNUM BETWEEN 1 AND 30
+	SELECT
+			A.book_num,
+			A.book_title,
+			A.book_image,
+			A.book_writer,
+			A.book_date,
+			A.book_publisher,
+			A.book_likecount,
+			A.book_content
+	FROM BOOK A,
+	(select * from
+	(select book_num,  count(book_num) as cnt from (select * from taglist where 
+		<choose>
+			<when test='list.size > 1'>
+				<foreach collection="list" item="tag" index="index" separator="or" open="" close="">
+				tag = #{tag}
+				</foreach>
+				)group by book_num)
+				where cnt = #{index}+1
+			</when>
+			<otherwise>
+				<foreach collection="list" item="tag" index="index" separator="or" open="" close="">
+				tag = #{tag}
+				</foreach>
+				)group by book_num)
+			</otherwise>
+		</choose>
+	) B
+	WHERE A.BOOK_NUM = B.BOOK_NUM
 	</select>
 	
 	<delete id = "delete_taglist">

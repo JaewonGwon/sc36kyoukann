@@ -30,7 +30,7 @@ public interface BookMapper {
 
 	public List<Book> select_book_recommend();
 
-	public ArrayList<Book> search_book(ArrayList<String> request_data);
+	public ArrayList<Book> search_book(ArrayList<String> taglist);
 
 	public ArrayList<String> request_modalTag(String book_title);
 

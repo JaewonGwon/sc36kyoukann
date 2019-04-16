@@ -22,7 +22,15 @@ public class ReviewController {
 	@Autowired
 	ReviewService rs;
 	
-	
+	@RequestMapping(value = "/selectbydate", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Review> selectbydate(HttpSession session) {
+		List<Review> list = new ArrayList<>();
+		list=rs.selectbydate();
+		
+		
+		return list;
+	}
 	@RequestMapping(value = "/reviewWrite", method = RequestMethod.GET)
 	public String reviewWrite() {
 		return "review/reviewWrite";
@@ -31,6 +39,16 @@ public class ReviewController {
 	public String review() {
 		return "review/review";
 	}
+	
+	@RequestMapping(value = "/reviewInsert", method = RequestMethod.GET)
+	   public String reviewInsert(Review review) {
+	      System.out.println(review.toString());
+	      int a = rs.reviewWrite(review);
+	      if (a==1) {
+	         return "review/review";
+	      }
+	      return "fail";
+	   }
 
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	@ResponseBody
@@ -83,20 +101,23 @@ public class ReviewController {
 		}
 	}
 	@RequestMapping(value = "/reviewDetail", method = RequestMethod.GET)
-	public String reviewDetail(int rev_num, Model model) {
+	public String reviewDetail(int rev_num, Model model,HttpSession session) {
 		model.addAttribute("rev_num", rev_num);
+		Review review = rs.selectOne(rev_num);
+
+		model.addAttribute("review",review);
 		return "review/reviewDetail";
 	}
 	
 	@RequestMapping(value = "/getreviewDetail", method = RequestMethod.POST)
 	@ResponseBody
-	public Review getreviewDetail(int rev_num) {
+	public Review getreviewDetail(int rev_num,Model model,HttpSession session) {
 		//System.out.println(rev_num);
 		
 		Review review = rs.selectOne(rev_num);
+
 		
-		//session.setAttribute("reviewD",review);
-		//model.addAttribute("revnum", rev_num);
+		
 		return review;
 	}
 	
@@ -106,6 +127,7 @@ public class ReviewController {
 	@ResponseBody
 	public Review addLike(int rev_num) {
 		//System.out.println(rev_num);
+		
 		
 		Review review = rs.addLike(rev_num);
 		System.out.println("좋아요버튼 누름");

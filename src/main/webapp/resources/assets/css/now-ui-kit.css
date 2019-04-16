@@ -1442,7 +1442,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 }
 
 .btn,
-/*네비메누 폰트 사이즈  버튼 지정된 부분*/
+/*네비메뉴 폰트 사이즈  버튼 지정된 부분*/
 .navbar .navbar-nav>a.btn {
   border-width: 2px;
   font-weight: 400;
@@ -1455,8 +1455,10 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   padding: 11px 22px;
   cursor: pointer;
   background-color: #888888;
-  color: #FFFFFF;
+  color: #ddd;
 }
+
+
 
 .btn:hover,
 .btn:focus,
@@ -4412,10 +4414,11 @@ Created using IcoMoon - icomoon.io
 .navbar a {
   vertical-align: middle;
 }
-
+/*네비 글씨색*/
 .navbar a:not(.btn):not(.dropdown-item) {
-  color: #FFFFFF;
+  color: #7D8571;
 }
+/*네비 글씨색*/
 
 .navbar p {
   display: inline-block;
@@ -4504,7 +4507,7 @@ Created using IcoMoon - icomoon.io
 /* 메뉴바 왼쪽 로고부분 폰트 사이즈*/
 .navbar .navbar-brand {
   text-transform: uppercase;
-  font-size: 1em;
+  font-size: 1.3em;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   line-height: 1.625rem;
@@ -4521,6 +4524,7 @@ Created using IcoMoon - icomoon.io
   position: relative;
   left: 0;
   padding-left: 0;
+  
 }
 
 .navbar .navbar-toggler .navbar-toggler-bar.middle-bar {
@@ -4538,12 +4542,13 @@ Created using IcoMoon - icomoon.io
 
 .navbar.navbar-transparent {
   /* background-color: transparent !important; */
-  background-color: #000000 !important;
   /* opacity: 0.6; */
+  background-color: #fff !important;
   box-shadow: none;
   color: #FFFFFF;
   padding-top: 10px !important;
   border-bottom: 1px solid white;
+
 }
 
 .navbar.bg-white:not(.navbar-transparent) a:not(.dropdown-item):not(.btn) {
@@ -4577,7 +4582,8 @@ Created using IcoMoon - icomoon.io
 /*메뉴바가 밑으로 내려왔을때 색바뀜*/
 .bg-primary {
   /* background-color: #f96332 !important; */
-  background-color: #4f220e !important;
+  /* background-color: #4f220e !important; */
+  background-color: #000 !important;
 }
 
 .bg-info {
@@ -4910,6 +4916,7 @@ Created using IcoMoon - icomoon.io
 img {
   max-width: 100%;
   border-radius: 1px;
+  
 }
 
 .img-raised {
@@ -5329,8 +5336,10 @@ img {
   box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
   border-radius: 0.1875rem;
 }
+
+
 .carousel-inner-wh{
-  max-width: 302px;
+  width: 100%;
   margin: 0 auto;
   height: 402px;
 }
@@ -5343,6 +5352,8 @@ img {
   margin: 60px auto;
   display: block;
 }
+
+
 
 .footer {
   padding: 24px 0;
@@ -5512,18 +5523,16 @@ img {
   height: 100vh;
 }
 
-.index-page .page-header {
-  height: 100vh;
-}
 .index-page .page-header .container>.content-center {
   top: 50%;
 }
+
 
 .index-page .page-header .category-absolute {
   position: absolute;
   top: 100vh;
   margin-top: -60px;
-  padding: 0 15px;
+  /* padding: 0 15px; */
   width: 100%;
   color: rgba(255, 255, 255, 0.5);
 }
@@ -5943,7 +5952,6 @@ img {
   color: #FFFFFF;
   padding: 0 15px;
   width: 100%;
-  max-width: 880px;
 }
 
 .page-header footer {
@@ -6521,7 +6529,7 @@ img {
     width: 22px;
     height: 1px;
     border-radius: 1px;
-    background: #FFFFFF;
+    background: #7D8571;
   }
   .sidebar-collapse .navbar .navbar-toggler-bar+.navbar-toggler-bar {
     margin-top: 7px;
@@ -7299,11 +7307,15 @@ pt-30{
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	height: 200px;
+	height: 100px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
+
   }
 }
+
+
+
 @media screen and (min-width: 769px) and (max-width: 990px) {
   .text-carousel-st{
 	background-color: #fff;
@@ -7315,7 +7327,7 @@ pt-30{
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	height: 170px !important;
+	height: 100px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
   }
@@ -7371,7 +7383,7 @@ pt-30{
 	
 }
 .main-review-title{
-	font-size: 1.4em;
+	font-size: 1.2em;
 	text-align: left;
 	color: #000;
 	font-weight: 400;
@@ -7396,7 +7408,7 @@ pt-30{
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	height: 200px;
+	height: 90px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
@@ -7650,17 +7662,31 @@ figure.snip1283.hover figcaption {
 	padding: 0px;
 	/* box-shadow: 2px 2px 4px 0 #ccc; */
   }
-
 	.main-review-content2{
 		font-weight: 400;
 		color: #262626;
 		text-align: left;
 		font-size: 1em;
 		display: inline-block;
-/* 		height: 130px; */
+ 		height: 76px;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		width: 100%;
+	}
+	.item.active {
+    display: inline-block;
+    /*visibility:hidden !important; <->  visible */
+/*     width: 100% !important;
+    height: 100% !important;
+ */ 
+    position: relative;
+    left:0;
+    
+    flex: auto;
+    height: 280px;
+    min-width: 200px;
+    z-index: 1;
+    overflow: visible;
 	}
 	
 }
@@ -7671,18 +7697,32 @@ figure.snip1283.hover figcaption {
 	/* max-height: 400px;	 */
   }
   
-  
   .main-review-content2{
 	font-weight: 400;
 	color: #262626;
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	/* height: 100px !important; */
+	height: 76px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	width: 100% !important;
   }
+  .item.active {
+    display: inline-block;
+    /*visibility:hidden !important; <->  visible */
+/*     width: 100% !important;
+    height: 100% !important;
+ */ 
+    position: relative;
+    left:0;
+    
+    flex: auto;
+    height: 280px;
+    min-width: 200px;
+        z-index: 1;
+    overflow: visible;
+	}
 }
 
 
@@ -7698,11 +7738,27 @@ figure.snip1283.hover figcaption {
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	/* height: 170px !important; */
+	height: 76px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	width: 100%;
   }
+  .item.active {
+    display: inline-block;
+    /*visibility:hidden !important; <->  visible */
+/*     width: 100% !important;
+    height: 100% !important;
+ */ 
+    position: relative;
+    left:0;
+    
+    flex: auto;
+    height: 280px;
+    min-width: 200px;
+        z-index: 1;
+    overflow: visible;
+	}
+  
 }
 @media screen and (min-width: 518px) and (max-width: 768px) {
     .text-carousel-st2{
@@ -7716,11 +7772,24 @@ figure.snip1283.hover figcaption {
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	/* height: 120px !important; */
+	height: 76px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	width: 100%;
   }
+  .item.active {
+    display: inline-block;
+    /*visibility:hidden !important; <->  visible */
+/*     width: 100% !important;
+    height: 100% !important;
+ */ 
+    position: relative;
+    left:0;
+    
+    flex: auto;
+    height: 280px;
+    min-width: 200px;
+}
 }
 @media screen and (min-width: 300px) and (max-width: 517px) {
   .text-carousel-st2{
@@ -7733,14 +7802,26 @@ figure.snip1283.hover figcaption {
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	/* height: 120px !important; */
+	height: 76px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	overflow: auto !important;
 	width: 100%;
   }
+  
+  .item.active {
+    display: inline-block;
+    /*visibility:hidden !important; <->  visible */
+/*     width: 100% !important;
+    height: 100% !important;
+ */ 
+    position: relative;
+    left:0;
+    flex: auto;
+    height: 340px !important;
+    min-width: 200px;
+	}
 }
-
 /* 리뷰검색 모달창 인풋박스 스타일 시작 */
 .reviewSearchBox{
 	width: 100%;
@@ -7788,9 +7869,9 @@ figure.snip1283.hover figcaption {
 
 /*리뷰페이지 masonry 스타일 시작*/
 .masonry { /* Masonry container */
-  -webkit-column-count: 4;
-  -moz-column-count:4;
-  column-count: 4;
+  -webkit-column-count: 3;
+  -moz-column-count:3;
+  column-count: 3;
   -webkit-column-gap: 1em;
   -moz-column-gap: 1em;
   column-gap: 1em;
@@ -7800,23 +7881,45 @@ figure.snip1283.hover figcaption {
   -webkit-column-gap: 1.5em;
   column-gap: 1.5em;
   font-size: .85em;
+  
+  display: flex;
+  flex-flow: row wrap;
 }
+
 .item {
-    display: inline-block !important;
+    display: none;
     background: #fff;
     padding: 1em;
-    margin: 0 0 1.5em;
-    width: 100%;
+    margin: 1.5em;
     -webkit-transition:1s ease all;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-shadow: 2px 2px 4px 0 #ccc;
-    
-    
-}
-.item img{max-width:100%;}
+       
+    flex: auto;
+    height: 250px;
+    min-width: 200px;
 
+}
+
+
+.item.active:nth-child(1n+1) {
+  width: 250px;
+}
+.item.active:nth-child(1n+1):nth-child(1n+2) {
+  width: 325px;
+}
+.item.active:nth-child(1n+1):nth-child(1n+3) {
+  width: 250px;
+}
+.item.active:nth-child(1n+1):nth-child(1n+4) {
+  width: 380px;
+}
+
+
+.item img{max-width:100%;}
+/* 
 @media only screen and (max-width: 500px) {
    .masonry {
        -moz-column-count: 1;
@@ -7844,18 +7947,9 @@ figure.snip1283.hover figcaption {
        -webkit-column-count: 3;
        column-count: 3;
    }
-}
 
-.item { display:none; }
+} */
 
-.item.active {
-    display: inline-block !important;
-    /*visibility:hidden !important; <->  visible */
-    width: 100% !important;
-    height: 100% !important;
-    position: relative;
-    left:0;
-}
 .is_comp.item:after {
     display: none;
 }

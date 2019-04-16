@@ -45,10 +45,12 @@ class CustomExample extends Component {
     );
   }
   componentDidMount() {
+  console.log("didmount");
  axios.get('/test/request_taglist')
         .then(res => {
             let tag_list = res.data
             let result = []
+
             for(var i = 0 ; i < tag_list.length ; i++) {
                 let obj = tag_list[i];
                 obj.name = obj.tag;
@@ -67,23 +69,26 @@ class CustomExample extends Component {
         })
       
     }
-  
-  componentDidUpdate(prevState) {
-    let tag_list = [];
-    for (var i = 0 ; i < this.state.value.length ; i++) {
-      tag_list.push(this.state.value[i]['name']);
-    }
-    let url = "/test/search_tag?";
-    for (var i = 0 ; i < tag_list.length ; i++) {
-      if (i == tag_list.length-1) {
-        url = url + "tag=" + tag_list[i];
-      } else {
-        url = url + "tag=" + tag_list[i] + "&";
+
+    componentDidUpdate(prevProps, prevState) {
+    console.log("prevState : " + prevState.value[0]);
+    if (prevState.value != this.state.value){
+      let tag_list = [];
+      for (var i = 0 ; i < this.state.value.length ; i++) {
+        tag_list.push(this.state.value[i]['name']);
       }
-    }
-    if (tag_list.length != 0) {
-      axios.get(url)
-      .then(res => {this.props.callbackFromParent(res.data)})
+      let url = "/test/search_tag?";
+      for (var i = 0 ; i < tag_list.length ; i++) {
+        if (i == tag_list.length-1) {
+          url = url + "tag=" + tag_list[i];
+        } else {
+          url = url + "tag=" + tag_list[i] + "&";
+        }
+      }
+      if (tag_list.length != 0) {
+        axios.get(url)
+        .then(res => {this.props.callbackFromParent(res.data)})
+      }
     }
   }
 }

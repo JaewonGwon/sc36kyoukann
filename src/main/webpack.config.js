@@ -18,8 +18,11 @@ module.exports = {
         MyPage : './MyPage.js',
         MyProfile : './MyProfile.js',
         MyProfileApp : './MyProfileApp.js',
+
         UserTasteApp : './UserTasteApp.js',
-        UserTasteIndex : './UserTasteIndex.js'
+        UserTasteIndex : './UserTasteIndex.js',
+        Carousel : './Carousel.js'
+
     },
     devtool: 'sourcemaps',
     cache: true,
