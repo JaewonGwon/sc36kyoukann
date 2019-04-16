@@ -23,4 +23,13 @@ public class HomeController {
 		return "index";
 	}
 
+	
+	@RequestMapping(value = "UserTasteIndex", method = RequestMethod.GET)
+	public String test() {
+		
+		return "UserTasteIndex";
+	}
+
+
+
 }

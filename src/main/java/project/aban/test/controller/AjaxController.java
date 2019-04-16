@@ -16,6 +16,7 @@ import project.aban.test.dao.MemberDao;
 import project.aban.test.vo.Book;
 import project.aban.test.vo.Member;
 import project.aban.test.vo.Tag;
+import project.aban.test.vo.TagList;
 
 @Controller
 public class AjaxController {
@@ -53,14 +54,77 @@ public class AjaxController {
 		return result;
 	}
 	
-	@RequestMapping("/request_profile")
+	@RequestMapping("/request_modalTag")
 	@ResponseBody
-	public Member request_profile(HttpSession session) {
-		Member _temp = new Member();
+	public ArrayList<String> request_modalTag(String book_title) {
+		ArrayList<String> result =  dao.request_modalTag(book_title);
+		System.out.println(book_title);
+		System.out.println(result);
 		
-		_temp.setId((String)session.getAttribute("loginId"));
-		Member result = mDao.getProfile(_temp);
 		return result;
+	}
+	
+
+	
+	
+	@RequestMapping("/request_hitAdd")
+	@ResponseBody
+	public Book request_hitAdd(String book_title) {
+		int result = dao.request_hitAdd(book_title);
+		
+		System.out.println(result);
+		Book thisBook = dao.selectOne(book_title);
+			
+		return thisBook;
+		
+	}
+	
+	@RequestMapping("/request_scrapAdd")
+	@ResponseBody
+	public Book request_scrapAdd(String book_title) {
+		int result = dao.request_scrapAdd(book_title);
+		
+		System.out.println(result);
+		Book thisBook = dao.selectOne(book_title);
+			
+		return thisBook;
+	
+	}
+	
+	@RequestMapping("/request_scrapMinus")
+	@ResponseBody
+	public Book request_scrapMinus(String book_title) {
+		int result = dao.request_scrapMinus(book_title);
+		
+		System.out.println(result);
+		Book thisBook = dao.selectOne(book_title);
+			
+		return thisBook;
+	
+	}
+	
+	@RequestMapping("/request_likeAdd")
+	@ResponseBody
+	public Book request_likeAdd(String book_title) {
+		int result = dao.request_likeAdd(book_title);
+		
+		System.out.println(result);
+		Book thisBook = dao.selectOne(book_title);
+			
+		return thisBook;
+	
+	}
+	
+	@RequestMapping("/request_likeMinus")
+	@ResponseBody
+	public Book request_likeMinus(String book_title) {
+		int result = dao.request_likeMinus(book_title);
+		
+		System.out.println(result);
+		Book thisBook = dao.selectOne(book_title);
+			
+		return thisBook;
+	
 	}
 }
 

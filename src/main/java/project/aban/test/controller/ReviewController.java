@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.aban.test.service.ReviewService;
@@ -23,14 +24,15 @@ public class ReviewController {
 	ReviewService rs;
 	
 	@RequestMapping(value = "/selectbydate", method = RequestMethod.GET)
-	@ResponseBody
-	public List<Review> selectbydate(HttpSession session) {
-		List<Review> list = new ArrayList<>();
-		list=rs.selectbydate();
-		
-		
-		return list;
-	}
+	   @ResponseBody
+	   public List<Review> selectbydate(HttpSession session) {
+	      List<Review> list = new ArrayList<>();
+	      list=rs.selectbydate();
+	      
+	      
+	      return list;
+	   }
+	
 	@RequestMapping(value = "/reviewWrite", method = RequestMethod.GET)
 	public String reviewWrite() {
 		return "review/reviewWrite";
@@ -45,7 +47,7 @@ public class ReviewController {
 	      System.out.println(review.toString());
 	      int a = rs.reviewWrite(review);
 	      if (a==1) {
-	         return "review/review";
+	         return "redirect:/bookreview";
 	      }
 	      return "fail";
 	   }
@@ -105,6 +107,7 @@ public class ReviewController {
 		model.addAttribute("rev_num", rev_num);
 		Review review = rs.selectOne(rev_num);
 
+	
 		model.addAttribute("review",review);
 		return "review/reviewDetail";
 	}
@@ -115,9 +118,12 @@ public class ReviewController {
 		//System.out.println(rev_num);
 		
 		Review review = rs.selectOne(rev_num);
+		
 
+		//model.addAttribute("review",review);
 		
-		
+		//session.setAttribute("reviewD",review);
+		//model.addAttribute("revnum", rev_num);
 		return review;
 	}
 	
@@ -138,13 +144,6 @@ public class ReviewController {
 	}
 	
 	
-	@RequestMapping(value = "/searchReview", method = RequestMethod.POST)
-	@ResponseBody
-	public Review searchReview(HttpSession session) {
-		int rev_num=(int)session.getAttribute("rev_num");
-		Review review = rs.selectOne(rev_num);
-		
-		return review;
-	}
+
 }
 
