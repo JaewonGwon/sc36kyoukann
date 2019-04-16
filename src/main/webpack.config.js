@@ -17,7 +17,9 @@ module.exports = {
         Modal_detail: './Modal_detail.js',
         MyPage : './MyPage.js',
         MyProfile : './MyProfile.js',
-        MyProfileApp : './MyProfileApp.js'
+        MyProfileApp : './MyProfileApp.js',
+        UserTasteApp : './UserTasteApp.js',
+        UserTasteIndex : './UserTasteIndex.js'
     },
     devtool: 'sourcemaps',
     cache: true,

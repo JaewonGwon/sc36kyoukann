@@ -10,6 +10,9 @@
 		<typeAlias type="project.aban.test.vo.Review" alias="Review"/>
         <typeAlias type="project.aban.test.vo.Tag" alias="Tag"/>
         <typeAlias type="project.aban.test.vo.Like" alias="Like"/>
+        <typeAlias type="project.aban.test.vo.TagList" alias="TagList"/>
+
+
 
 	</typeAliases>
 	<mappers>

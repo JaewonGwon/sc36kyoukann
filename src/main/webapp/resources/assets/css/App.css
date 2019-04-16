@@ -12,6 +12,14 @@ body {
     
 }
 
+.modalButtons {
+    margin-left: 0%;
+}
+
+.modalButtonsClose{
+    margin-right: 0%;
+}
+
 
 .tagInput{
     overflow : visible;
@@ -82,7 +90,7 @@ section {
   margin: 0 auto; }
 
 .ui.button{
-    width: 100% !important;
+    width: 100% ;
 }
 .tagListName{
     

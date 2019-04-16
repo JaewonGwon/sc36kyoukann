@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
+
 import project.aban.test.vo.Book;
 import project.aban.test.vo.Tag;
 
@@ -29,6 +31,21 @@ public interface BookMapper {
 	public List<Book> select_book_recommend();
 
 	public ArrayList<Book> search_book(ArrayList<String> request_data);
-	
+
+	public ArrayList<String> request_modalTag(String book_title);
+
+	public int request_hitAdd(String book_title);
+
+	public Book selectOne(String book_title);
+
+	public int request_scrapAdd(String book_title);
+
+	public int request_scrapMinus(String book_title);
+
+	public int request_likeAdd(String book_title);
+
+	public int request_likeMinus(String book_title);
+
+
 
 }
