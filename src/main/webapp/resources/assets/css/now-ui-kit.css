@@ -4583,8 +4583,10 @@ Created using IcoMoon - icomoon.io
 .bg-primary {
   /* background-color: #f96332 !important; */
   /* background-color: #4f220e !important; */
-  background-color: #000 !important;
+  background-color: #fff !important;
 }
+
+
 
 .bg-info {
   background-color: #2CA8FF !important;
