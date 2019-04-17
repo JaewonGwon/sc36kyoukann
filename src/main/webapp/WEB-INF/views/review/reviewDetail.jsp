@@ -141,7 +141,7 @@ function output(resp) {
 	write += "     	<p class='main-review-title2'>";
 	write += '         <a href="#" data-toggle="tooltip" title="<img src='+ imgaddr +'>">'+resp.book_title+"</a>";
 	write += "     	</p>";
-	write += "         <p class='main-review-content2'>";
+	write += "         <p class='main-review-content3'>";
 	write += 				resp.rev_content;
 	write += "			</p>";
 	write += "         <!-- 베스트 리뷰 태크 부분 시작 -->";
@@ -170,6 +170,16 @@ function output(resp) {
 	write += "						15";
 	write += "					</button>";
 	write += "				</div>";
+
+	//댓글 달리는 부분 시작//
+	write += "				<div class='col-12' style='border-top: 1px dashed #ddd; padding: 10px;margin-top: 8px;'>";
+	write += "					aaa";
+	write += "				</div>";
+	write += "				<div class='col-12' style='border-top: 1px dashed #ddd; padding: 10px;'>";
+	write += "					bbb";
+	write += "				</div>";
+	//댓글 달리는 부분 끝//
+	
 	write += "           </div>";						  						             
 	write += "            </p>";
 	write += "      </div>";

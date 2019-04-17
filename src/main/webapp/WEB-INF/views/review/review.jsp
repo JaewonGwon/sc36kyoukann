@@ -178,8 +178,7 @@
 	<%@ include file="/WEB-INF/views/include/navbar.jsp"%>
 
 	<div class="wrapper">
-		<div class="section section-signup"
-			style="min-height: 600px; background-color: #eee;">
+		<div class="section section-signup"	style="min-height: 600px; background-color: #eee;">
 			<div class="container">
 				<div class="row">
 
