@@ -280,7 +280,6 @@ $(function(){
 .main-review-uname{
 	font-size: 11pt;
 }
-
 @media screen and (min-width: 1201px) and (max-width: 2400px) {
 	.review-row-bg-st{
 	margin: 0;
@@ -293,7 +292,6 @@ $(function(){
 	 overflow: hidden;
 	 height: 170px;
 	}
-}
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
 	.review-row-bg-st{
@@ -308,8 +306,6 @@ $(function(){
 	 height: 170px;
 	}
 }
-
-
 @media screen and (min-width: 769px) and (max-width: 991px) {
 	.review-row-bg-st{
 	margin: 0;
@@ -322,8 +318,6 @@ $(function(){
 	 height: 150px;
 	}
 }
-
-
 @media screen and (min-width: 518px) and (max-width: 768px) {
 	.review-row-bg-st{
 	 margin: 0;
@@ -336,9 +330,6 @@ $(function(){
 	 height: 150px;
 	}
 }
-
-
-
 @media screen and (min-width: 100px) and (max-width: 517px) {
 	.review-row-bg-st{
 	 margin: 0;
