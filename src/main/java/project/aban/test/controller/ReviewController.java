@@ -136,10 +136,11 @@ public class ReviewController {
 		
 		
 		Review review = rs.addLike(rev_num);
-		System.out.println("좋아요버튼 누름");
+		System.out.println(review);
 		
 		//session.setAttribute("reviewD",review);
 		//model.addAttribute("revnum", rev_num);
+		
 		return review;
 	}
 	
