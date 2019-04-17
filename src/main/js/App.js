@@ -25,11 +25,10 @@ class App extends Component {
         console.log(this.state)
     }
 
-    _renderingCards = () => {      
+    _renderingCards = () => {
         console.log("rendered")
         return (
             <div className="wrapper">
-                
                 <div className="tagInput">
                     <CustomExample callbackFromParent = {this.callBackList}/>
                 </div>
