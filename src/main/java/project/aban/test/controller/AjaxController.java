@@ -1,10 +1,6 @@
 package project.aban.test.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,9 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import project.aban.test.dao.BookDao;
 import project.aban.test.dao.MemberDao;
 import project.aban.test.vo.Book;
-import project.aban.test.vo.Member;
 import project.aban.test.vo.Tag;
-import project.aban.test.vo.TagList;
 
 @Controller
 public class AjaxController {
@@ -124,7 +118,19 @@ public class AjaxController {
 		Book thisBook = dao.selectOne(book_title);
 			
 		return thisBook;
+	}
 	
+	@RequestMapping("/request_main_book")
+	@ResponseBody
+	public ArrayList<Book> request_main_book() {
+		ArrayList<Book> result = dao.request_main_book();
+		for(int i = 0 ; i < result.size(); i++) {
+			if(result.get(i).getBook_content().length() > 300) {
+				String _temp = result.get(i).getBook_content().substring(0, 297) + "...";
+				result.get(i).setBook_content(_temp);
+			}
+		}
+		return result;
 	}
 }
 
