@@ -131,7 +131,7 @@
 
 	}
 
-	function revlike() {
+	function revlike(revnum) {
 
 		var rev_num = $(this).attr("data-value");
 

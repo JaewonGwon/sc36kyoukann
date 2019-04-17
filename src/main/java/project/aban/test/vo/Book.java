@@ -11,9 +11,6 @@ public class Book {
 	private String book_likecount;
 	private String book_viewcount;
 	private String book_scrapcount;
-	public Book() {
-		super();
-	}
 	public Book(String book_num, String book_title, String book_image, String book_writer, String book_date,
 			String book_publisher, String book_content, String book_likecount, String book_viewcount,
 			String book_scrapcount) {
@@ -28,6 +25,9 @@ public class Book {
 		this.book_likecount = book_likecount;
 		this.book_viewcount = book_viewcount;
 		this.book_scrapcount = book_scrapcount;
+	}
+	public Book() {
+		super();
 	}
 	public String getBook_num() {
 		return book_num;
@@ -98,4 +98,5 @@ public class Book {
 	}
 	
 	
+
 }

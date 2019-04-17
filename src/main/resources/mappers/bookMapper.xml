@@ -46,6 +46,12 @@
         	BOOK_CONTENT
         FROM book
 	</select>
+    <select id="selectOne" parameterType="Book" resultType="Book">
+		select *
+		from book
+			where book_title = #{book_title}
+
+	</select>
 
 	<select id="select_book" parameterType="Book" resultType="Book">
 		select distinct
@@ -144,6 +150,75 @@
 	<delete id = "delete_tag">
 	delete tag
 	</delete>
+
+
+	<select id = "request_modalTag" parameterType = "String" resultType = "String">
+		SELECT
+		    TAGLIST.TAG
+		FROM
+		    BOOK, TAGLIST
+		WHERE
+		    BOOK.BOOK_NUM = TAGLIST.BOOK_NUM
+			AND BOOK.BOOK_TITLE = #{book_title}
+			
+
+	</select>
+
+    <update id="request_hitAdd" parameterType ="String">
+
+    update 
+        book 
+    set 
+        BOOK_VIEWCOUNT = BOOK_VIEWCOUNT+1
+    where 
+        BOOK_TITLE = #{book_title}
+
+    </update>
+
+        <update id="request_scrapAdd" parameterType ="String">
+
+    update 
+        book 
+    set 
+        BOOK_SCRAPCOUNT = BOOK_SCRAPCOUNT+1
+    where 
+        BOOK_TITLE = #{book_title}
+
+    </update>
+
+        <update id="request_scrapMinus" parameterType ="String">
+
+    update 
+        book 
+    set 
+        BOOK_SCRAPCOUNT = BOOK_SCRAPCOUNT-1
+    where 
+        BOOK_TITLE = #{book_title}
+
+    </update>
+
+     <update id="request_likeAdd" parameterType ="String">
+
+    update 
+        book 
+    set 
+        BOOK_LIKECOUNT = BOOK_LIKECOUNT - 1
+    where 
+        BOOK_NUM = #{book_num}
+
+    </update> 
+
+    <update id="request_likeMinus" parameterType="String">
+
+    update 
+        book 
+    set 
+        BOOK_LIKECOUNT = BOOK_LIKECOUNT + 1 
+    where 
+        BOOK_TITLE = #{book_title}
+
+    </update>
+    
 	
 
 </mapper>

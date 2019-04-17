@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import project.aban.test.vo.Book;
 import project.aban.test.vo.Tag;
+import project.aban.test.vo.TagList;
 
 @Repository
 public class BookDao {
@@ -94,5 +95,59 @@ public class BookDao {
 		ArrayList<Book> result = mapper.search_book(taglist);
 		return result;
 	}
+
+
+	public ArrayList<String> request_modalTag(String book_title) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		ArrayList<String> result = mapper.request_modalTag(book_title);
+		 
+		return result;
+	}
+
+
+	public int request_hitAdd(String book_title) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		int result = mapper.request_hitAdd(book_title);
+		return result;
+	}
+
+
+	public Book selectOne(String book_title) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		Book result = mapper.selectOne(book_title);
+		return result;
+	}
+
+
+	public int request_scrapAdd(String book_title) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		int result = mapper.request_scrapAdd(book_title);
+		return result;
+	}
+
+
+	public int request_scrapMinus(String book_title) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		int result = mapper.request_scrapMinus(book_title);
+		return result;
+	}
+
+
+	public int request_likeAdd(String book_title) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		int result = mapper.request_likeAdd(book_title);
+		return result;
+		
+	}
+
+
+	public int request_likeMinus(String book_title) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		int result = mapper.request_likeMinus(book_title);
+		return result;
+	}
+
+
+
 
 }

@@ -1,3 +1,11 @@
+<style>
+/* footer {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+} */
+</style>
 <footer class="footer" data-background-color="black">
   <div class="container">
     <nav>

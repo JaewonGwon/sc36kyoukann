@@ -82,4 +82,8 @@
 	WHERE 
 		ID = #{id}
 	</select>
+	
+	<select id="selectbydate" resultType="Review">
+      select * from review order by REGDATE desc
+   </select>
 </mapper>
