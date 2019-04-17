@@ -7671,10 +7671,20 @@ figure.snip1283.hover figcaption {
 		font-size: 1em;
 		display: inline-block;
  		height: 76px;
-		overflow: hidden;
+ 		overflow: hidden;
 		text-overflow: ellipsis;
 		width: 100%;
-	}
+	}	
+	.main-review-content3{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+		width: 100%;
+	}	
+	
 	.item.active {
     display: inline-block;
     /*visibility:hidden !important; <->  visible */
@@ -7683,7 +7693,6 @@ figure.snip1283.hover figcaption {
  */ 
     position: relative;
     left:0;
-    
     flex: auto;
     height: 280px;
     min-width: 200px;
@@ -7706,10 +7715,20 @@ figure.snip1283.hover figcaption {
 	font-size: 1em;
 	display: inline-block;
 	height: 76px !important;
-	overflow: hidden;
+ 	overflow: hidden;
 	text-overflow: ellipsis;
 	width: 100% !important;
   }
+	.main-review-content3{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+		width: 100%;
+	}	
+	
   .item.active {
     display: inline-block;
     /*visibility:hidden !important; <->  visible */
@@ -7718,11 +7737,10 @@ figure.snip1283.hover figcaption {
  */ 
     position: relative;
     left:0;
-    
     flex: auto;
     height: 280px;
     min-width: 200px;
-        z-index: 1;
+    z-index: 1;
     overflow: visible;
 	}
 }
@@ -7740,11 +7758,20 @@ figure.snip1283.hover figcaption {
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	height: 76px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	height: 76px !important;
 	width: 100%;
   }
+	.main-review-content3{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+		width: 100%;
+	}	
   .item.active {
     display: inline-block;
     /*visibility:hidden !important; <->  visible */
@@ -7753,11 +7780,12 @@ figure.snip1283.hover figcaption {
  */ 
     position: relative;
     left:0;
-    
+	overflow: hidden;
+	text-overflow: ellipsis;
     flex: auto;
     height: 280px;
     min-width: 200px;
-        z-index: 1;
+    z-index: 1;
     overflow: visible;
 	}
   
@@ -7779,6 +7807,15 @@ figure.snip1283.hover figcaption {
 	text-overflow: ellipsis;
 	width: 100%;
   }
+	.main-review-content3{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+		width: 100%;
+	}	
   .item.active {
     display: inline-block;
     /*visibility:hidden !important; <->  visible */
@@ -7787,11 +7824,10 @@ figure.snip1283.hover figcaption {
  */ 
     position: relative;
     left:0;
-    
     flex: auto;
     height: 280px;
     min-width: 200px;
-}
+	}
 }
 @media screen and (min-width: 300px) and (max-width: 517px) {
   .text-carousel-st2{
@@ -7806,10 +7842,17 @@ figure.snip1283.hover figcaption {
 	display: inline-block;
 	height: 76px !important;
 	overflow: hidden;
-	text-overflow: ellipsis;
-	overflow: auto !important;
 	width: 100%;
   }
+ 	.main-review-content3{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+		width: 100%;
+	}	
   
   .item.active {
     display: inline-block;
