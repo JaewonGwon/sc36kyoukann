@@ -3,30 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
-<script src="resources/jquery-3.3.1.min.js"></script>
-<script type="text/javascript">
-
-//Instantiate the Bootstrap carousel
-$(function(){
-	$('.multi-item-carousel .carousel-item').each(function(){
-		  var next = $(this).next();
-		  if (!next.length) next = $(this).siblings(':first');
-		  next.children(':first-child').clone().appendTo($(this));
-		});
-		$('.multi-item-carousel .carousel-item').each(function(){
-		  var prev = $(this).prev();
-		  if (!prev.length) prev = $(this).siblings(':last');
-		  prev.children(':nth-last-child(2)').clone().prependTo($(this));
-		});
-});
-
-</script>
-
-<body class="index-page sidebar-collapse">
-
-<!-- Navbar include -->
-  <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
-  <style type="text/css">
+<style type="text/css">
  
  
 
@@ -415,20 +392,23 @@ $(function(){
 }
 
  </style>
+<body class="index-page sidebar-collapse">
+
+<!-- Navbar include -->
+  <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
+ 
   <div class="wrapper">
      <!-- main 태크 시작 -->
     <!-- main 태크 시작 -->
     <div class="main">
-    
-          
 		<div id="carousel-1" class="carousel slide multi-item-carousel" data-ride="carousel" style="margin-top: 63px;">
 		  <ol class="carousel-indicators">
 		    <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
 		    <li data-target="#carousel-1" data-slide-to="1"></li>
 		    <li data-target="#carousel-1" data-slide-to="2"></li>
 		  </ol>
-		  <div class="carousel-inner" role="listbox">
-		    <div class="carousel-item active">
+		  <div class="carousel-inner" role="listbox" id="carouselRoot">
+			<div class="carousel-item active">
 		      <div class="item__third">
 		      	<div class="row main-carousel-row-st">
 		      		<div class="row main-carousel-col12-st item-bg-pink">
@@ -806,11 +786,68 @@ $(function(){
 
 
 
-    <%@ include file="/WEB-INF/views/include/modal.jsp" %>
-    <%@ include file="/WEB-INF/views/include/footer.jsp" %>
+<%@ include file="/WEB-INF/views/include/modal.jsp" %>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 
-  </div>
-  <%@ include file="/WEB-INF/views/include/coreJsFile.jsp" %>
+</div>
+<%@ include file="/WEB-INF/views/include/coreJsFile.jsp" %>
+<script src="resources/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+//Instantiate the Bootstrap carousel
+$(function(){
+	$.ajax({
+		url : 'request_main_book',
+		method : 'GET',
+		success : function(resp) {
+			console.log(resp);
+			var tempHtml = "";
+			var tempColor = [{
+				bgColor : "item-bg-pink",
+				btnColor : "btn-puple"
+			}, {
+					bgColor : "item-bg-sky",
+					btnColor : "btn-sky"
+			}, {
+					bgColor : "item-bg-orange",
+					btnColor : "btn-orange"
+			}];
+			$.each(resp, function(index, bookData){
+				if(index == 0){
+					tempHtml += '<div class="carousel-item active">';
+				} else{
+					tempHtml += '<div class="carousel-item">';
+				}
+			tempHtml += '<div class="item__third">';
+				tempHtml += '<div class="row main-carousel-row-st">';
+				tempHtml += '<div class="row main-carousel-col12-st '+ tempColor[index].bgColor + '">';
+				tempHtml += '<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">';
+				tempHtml += '<img class="d-block img-st" src='+ bookData.book_image +' alt="First slide" style="margin: 0 auto;">';
+				tempHtml += '</div>';
+				tempHtml += '<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">';
+				tempHtml += '<p class="main-carousel-span-st-title">'+ bookData.book_title +'</p>';
+				tempHtml += '<p class="main-carousel-span-st-publ">'+ bookData.book_writer +'</p>';
+				tempHtml += '<p class="main-carousel-span-st-cont">'+ bookData.book_content +'</p>';
+				tempHtml += '<p><a href="#" class="btn ' + tempColor[index].btnColor + ' btn-round btn-md">See The Book</a></p>';
+				tempHtml += '</div>';
+				tempHtml += '</div>';
+				tempHtml += '</div>';
+				tempHtml += '</div>';
+				tempHtml += '</div>';
+			});
+		}
+	});
+	$('.multi-item-carousel .carousel-item').each(function(){
+		  var next = $(this).next();
+		  if (!next.length) next = $(this).siblings(':first');
+		  next.children(':first-child').clone().appendTo($(this));
+		});
+		$('.multi-item-carousel .carousel-item').each(function(){
+		  var prev = $(this).prev();
+		  if (!prev.length) prev = $(this).siblings(':last');
+		  prev.children(':nth-last-child(2)').clone().prependTo($(this));
+		});
+});
+</script>
 </body>
 
 </html>

@@ -124,10 +124,13 @@ public class AjaxController {
 	@ResponseBody
 	public ArrayList<Book> request_main_book() {
 		ArrayList<Book> result = dao.request_main_book();
-		for (int i = 0 ; i < result.size() ; i++) {
-			System.out.println(result.get(i));
+		for(int i = 0 ; i < result.size(); i++) {
+			if(result.get(i).getBook_content().length() > 300) {
+				String _temp = result.get(i).getBook_content().substring(0, 297) + "...";
+				result.get(i).setBook_content(_temp);
+			}
 		}
-		return null;
+		return result;
 	}
 }
 

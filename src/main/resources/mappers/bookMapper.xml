@@ -229,7 +229,7 @@
     	book
     where
     	rownum between 1 and 3
-    oreder by
+    order by
     	book_likecount desc
     </select>
 	
