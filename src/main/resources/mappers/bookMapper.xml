@@ -219,6 +219,19 @@
 
     </update>
     
+    <select id = "request_main_book" resultType = "Book">
+    select
+    	book_title,
+    	book_image,
+    	book_writer,
+    	book_content
+    from 
+    	book
+    where
+    	rownum between 1 and 3
+    oreder by
+    	book_likecount desc
+    </select>
 	
 
 </mapper>

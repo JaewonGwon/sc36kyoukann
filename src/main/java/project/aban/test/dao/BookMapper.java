@@ -46,6 +46,8 @@ public interface BookMapper {
 
 	public int request_likeMinus(String book_title);
 
+	public ArrayList<Book> request_main_book();
+
 
 
 }

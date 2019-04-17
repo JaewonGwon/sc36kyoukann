@@ -47,7 +47,7 @@ class App extends Component {
     //값 받아서 render
     render() {
         return (
-            this.state.properties ? this._renderingCards() : 'no'
+            this.state.properties ? this._renderingCards() : 'Loading...'
         );
     }
         
