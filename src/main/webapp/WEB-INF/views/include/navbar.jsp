@@ -23,10 +23,11 @@
   }
   
   25%, 100% {
-    left:600px;
+    left:700px;
     width:8px;
   }
 }
+
 
 
 </style>
