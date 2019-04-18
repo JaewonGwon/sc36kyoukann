@@ -103,8 +103,8 @@ border: 1px solid red;
               				  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
 				            </div>
 		              		<div class="col-8">
-		              		  <h4>Svetlana Anyukova</h4>
-		              		  <p style="font-size: 12pt; font-weight: 500;">Nick Name</p>
+		              		  <h4>${sessionScope.m.id}</h4>
+		              		  <p style="font-size: 12pt; font-weight: 500;">${sessionScope.m.display_name}</p>
 		              		  <p></p>
 				              <button class="btn btn-info">
 								회원 정보 수정
@@ -121,19 +121,20 @@ border: 1px solid red;
 		            		휴대폰 번호
 		            		</div>
 		            		<div class="col-8 p-10">
-		            		010-1234-5678
+		            		
+		            		${sessionScope.m.phone}
 		            		</div>
 		            		<div class="col-4 p-10">
 		            		주소
 		            		</div>
 		            		<div class="col-8 p-10">
-		            		서울시 강남구 삼성동 150번지 123
+		            		${sessionScope.m.address}
 		            		</div>
 		            		<div class="col-4 p-10">
 		            		포인트
 		            		</div>
 		            		<div class="col-8 p-10">
-		            		3425점
+		            		${sessionScope.m.point}
 		            		</div>
 		            	</div>         	
 		            	<div class="row">
@@ -279,11 +280,7 @@ border: 1px solid red;
 		                      			
 		                      		
 		                      			<div class="col-12 text-left" style="background-color: #fff;line-height: 18pt; padding: 20px;">
-			                      			10여년 경력의 앱디자인 전문가로 모바일에 최적화된 앱을 디자인 해 드립니다
-
-과거 국내 대기업 및 중소기업의 디자인 수행 실적 경험이 있습니다. 앱 디자인 뿐 아니라 웹 디자인, 브랜드 디자인, 마케팅 디자인 그리고 영상 디자인 까지 다방면의 디자인이 가능합니다.
-
-현재 온라인 기반의 서비스를 기획하시고 계신다면 저와 명함을 교환하시기 바랍니다 
+			                      			${sessionScope.m.contents}
 		                      			</div>
 		                      			
 		                      			<div class="col-12 text-left" style="background-color: #fff; margin-top: 20px; padding: 20px;">
