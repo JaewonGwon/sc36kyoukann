@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <head>
-  <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/book-icon76.png">
+  <link rel="icon" type="image/png" href="resources/assets/img/book-icon96.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>공감 - 당신의 사적인 독서생활을 채우다!</title>

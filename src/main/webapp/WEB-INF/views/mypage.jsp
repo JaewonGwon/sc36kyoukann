@@ -4,23 +4,99 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<link href="resources/assets/css/App.css" rel="stylesheet" />
+<script src="resources/jquery-3.3.1.min.js"></script>
+<style>
+
+.tab-a-st{
+border-radius: none;
+box-shadow: none !important;
+background-color: #eee;
+color: #ddd;
+border: 1px solid red;
+}
+@media screen and (min-width: 991px) and (max-width: 1920px) {
+  .figure-margin{
+    margin: 10px 15px !important;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 990px) {
+  .figure-margin{
+    margin: 10px 30px !important;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  .figure-margin{
+    margin: 10px 0px !important;
+  }	
+}
+@media screen and (min-width: 200px) and (max-width: 575px) {
+  .figure-margin{
+    margin: 40px 0px !important;
+  }
+}
+#i_scroll_wrap{
+	overflow: auto;
+	height: 390px; 
+	
+}
+
+#i_scroll{
+
+}
+
+</style>
+
+
+
+
+
+
+<script type="text/javascript">
+
+	/* $('.i_scroll_wrap').scroll(function(){
+		  var scrollH = $('.i_scroll_wrap').scrollTop() + ($('.i_scroll_wrap').height() - 50);
+		  alert(scrollH);
+		  var documentH = $('.i_scroll').height();
+		  var temp = '';
+		  if (scrollH < documentH){
+		    for (var i=0; i<20; i++){
+	    
+		      $("<h1>Infinity scroll</h1>").appendTo(".i_scroll");
+		    };
+		  };
+		});
+	
+ */
+	
+ 		$(".i_scroll_wrap").scroll(function() {
+			var scrollHeight = $(".i_scroll_wrap").height();
+			var scrollPosition = $(".i_scroll_wrap").scrollTop() - 110;
+			var scrollCalc = $(".i_scroll").height() - $(".i_scroll_wrap").height();
+			if (scrollPosition > scrollCalc){
+				for (var i=0; i<10; i++){
+					$(".i_scroll").append("<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>");
+				};
+			}
+
+		});
+
+</script>
 <body class="index-page sidebar-collapse">
 	<!-- Navbar include -->
 	<%@ include file="/WEB-INF/views/include/navbar.jsp"%>
 	<div class="wrapper">
 		<!-- main 태크 시작 -->
 		<div class="main">
+	
+	
 		
-			<div class="section section-signup"	style="min-height: 1400px; background-color: #eee; padding-top: 15vh !important">
+			<div class="section section-signup"	style="background-color: #eee; padding-top: 15vh !important">
 				<div class="container">
 				
-				
-	
 				  <div class="title text-center">
 			        <h3 class="h3fontblack">My Page</h3>
 			      </div>	
-		          <div class="row" style="margin: 0; padding: 0px; background-color: #fff;">
+		          <div class="row" style="margin: 0; padding: 10px; background-color: #fff;">
 		            <div class="col-md-6">
 		                <div class="row">
 		              		<div class="col-4" style="padding: 10px;">
@@ -30,27 +106,55 @@
 		              		  <h4>Svetlana Anyukova</h4>
 		              		  <p style="font-size: 12pt; font-weight: 500;">Nick Name</p>
 		              		  <p></p>
-				              <button class="btn btn-primary">
-				                Launch Modal
+				              <button class="btn btn-info">
+								회원 정보 수정
 				              </button>
-				              <button class="btn btn-warning">
-				                Launch Modal Mini
-				              </button>
+
 				            </div>
 			            </div>
 		            </div>
-		            
-		            <div class="col-md-6">
+
+
+		            <div class="col-md-6" style="padding: 10px;">
 		            	<div class="row">
-		            		<div class="col-5">
-		            		asdasd
+		            		<div class="col-4 p-10">
+		            		휴대폰 번호
 		            		</div>
-		            		<div class="col-7">
-		            		asdasd
+		            		<div class="col-8 p-10">
+		            		010-1234-5678
 		            		</div>
-		            	</div>
-		              
+		            		<div class="col-4 p-10">
+		            		주소
+		            		</div>
+		            		<div class="col-8 p-10">
+		            		서울시 강남구 삼성동 150번지 123
+		            		</div>
+		            		<div class="col-4 p-10">
+		            		포인트
+		            		</div>
+		            		<div class="col-8 p-10">
+		            		3425점
+		            		</div>
+		            	</div>         	
+		            	<div class="row">
+			              	<div class="col-12 text-center p-10" style="border-top: 1px dashed #ddd;">
+					            <a class="nav-link" rel="tooltip" title="Follow me on Twitter" data-placement="bottom" href="#" target="_blank" style="display: inline;">
+					              <i class="fab fa-twitter" style="color: #56B9FF;"></i>
+
+					            </a>
+					            <a class="nav-link" rel="tooltip" title="Like me on Facebook" data-placement="bottom" href="#" target="_blank" style="display: inline;">
+					              <i class="fab fa-facebook-square" style="color: #56B9FF;"></i>
+
+					            </a>
+					            <a class="nav-link" rel="tooltip" title="Follow me on Instagram" data-placement="bottom" href="#" target="_blank" style="display: inline;">
+					              <i class="fab fa-instagram" style="color: #56B9FF;"></i>
+
+					            </a>
+		            		</div>
+		            	</div>		              
 		            </div>
+
+
 
 
 		          </div>
@@ -59,6 +163,398 @@
 				
 				</div>
 			</div>
+			<!-- 윗 div 끝 -->
+			
+			
+			
+		
+			<!-- 아래  div 시작 -->
+			<div class="section section-tabs">
+		        <div class="container">
+		          <div class="row">
+		            <div class="col-12">
+		              <!-- Tabs with Background on Card -->
+		              <div class="card" style="box-shadow: none; background-color: #eee;">
+		                <div class="card-header">
+		                  <ul class="nav nav-tabs nav-tabs-info justify-content-left" role="tablist" style="background-color: #eee; box-shadow: none;">
+		                    <li class="nav-item" style="box-shadow: none;">
+		                      <a class="nav-link tab-a-st active" data-toggle="tab" href="#home1" role="tab">Profile</a>
+		                    </li>
+		                    
+		                    <li class="nav-item">
+		                      <a class="nav-link tab-a-st" data-toggle="tab" href="#profile1" role="tab">My Books</a>
+		                    </li>
+		                  </ul>
+		                </div>
+		                <div class="card-body" style="padding: 0px; margin-top: 20px;">
+		                
+	                
+		                
+		                  <!-- Tab panes -->
+		                  <div class="tab-content text-center">
+		                  
+		                    <div class="tab-pane active" id="home1" role="tabpanel">
+		                      <div class="row" style="margin:0; padding: 0px;">
+		                      	
+
+		                      	<div class="col-lg-3 col-sm-12" style="padding: 0px;">
+			                      	<div class="col-12 text-left" style="padding: 0px;">
+			                      		<h5 style="padding: 6px;">Friends Profiles</h5><!-- or recent visitor -->
+			                      	</div>
+			              
+			                      
+			                      	
+		                      		<div class="row" style="margin:0; padding: 0px;">
+				                      	
+				                      	<div class="col-3" style="padding: 6px;">
+				                      	  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
+				                      	</div>
+				                      	<div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
+				                      		<p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
+				                      		<a href="#" style="text-decoration: none;">
+				                      		<i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
+				                      		<span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
+				                      		</a>
+				                      	</div>
+				                      	
+				                      	<div class="col-3" style="padding: 6px;">
+				                      	  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
+				                      	</div>
+				                      	<div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
+				                      		<p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
+				                      		<a href="#" style="text-decoration: none;">
+				                      		<i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
+				                      		<span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
+				                      		</a>
+				                      	</div>
+				                      	
+				                      	<div class="col-3" style="padding: 6px;">
+				                      	  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
+				                      	</div>
+				                      	<div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
+				                      		<p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
+				                      		<a href="#" style="text-decoration: none;">
+				                      		<i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
+				                      		<span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
+				                      		</a>
+				                      	</div>
+				                      	
+				                      	<div class="col-3" style="padding: 6px;">
+				                      	  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
+				                      	</div>
+				                      	<div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
+				                      		<p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
+				                      		<a href="#" style="text-decoration: none;">
+				                      		<i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
+				                      		<span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
+				                      		</a>
+				                      	</div>
+				                      	
+				                      	<div class="col-3" style="padding: 6px;">
+				                      	  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
+				                      	</div>
+				                      	<div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
+				                      		<p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
+				                      		<a href="#" style="text-decoration: none;">
+				                      		<i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
+				                      		<span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
+				                      		</a>
+				                      	</div>
+				                      	
+			                      	</div>
+			                      	
+
+			                      	
+		                      	</div>
+		                      	<div class="col-lg-9 col-sm-12" style="padding: 0px;">
+		                      		<div class="row" style="margin:0; padding: 0px;">
+		                      			
+		                      			<div class="col-12">
+			                      			<div class="col-12 text-left" style="padding: 0px;">
+				                      		<h5 style="padding: 6px;">About Me</h5><!-- or recent visitor -->
+				                      		</div>
+		                      			</div>
+		                      			
+		                      			
+		                      			
+		                      		
+		                      			<div class="col-12 text-left" style="background-color: #fff;line-height: 18pt; padding: 20px;">
+			                      			10여년 경력의 앱디자인 전문가로 모바일에 최적화된 앱을 디자인 해 드립니다
+
+과거 국내 대기업 및 중소기업의 디자인 수행 실적 경험이 있습니다. 앱 디자인 뿐 아니라 웹 디자인, 브랜드 디자인, 마케팅 디자인 그리고 영상 디자인 까지 다방면의 디자인이 가능합니다.
+
+현재 온라인 기반의 서비스를 기획하시고 계신다면 저와 명함을 교환하시기 바랍니다 
+		                      			</div>
+		                      			
+		                      			<div class="col-12 text-left" style="background-color: #fff; margin-top: 20px; padding: 20px;">
+		                      				<div class="col-12 text-left" style="padding: 0px;">
+				                      		<h5 style="padding: 6px;">My Tag</h5><!-- or recent visitor -->
+				                      		</div>
+		                      				
+		                      				
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">SF</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">환타지</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">영웅</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">사람</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">로맨스</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">무협</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">지구</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">UI</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">안드로이드</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">파이썬</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">자바</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">아이폰</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">스프링</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">HTML</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">CSS</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">PHP</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">UX</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">AI</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">Phothshop</a>
+		                      				<a href="#" class="btn btn-simple btn-round btn-sm">C#</a>
+		                      			</div>
+		                      			
+		                      		</div>
+		                      		
+
+		                      	</div>
+		                      </div>
+		                    </div>
+		                    
+		                   
+		                    
+		                    
+		                    
+		                    
+		                    <div class="tab-pane" id="profile1" role="tabpanel">
+		                      <div class="row" style="margin:0; padding: 0px;">
+		                      	
+
+		                      	<div class="col-lg-3 col-sm-12" style="padding: 0px;">
+			                      	<div class="col-12 text-left" style="padding: 0px;">
+			                      		<h5 style="padding: 6px;">Friends Profiles</h5><!-- or recent visitor -->
+			                      	</div>
+			              
+			              
+
+		                      		<div class="row" style="margin:0; padding: 0px;">
+				                      	
+				                      	<div class="col-3" style="padding: 6px;">
+				                      	  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
+				                      	</div>
+				                      	<div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
+				                      		<p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
+				                      		<a href="#" style="text-decoration: none;">
+				                      		<i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
+				                      		<span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
+				                      		</a>
+				                      	</div>
+				                      	
+				                      	<div class="col-3" style="padding: 6px;">
+				                      	  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
+				                      	</div>
+				                      	<div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
+				                      		<p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
+				                      		<a href="#" style="text-decoration: none;">
+				                      		<i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
+				                      		<span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
+				                      		</a>
+				                      	</div>
+				                      	
+				                      	<div class="col-3" style="padding: 6px;">
+				                      	  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
+				                      	</div>
+				                      	<div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
+				                      		<p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
+				                      		<a href="#" style="text-decoration: none;">
+				                      		<i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
+				                      		<span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
+				                      		</a>
+				                      	</div>
+				                      	
+				                      	<div class="col-3" style="padding: 6px;">
+				                      	  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
+				                      	</div>
+				                      	<div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
+				                      		<p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
+				                      		<a href="#" style="text-decoration: none;">
+				                      		<i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
+				                      		<span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
+				                      		</a>
+				                      	</div>
+				                      	
+				                      	<div class="col-3" style="padding: 6px;">
+				                      	  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
+				                      	</div>
+				                      	<div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
+				                      		<p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
+				                      		<a href="#" style="text-decoration: none;">
+				                      		<i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
+				                      		<span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
+				                      		</a>
+				                      	</div>
+				                      	
+			                      	</div>
+			                      	
+
+	                      	
+		                      	</div>
+		                      	<div class="col-lg-9 col-sm-12" style="padding: 0px;">
+		                      		<div class="row" style="margin:0; padding: 0px;">
+		                      			
+		                      			<div class="col-12">
+			                      			<div class="col-12 text-center" style="padding: 0px;">
+				                      		<h5 style="padding: 6px;">My Books</h5><!-- or recent visitor -->
+				                      		</div>
+		                      			</div>
+		                      		
+		                      		
+		                      			<div class="col-12 i_scroll_wrap" id="i_scroll_wrap" style="background-color: #fff; padding: 30px;">
+									
+										
+											
+											  <div class="row i_scroll" id="i_scroll">
+											  
+ 											 
+									            <div class="col-lg-3 col-md-6 col-sm-12">
+										            <figure class="snip1283 figure-margin">
+													  <img src="resources/assets/img/book_img01.jpg" alt="book_image"/>
+													  <figcaption>
+													    <a href="#" class="read-more">책정보<br/>보러가기</a>
+													  </figcaption>
+													</figure>
+									            </div> 
+									            
+									
+									
+									            <div class="col-lg-3 col-md-6 col-sm-12">
+										            <figure class="snip1283 figure-margin">
+													  <img src="resources/assets/img/book_img02.jpg" alt="book_image" />
+													  <figcaption>
+													    
+													    <a href="#" class="read-more">책정보<br/>보러가기</a>
+													  </figcaption>
+													</figure>
+									            </div> 
+									            <div class="col-lg-3 col-md-6 col-sm-12">
+										            <figure class="snip1283 figure-margin">
+													  <img src="resources/assets/img/book_img03.jpg" alt="book_image" />
+													  <figcaption>
+													    
+													    <a href="#" class="read-more">책정보<br/>보러가기</a>
+													  </figcaption>
+													</figure>
+									            </div> 
+									            <div class="col-lg-3 col-md-6 col-sm-12"> 
+										            <figure class="snip1283 figure-margin">
+													  <img src="resources/assets/img/book_img04.jpg" alt="book_image" />
+													  <figcaption>
+													    
+													    <a href="#" class="read-more">책정보<br/>보러가기</a>
+													  </figcaption>
+													</figure>
+									            </div> 
+									            <div class="col-lg-3 col-md-6 col-sm-12"> 
+										            <figure class="snip1283 figure-margin">
+													  <img src="resources/assets/img/book_img05.jpg" alt="book_image" />
+													  <figcaption>
+													    
+													    <a href="#" class="read-more">책정보<br/>보러가기</a>
+													  </figcaption>
+													</figure>
+									            </div> 
+									            <div class="col-lg-3 col-md-6 col-sm-12"> 
+										            <figure class="snip1283 figure-margin">
+													  <img src="resources/assets/img/book_img06.jpg" alt="book_image" />
+													  <figcaption>
+													    
+													    <a href="#" class="read-more">책정보<br/>보러가기</a>
+													  </figcaption>
+													</figure>
+									            </div> 
+									            <div class="col-lg-3 col-md-6 col-sm-12"> 
+										            <figure class="snip1283 figure-margin">
+													  <img src="resources/assets/img/book_img07.jpg" alt="book_image" />
+													  <figcaption>
+													    
+													    <a href="#" class="read-more">책정보<br/>보러가기</a>
+													  </figcaption>
+													</figure>
+									            </div> 
+									            
+									            <div class="col-lg-3 col-md-6 col-sm-12"> 
+										            <figure class="snip1283 figure-margin">
+													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
+													  <figcaption>
+													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
+													    <a href="#" class="read-more">책정보<br/>보러가기</a>
+													  </figcaption>
+													</figure>
+									            </div>									            
+									            
+									            <div class="col-lg-3 col-md-6 col-sm-12"> 
+										            <figure class="snip1283 figure-margin">
+													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
+													  <figcaption>
+													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
+													    <a href="#" class="read-more">책정보<br/>보러가기</a>
+													  </figcaption>
+													</figure>
+									            </div>									            
+									            
+									            <div class="col-lg-3 col-md-6 col-sm-12"> 
+										            <figure class="snip1283 figure-margin">
+													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
+													  <figcaption>
+													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
+													    <a href="#" class="read-more">책정보<br/>보러가기</a>
+													  </figcaption>
+													</figure>
+									            </div>									            
+									            
+									            <div class="col-lg-3 col-md-6 col-sm-12"> 
+										            <figure class="snip1283 figure-margin">
+													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
+													  <figcaption>
+													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
+													    <a href="#" class="read-more">책정보<br/>보러가기</a>
+													  </figcaption>
+													</figure>
+									            </div>									            
+	
+									            
+									            <div class="col-lg-3 col-md-6 col-sm-12"> 
+										            <figure class="snip1283 figure-margin">
+													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
+													  <figcaption>
+													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
+													    <a href="#" class="read-more">책정보<br/>보러가기</a>
+													  </figcaption>
+													</figure>
+									            </div>									            
+
+
+									          </div>
+		                      			</div>
+		                      			
+		                      		</div>
+		                      		
+
+		                      	</div>
+		                      </div>
+		                    </div>
+		                    
+		                  </div>
+		                </div>
+		              </div>
+		              <!-- End Tabs on plain Card -->
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		      <!-- End Section Tabs -->
+      
+			
 		</div>	
 		<!-- main 태크 끝 -->
 		<%@ include file="/WEB-INF/views/include/footer.jsp"%>
