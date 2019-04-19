@@ -5,6 +5,38 @@
 <html>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <script src="resources/jquery-3.3.1.min.js"></script>
+
+<script>
+ 
+$(window).ready(function(){
+	$('#i_scroll_wrap').scroll(function(){
+		  
+	  var scrollH = $('#i_scroll_wrap').scrollTop() + $('#i_scroll_wrap').height()-50;
+	  var documentH = $('#i_scroll').height();
+
+	  var temp = '';
+	  if (scrollH == documentH){
+	    for (var i=0; i<20; i++){
+    
+	    	$("#i_scroll").append("<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>");
+
+	    };
+	  };  
+	});
+	
+	
+	$("#mem_modify").on("click", function(){
+		alert('준비중입니다.');
+	});
+
+	
+	
+});
+
+
+	 
+</script>
+
 <style>
 
 .tab-a-st{
@@ -39,11 +71,9 @@ border: 1px solid red;
 	height: 390px; 
 	
 }
-
-#i_scroll{
-
+.sns-icon{
+	display: none;
 }
-
 </style>
 
 
@@ -51,36 +81,6 @@ border: 1px solid red;
 
 
 
-<script type="text/javascript">
-
-	/* $('.i_scroll_wrap').scroll(function(){
-		  var scrollH = $('.i_scroll_wrap').scrollTop() + ($('.i_scroll_wrap').height() - 50);
-		  alert(scrollH);
-		  var documentH = $('.i_scroll').height();
-		  var temp = '';
-		  if (scrollH < documentH){
-		    for (var i=0; i<20; i++){
-	    
-		      $("<h1>Infinity scroll</h1>").appendTo(".i_scroll");
-		    };
-		  };
-		});
-	
- */
-	
- 		$(".i_scroll_wrap").scroll(function() {
-			var scrollHeight = $(".i_scroll_wrap").height();
-			var scrollPosition = $(".i_scroll_wrap").scrollTop() - 110;
-			var scrollCalc = $(".i_scroll").height() - $(".i_scroll_wrap").height();
-			if (scrollPosition > scrollCalc){
-				for (var i=0; i<10; i++){
-					$(".i_scroll").append("<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>");
-				};
-			}
-
-		});
-
-</script>
 <body class="index-page sidebar-collapse">
 	<!-- Navbar include -->
 	<%@ include file="/WEB-INF/views/include/navbar.jsp"%>
@@ -105,11 +105,9 @@ border: 1px solid red;
 		              		<div class="col-8">
 		              		  <h4>Svetlana Anyukova</h4>
 		              		  <p style="font-size: 12pt; font-weight: 500;">Nick Name</p>
-		              		  <p></p>
-				              <button class="btn btn-info">
+				              <button class="btn btn-info" id="mem_modify">
 								회원 정보 수정
 				              </button>
-
 				            </div>
 			            </div>
 		            </div>
@@ -137,30 +135,45 @@ border: 1px solid red;
 		            		</div>
 		            	</div>         	
 		            	<div class="row">
-			              	<div class="col-12 text-center p-10" style="border-top: 1px dashed #ddd;">
-					            <a class="nav-link" rel="tooltip" title="Follow me on Twitter" data-placement="bottom" href="#" target="_blank" style="display: inline;">
+			              	
+			              	<div class="col-12 text-center p-10 sns-icon" style="border-top: 1px dashed #ddd;">
+					            
+		            			 <a class="nav-link" rel="tooltip" title="Follow me on Twitter" data-placement="bottom" href="#" style="display: inline;">
 					              <i class="fab fa-twitter" style="color: #56B9FF;"></i>
 
 					            </a>
-					            <a class="nav-link" rel="tooltip" title="Like me on Facebook" data-placement="bottom" href="#" target="_blank" style="display: inline;">
+					            <a class="nav-link" rel="tooltip" title="Like me on Facebook" data-placement="bottom" href="#" style="display: inline;">
 					              <i class="fab fa-facebook-square" style="color: #56B9FF;"></i>
 
 					            </a>
-					            <a class="nav-link" rel="tooltip" title="Follow me on Instagram" data-placement="bottom" href="#" target="_blank" style="display: inline;">
+					            <a class="nav-link" rel="tooltip" title="Follow me on Instagram" data-placement="bottom" href="#" style="display: inline;">
 					              <i class="fab fa-instagram" style="color: #56B9FF;"></i>
-
-					            </a>
+					            </a>		            
 		            		</div>
+		            		
+		            		
+		          
+		            		
+			              	<div class="col-12 text-center p-10">
+					            
+					          <button class="btn btn-info" id="mem_modify">
+								Facebook 추가
+				              </button>
+					           
+					          <button class="btn btn-info" id="mem_modify">
+								Instagram 추가
+				              </button>
+					           
+					          <button class="btn btn-info" id="mem_modify">
+								Twitter 추가
+				              </button>
+ 		            
+		            		</div>
+		            
 		            	</div>		              
 		            </div>
 
-
-
-
 		          </div>
-						
-
-				
 				</div>
 			</div>
 			<!-- 윗 div 끝 -->
@@ -279,12 +292,14 @@ border: 1px solid red;
 		                      			
 		                      		
 		                      			<div class="col-12 text-left" style="background-color: #fff;line-height: 18pt; padding: 20px;">
-			                      			10여년 경력의 앱디자인 전문가로 모바일에 최적화된 앱을 디자인 해 드립니다
+			                      			<p>아직 자기소개가 없습니다. 자기소개를 입력해 타인에게 보여주세요.</p>
+			                      			<button class="btn btn-info" id="profile_content">
+												자기소개 등록
+							            	</button>
 
-과거 국내 대기업 및 중소기업의 디자인 수행 실적 경험이 있습니다. 앱 디자인 뿐 아니라 웹 디자인, 브랜드 디자인, 마케팅 디자인 그리고 영상 디자인 까지 다방면의 디자인이 가능합니다.
-
-현재 온라인 기반의 서비스를 기획하시고 계신다면 저와 명함을 교환하시기 바랍니다 
 		                      			</div>
+		                
+		                      			
 		                      			
 		                      			<div class="col-12 text-left" style="background-color: #fff; margin-top: 20px; padding: 20px;">
 		                      				<div class="col-12 text-left" style="padding: 0px;">
@@ -409,7 +424,7 @@ border: 1px solid red;
 		                      			</div>
 		                      		
 		                      		
-		                      			<div class="col-12 i_scroll_wrap" id="i_scroll_wrap" style="background-color: #fff; padding: 30px;">
+ 		                      			<div class="col-12 i_scroll_wrap" id="i_scroll_wrap" style="background-color: #fff; padding: 30px;">
 									
 										
 											
@@ -486,56 +501,45 @@ border: 1px solid red;
 										            <figure class="snip1283 figure-margin">
 													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
 													  <figcaption>
-													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
+													    <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p>
 													    <a href="#" class="read-more">책정보<br/>보러가기</a>
 													  </figcaption>
 													</figure>
-									            </div>									            
+									            </div>										            
 									            
-									            <div class="col-lg-3 col-md-6 col-sm-12"> 
-										            <figure class="snip1283 figure-margin">
-													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
-													  <figcaption>
-													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
-													    <a href="#" class="read-more">책정보<br/>보러가기</a>
-													  </figcaption>
-													</figure>
-									            </div>									            
-									            
-									            <div class="col-lg-3 col-md-6 col-sm-12"> 
-										            <figure class="snip1283 figure-margin">
-													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
-													  <figcaption>
-													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
-													    <a href="#" class="read-more">책정보<br/>보러가기</a>
-													  </figcaption>
-													</figure>
-									            </div>									            
-									            
-									            <div class="col-lg-3 col-md-6 col-sm-12"> 
-										            <figure class="snip1283 figure-margin">
-													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
-													  <figcaption>
-													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
-													    <a href="#" class="read-more">책정보<br/>보러가기</a>
-													  </figcaption>
-													</figure>
-									            </div>									            
-	
-									            
-									            <div class="col-lg-3 col-md-6 col-sm-12"> 
-										            <figure class="snip1283 figure-margin">
-													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
-													  <figcaption>
-													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
-													    <a href="#" class="read-more">책정보<br/>보러가기</a>
-													  </figcaption>
-													</figure>
-									            </div>									            
 
-
+												
 									          </div>
 		                      			</div>
+		                      			
+									<!-- <div class="wrap" style="height: 300px; overflow: scroll; border: 1px solid red;">
+											<div class="scroll">
+											
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											
+											</div>
+										</div> -->
+		                      			
+                    			
+     			
 		                      			
 		                      		</div>
 		                      		
@@ -554,6 +558,7 @@ border: 1px solid red;
 		      </div>
 		      <!-- End Section Tabs -->
       
+      
 			
 		</div>	
 		<!-- main 태크 끝 -->
@@ -562,7 +567,8 @@ border: 1px solid red;
 		<%@ include file="/WEB-INF/views/include/modal.jsp"%>
 	</div>
 
-	<script type="text/javascript" src="resources/react/index.bundle.js"></script>
+
+	<!-- <script type="text/javascript" src="resources/react/index.bundle.js"></script> -->
 </body>
 
 </html>

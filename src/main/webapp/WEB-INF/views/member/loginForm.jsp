@@ -6,7 +6,35 @@
 <script src="resources/jquery-3.3.1.min.js"></script>
 <script>
 $(function(){
-	   
+		$("#pw").keyup(function(e){
+			if(e.keyCode == 13){
+				var form_data = {
+		      			id : $("#id").val(),
+		            	pw : $("#pw").val()
+		      	}
+
+		         $.ajax({
+		            method : 'post'
+		            , url  : 'loginCheck'
+		            , data : form_data
+		            , success : function(resp) {
+		               if(resp.trim() == "fail") {
+		             
+		                  $("#id").val('일치하는 회원정보가 없습니다!');
+		                  $("#id").css("color", "red");
+		                  return false;
+		                  
+		               } else {
+		            	  $("#loginForm").submit();
+		                  location.href='http://localhost:8888/test/index';		                 
+		               }
+		            }
+		         }); 	
+			}		
+		});
+	
+	
+	
 	   $("#login").on("click", function() {
 	      	var form_data = {
 	      			id : $("#id").val(),
