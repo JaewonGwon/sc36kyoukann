@@ -131,20 +131,23 @@
 
 	}
 
-	function revlike(revnum) {
+	   function revlike(revnum) {
 
-		var rev_num = $(this).attr("data-value");
+		      var rev_num = $(this).attr("data-value");
 
-		$.ajax({
-			method : 'post',
-			url : 'addLike',
-			data : {
-				rev_num : rev_num
-			},
-			success : init
-		})
-		
-	}
+		      $.ajax({
+		         method : 'post',
+		         url : 'addLike',
+		         data : {
+		            rev_num : rev_num
+		         },
+		         success : function(data) {
+		            $("#rev_like").html("♡" + data.rev_like);
+		         }
+
+		      })
+
+		   }
 	
 
 	/*리뷰 10개씩 뿌려주는 코드 시작 (더보기 버튼)*/
