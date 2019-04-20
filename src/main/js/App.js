@@ -4,6 +4,7 @@ import axios from 'axios';
 import ReactDOM from 'react-dom';
 import CustomExample from './InputTag/custom';
 import Carousel from './Carousel';
+import ReactRotatingText from './ReactRotatingText';
 
 
 class App extends Component {
@@ -40,12 +41,15 @@ class App extends Component {
                 <div className="tagInput">
                     <CustomExample callbackFromParent = {this.callBackList}/>
                 </div>
-                <label for="Search">태그 검색</label>
-                <div className="recommand" id="Search">
+                
+                <div className="recommand_search">
+                <div className="titleText1"><ReactRotatingText /></div>
+                
                     <Carousel bookData = {this.state}/>
                 </div>
-                <label for="RecommendList">추천 리스트</label>
-                <div className="recommand" id="RecommendList">
+                
+                <div className="recommand_tag">
+               <div className="titleText2"><ReactRotatingText /></div>
                     <Carousel bookData = {this.state}/>
                 </div>
             </div>

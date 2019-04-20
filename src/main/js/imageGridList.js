@@ -4,7 +4,6 @@ import axios from 'axios';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import IconButton from '@material-ui/core/IconButton';
 
 
 class ImageGridList extends React.Component {
@@ -116,7 +115,7 @@ class ImageGridList extends React.Component {
         }
 
         var gridList = {
-            width: '55%',
+            width: '100%' ,
             height: 965,
 
         }
@@ -128,7 +127,7 @@ class ImageGridList extends React.Component {
 
         return (
             <div>
-                <div>
+                <div className="grid">
                     <div className="title" >선호하는 태그를 선택하세요!</div>
                     <div className="root" style={root}>
 
@@ -139,13 +138,13 @@ class ImageGridList extends React.Component {
                                     <GridListTileBar
                                         title={tagProperty.tag}
                                         actionIcon={
-                                            <IconButton className="icon" style={icon}>
+                                            
 
                                                 <UserCheckBox
                                                     tag={tagProperty.tag}
                                                     callbackFromParent={this.callBackList} />
 
-                                            </IconButton>
+                                            
                                         }
 
                                     />
