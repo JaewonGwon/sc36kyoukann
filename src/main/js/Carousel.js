@@ -53,7 +53,7 @@ class Carousel extends Component {
                                                     disabled={property.book_index === properties.length - 1}>
 
                                                     <CaretRight
-                                                        width={80} height={80} color="#708090" />
+                                                        width={80} height={80} color="#000000" />
                                                 </Button>
 
 
@@ -62,7 +62,7 @@ class Carousel extends Component {
                                                     onClick={() => this.prevProperty()}
                                                     disabled={property.book_index === 0}>
                                                     <CaretLeft
-                                                        width={80} height={80} color="#708090" />
+                                                        width={80} height={80} color="#000000" />
                                                 </Button>
                                         <div className={`cards-slider active-slide-${property.book_index}`}>
                                             <div className="cards-slider-wrapper" style={{

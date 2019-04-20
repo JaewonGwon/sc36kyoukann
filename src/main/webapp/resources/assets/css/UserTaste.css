@@ -1,8 +1,26 @@
 .btn.btn-login.btn-round.btn-lg{
     
-    margin-right: 5%;
+    
+    margin-top: 2%;
 }
 
 .title{
     margin-top: 1%;
+}
+
+
+.title {
+    color: #ffffff; font-family: 'Raleway',sans-serif; font-size: 62px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase;
+}
+
+.grid{
+    margin-top: -17%;
+}
+.JoinFinalButton{
+    text-align: center;
+}
+
+.gridList{
+    font-weight: bold;
+    font-size: 2em;
 }

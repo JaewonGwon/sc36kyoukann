@@ -22,7 +22,8 @@ module.exports = {
         UserTasteIndex : './UserTasteIndex.js',
         Carousel : './Carousel.js',
         imageGridList: './imageGridList.js',
-        UserCheckBox : './UserCheckBox.js'
+        UserCheckBox : './UserCheckBox.js',
+        ReactRotatingText : './ReactRotatingText.js'
 
     },
     devtool: 'sourcemaps',

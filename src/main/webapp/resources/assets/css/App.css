@@ -9,6 +9,17 @@ body {
     margin-right: auto;
     
 }
+.section-signup {
+    padding-top: 8vh;
+}
+
+.container {
+    max-width: 90% !important;
+}
+
+.recommand_search{
+    margin-top: -6%;
+}
 
 .modalButtons {
     margin-left: 0%;
@@ -17,8 +28,31 @@ body {
 .modalButtonsClose{
     margin-right: 0%;
 }
+.titleText1{
+    font-size: 30px;
+    font-family: sans-serif;
+    color: gray;
+        position: absolute;
+    top: 19%;
+    z-index: 3;
+}
 
+.titleText2{
+    font-size: 30px;
+    font-family: sans-serif;
+    color: gray;
+        position: absolute;
+    top: 55%;
+    z-index: 3;
+}
 
+.title1{
+    color: #7c795d; font-family: 'Trocchi', serif; font-size: 32px; font-weight: bold; line-height: 48px; margin: 0;
+}
+
+.title2{
+    color: #7c795d; font-family: 'Trocchi', serif; font-size: 32px; font-weight: bold; line-height: 48px; margin: 0;
+}
 .tagInput{
     overflow : visible;
     color: #FFF;
@@ -28,6 +62,9 @@ body {
     margin-right: auto;
     margin-bottom: 0;
     
+}
+.recommand_tag{
+    margin-top: 10%;
 }
 
 .card {
@@ -44,6 +81,7 @@ body {
     z-index: 3;
     top: 50% !important;
     left: 0;
+    opacity: 0.4 !important;
 }
 
 .button_right_bottom{
@@ -52,7 +90,9 @@ body {
     top: 50% !important;
     z-index: 3;
     right: 0;
+    opacity: 0.4 !important;
 }
+
 
 
 .App {
@@ -201,7 +241,7 @@ text-shadow: horizontal-offset vertical-offset blur color;
   .cards-slider-wrapper .card {
     
     flex: 1;
-    min-width: 200px;
+    min-width: 250px;
     opacity: 0.7;
     transform: scale(0.6);
     box-shadow: none;
@@ -491,3 +531,55 @@ text-shadow: horizontal-offset vertical-offset blur color;
     left: 0; }
 
 /* #endregion */
+
+.react-rotating-text-cursor {
+  animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s infinite;
+}
+
+@-moz-keyframes blinking-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes blinking-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes blinking-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blinking-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

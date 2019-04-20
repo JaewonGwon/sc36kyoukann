@@ -15,11 +15,16 @@ create table member (
 
 insert into member(id,pw) values ('tt','tt');
 
+create table taste_tag (
+    tag varchar2(50) primary key,
+    tag_image varchar2(3000)
+    );
+    
 
 insert into taste_tag values
 (   
     '문학',
-    'https://i1.wp.com/www.blogs.hss.ed.ac.uk/pubs-and-publications/files/2016/10/books.jpg?fit=945%2C629&ssl=1'
+    'https://www.ccny.cuny.edu/sites/default/files/styles/top_slider/public/IMG_3953%5B1%5D_0.JPG?itok=agzqtyEl'
 );
 
 insert into taste_tag values
