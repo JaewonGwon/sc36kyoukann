@@ -24,7 +24,6 @@ public interface ReviewMapper {
 
 	List<Review> selectbydate();
 	
-	
 	List<Review> ranking();
 
 	List<Reglike> checklike(Reglike rl);
@@ -32,5 +31,7 @@ public interface ReviewMapper {
 	void insertCheckLike(Reglike rl);
 
 	void delLike(Reglike regl);
+
+	ArrayList<Review> request_main_review();
 
 }

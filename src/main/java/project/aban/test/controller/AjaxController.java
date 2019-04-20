@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.aban.test.dao.BookDao;
 import project.aban.test.dao.MemberDao;
+import project.aban.test.dao.ReviewDao;
 import project.aban.test.vo.Book;
 import project.aban.test.vo.Member;
+import project.aban.test.vo.Review;
 import project.aban.test.vo.Tag;
 
 @Controller
@@ -20,6 +22,9 @@ public class AjaxController {
 
 	@Autowired
 	BookDao dao;
+	
+	@Autowired
+	ReviewDao rDao;
 
 	@Autowired
 	MemberDao mDao;
@@ -133,8 +138,8 @@ public class AjaxController {
 	public ArrayList<Book> request_main_book() {
 		ArrayList<Book> result = dao.request_main_book();
 		for (int i = 0; i < result.size(); i++) {
-			if (result.get(i).getBook_content().length() > 300) {
-				String _temp = result.get(i).getBook_content().substring(0, 297) + "...";
+			if (result.get(i).getBook_content().length() > 150) {
+				String _temp = result.get(i).getBook_content().substring(0, 150) + "...";
 				result.get(i).setBook_content(_temp);
 			}
 		}
@@ -149,5 +154,17 @@ public class AjaxController {
 
 		return UserInfo;
 	}
-
+	
+	@RequestMapping("/request_main_review")
+	@ResponseBody
+	public ArrayList<Review> request_main_review() {
+		ArrayList<Review> result = rDao.request_main_review();
+		for (int i = 0 ; i < result.size(); i++) {
+			if (result.get(i).getRev_content().length() > 100) {
+				String _temp = result.get(i).getRev_content().substring(0,  100) + "...";
+				result.get(i).setRev_content(_temp);
+			}
+		}
+		return result;
+	}
 }

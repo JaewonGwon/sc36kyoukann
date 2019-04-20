@@ -73,5 +73,19 @@
 			#{rev_num}, #{id}
 		)
 	</insert>
-	
+	<select id = "request_main_review" resultType = "Review">
+		SELECT 
+			rev_num,
+			book_title,
+			id,
+			regdate,
+			rev_title,
+			rev_content,
+			rev_like,
+			rev_scrap
+		FROM
+			REVIEW
+		WHERE
+			ROWNUM BETWEEN 1 AND 4
+	</select>
 </mapper>

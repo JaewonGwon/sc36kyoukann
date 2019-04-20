@@ -18,6 +18,7 @@ $(function(){
 		  prev.children(':nth-last-child(2)').clone().prependTo($(this));
 		});
 		reloadData();
+		reloadReview();
 		init();
 });
 
@@ -56,7 +57,6 @@ function reloadData() {
 		url : 'request_main_book',
 		method : 'GET',
 		success : function(resp) {
-			console.log(resp);
 			$.each(resp, function(index, bookData){
 				console.log('.main-carousel-span-st-title, .recom' + index + '');
 				console.log(bookData.book_title);
@@ -67,6 +67,21 @@ function reloadData() {
 			});
 		}
 	});
+}
+
+function reloadReview() {
+	$.ajax({
+		url : 'request_main_review',
+		method : 'GET',
+		success : function(resp) {
+			$.each(resp, function(index, revData){
+				console.log(revData);
+				$('.main-review-title.review' + index + '').text(revData.rev_title);
+				$('.main-review-uname.review' + index + '').text(revData.id);
+				$('.main-review-content.review' + index + '').text(revData.rev_content);
+			});
+		}
+	})
 }
 </script>
 <style type="text/css">
@@ -596,10 +611,6 @@ function reloadData() {
                   <div class="tab-content text-center">
                     <div class="tab-pane active" id="home" role="tabpanel">
                       <div class="row" id="ranking">
-                     
-                       
-		                             
-		                
 	                  </div>
                     </div>
                   </div>
@@ -641,15 +652,15 @@ function reloadData() {
 											<div class="col-md-6">
 											
 												<div class="card" style="box-shadow: none;">
-													<div class="row review-row-bg-st">
+													<div class="row review-row-bg-st review0">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
 															<img class="d-block img-st" src="resources/assets/img/book_img03.jpg" alt="First slide" style="margin: 0 auto;">
 														</div>
 														<div class="col-lg-7" style="padding: 10px;">
 															<div class="card-body card-body-st">
-																<p class="main-review-title">Hell Week</p>
-																<p class="main-review-uname">By 에릭 라르셀</p>
-																<p class="main-review-content" style="overflow:hidden !important;">
+																<p class="main-review-title review0">Hell Week</p>
+																<p class="main-review-uname review0">By 에릭 라르셀</p>
+																<p class="main-review-content review0" style="overflow:hidden !important;">
 																	단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
 																	단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
 																	단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
@@ -677,13 +688,13 @@ function reloadData() {
 																								<div class="card" style="box-shadow: none;">
 													<div class="row review-row-bg-st">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
-															<img class="d-block img-st" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+															<img class="d-block img-st review1" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
 														</div>
 														<div class="col-lg-7" style="padding: 10px;">
 															<div class="card-body card-body-st">
-																<p class="main-review-title">Harry Potter</p>
-																<p class="main-review-uname">By J.K ROWLING</p>
-																<p class="main-review-content" style="overflow:hidden !important;">
+																<p class="main-review-title review1">Harry Potter</p>
+																<p class="main-review-uname review1">By J.K ROWLING</p>
+																<p class="main-review-content review1" style="overflow:hidden !important;">
 																	해리포터시리즈에서 특별한 점이라고 생각했던 것 중 하나가 꿈에 대한 묘사이다. 해리는 자신의 이마에 있는 번개 모양의 흉터를 만들어 놓은 숙적 볼드모트와 꿈으로 연결되어 있다. 꿈은 중요한 줄거리를 담당할 뿐만 아니라 해리의 감정 상태, 그리고 캐릭터를 더욱 현실적으로 보이게 하는 역할을 한다. 복선을 담당하기도 한다.
 																</p>
 															</div>
@@ -717,15 +728,15 @@ function reloadData() {
 											<div class="col-md-6">
 											
 												<div class="card" style="box-shadow: none;">
-													<div class="row review-row-bg-st">
+													<div class="row review-row-bg-st review2">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
 															<img class="d-block img-st" src="resources/assets/img/book_img02.jpg" alt="First slide" style="margin: 0 auto;">
 														</div>
 														<div class="col-lg-7" style="padding: 10px;">
 															<div class="card-body card-body-st">
-																<p class="main-review-title">Twilight</p>
-																<p class="main-review-uname">By 스테파이 메이어</p>
-																<p class="main-review-content" style="overflow:hidden !important;">
+																<p class="main-review-title review2">Twilight</p>
+																<p class="main-review-uname review2">By 스테파이 메이어</p>
+																<p class="main-review-content review2" style="overflow:hidden !important;">
 																	영화 트와일라잇 너무 지루했어...ㅠㅠ나만 그런가...시리즈가 있는 영화들은 항상 1편이 지루하고 재미가 없다.난 그냥 책으로 만족하련다.
 																</p>
 															</div>
@@ -751,13 +762,13 @@ function reloadData() {
 																								<div class="card" style="box-shadow: none;">
 													<div class="row review-row-bg-st">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
-															<img class="d-block img-st" src="resources/assets/img/book_img04.jpg" alt="First slide" style="margin: 0 auto;">
+															<img class="d-block img-st review3" src="resources/assets/img/book_img04.jpg" alt="First slide" style="margin: 0 auto;">
 														</div>
 														<div class="col-lg-7" style="padding: 10px;">
 															<div class="card-body card-body-st">
-																<p class="main-review-title">Hell Week</p>
-																<p class="main-review-uname">By 허지원</p>
-																<p class="main-review-content" style="overflow:hidden !important;">
+																<p class="main-review-title review3">Hell Week</p>
+																<p class="main-review-uname review3">By 허지원</p>
+																<p class="main-review-content review3" style="overflow:hidden !important;">
 																	예쁜 연보라색에 트렌디한 느낌의 표지를 가진 책 <나는 아직 나를 모른다>는, 자신을 나쁘게 평가하여 몰아붙이거나 낙담하는 마음을 가진 이들에게 ‘당신은 사실 당신이 아는 것보다 훨씬 괜찮은 사람이다’라는 메시지를 전합니다.
 																</p>
 															</div>
