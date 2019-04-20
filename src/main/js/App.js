@@ -25,6 +25,14 @@ class App extends Component {
         console.log(this.state)
     }
 
+    _loadingSpinner = () => {
+        return (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            
+            </View>
+        );
+    }
+
     _renderingCards = () => {
         console.log("rendered")
         return (

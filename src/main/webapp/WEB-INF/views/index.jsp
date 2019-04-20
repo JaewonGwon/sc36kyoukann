@@ -623,7 +623,7 @@ function reloadReview() {
             <div class="col-lg-9 col-md-9 ml-auto col-xl-9 col-sm-12">
               <div class="row" style="margin: 0; padding: 0px;">
 	              <div class="col-8">
-	              	<p class="category">Popular by Genre</p>
+	              	<p class="category">인기 리뷰</p>
 	              </div>
 	              <!--Controls-->
 	              <div class="col-4">    	          		
