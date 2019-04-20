@@ -3,6 +3,7 @@ package project.aban.test.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import project.aban.test.vo.Reglike;
 import project.aban.test.vo.Review;
 
 public interface ReviewMapper {
@@ -26,5 +27,11 @@ public interface ReviewMapper {
 	
 
 	ArrayList<Review> listReview(String searchText);
+
+	List<Reglike> checklike(Reglike rl);
+
+	void insertCheckLike(Reglike rl);
+
+	void delLike(Reglike regl);
 
 }

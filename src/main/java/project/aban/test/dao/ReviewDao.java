@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import project.aban.test.vo.Reglike;
 import project.aban.test.vo.Review;
 @Repository
 public class ReviewDao {
@@ -36,8 +37,18 @@ public class ReviewDao {
 	
 	public Review addLike(int rev_num) {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
-		Review review= mapper.selectOne(rev_num);
 		mapper.addLike(rev_num);
+		Review review= mapper.selectOne(rev_num);
+		
+		return review;
+	}
+	
+	public Review delLike(Reglike regl) {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		mapper.delLike(regl);
+		Review review= mapper.selectOne(regl.getRev_num());
+		
+	
 		return review;
 	}
 	public int update(Review review) {
@@ -67,6 +78,23 @@ public class ReviewDao {
 		list =mapper.selectbydate();
 		return list;
 	}
+
+	public List<Reglike> checklike(Reglike rl) {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		List<Reglike> regl = new ArrayList<>();
+	    regl = mapper.checklike(rl);
+	   
+		return regl;
+	}
+
+	public void insertCheckLike(Reglike rl) {
+		// TODO Auto-generated method stub
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		mapper.insertCheckLike(rl);
+		
+	}
+
+	
 
 	
 

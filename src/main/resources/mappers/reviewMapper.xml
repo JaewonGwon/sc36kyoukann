@@ -28,6 +28,10 @@
       where
          rev_num = #{rev_num}
    </update>
+   <delete id="delLike" parameterType="int">
+      delete reglike where rev_num=#{rev_num}
+   </delete>
+   
    
    <insert id="reviewWrite" parameterType="Review">
       insert into review(REV_NUM,
@@ -42,4 +46,13 @@
 	<select id="selectbydate" resultType="Review">
 		select * from review order by REGDATE desc
 	</select>
+	<select id="checklike" parameterType="Reglike" resultType="Reglike">
+		select * from reglike where rev_num=#{rev_num} and id=#{id}
+	</select>
+	<insert id="insertCheckLike" parameterType="Reglike">
+		insert into reglike values (
+			#{rev_num}, #{id}
+		)
+	</insert>
+	
 </mapper>
