@@ -25,9 +25,10 @@
   font-size: 2em;
   color: #fff;
   opacity: 1;
-  transition: all 1.5s ease-in-out;
+  transition: all 2s ease-in-out;
   max-width: 2em;
 }
+
 
 .otext.hidden li.spaced {
   padding-left: 0;
@@ -97,18 +98,18 @@ $(function() {
 				</ul>
 			</div>
 			
+
+
 			
-		
-		
-			
-			<div class="col-12">
-				<p style="font-size: 10pt;"><i class="fa fa-building"></i> 서울특별시 강남구 삼성1동 영동대로 513 COEX 4층 </p>
-				<p style="font-size: 10pt;"><i class="fa fa-building"></i> 82-10-1234-5678</p>
-				<p> Copyright Gong-Gam</p>
+			<div class="col-12" style="padding-top: 10px;">
+				<p style="font-size: 10pt;"><i class="fa fa-building"></i><span style="margin-left: 10px;">서울특별시 강남구 삼성1동 영동대로 513 COEX 4층 </span></p>
+				<p style="font-size: 10pt;"><i class="fa fa-phone"></i><span style="margin-left: 10px;">82-02-1234-5678</span><i class="fa fa-envelope" style="margin-left: 30px;"></i><span style="margin-left: 10px;">contect@gong-gam.com</span></p>
+				<!-- <p> Copyright Gong-Gam</p> -->
 			</div>
 		</div>
 	</div>
-	
+
+
 	
 	
 	
