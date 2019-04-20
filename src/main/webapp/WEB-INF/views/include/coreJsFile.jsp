@@ -1,5 +1,4 @@
   <!--   Core JS Files   -->
-  <script src="resources/assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="resources/assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="resources/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
   <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->

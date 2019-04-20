@@ -155,19 +155,12 @@ public class ReviewController {
 			System.out.println(regl.size());
 			review =rs.selectOne(rev_num); 
 			return review;
-			
-		}else {
+		} else {
 			review = rs.addLike(rev_num);
 			return review;
 		}
-		
-		
-		
-	
-		
+			
 	}
 	
-	
-
 }
 

@@ -9,15 +9,15 @@
 $(function(){
 	$('.multi-item-carousel .carousel-item').each(function(){
 		  var next = $(this).next();
-		  if (!next.length) next = $(this).siblings(':first');
+		  if (!next.length) next = $(this).siblings(':first')
 		  next.children(':first-child').clone().appendTo($(this));
 		});
 		$('.multi-item-carousel .carousel-item').each(function(){
 		  var prev = $(this).prev();
-		  if (!prev.length) prev = $(this).siblings(':last');
+		  if (!prev.length) prev = $(this).siblings(':last')
 		  prev.children(':nth-last-child(2)').clone().prependTo($(this));
 		});
-		
+		reloadData();
 		init();
 });
 
@@ -49,9 +49,8 @@ function output(resp) {
 					});
 
 	$('#ranking').html(listwriter);
-
-
 }
+
 function reloadData() {
 	$.ajax({
 		url : 'request_main_book',
@@ -59,21 +58,18 @@ function reloadData() {
 		success : function(resp) {
 			console.log(resp);
 			$.each(resp, function(index, bookData){
-				console.log('title_' + index + '');
-				$('#title_' + index + '').text(bookData.book_title);
-				$('#publ_' + index + '').text(bookData.book_writer);
-				$('#cont_' + index + '').text(bookData.book_content);
+				console.log('.main-carousel-span-st-title, .recom' + index + '');
+				console.log(bookData.book_title);
+				$('.main-carousel-span-st-title.recom' + index + '').text(bookData.book_title);
+				$('.main-carousel-span-st-publ.recom' + index + '').text(bookData.book_writer);
+				$('.main-carousel-span-st-cont.recom' + index + '').text(bookData.book_content);
+				$('.d-block.img-st.recom' + index + '').attr('src', bookData.book_image).attr('width', '280px');
 			});
 		}
 	});
 }
 </script>
-
-<body class="index-page sidebar-collapse">
-
-<!-- Navbar include -->
-  <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
-  <style type="text/css">
+<style type="text/css">
  
  
 
@@ -462,15 +458,11 @@ function reloadData() {
 }
 
  </style>
-<<<<<<< HEAD
- <script src="resources/jquery-3.3.1.min.js"></script>
 <body class="index-page sidebar-collapse">
 
 <!-- Navbar include -->
   <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
- 
-=======
->>>>>>> 4f9cc8c48decc68101c350e5c47a8a87aa34f3c9
+
   <div class="wrapper">
      <!-- main 태크 시작 -->
     <!-- main 태크 시작 -->
@@ -489,13 +481,13 @@ function reloadData() {
 		      	<div class="row main-carousel-row-st">
 		      		<div class="row main-carousel-col12-st item-bg-pink">
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<img class="d-block img-st" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+							<img class="d-block img-st recom0" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
 						</div>
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<p class="main-carousel-span-st-title" id="title_0"></p>
-							<p class="main-carousel-span-st-publ" id="publ_0"></p>
-							<p class="main-carousel-span-st-cont" id="cont_0">
+							<p class="main-carousel-span-st-title recom0"></p>
+							<p class="main-carousel-span-st-publ recom0"></p>
+							<p class="main-carousel-span-st-cont recom0">
 							</p>
 							<p>
 								<a href="#" class="btn btn-puple btn-round btn-md">See The Book</a>
@@ -511,13 +503,13 @@ function reloadData() {
 		      	<div class="row main-carousel-row-st">
 		      		<div class="row main-carousel-col12-st item-bg-sky">
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<img class="d-block img-st" src="resources/assets/img/book_img02.jpg" alt="First slide" style="margin: 0 auto;">
+							<img class="d-block img-st recom1" src="resources/assets/img/book_img02.jpg" alt="First slide" style="margin: 0 auto;">
 						</div>
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<p class="main-carousel-span-st-title" id = "title_1"></p>
-							<p class="main-carousel-span-st-publ" id = "publ_1"></p>
-							<p class="main-carousel-span-st-cont" id = "cont_1">
+							<p class="main-carousel-span-st-title recom1"></p>
+							<p class="main-carousel-span-st-publ recom1"></p>
+							<p class="main-carousel-span-st-cont recom1">
 							</p>
 							<p>
 								<a href="#" class="btn btn-sky btn-round btn-md">See The Book</a>
@@ -533,13 +525,13 @@ function reloadData() {
 		      	<div class="row main-carousel-row-st">
 		      		<div class="row main-carousel-col12-st item-bg-orange">
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<img class="d-block img-st" src="resources/assets/img/book_img03.jpg" alt="First slide" style="margin: 0 auto;">
+							<img class="d-block img-st recom2" src="resources/assets/img/book_img03.jpg" alt="First slide" style="margin: 0 auto;">
 						</div>
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<p class="main-carousel-span-st-title" id = "title_2"></p>
-							<p class="main-carousel-span-st-publ" id = "publ_2"></p>
-							<p class="main-carousel-span-st-cont" id = "cont_2">
+							<p class="main-carousel-span-st-title recom2"></p>
+							<p class="main-carousel-span-st-publ recom2"></p>
+							<p class="main-carousel-span-st-cont recom2">
 							</p>
 							<p>
 								<a href="#" class="btn btn-orange btn-round btn-md">See The Book</a>
@@ -811,10 +803,6 @@ function reloadData() {
        
    </div>
    <!-- main 태크 끝 -->
-
-
-
-
 
     <%@ include file="/WEB-INF/views/include/modal.jsp" %>
     <%@ include file="/WEB-INF/views/include/footer.jsp" %>
