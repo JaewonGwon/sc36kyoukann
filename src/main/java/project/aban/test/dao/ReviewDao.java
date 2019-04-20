@@ -101,6 +101,13 @@ public class ReviewDao {
 		
 	}
 
+	public ArrayList<Review> request_main_review() {
+		
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		ArrayList<Review> result = mapper.request_main_review();
+		return result;
+	}
+
 	
 
 	
