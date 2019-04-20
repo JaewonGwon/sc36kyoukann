@@ -17,10 +17,10 @@
   
   
   <script>
-    $(document).ready(function() {
-      // the body of this function is in resources/assets/js/now-ui-kit.js
-      nowuiKit.initSliders();
-    });
+//     $(document).ready(function() {
+//       // the body of this function is in resources/assets/js/now-ui-kit.js
+//       nowuiKit.initSliders();
+//     });
 
     function scrollToDownload() {
 

@@ -392,6 +392,7 @@
 }
 
  </style>
+ <script src="resources/jquery-3.3.1.min.js"></script>
 <body class="index-page sidebar-collapse">
 
 <!-- Navbar include -->
@@ -417,10 +418,9 @@
 						</div>
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<p class="main-carousel-span-st-title">Harry Potter And The Sorcerer's Stone</p>
-							<p class="main-carousel-span-st-publ">By J.K.ROWLING</p>
-							<p class="main-carousel-span-st-cont">
-								Since the publication of Harry Potter and the Philosopher's Stone in 1997, many publishers have created new editions of each book with new cover art provided by various illustrators. Bloomsbury is the British publication that has created both adult and children's covers. The adult edition usually depicts an object or place that plays a key part in the plot while the children's one features a major event in the book. Bloomsbury have commissioned many illustrators to design the cover. In 2013, they had woodcut artist Andrew Davidson create new cover art for the paperback adult edition.
+							<p class="main-carousel-span-st-title" id="title_0"></p>
+							<p class="main-carousel-span-st-publ" id="publ_0"></p>
+							<p class="main-carousel-span-st-cont" id="cont_0">
 							</p>
 							<p>
 								<a href="#" class="btn btn-puple btn-round btn-md">See The Book</a>
@@ -440,10 +440,9 @@
 						</div>
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<p class="main-carousel-span-st-title">Twilight</p>
-							<p class="main-carousel-span-st-publ">스테파니 메이어</p>
-							<p class="main-carousel-span-st-cont">
-								트와일라잇(영어: Twilight) 시리즈는 《트와일라잇》, 《뉴문》, 《이클립스》, 《브레이킹 던》 총 4권으로 이루어진 스테프니 메이어의 뱀파이어를 소재로 한 판타지 로맨스 소설이다.
+							<p class="main-carousel-span-st-title" id = "title_1"></p>
+							<p class="main-carousel-span-st-publ" id = "publ_1"></p>
+							<p class="main-carousel-span-st-cont" id = "cont_1">
 							</p>
 							<p>
 								<a href="#" class="btn btn-sky btn-round btn-md">See The Book</a>
@@ -453,6 +452,7 @@
 		      	</div>
 		      </div>
 		    </div>
+		    
 		    <div class="carousel-item">
 		      <div class="item__third">
 		      	<div class="row main-carousel-row-st">
@@ -462,11 +462,9 @@
 						</div>
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<p class="main-carousel-span-st-title">Hell Week</p>
-							<p class="main-carousel-span-st-publ">By 에릭 라르셀</p>
-							<p class="main-carousel-span-st-cont">
-								단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
-								단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
+							<p class="main-carousel-span-st-title" id = "title_2"></p>
+							<p class="main-carousel-span-st-publ" id = "publ_2"></p>
+							<p class="main-carousel-span-st-cont" id = "cont_2">
 							</p>
 							<p>
 								<a href="#" class="btn btn-orange btn-round btn-md">See The Book</a>
@@ -791,61 +789,35 @@
 
 </div>
 <%@ include file="/WEB-INF/views/include/coreJsFile.jsp" %>
-<script src="resources/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-//Instantiate the Bootstrap carousel
-$(function(){
+function reloadData() {
 	$.ajax({
 		url : 'request_main_book',
 		method : 'GET',
 		success : function(resp) {
 			console.log(resp);
-			var tempHtml = "";
-			var tempColor = [{
-				bgColor : "item-bg-pink",
-				btnColor : "btn-puple"
-			}, {
-					bgColor : "item-bg-sky",
-					btnColor : "btn-sky"
-			}, {
-					bgColor : "item-bg-orange",
-					btnColor : "btn-orange"
-			}];
 			$.each(resp, function(index, bookData){
-				if(index == 0){
-					tempHtml += '<div class="carousel-item active">';
-				} else{
-					tempHtml += '<div class="carousel-item">';
-				}
-			tempHtml += '<div class="item__third">';
-				tempHtml += '<div class="row main-carousel-row-st">';
-				tempHtml += '<div class="row main-carousel-col12-st '+ tempColor[index].bgColor + '">';
-				tempHtml += '<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">';
-				tempHtml += '<img class="d-block img-st" src='+ bookData.book_image +' alt="First slide" style="margin: 0 auto;">';
-				tempHtml += '</div>';
-				tempHtml += '<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">';
-				tempHtml += '<p class="main-carousel-span-st-title">'+ bookData.book_title +'</p>';
-				tempHtml += '<p class="main-carousel-span-st-publ">'+ bookData.book_writer +'</p>';
-				tempHtml += '<p class="main-carousel-span-st-cont">'+ bookData.book_content +'</p>';
-				tempHtml += '<p><a href="#" class="btn ' + tempColor[index].btnColor + ' btn-round btn-md">See The Book</a></p>';
-				tempHtml += '</div>';
-				tempHtml += '</div>';
-				tempHtml += '</div>';
-				tempHtml += '</div>';
-				tempHtml += '</div>';
+				console.log('title_' + index + '');
+				$('#title_' + index + '').text(bookData.book_title);
+				$('#publ_' + index + '').text(bookData.book_writer);
+				$('#cont_' + index + '').text(bookData.book_content);
 			});
 		}
 	});
+}
+//Instantiate the Bootstrap carousel
+$(function(){
+	reloadData();
 	$('.multi-item-carousel .carousel-item').each(function(){
 		  var next = $(this).next();
 		  if (!next.length) next = $(this).siblings(':first');
 		  next.children(':first-child').clone().appendTo($(this));
-		});
-		$('.multi-item-carousel .carousel-item').each(function(){
-		  var prev = $(this).prev();
-		  if (!prev.length) prev = $(this).siblings(':last');
-		  prev.children(':nth-last-child(2)').clone().prependTo($(this));
-		});
+	});
+	$('.multi-item-carousel .carousel-item').each(function(){
+	  var prev = $(this).prev();
+	  if (!prev.length) prev = $(this).siblings(':last');
+	  prev.children(':nth-last-child(2)').clone().prependTo($(this));
+	});
 });
 </script>
 </body>

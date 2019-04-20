@@ -58,8 +58,6 @@ public class AjaxController {
 		return result;
 	}
 	
-
-	
 	
 	@RequestMapping("/request_hitAdd")
 	@ResponseBody

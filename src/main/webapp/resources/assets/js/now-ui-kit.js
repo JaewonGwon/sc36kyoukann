@@ -215,6 +215,20 @@ nowuiKit = {
 
   initSliders: function() {
     // Sliders for demo purpose in refine cards section
+	$.ajax({
+		url : 'request_main_book',
+		method : 'GET',
+		success : function(resp) {
+			console.log(resp);
+			$.each(resp, function(index, bookData){
+				console.log('title_' + index + '');
+				$('#title_' + index + '').text(bookData.book_title);
+				$('#publ_' + index + '').text(bookData.book_writer);
+				$('#cont_' + index + '').text(bookData.book_content);
+			});
+		}
+	});
+	  
     var slider = document.getElementById('sliderRegular');
 
     noUiSlider.create(slider, {
@@ -236,6 +250,7 @@ nowuiKit = {
         max: 100
       }
     });
+
   }
 }
 
