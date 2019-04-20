@@ -5,6 +5,62 @@
 <html>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <script src="resources/jquery-3.3.1.min.js"></script>
+
+<script>
+
+$(window).ready(function(){
+	$('#i_scroll_wrap').scroll(function(){
+		  
+	  var scrollH = $('#i_scroll_wrap').scrollTop() + $('#i_scroll_wrap').height();
+	  var documentH = $('#i_scroll').height();
+		/* alert(scrollH); */
+	  var temp = '';
+	  if (scrollH == documentH){
+	    for (var i=0; i<10; i++){
+    
+	    	$("#i_scroll").append("<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>");
+			
+	    };
+	  };  
+	});
+	
+	
+	$("#mem_modify").on("click", function(){
+		alert('준비중입니다.');
+	});
+	
+	
+	
+	$("#add_face").on("click", function(){
+        var temp = '';
+        temp += '<p><input class="sns-input" type="text" id="faddr" placeholder="Facebook 주소를 입력해주세요." /></p>'
+        $(".sns-addr").html(temp);
+        $("#add_face").val('Facebook 등록');
+        $("#add_insta").css('display', 'none');
+        $("#add_twit").css('display', 'none');
+	});	
+	
+	$("#add_insta").on("click", function(){
+        var temp = '';
+        temp += '<p><input class="sns-input" type="text" id="iaddr" placeholder="Instagram 주소를 입력해주세요." /></p>'
+        $(".sns-addr").html(temp);
+        $("#add_insta").val('Instagram 등록');
+        $("#add_face").css('display', 'none');
+        $("#add_twit").css('display', 'none');
+	});	
+	
+	$("#add_twit").on("click", function(){
+        var temp = '';
+        temp += '<p><input class="sns-input" type="text" id="taddr" placeholder="Twitter 주소를 입력해주세요." /></p>'
+        $(".sns-addr").html(temp);
+        $("#add_twit").val('Twitter 등록');
+        $("#add_face").css('display', 'none');
+        $("#add_insta").css('display', 'none');
+	});
+
+	
+});
+</script>
 <style>
 
 .tab-a-st{
@@ -40,47 +96,25 @@ border: 1px solid red;
 	
 }
 
-#i_scroll{
-
+.sns-icon{
+	display: none;
 }
-
+.sns-btn{
+	font-size: 9pt;
+	padding: 6px;
+	display: inline;
+}
+.sns-form{
+	/* display: inline-block; */
+	width: 100%
+}
+.sns-input{
+	font-size: 10pt;
+	width: 100%;
+	padding: 0px 4px;
+}
 </style>
 
-
-
-
-
-
-<script type="text/javascript">
-
-	/* $('.i_scroll_wrap').scroll(function(){
-		  var scrollH = $('.i_scroll_wrap').scrollTop() + ($('.i_scroll_wrap').height() - 50);
-		  alert(scrollH);
-		  var documentH = $('.i_scroll').height();
-		  var temp = '';
-		  if (scrollH < documentH){
-		    for (var i=0; i<20; i++){
-	    
-		      $("<h1>Infinity scroll</h1>").appendTo(".i_scroll");
-		    };
-		  };
-		});
-	
- */
-	
- 		$(".i_scroll_wrap").scroll(function() {
-			var scrollHeight = $(".i_scroll_wrap").height();
-			var scrollPosition = $(".i_scroll_wrap").scrollTop() - 110;
-			var scrollCalc = $(".i_scroll").height() - $(".i_scroll_wrap").height();
-			if (scrollPosition > scrollCalc){
-				for (var i=0; i<10; i++){
-					$(".i_scroll").append("<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>");
-				};
-			}
-
-		});
-
-</script>
 <body class="index-page sidebar-collapse">
 	<!-- Navbar include -->
 	<%@ include file="/WEB-INF/views/include/navbar.jsp"%>
@@ -106,14 +140,13 @@ border: 1px solid red;
 		              		  <h4>${sessionScope.m.id}</h4>
 		              		  <p style="font-size: 12pt; font-weight: 500;">${sessionScope.m.display_name}</p>
 		              		  <p></p>
-				              <button class="btn btn-info">
+				              <button class="btn btn-info" id="mem_modify">
 								회원 정보 수정
 				              </button>
 
 				            </div>
 			            </div>
 		            </div>
-
 
 		            <div class="col-md-6" style="padding: 10px;">
 		            	<div class="row">
@@ -136,23 +169,47 @@ border: 1px solid red;
 		            		<div class="col-8 p-10">
 		            		${sessionScope.m.point}
 		            		</div>
-		            	</div>         	
-		            	<div class="row">
-			              	<div class="col-12 text-center p-10" style="border-top: 1px dashed #ddd;">
-					            <a class="nav-link" rel="tooltip" title="Follow me on Twitter" data-placement="bottom" href="#" target="_blank" style="display: inline;">
-					              <i class="fab fa-twitter" style="color: #56B9FF;"></i>
-
-					            </a>
-					            <a class="nav-link" rel="tooltip" title="Like me on Facebook" data-placement="bottom" href="#" target="_blank" style="display: inline;">
-					              <i class="fab fa-facebook-square" style="color: #56B9FF;"></i>
-
-					            </a>
-					            <a class="nav-link" rel="tooltip" title="Follow me on Instagram" data-placement="bottom" href="#" target="_blank" style="display: inline;">
-					              <i class="fab fa-instagram" style="color: #56B9FF;"></i>
-
-					            </a>
-		            		</div>
-		            	</div>		              
+		            	</div>
+		            	<form id="face_form" action="post" class="sns-form">
+			            	<div class="row text-center">
+				              	
+				              	<div class="col-12 text-center p-10 sns-icon" style="border-top: 1px dashed #ddd;">
+						            
+			            			 <a class="nav-link" rel="tooltip" title="Follow me on Twitter" data-placement="bottom" href="#" style="display: inline;">
+						              <i class="fab fa-twitter" style="color: #56B9FF;"></i>
+	
+						            </a>
+						            <a class="nav-link" rel="tooltip" title="Like me on Facebook" data-placement="bottom" href="#" style="display: inline;">
+						              <i class="fab fa-facebook-square" style="color: #56B9FF;"></i>
+	
+						            </a>
+						            <a class="nav-link" rel="tooltip" title="Follow me on Instagram" data-placement="bottom" href="#" style="display: inline;">
+						              <i class="fab fa-instagram" style="color: #56B9FF;"></i>
+						            </a>		            
+			            		</div>
+		            		
+		            		
+		          
+		            		
+		            		
+				              	<div class="col-12 text-center p-10">					            
+						          
+						          <input type="button" class="btn btn-info sns-btn" id="add_face" value="Facebook 추가">
+	
+						          <input type="button" class="btn btn-info sns-btn" id="add_insta" value="Instagram 추가">
+						           
+						          <input type="button" class="btn btn-info sns-btn" id="add_twit" value="Twitter 추가">		            
+			            		</div>
+			            		
+			            		<div class="col-12 text-center p-10 sns-addr">					            
+						           
+						          
+			            		</div>
+			            		
+			            		
+			            		
+			            	</div>
+		            	</form>	              
 		            </div>
 
 
@@ -276,12 +333,21 @@ border: 1px solid red;
 				                      		</div>
 		                      			</div>
 		                      			
-		                      			
-		                      			
-		                      		
+		                      			<c:if test="${sessionScope.m.contents != null}">
 		                      			<div class="col-12 text-left" style="background-color: #fff;line-height: 18pt; padding: 20px;">
 			                      			${sessionScope.m.contents}
 		                      			</div>
+		                      			</c:if>
+		                      			
+		                      			<c:if test="${sessionScope.m.contents == null}">
+		                      			<div class="col-12 text-left" style="background-color: #fff;line-height: 18pt; padding: 20px;">
+			                      			<p>아직 자기소개가 없습니다. 자기소개를 입력해 타인에게 보여주세요.</p>
+			                      			<button class="btn btn-info" id="profile_content">
+												자기소개 등록
+							            	</button>
+
+		                      			</div>
+		                      			</c:if>
 		                      			
 		                      			<div class="col-12 text-left" style="background-color: #fff; margin-top: 20px; padding: 20px;">
 		                      				<div class="col-12 text-left" style="padding: 0px;">
@@ -406,7 +472,7 @@ border: 1px solid red;
 		                      			</div>
 		                      		
 		                      		
-		                      			<div class="col-12 i_scroll_wrap" id="i_scroll_wrap" style="background-color: #fff; padding: 30px;">
+ 		                      			<div class="col-12 i_scroll_wrap" id="i_scroll_wrap" style="background-color: #fff; padding: 30px;">
 									
 										
 											
@@ -483,56 +549,15 @@ border: 1px solid red;
 										            <figure class="snip1283 figure-margin">
 													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
 													  <figcaption>
-													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
 													    <a href="#" class="read-more">책정보<br/>보러가기</a>
 													  </figcaption>
 													</figure>
-									            </div>									            
-									            
-									            <div class="col-lg-3 col-md-6 col-sm-12"> 
-										            <figure class="snip1283 figure-margin">
-													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
-													  <figcaption>
-													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
-													    <a href="#" class="read-more">책정보<br/>보러가기</a>
-													  </figcaption>
-													</figure>
-									            </div>									            
-									            
-									            <div class="col-lg-3 col-md-6 col-sm-12"> 
-										            <figure class="snip1283 figure-margin">
-													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
-													  <figcaption>
-													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
-													    <a href="#" class="read-more">책정보<br/>보러가기</a>
-													  </figcaption>
-													</figure>
-									            </div>									            
-									            
-									            <div class="col-lg-3 col-md-6 col-sm-12"> 
-										            <figure class="snip1283 figure-margin">
-													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
-													  <figcaption>
-													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
-													    <a href="#" class="read-more">책정보<br/>보러가기</a>
-													  </figcaption>
-													</figure>
-									            </div>									            
-	
-									            
-									            <div class="col-lg-3 col-md-6 col-sm-12"> 
-										            <figure class="snip1283 figure-margin">
-													  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
-													  <figcaption>
-													    <!-- <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p> -->
-													    <a href="#" class="read-more">책정보<br/>보러가기</a>
-													  </figcaption>
-													</figure>
-									            </div>									            
+									            </div>											            
 
-
+												
 									          </div>
 		                      			</div>
+		                      			
 		                      			
 		                      		</div>
 		                      		

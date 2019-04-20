@@ -64,6 +64,7 @@ public class ReviewService {
 		return list;
 	}
 
+
 	public List<Reglike> checklike(Reglike rl) {
 		List<Reglike> regl = new ArrayList<>();
 		regl = dao.checklike(rl);
@@ -78,4 +79,10 @@ public class ReviewService {
 
 	
 	
+	public List<Review> ranking() {
+		List<Review> list = new ArrayList<Review>();
+		list = dao.ranking();
+		return list;
+	}
+
 }

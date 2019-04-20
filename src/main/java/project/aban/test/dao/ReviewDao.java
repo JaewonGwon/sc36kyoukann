@@ -78,6 +78,13 @@ public class ReviewDao {
 		list =mapper.selectbydate();
 		return list;
 	}
+	
+	public List<Review> ranking() {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		List<Review> list = new ArrayList<Review>();
+		list =mapper.ranking();
+		return list;
+	}
 
 	public List<Reglike> checklike(Reglike rl) {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
