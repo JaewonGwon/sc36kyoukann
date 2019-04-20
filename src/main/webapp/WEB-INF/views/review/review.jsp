@@ -8,22 +8,25 @@
 
 
 <script>
+
 	$(document).ready(function() {
 		$("#test").on("click", orderbydregdate);
-
-		init();
-		/*검색버튼 클릭시 모달창 검색 인풋박스에 포커스 주는 코드 시작*/
-		$("#modalClick").click(function() {
-			$("#myModal").modal("show");
-		});
-		$("#myModal").on('shown.bs.modal', function() {
-			$("#reviewSearch").focus();
-			$("#reviewSearch").select();
-		});
-		/*검색버튼 클릭시 모달창 검색 인풋박스에 포커스 주는 코드 끝*/
-
+		
+		
+			init();
+			/*검색버튼 클릭시 모달창 검색 인풋박스에 포커스 주는 코드 시작*/
+			$("#modalClick").click(function() {
+				$("#myModal").modal("show");
+			});
+			$("#myModal").on('shown.bs.modal', function() {
+				$("#reviewSearch").focus();
+				$("#reviewSearch").select();
+			});
+			/*검색버튼 클릭시 모달창 검색 인풋박스에 포커스 주는 코드 끝*/
+		
+		
 	});
-	function orderbydregdate() {
+	function orderbydregdate(){
 		$.ajax({
 			url : 'selectbydate',
 			method : 'GET',
@@ -85,8 +88,8 @@
 							listwriter += '</div>';
 							listwriter += '<div class="col-5" style="text-align: right; padding-top: 4px;">';
 							listwriter += '<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;" data-value="';
-					        listwriter += tt.rev_num;
-					        listwriter +='">';
+          listwriter += tt.rev_num;
+          listwriter +='">';
 							listwriter += '<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i>';
 							listwriter += tt.rev_like;
 							listwriter += '</button>';
@@ -128,23 +131,24 @@
 
 	}
 
-	function revlike(revnum) {
+	   function revlike(revnum) {
 
-		var rev_num = $(this).attr("data-value");
+		      var rev_num = $(this).attr("data-value");
 
-		$.ajax({
-			method : 'post',
-			url : 'addLike',
-			data : {
-				rev_num : rev_num
-			},
-			success : function(data) {
-				$("#rev_like").html("♡" + data.rev_like);
-			}
+		      $.ajax({
+		         method : 'post',
+		         url : 'addLike',
+		         data : {
+		            rev_num : rev_num
+		         },
+		         success : function(data) {
+		            $("#rev_like").html("♡" + data.rev_like);
+		         }
 
-		})
+		      })
 
-	}
+		   }
+	
 
 	/*리뷰 10개씩 뿌려주는 코드 시작 (더보기 버튼)*/
 	function load(id, cnt, btn) {
@@ -188,7 +192,7 @@
 								<div class="title text-center">
 									<h3 class="h3fontblack">Review</h3>
 								</div>
-
+								
 								<div class="col-12 text-center p-20">
 									<div class="dropdown m-30" style="display: inline;">
 										<a id="dropdownMenu1" class="latest-st" data-toggle="dropdown"
@@ -198,8 +202,8 @@
 										<ul class="dropdown-menu latest-drop-ui" role="menu"
 											aria-labelledby="dropdownMenu1">
 											<li role="presentation"><a role="menuitem" tabindex="-1"
-												href="#" id="test"> <i
-													class="now-ui-icons tech_watch-time"></i> 날짜순
+												href="#" id="test"> <i class="now-ui-icons tech_watch-time"></i>
+													날짜순
 											</a></li>
 											<li role="presentation"><a role="menuitem" tabindex="-1"
 												href="#"> <i class="now-ui-icons ui-2_favourite-28"></i>
@@ -218,15 +222,15 @@
 											class="now-ui-icons ui-1_zoom-bold text-dark"></i> <span>검색</span>
 										</a>
 									</div>
-									<c:if test="${not empty sessionScope.loginId}">
-										<div class="dropdown m-30" style="display: inline;">
-											<a class="latest-st" href="reviewWrite"> <i
-												class="now-ui-icons text_align-left"></i> <span>리뷰작성</span>
-											</a>
-										</div>
-									</c:if>
+  								<c:if test="${not empty sessionScope.loginId}"> 
+									<div class="dropdown m-30" style="display: inline;">
+										<a class="latest-st" href="reviewWrite"> <i
+											class="now-ui-icons text_align-left"></i> <span>리뷰작성</span>
+										</a>
+									</div>
+									  </c:if>
 								</div>
-
+							
 								<div class="masonry" id="itemwrap"></div>
 
 								<div class="row">
@@ -238,7 +242,7 @@
 
 
 							</div>
-
+						
 						</div>
 					</div>
 				</div>
