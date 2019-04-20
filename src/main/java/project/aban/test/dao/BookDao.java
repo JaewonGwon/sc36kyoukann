@@ -148,6 +148,13 @@ public class BookDao {
 	}
 
 
+	public ArrayList<Tag> showTags() {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		ArrayList<Tag> result = mapper.showTags();
+		return result;
+	}
+
+
 
 
 }

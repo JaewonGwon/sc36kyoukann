@@ -1,8 +1,6 @@
 package project.aban.test.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,7 +14,6 @@ import project.aban.test.dao.MemberDao;
 import project.aban.test.vo.Book;
 import project.aban.test.vo.Member;
 import project.aban.test.vo.Tag;
-import project.aban.test.vo.TagList;
 
 @Controller
 public class AjaxController {
@@ -34,6 +31,16 @@ public class AjaxController {
 
 		return result;
 	}
+	
+	@RequestMapping("/showTags")
+	@ResponseBody
+	public ArrayList<Tag> showTags() {
+		ArrayList<Tag> result = (ArrayList<Tag>) dao.showTags();
+		System.out.println(result);
+		return result;
+	}
+	
+	
 	
 	@RequestMapping("/request_taglist")
 	@ResponseBody
@@ -126,5 +133,20 @@ public class AjaxController {
 		return thisBook;
 	
 	}
+
+	
+	@RequestMapping("/getUserInfo")
+	@ResponseBody
+	public Member getUserInfo(HttpSession session) {
+	
+		Member UserInfo = (Member) session.getAttribute("UserInfo");
+		
+		
+		return UserInfo;
+	}
+
+
+
+
 }
 

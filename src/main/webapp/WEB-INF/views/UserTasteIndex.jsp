@@ -42,6 +42,7 @@ box-sizing: border-box;
 					<div class="col-12" style="border: 1px solid green;margin-top: 40px;">
 							<!-- React page -->
 							<div id="root"></div>
+							
 					</div>
 				</div>
 
