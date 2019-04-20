@@ -6,15 +6,16 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.javassist.expr.NewArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.aban.test.service.ReviewService;
+import project.aban.test.vo.Reglike;
 import project.aban.test.vo.Review;
 
 @Controller
@@ -22,6 +23,15 @@ public class ReviewController {
 	
 	@Autowired
 	ReviewService rs;
+	
+	@RequestMapping(value = "/ranking", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Review> ranking(HttpSession session) {
+       List<Review> list = new ArrayList<>();
+       list=rs.ranking();
+ 
+       return list;
+    }
 	
 	@RequestMapping(value = "/selectbydate", method = RequestMethod.GET)
 	   @ResponseBody
@@ -127,20 +137,34 @@ public class ReviewController {
 		return review;
 	}
 	
-
-	
 	@RequestMapping(value = "/addLike", method = RequestMethod.POST)
 	@ResponseBody
-	public Review addLike(int rev_num) {
+	public Review addLike(int rev_num,HttpSession session) {
 		//System.out.println(rev_num);
 		
+		Reglike rl = new Reglike();
+		String id = (String)session.getAttribute("loginId");
+		rl.setId(id);
+		rl.setRev_num(rev_num);
+		rs.insertCheckLike(rl);
+		List <Reglike> regl= new ArrayList<>();
+		regl = rs.checklike(rl);
+		Review review;
 		
-		Review review = rs.addLike(rev_num);
-		System.out.println("좋아요버튼 누름");
+		if (regl.size()>=2) {
+			System.out.println(regl.size());
+			review =rs.selectOne(rev_num); 
+			return review;
+			
+		}else {
+			review = rs.addLike(rev_num);
+			return review;
+		}
 		
-		//session.setAttribute("reviewD",review);
-		//model.addAttribute("revnum", rev_num);
-		return review;
+		
+		
+	
+		
 	}
 	
 	
