@@ -25,17 +25,19 @@ class App extends Component {
         console.log(this.state)
     }
 
-    _renderingCards = () => {      
+    _renderingCards = () => {
         console.log("rendered")
         return (
             <div className="wrapper">
                 <div className="tagInput">
                     <CustomExample callbackFromParent = {this.callBackList}/>
                 </div>
-                <div className="recommand">
+                <label for="Search">태그 검색</label>
+                <div className="recommand" id="Search">
                     <Carousel bookData = {this.state}/>
                 </div>
-                <div className="recommand">
+                <label for="RecommendList">추천 리스트</label>
+                <div className="recommand" id="RecommendList">
                     <Carousel bookData = {this.state}/>
                 </div>
             </div>
@@ -44,9 +46,8 @@ class App extends Component {
 
     //값 받아서 render
     render() {
-        
         return (
-            this.state.properties ? this._renderingCards() : 'no'
+            this.state.properties ? this._renderingCards() : 'Loading...'
         );
     }
         
@@ -73,11 +74,6 @@ class App extends Component {
             .catch(function (error) {
                 console.log(error);
             });
-    }
-    componentDidUpdate(prevProps, prevState) {
-        console.log("didupdate.");
-        console.log(prevProps)
-        console.log(prevState)
     }
 
 }

@@ -43,7 +43,6 @@ class Carousel extends Component {
                             {/* 페이지 */}
                             <div className="page">
                                 <div className="col">
-                                    <div className="test123">Tag추천</div>
                                         <div className="line">
                                         {/* 버튼 */}
                                             <div className="button">
@@ -88,7 +87,7 @@ class Carousel extends Component {
     //값 받아서 render
     render() {
         return (
-            this.state.properties ? this._renderingCards() : 'no'
+            this.state.properties ? this._renderingCards() : 'Loading...'
         );
     }
     componentDidMount() {

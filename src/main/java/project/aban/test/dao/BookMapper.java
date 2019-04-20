@@ -21,11 +21,11 @@ public interface BookMapper {
 	public List<String> select_all_tag();
 
 	public ArrayList<Tag> show_tags();
-	
+
 	public int insert_taglist(List<Map<String, String>> taglist);
-	
+
 	public int delete_taglist();
-	
+
 	public int delete_tag();
 
 	public List<Book> select_book_recommend();
@@ -48,6 +48,6 @@ public interface BookMapper {
 
 	public ArrayList<Tag> showTags();
 
-
+	public ArrayList<Book> request_main_book();
 
 }

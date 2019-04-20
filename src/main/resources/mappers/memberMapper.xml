@@ -7,7 +7,7 @@
 
    <select id="loginCheck" parameterType="Member"
       resultType="Member">
-      select id, pw from member where id=#{id} and pw=#{pw}
+      select * from member where id=#{id} and pw=#{pw}
    </select>
 
 

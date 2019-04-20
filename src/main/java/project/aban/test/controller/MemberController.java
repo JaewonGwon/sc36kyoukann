@@ -38,6 +38,7 @@ public class MemberController {
 			}
 			String id = m.getId();
 			session.setAttribute("loginId", id);
+			session.setAttribute("m", m);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

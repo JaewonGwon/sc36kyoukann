@@ -148,9 +148,18 @@ public class BookDao {
 	}
 
 
+
 	public ArrayList<Tag> showTags() {
 		BookMapper mapper = session.getMapper(BookMapper.class);
 		ArrayList<Tag> result = mapper.showTags();
+		
+		return result;
+		
+	}
+	public ArrayList<Book> request_main_book() {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		ArrayList<Book> result = mapper.request_main_book();
+
 		return result;
 	}
 

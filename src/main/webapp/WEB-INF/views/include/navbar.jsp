@@ -1,16 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 
+.shine {
+  width:8px;
+  height:25px;
+  background:white;
+  position:absolute;
+  margin-left:-150px;
+  margin-top:-26px;
+  transform:rotate(-20deg);
+  animation: shine 4s infinite ease-in-out;
+  opacity:0.85;
+}
+
+@keyframes shine {
+  0% {
+    left:0px;
+    width:8px
+  }
+  
+  25%, 100% {
+    left:700px;
+    width:8px;
+  }
+}
+
+
+
+</style>
 <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="index" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom">
           	Reed Books : Gong-Gam
+          	<div class="shine"></div>
         </a>
         <c:if test="${sessionScope.loginId != null}">
-	        <a class="navbar-brand text-warning" rel="tooltip" data-placement="bottom">
+	        <a class="navbar-brand text-warning" rel="tooltip" data-placement="bottom" style="font-size: 11px;">
 				<i class="now-ui-icons users_circle-08"></i>
 				${sessionScope.loginId}님 접속중
 			</a>

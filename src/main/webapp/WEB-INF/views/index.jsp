@@ -18,7 +18,44 @@ $(function(){
 		  if (!prev.length) prev = $(this).siblings(':last');
 		  prev.children(':nth-last-child(2)').clone().prependTo($(this));
 		});
+		
+		init();
 });
+
+function init() {
+	$.ajax({
+		url : 'ranking',
+		method : 'GET',
+		success : function(resp) {
+			output(resp);
+		}
+
+	})
+}
+
+function output(resp) {
+	var listwriter = '';
+	$
+			.each(
+					resp,
+					function(index, tt) {
+						listwriter += '<div class="col-2 author_img">';
+						listwriter += '<img src="resources/assets/img/crown.jpg" alt="Circle Image" class="rounded-circle review-user-img">';
+						listwriter += '</div>';
+						listwriter += '<div class="col-10 text-left author_text" style="">';
+						listwriter += '<p style="font-weight: 500; font-size: 12pt;">';
+						listwriter += tt.id;
+						listwriter += '</p>';
+						listwriter += '</div>';
+						listwriter += '<div class="col-12 author_line"></div>';
+		
+					});
+
+	$('#ranking').html(listwriter);
+
+
+}
+
 
 </script>
 
@@ -293,8 +330,21 @@ $(function(){
 	 overflow: hidden;
 	 height: 170px;
 	}
-}
+	.author_img{
+	margin:0;
+	padding: 0px;
 
+	}
+	.author_text{
+		margin:0;
+		padding-left: 10px;
+	}
+	.author_line{
+		border-top: 1px dashed #ddd;
+		padding-bottom: 22px;
+	}
+	
+}
 @media screen and (min-width: 992px) and (max-width: 1200px) {
 	.review-row-bg-st{
 	margin: 0;
@@ -307,9 +357,22 @@ $(function(){
 	 overflow: hidden;
 	 height: 170px;
 	}
+	.author_img{
+	margin:0;
+	padding: 0px;
+
+	}
+	.author_text{
+		margin:0;
+		padding-left: 10px;
+	}
+	.author_line{
+		border-top: 1px dashed #ddd;
+		padding-bottom: 22px;
+	}
+
+	
 }
-
-
 @media screen and (min-width: 769px) and (max-width: 991px) {
 	.review-row-bg-st{
 	margin: 0;
@@ -321,9 +384,22 @@ $(function(){
 	 overflow: hidden;
 	 height: 150px;
 	}
+	.author_img{
+	margin:0;
+	padding: 0px;
+
+	}
+	.author_text{
+		margin:0;
+		padding-left: 10px;
+	}
+	.author_line{
+		border-top: 1px dashed #ddd;
+		padding-bottom: 22px;
+	}
+
+	
 }
-
-
 @media screen and (min-width: 518px) and (max-width: 768px) {
 	.review-row-bg-st{
 	 margin: 0;
@@ -335,10 +411,20 @@ $(function(){
 	 overflow: hidden;
 	 height: 150px;
 	}
+		.author_img{
+	margin:0;
+	padding: 0px;
+
+	}
+	.author_text{
+		margin:0;
+		padding-left: 10px;
+	}
+	.author_line{
+		border-top: 1px dashed #ddd;
+		padding-bottom: 22px;
+	}
 }
-
-
-
 @media screen and (min-width: 100px) and (max-width: 517px) {
 	.review-row-bg-st{
 	 margin: 0;
@@ -350,22 +436,21 @@ $(function(){
 	 overflow: hidden;
 	 height: 150px;
 	}
+		.author_img{
+	margin:0;
+	padding: 0px;
+
+	}
+	.author_text{
+		margin:0;
+		padding-left: 10px;
+	}
+	.author_line{
+		border-top: 1px dashed #ddd;
+		padding-bottom: 22px;
+	}
 }
 
-
-   .author_img{
-   	margin:0;
-   	padding: 0px;
-   }
-   .author_text{
-   	margin:0;
-   	padding-left: 10px;
-   }
-.author_line{
-border-top: 1px dashed #ddd;
-padding-bottom: 22px;
-}
- 
  </style>
   <div class="wrapper">
      <!-- main 태크 시작 -->
@@ -463,14 +548,14 @@ padding-bottom: 22px;
 
     <!-- 추천 리뷰 보여주는 부분 시작 -->
 
-      <div class="section section-tabs">
-        <div class="row" style="padding: 40px; margin:0 auto;">
+      <div class="section section-tabs" style="padding: 0px; margin:0 auto;">
+        <div class="row" style="padding: 40px 40px 0px 40px; margin:0 auto;">
           <div class="row">
             <div class="col-lg-3 col-md-3 ml-auto col-xl-3 col-sm-12">
               <p class="category">Author of the week</p>
               <!-- Nav tabs -->
-              
               <div class="card">
+
                 <div class="card-header">
                   <!-- <ul class="nav nav-tabs justify-content-center" role="tablist">
                     <li class="nav-item">
@@ -498,60 +583,17 @@ padding-bottom: 22px;
    
                 
                 
-                <div class="card-body">
+                <div class="card-body cs-st">
                   <!-- Tab panes -->
                   <div class="tab-content text-center">
                     <div class="tab-pane active" id="home" role="tabpanel">
-                      <div class="row">
+                      <div class="row" id="ranking">
                      
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>
-		                
-		                <div class="col-12 author_line"></div>
-		                
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>
-		                
-		                <div class="col-12 author_line"></div>
-		                
-		                
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>
-		                
-		                <div class="col-12 author_line"></div>
-		                
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>
-		                
-		                <div class="col-12 author_line"></div>
-		                
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>		               
+                       
+		                             
 		                
 	                  </div>
                     </div>
-
-
                   </div>
          
                   
@@ -742,10 +784,6 @@ padding-bottom: 22px;
 					</div>
 				</div>                
 
-                
-                
-                
-                
               </div>
               <!-- End Tabs on plain Card -->
             </div>
@@ -753,114 +791,11 @@ padding-bottom: 22px;
         </div>
       </div>
 
-
-
-
-
     <!-- 추천 리뷰 보여주는 부분 끝 -->
-    
-    
-    <!-- 요즘 핫한 책리스트 시작 -->
-	  
-      
-      <div class="section section-examples" style="background-image: url('resources/assets/img/bg12.jpg'); background-size: cover; background-position: top center; min-height: 700px;">
-         
-         <div class="container text-center">
-          <div class="row justify-content-md-center">
-            <div class="col-md-12 col-lg-8">
-              <h3 class="title titlefontwhite">도서 주간 베스트셀러</h3>
-              <!-- <h5 class="description">The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go. More importantly, looking at them will give you a picture of what you can built with this powerful Bootstrap 4 ui kit.</h5> -->
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
- 
-            <div class="col-lg-3 col-md-6 col-sm-6">
-	            <figure class="snip1283">
-				  <img src="resources/assets/img/book_img01.jpg" alt="book_image" />
-				  <figcaption>
-				    <h3>Sue Shei</h3>
-				    <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p><a href="#" class="read-more">Read More</a>
-				  </figcaption>
-				</figure>
-            </div> 
-
-
-            <div class="col-lg-3 col-md-6 col-sm-6">
-	            <figure class="snip1283">
-				  <img src="resources/assets/img/book_img02.jpg" alt="book_image" />
-				  <figcaption>
-				    <h3>Sue Shei</h3>
-				    <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p><a href="#" class="read-more">Read More</a>
-				  </figcaption>
-				</figure>
-            </div> 
-            <div class="col-lg-3 col-md-6 col-sm-6">
-	            <figure class="snip1283">
-				  <img src="resources/assets/img/book_img03.jpg" alt="book_image" />
-				  <figcaption>
-				    <h3>Sue Shei</h3>
-				    <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p><a href="#" class="read-more">Read More</a>
-				  </figcaption>
-				</figure>
-            </div> 
-            <div class="col-lg-3 col-md-6 col-sm-6"> 
-	            <figure class="snip1283">
-				  <img src="resources/assets/img/book_img04.jpg" alt="book_image" />
-				  <figcaption>
-				    <h3>Sue Shei</h3>
-				    <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p><a href="#" class="read-more">Read More</a>
-				  </figcaption>
-				</figure>
-            </div> 
-            <div class="col-lg-3 col-md-6 col-sm-6"> 
-	            <figure class="snip1283">
-				  <img src="resources/assets/img/book_img05.jpg" alt="book_image" />
-				  <figcaption>
-				    <h3>Sue Shei</h3>
-				    <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p><a href="#" class="read-more">Read More</a>
-				  </figcaption>
-				</figure>
-            </div> 
-            <div class="col-lg-3 col-md-6 col-sm-6"> 
-	            <figure class="snip1283">
-				  <img src="resources/assets/img/book_img06.jpg" alt="book_image" />
-				  <figcaption>
-				    <h3>Sue Shei</h3>
-				    <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p><a href="#" class="read-more">Read More</a>
-				  </figcaption>
-				</figure>
-            </div> 
-            <div class="col-lg-3 col-md-6 col-sm-6"> 
-	            <figure class="snip1283">
-				  <img src="resources/assets/img/book_img07.jpg" alt="book_image" />
-				  <figcaption>
-				    <h3>Sue Shei</h3>
-				    <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p><a href="#" class="read-more">Read More</a>
-				  </figcaption>
-				</figure>
-            </div> 
-            <div class="col-lg-3 col-md-6 col-sm-6"> 
-	            <figure class="snip1283">
-				  <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
-				  <figcaption>
-				    <h3>Sue Shei</h3>
-				    <p>The strength to change what I can, the inability to accept what I can't and the incapacity to tell the difference.</p><a href="#" class="read-more">Read More</a>
-				  </figcaption>
-				</figure>
-            </div> 
-
-
-          </div>
-         
-        </div>
-      </div>
-    <!-- 요즘 핫한 책리스트 끝 -->
-    
-    
+       
    </div>
    <!-- main 태크 끝 -->
+
 
 
 

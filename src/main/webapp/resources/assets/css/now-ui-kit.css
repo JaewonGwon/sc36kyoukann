@@ -4583,8 +4583,10 @@ Created using IcoMoon - icomoon.io
 .bg-primary {
   /* background-color: #f96332 !important; */
   /* background-color: #4f220e !important; */
-  background-color: #000 !important;
+  background-color: #fff !important;
 }
+
+
 
 .bg-info {
   background-color: #2CA8FF !important;
@@ -7438,39 +7440,37 @@ pt-30{
 
 /*메인화면 지금 핫한 책 마우스오버 CSS 시작*/
  
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
 @media screen and (min-width: 991px) and (max-width: 1920px) {
 	figure.snip1283 {
-	  font-family: 'Raleway', Arial, sans-serif;
 	  color: #fff;
 	  position: relative;
 	  overflow: hidden;
-	  margin: 10px;
-	  width: 224px !important;
-	  height: 302px !important;
+	  /* margin: 10px; */
+	  width: 100px !important;
+	  height: 150px !important;
 	  width: 100%;
 	  color: #ffffff;
-	  text-align: left;
+	  /* text-align: left; */
 	  background-color: #07090c;
 	  font-size: 16px;
 	  -webkit-perspective: 50em;
 	  perspective: 50em;
-	  border-radius: 2px;
-	  box-shadow: 0px 0px 10px #000; 
+	  border-radius: 1px;
+	  box-shadow: 0px 0px 4px #292929; 
 	}
+	
 }
 
 
 
 @media screen and (min-width: 769px) and (max-width: 990px) {
 	figure.snip1283 {
-	  font-family: 'Raleway', Arial, sans-serif;
 	  color: #fff;
 	  position: relative;
 	  overflow: hidden;
 	  margin: 10px;
-	  width: 300px !important;
-	  height: 390px !important;
+	  width: 150px !important;
+	  height: 210px !important;
 	  width: 100%;
 	  color: #ffffff;
 	  text-align: left;
@@ -7479,19 +7479,18 @@ pt-30{
 	  -webkit-perspective: 50em;
 	  perspective: 50em;
 	  border-radius: 2px;
-	  box-shadow: 0px 0px 10px #000; 
+	  box-shadow: 0px 0px 4px #292929; 
 	}
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
 	figure.snip1283 {
-	  font-family: 'Raleway', Arial, sans-serif;
 	  color: #fff;
 	  position: relative;
 	  overflow: hidden;
 	  margin: 10px;
 	  /* width: 224px !important; */
-	  height: 302px !important;
+	  height: 93% !important;
 	  width: 100%;
 	  color: #ffffff;
 	  text-align: left;
@@ -7500,19 +7499,21 @@ pt-30{
 	  -webkit-perspective: 50em;
 	  perspective: 50em;
 	  border-radius: 2px;
-	  box-shadow: 0px 0px 10px #000; 
+	  box-shadow: 0px 0px 4px #292929; 
 	}
-	
+
+
+
 }
+
 
 @media screen and (min-width: 200px) and (max-width: 575px) {
 	figure.snip1283 {
-	  font-family: 'Raleway', Arial, sans-serif;
 	  color: #fff;
 	  position: relative;
 	  overflow: hidden;
 	  margin: 0 auto;
-	  width: 65% !important;
+	  width: 100% !important;
 	  height: 100% !important;
 	  color: #ffffff;
 	  text-align: left;
@@ -7521,7 +7522,7 @@ pt-30{
 	  -webkit-perspective: 50em;
 	  perspective: 50em;
 	  border-radius: 2px;
-	  box-shadow: 0px 0px 10px #000;
+	  box-shadow: 0px 0px 4px #292929;
 	 
 	}
 	
@@ -7556,8 +7557,10 @@ figure.snip1283 figcaption {
   transform-origin: 50% 100%;
   z-index: 1;
   opacity: 0;
-  padding: 20px 30px;
+  padding: 48px 0px;
+ 
 }
+
 figure.snip1283 h3,
 figure.snip1283 p {
   line-height: 1.5em;
@@ -7570,11 +7573,13 @@ figure.snip1283 h3 {
 figure.snip1283 p {
   font-size: 0.8em;
   font-weight: 500;
-  margin: 0 0 15px;
+  margin: 0 0;
 }
+
+
 figure.snip1283 .read-more {
   border: 2px solid #ffffff;
-  padding: 0.5em 1em;
+  padding: 6px;
   font-size: 0.8em;
   text-decoration: none;
   color: #ffffff;
@@ -7669,10 +7674,19 @@ figure.snip1283.hover figcaption {
 		font-size: 1em;
 		display: inline-block;
  		height: 76px;
-		overflow: hidden;
+ 		overflow: hidden;
 		text-overflow: ellipsis;
 		width: 100%;
-	}
+	}	
+	.main-review-content3{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+		width: 100%;
+	}	
+	
 	.item.active {
     display: inline-block;
     /*visibility:hidden !important; <->  visible */
@@ -7681,7 +7695,6 @@ figure.snip1283.hover figcaption {
  */ 
     position: relative;
     left:0;
-    
     flex: auto;
     height: 280px;
     min-width: 200px;
@@ -7704,10 +7717,19 @@ figure.snip1283.hover figcaption {
 	font-size: 1em;
 	display: inline-block;
 	height: 76px !important;
-	overflow: hidden;
+ 	overflow: hidden;
 	text-overflow: ellipsis;
 	width: 100% !important;
   }
+	.main-review-content3{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+		width: 100%;
+	}	
+	
   .item.active {
     display: inline-block;
     /*visibility:hidden !important; <->  visible */
@@ -7716,11 +7738,10 @@ figure.snip1283.hover figcaption {
  */ 
     position: relative;
     left:0;
-    
     flex: auto;
     height: 280px;
     min-width: 200px;
-        z-index: 1;
+    z-index: 1;
     overflow: visible;
 	}
 }
@@ -7738,11 +7759,19 @@ figure.snip1283.hover figcaption {
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	height: 76px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	height: 76px !important;
 	width: 100%;
   }
+	.main-review-content3{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+		width: 100%;
+	}	
   .item.active {
     display: inline-block;
     /*visibility:hidden !important; <->  visible */
@@ -7751,11 +7780,12 @@ figure.snip1283.hover figcaption {
  */ 
     position: relative;
     left:0;
-    
+	overflow: hidden;
+	text-overflow: ellipsis;
     flex: auto;
     height: 280px;
     min-width: 200px;
-        z-index: 1;
+    z-index: 1;
     overflow: visible;
 	}
   
@@ -7777,6 +7807,14 @@ figure.snip1283.hover figcaption {
 	text-overflow: ellipsis;
 	width: 100%;
   }
+	.main-review-content3{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+		width: 100%;
+	}	
   .item.active {
     display: inline-block;
     /*visibility:hidden !important; <->  visible */
@@ -7785,11 +7823,10 @@ figure.snip1283.hover figcaption {
  */ 
     position: relative;
     left:0;
-    
     flex: auto;
     height: 280px;
     min-width: 200px;
-}
+	}
 }
 @media screen and (min-width: 300px) and (max-width: 517px) {
   .text-carousel-st2{
@@ -7804,10 +7841,16 @@ figure.snip1283.hover figcaption {
 	display: inline-block;
 	height: 76px !important;
 	overflow: hidden;
-	text-overflow: ellipsis;
-	overflow: auto !important;
 	width: 100%;
   }
+ 	.main-review-content3{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+		width: 100%;
+	}	
   
   .item.active {
     display: inline-block;

@@ -15,6 +15,7 @@ create table member (
 
 insert into member(id,pw) values ('tt','tt');
 
+<<<<<<< HEAD
 insert into tag values
 (   
     tag_seq.nextval+300,
@@ -134,4 +135,11 @@ insert into tag values
 
 
 
+
+
+
+create table reglike(
+    rev_num number ,
+    id varchar2(100)
+);
 commit;
