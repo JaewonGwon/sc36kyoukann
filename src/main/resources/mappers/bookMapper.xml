@@ -155,7 +155,7 @@
 		SELECT
 		    tag,tag_image
 		FROM
-		    tag
+		    taste_tag
 		WHERE tag in
         (
         '문학',
