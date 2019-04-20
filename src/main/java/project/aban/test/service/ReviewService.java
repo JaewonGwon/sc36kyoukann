@@ -57,5 +57,10 @@ public class ReviewService {
 		list = dao.selectbydate();
 		return list;
 	}
-	
+
+	public List<Review> ranking() {
+		List<Review> list = new ArrayList<Review>();
+		list = dao.ranking();
+		return list;
+	}
 }

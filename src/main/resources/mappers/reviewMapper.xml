@@ -8,38 +8,55 @@
 		select * from review
 	</select>
 	<select id="selectOne" parameterType="int" resultType="Review">
-		select * from review where rev_num=#{rev_num}
+		select *
+		from review where rev_num=#{rev_num}
 	</select>
 	<update id="update" parameterType="Review">
 		update review set
 		book_title=#{book_title}, regdate=sysdate,
 		rev_title=#{rev_title},rev_content=#{rev_content}
-		where rev_num=#{rev_num}
+		where
+		rev_num=#{rev_num}
 	</update>
 	<delete id="reviewDelete" parameterType="int">
-		delete review where rev_num=#{rev_num} 
+		delete review where
+		rev_num=#{rev_num}
 	</delete>
-	
-	   <update id="addLike" parameterType="int">
-      update
-         review
-      set
-         rev_like = rev_like + 1
-      where
-         rev_num = #{rev_num}
-   </update>
-   
-   <insert id="reviewWrite" parameterType="Review">
-      insert into review(REV_NUM,
-      BOOK_TITLE,
-      ID,
-      REGDATE,
-      REV_TITLE,
-      REV_CONTENT) values (
-      REV_SEQ.nextval, #{book_title}, #{id}, sysdate, #{rev_title}, #{rev_content}
-      )
-   </insert>
+
+	<update id="addLike" parameterType="int">
+		update
+		review
+		set
+		rev_like =
+		rev_like + 1
+		where
+		rev_num = #{rev_num}
+	</update>
+
+	<insert id="reviewWrite" parameterType="Review">
+		insert into
+		review(REV_NUM,
+		BOOK_TITLE,
+		ID,
+		REGDATE,
+		REV_TITLE,
+		REV_CONTENT) values (
+		REV_SEQ.nextval, #{book_title}, #{id}, sysdate, #{rev_title},
+		#{rev_content}
+		)
+	</insert>
 	<select id="selectbydate" resultType="Review">
-		select * from review order by REGDATE desc
+		select * from review order
+		by REGDATE desc
+	</select>
+
+	<select id="ranking" resultType="Review">
+		SELECT id
+		FROM (
+		SELECT ID,ROW_NUMBER() OVER(ORDER BY COUNT(ID) DESC) AS RNM
+		FROM review
+		GROUP BY ID
+		) z
+		WHERE 5 >= RNM
 	</select>
 </mapper>

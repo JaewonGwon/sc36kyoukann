@@ -24,7 +24,6 @@ public interface ReviewMapper {
 	List<Review> selectbydate();
 	
 	
-
-	ArrayList<Review> listReview(String searchText);
+	List<Review> ranking();
 
 }

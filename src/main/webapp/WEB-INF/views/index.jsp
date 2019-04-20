@@ -18,7 +18,44 @@ $(function(){
 		  if (!prev.length) prev = $(this).siblings(':last');
 		  prev.children(':nth-last-child(2)').clone().prependTo($(this));
 		});
+		
+		init();
 });
+
+function init() {
+	$.ajax({
+		url : 'ranking',
+		method : 'GET',
+		success : function(resp) {
+			output(resp);
+		}
+
+	})
+}
+
+function output(resp) {
+	var listwriter = '';
+	$
+			.each(
+					resp,
+					function(index, tt) {
+						listwriter += '<div class="col-2 author_img">';
+						listwriter += '<img src="resources/assets/img/crown.jpg" alt="Circle Image" class="rounded-circle review-user-img">';
+						listwriter += '</div>';
+						listwriter += '<div class="col-10 text-left author_text" style="">';
+						listwriter += '<p style="font-weight: 500; font-size: 12pt;">';
+						listwriter += tt.id;
+						listwriter += '</p>';
+						listwriter += '</div>';
+						listwriter += '<div class="col-12 author_line"></div>';
+		
+					});
+
+	$('#ranking').html(listwriter);
+
+
+}
+
 
 </script>
 
@@ -550,56 +587,13 @@ $(function(){
                   <!-- Tab panes -->
                   <div class="tab-content text-center">
                     <div class="tab-pane active" id="home" role="tabpanel">
-                      <div class="row">
+                      <div class="row" id="ranking">
                      
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>
-		                
-		                <div class="col-12 author_line"></div>
-		                
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>
-		                
-		                <div class="col-12 author_line"></div>
-		                
-		                
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>
-		                
-		                <div class="col-12 author_line"></div>
-		                
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>
-		                
-		                <div class="col-12 author_line"></div>
-		                
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>		               
+                       
+		                             
 		                
 	                  </div>
                     </div>
-
-
                   </div>
          
                   
