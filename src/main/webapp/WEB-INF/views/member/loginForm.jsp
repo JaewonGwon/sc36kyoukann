@@ -72,8 +72,11 @@ $(function(){
 <!-- Navbar include -->
   <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
 
+
+
   <div class="wrapper">
-      <div class="section section-signup" style="background-image: url('resources/assets/img/bg13.jpg'); background-size: cover; background-position: top center; min-height: 700px;">
+  
+      <div class="section section-signup" style="background-image: url('resources/assets/img/bg13.jpg'); background-size: cover; background-position: top center; min-height: 1100px !important;">
         <div class="container">
           <div class="row">
           

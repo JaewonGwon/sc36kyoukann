@@ -16,3 +16,8 @@ create table member (
 insert into member(id,pw) values ('tt','tt');
 
 commit;
+
+create table reglike(
+    rev_num number ,
+    id varchar2(100)
+);

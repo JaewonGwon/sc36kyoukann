@@ -29,8 +29,6 @@ $(window).ready(function(){
 		alert('준비중입니다.');
 	});
 	
-	
-	
 	$("#add_face").on("click", function(){
         var temp = '';
         temp += '<p><input class="sns-input" type="text" id="faddr" placeholder="Facebook 주소를 입력해주세요." /></p>'
@@ -38,6 +36,7 @@ $(window).ready(function(){
         $("#add_face").val('Facebook 등록');
         $("#add_insta").css('display', 'none');
         $("#add_twit").css('display', 'none');
+        
 	});	
 	
 	$("#add_insta").on("click", function(){
