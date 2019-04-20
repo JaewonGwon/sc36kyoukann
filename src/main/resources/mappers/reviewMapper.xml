@@ -8,7 +8,7 @@
 		select * from review
 	</select>
 	<select id="selectOne" parameterType="int" resultType="Review">
-		select * from review where rev_num=#{rev_num}
+		
 		select *
 		from review where rev_num=#{rev_num}
 	</select>
@@ -17,13 +17,11 @@
 		book_title=#{book_title}, regdate=sysdate,
 		rev_title=#{rev_title},rev_content=#{rev_content}
 		where rev_num=#{rev_num}
-		where
-		rev_num=#{rev_num}
+	
 	</update>
 	<delete id="reviewDelete" parameterType="int">
 		delete review where rev_num=#{rev_num} 
-		delete review where
-		rev_num=#{rev_num}
+		
 	</delete>
 	
 
