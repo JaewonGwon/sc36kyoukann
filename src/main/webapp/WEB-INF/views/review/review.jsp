@@ -87,12 +87,22 @@
 									+ tt.id + '</button>';
 							listwriter += '</div>';
 							listwriter += '<div class="col-5" style="text-align: right; padding-top: 4px;">';
+							listwriter += '<c:if test="${not empty sessionScope.loginId}">';
 							listwriter += '<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;" data-value="';
-          listwriter += tt.rev_num;
-          listwriter +='">';
+							listwriter += tt.rev_num;
+          					listwriter += '">';
 							listwriter += '<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i>';
 							listwriter += tt.rev_like;
 							listwriter += '</button>';
+							listwriter += '</c:if>';
+							listwriter += '<c:if test="${empty sessionScope.loginId}">';
+							listwriter += '<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;" data-value="';
+							listwriter += tt.rev_num;
+          					listwriter += '">';
+							listwriter += '<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i>';
+							listwriter += tt.rev_like;
+							listwriter += '</button>';
+							listwriter += '</c:if>';
 							listwriter += '<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">';
 							listwriter += '<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15';
 							listwriter += '</button>';
@@ -112,7 +122,7 @@
 			load('#itemwrap', '10', '#btn-wrap');
 		})
 		/*리뷰 뿌려주는 부분 첫 10개 뿌려주기 끝*/
-
+		
 		$('#rev_like').on('click', revlike);
 
 	}
@@ -131,20 +141,23 @@
 
 	}
 
-	function revlike(revnum) {
+	   function revlike(revnum) {
 
-		var rev_num = $(this).attr("data-value");
+		      var rev_num = $(this).attr("data-value");
 
-		$.ajax({
-			method : 'post',
-			url : 'addLike',
-			data : {
-				rev_num : rev_num
-			},
-			success : init
-		})
-		
-	}
+		      $.ajax({
+		         method : 'post',
+		         url : 'addLike',
+		         data : {
+		            rev_num : rev_num
+		         },
+		         success : function(data) {
+		            $("#rev_like").html("♡" + data.rev_like);
+		         }
+
+		      })
+
+		   }
 	
 
 	/*리뷰 10개씩 뿌려주는 코드 시작 (더보기 버튼)*/
@@ -229,7 +242,7 @@
 								</div>
 							
 								<div class="masonry" id="itemwrap"></div>
-
+									
 								<div class="row">
 									<div class="col-12 text-center" id="btn-wrap">
 										<button class="btn btn-primary btn-round" id="reviewmore"

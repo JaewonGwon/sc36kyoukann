@@ -82,6 +82,7 @@ class Carousel extends Component {
                     </div>
         );
     }
+    
 
     //값 받아서 render
     render() {

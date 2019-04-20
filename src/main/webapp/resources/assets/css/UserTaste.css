@@ -1,3 +1,8 @@
-h1{
-   background-color: red;
+.btn.btn-login.btn-round.btn-lg{
+    
+    margin-right: 5%;
+}
+
+.title{
+    margin-top: 1%;
 }

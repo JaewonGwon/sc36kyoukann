@@ -26,18 +26,15 @@ const Card = ({ property }) => {
 
                     <ul className="features">
                         <div className="allList">
-                            <li><Icon name='eye' />
-                                {book_viewcount}
+                        
+                            <li><i className="now-ui-icons education_glasses"> {book_viewcount}</i>
+                                 
                             </li>
-                            <li><Icon
-                                name="save"
-                                color='blue' />
-                                {book_scrapcount}
+                            <li><i className="now-ui-icons ui-1_send"> {book_scrapcount}</i>
+                                 
                             </li>
-                            <li><Icon
-                                color='red'
-                                name="heart" />
-                                {book_likecount}
+                            <li><i className="now-ui-icons ui-2_favourite-28"> {book_likecount}</i>
+                                 
                             </li>
 
 

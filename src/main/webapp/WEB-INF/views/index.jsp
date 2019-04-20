@@ -3,7 +3,77 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
-<style type="text/css">
+<script src="resources/jquery-3.3.1.min.js"></script>
+<script>
+//Instantiate the Bootstrap carousel
+$(function(){
+	$('.multi-item-carousel .carousel-item').each(function(){
+		  var next = $(this).next();
+		  if (!next.length) next = $(this).siblings(':first');
+		  next.children(':first-child').clone().appendTo($(this));
+		});
+		$('.multi-item-carousel .carousel-item').each(function(){
+		  var prev = $(this).prev();
+		  if (!prev.length) prev = $(this).siblings(':last');
+		  prev.children(':nth-last-child(2)').clone().prependTo($(this));
+		});
+		
+		init();
+});
+
+function init() {
+	$.ajax({
+		url : 'ranking',
+		method : 'GET',
+		success : function(resp) {
+			output(resp);
+		}
+
+	})
+}
+function output(resp) {
+	var listwriter = '';
+	$.each(
+					resp,
+					function(index, tt) {
+						listwriter += '<div class="col-2 author_img">';
+						listwriter += '<img src="resources/assets/img/crown.jpg" alt="Circle Image" class="rounded-circle review-user-img">';
+						listwriter += '</div>';
+						listwriter += '<div class="col-10 text-left author_text" style="">';
+						listwriter += '<p style="font-weight: 500; font-size: 12pt;">';
+						listwriter += tt.id;
+						listwriter += '</p>';
+						listwriter += '</div>';
+						listwriter += '<div class="col-12 author_line"></div>';
+		
+					});
+
+	$('#ranking').html(listwriter);
+
+
+}
+function reloadData() {
+	$.ajax({
+		url : 'request_main_book',
+		method : 'GET',
+		success : function(resp) {
+			console.log(resp);
+			$.each(resp, function(index, bookData){
+				console.log('title_' + index + '');
+				$('#title_' + index + '').text(bookData.book_title);
+				$('#publ_' + index + '').text(bookData.book_writer);
+				$('#cont_' + index + '').text(bookData.book_content);
+			});
+		}
+	});
+}
+</script>
+
+<body class="index-page sidebar-collapse">
+
+<!-- Navbar include -->
+  <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
+  <style type="text/css">
  
  
 
@@ -392,24 +462,29 @@
 }
 
  </style>
+<<<<<<< HEAD
  <script src="resources/jquery-3.3.1.min.js"></script>
 <body class="index-page sidebar-collapse">
 
 <!-- Navbar include -->
   <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
  
+=======
+>>>>>>> 4f9cc8c48decc68101c350e5c47a8a87aa34f3c9
   <div class="wrapper">
      <!-- main 태크 시작 -->
     <!-- main 태크 시작 -->
     <div class="main">
+    
+          
 		<div id="carousel-1" class="carousel slide multi-item-carousel" data-ride="carousel" style="margin-top: 63px;">
 		  <ol class="carousel-indicators">
 		    <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
 		    <li data-target="#carousel-1" data-slide-to="1"></li>
 		    <li data-target="#carousel-1" data-slide-to="2"></li>
 		  </ol>
-		  <div class="carousel-inner" role="listbox" id="carouselRoot">
-			<div class="carousel-item active">
+		  <div class="carousel-inner" role="listbox">
+		    <div class="carousel-item active">
 		      <div class="item__third">
 		      	<div class="row main-carousel-row-st">
 		      		<div class="row main-carousel-col12-st item-bg-pink">
@@ -528,56 +603,13 @@
                   <!-- Tab panes -->
                   <div class="tab-content text-center">
                     <div class="tab-pane active" id="home" role="tabpanel">
-                      <div class="row">
+                      <div class="row" id="ranking">
                      
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>
-		                
-		                <div class="col-12 author_line"></div>
-		                
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>
-		                
-		                <div class="col-12 author_line"></div>
-		                
-		                
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>
-		                
-		                <div class="col-12 author_line"></div>
-		                
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>
-		                
-		                <div class="col-12 author_line"></div>
-		                
-                        <div class="col-2 author_img">
-		                  <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle review-user-img'>
-		                </div>
-		                <div class="col-10 text-left author_text" style="">
-		                  <p style="font-weight: 500; font-size: 12pt;">What the hell</p>
-		                </div>		               
+                       
+		                             
 		                
 	                  </div>
                     </div>
-
-
                   </div>
          
                   
@@ -784,42 +816,12 @@
 
 
 
-<%@ include file="/WEB-INF/views/include/modal.jsp" %>
-<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+    <%@ include file="/WEB-INF/views/include/modal.jsp" %>
+    <%@ include file="/WEB-INF/views/include/footer.jsp" %>
+
 
 </div>
 <%@ include file="/WEB-INF/views/include/coreJsFile.jsp" %>
-<script type="text/javascript">
-function reloadData() {
-	$.ajax({
-		url : 'request_main_book',
-		method : 'GET',
-		success : function(resp) {
-			console.log(resp);
-			$.each(resp, function(index, bookData){
-				console.log('title_' + index + '');
-				$('#title_' + index + '').text(bookData.book_title);
-				$('#publ_' + index + '').text(bookData.book_writer);
-				$('#cont_' + index + '').text(bookData.book_content);
-			});
-		}
-	});
-}
-//Instantiate the Bootstrap carousel
-$(function(){
-	reloadData();
-	$('.multi-item-carousel .carousel-item').each(function(){
-		  var next = $(this).next();
-		  if (!next.length) next = $(this).siblings(':first');
-		  next.children(':first-child').clone().appendTo($(this));
-	});
-	$('.multi-item-carousel .carousel-item').each(function(){
-	  var prev = $(this).prev();
-	  if (!prev.length) prev = $(this).siblings(':last');
-	  prev.children(':nth-last-child(2)').clone().prependTo($(this));
-	});
-});
-</script>
 </body>
 
 </html>

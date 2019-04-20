@@ -6,7 +6,35 @@
 <script src="resources/jquery-3.3.1.min.js"></script>
 <script>
 $(function(){
-	   
+		$("#pw").keyup(function(e){
+			if(e.keyCode == 13){
+				var form_data = {
+		      			id : $("#id").val(),
+		            	pw : $("#pw").val()
+		      	}
+
+		         $.ajax({
+		            method : 'post'
+		            , url  : 'loginCheck'
+		            , data : form_data
+		            , success : function(resp) {
+		               if(resp.trim() == "fail") {
+		             
+		                  $("#id").val('일치하는 회원정보가 없습니다!');
+		                  $("#id").css("color", "red");
+		                  return false;
+		                  
+		               } else {
+		            	  $("#loginForm").submit();
+		                  location.href='http://localhost:8888/test/index';		                 
+		               }
+		            }
+		         }); 	
+			}		
+		});
+	
+	
+	
 	   $("#login").on("click", function() {
 	      	var form_data = {
 	      			id : $("#id").val(),
@@ -44,8 +72,11 @@ $(function(){
 <!-- Navbar include -->
   <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
 
+
+
   <div class="wrapper">
-      <div class="section section-signup" style="background-image: url('resources/assets/img/bg13.jpg'); background-size: cover; background-position: top center; min-height: 700px;">
+  
+      <div class="section section-signup" style="background-image: url('resources/assets/img/bg13.jpg'); background-size: cover; background-position: top center; min-height: 1100px !important;">
         <div class="container">
           <div class="row">
           
