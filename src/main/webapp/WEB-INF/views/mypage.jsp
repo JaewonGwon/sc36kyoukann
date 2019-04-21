@@ -75,6 +75,16 @@ $(window).ready(function(){
         $("#add_face").css('display', 'none');
         $("#add_insta").css('display', 'none');
    });
+   
+   /* Profile summary counter */
+   function() {
+	    $('#profileContent').keyup(function (e){
+	        var content = $(this).val();
+	        $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
+	        $('#counter').html(content.length + '/300');
+	    });
+	    $('#profileContent').keyup();
+	}
 
    
 });
@@ -143,8 +153,6 @@ function init(){
 	});
 
 }
-	 
-   
  
 </script>
 <style>
@@ -198,6 +206,13 @@ border: 1px solid red;
    font-size: 10pt;
    width: 100%;
    padding: 0px 4px;
+}
+#counter {
+  background:rgb(35, 149, 255);
+  border-radius: 0.5em;
+  padding: 0 .5em 0 .5em;
+  font-size: 0.75em;
+  color: #FFF;
 }
 </style>
 
@@ -376,11 +391,14 @@ border: 1px solid red;
                                      
                                      <c:if test="${sessionScope.m.contents == null}">
                                      <div class="col-12 text-left" style="background-color: #fff;line-height: 18pt; padding: 20px;">
-                                        <p>아직 자기소개가 없습니다. 자기소개를 입력해 타인에게 보여주세요.</p>
+                                        <div class="wrapper">
+										    <label for="profileContent">Profile summary</label>
+  											<textarea class="form-control" rows="5" id="profileContent" style="background-color: #fff !important; color: black !important;"></textarea>
+										    <span id="counter">###</span>
+										</div>
                                         <button class="btn btn-info" id="profile_content">
-                                    자기소개 등록
-                                    </button>
-
+                                    	자기소개 등록
+                                    	</button>
                                      </div>
                                      </c:if>
                                      
@@ -619,7 +637,6 @@ border: 1px solid red;
       <%@ include file="/WEB-INF/views/include/modal.jsp"%>
    </div>
 
-   <script type="text/javascript" src="resources/react/index.bundle.js"></script>
 </body>
 
 </html>
