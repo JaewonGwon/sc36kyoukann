@@ -24,7 +24,6 @@
 		<%@ include file="/WEB-INF/views/include/coreJsFile.jsp"%>
 		<%@ include file="/WEB-INF/views/include/modal.jsp"%>
 	</div>
-
 	<script type="text/javascript" src="resources/react/index.bundle.js"></script>
 </body>
 

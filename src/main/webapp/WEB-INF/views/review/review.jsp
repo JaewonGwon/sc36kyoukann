@@ -144,7 +144,7 @@
 	   function revlike(revnum) {
 
 		      var rev_num = $(this).attr("data-value");
-
+				
 		      $.ajax({
 		         method : 'post',
 		         url : 'addLike',
@@ -156,7 +156,23 @@
 		         }
 
 		      })
-
+		      /*Python 서버로 보낼 favor list 받기*/
+		      $.ajax({
+		    	  
+		      })
+		      /*Python 서버로 연결하여 group number 받기 */
+		      $.ajax({
+		    	 
+		      })
+		      /*해당 group number로 DB에서 book_log 기록하기 */
+			  $.ajax({
+				method : 'post',
+				url : '',
+				data : {
+					groupNumber : gn,
+					
+				}
+			  })
 		   }
 	
 

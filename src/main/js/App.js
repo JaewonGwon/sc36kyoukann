@@ -28,9 +28,9 @@ class App extends Component {
 
     _loadingSpinner = () => {
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            
-            </View>
+            <div className="wrapper">
+              
+            </div>
         );
     }
 
@@ -59,7 +59,7 @@ class App extends Component {
     //값 받아서 render
     render() {
         return (
-            this.state.properties ? this._renderingCards() : 'Loading...'
+            this.state.properties ? this._renderingCards() : this._loadingSpinner()
         );
     }
         
