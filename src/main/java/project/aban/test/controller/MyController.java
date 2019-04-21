@@ -43,4 +43,9 @@ public class MyController {
 	public void insert_tags() {
 		ds.data_handler();
 	}
+	
+	@RequestMapping("/test_flask")
+	public String test_flask() {
+		return "testing";
+	}
 }

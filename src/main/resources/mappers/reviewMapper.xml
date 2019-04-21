@@ -8,6 +8,7 @@
 		select * from review
 	</select>
 	<select id="selectOne" parameterType="int" resultType="Review">
+		
 		select *
 		from review where rev_num=#{rev_num}
 	</select>
@@ -16,39 +17,44 @@
 		update review set
 		book_title=#{book_title}, regdate=sysdate,
 		rev_title=#{rev_title},rev_content=#{rev_content}
-		where
-		rev_num=#{rev_num}
+		where rev_num=#{rev_num}
+	
 	</update>
 	<delete id="reviewDelete" parameterType="int">
-		delete review where
-		rev_num=#{rev_num}
+		delete review where rev_num=#{rev_num} 
+		
 	</delete>
+	
 
-	<update id="addLike" parameterType="int">
-		update
-		review
-		set
-		rev_like =
-		rev_like + 1
-		where
-		rev_num = #{rev_num}
-	</update>
+	   <update id="addLike" parameterType="int">
+      update
+         review
+      set
+         rev_like = rev_like + 1
+      where
+         rev_num = #{rev_num}
+   </update>
+   <delete id="delLike" parameterType="int">
+      delete reglike where rev_num=#{rev_num}
+   </delete>
+   
+   
+   <insert id="reviewWrite" parameterType="Review">
+      insert into review(REV_NUM,
+      BOOK_TITLE,
+      ID,
+      REGDATE,
+      REV_TITLE,
+      REV_CONTENT) values (
+      REV_SEQ.nextval, #{book_title}, #{id}, sysdate, #{rev_title}, #{rev_content}
+      )
+   </insert>
 
-	<insert id="reviewWrite" parameterType="Review">
-		insert into
-		review(REV_NUM,
-		BOOK_TITLE,
-		ID,
-		REGDATE,
-		REV_TITLE,
-		REV_CONTENT) values (
-		REV_SEQ.nextval, #{book_title}, #{id}, sysdate, #{rev_title},
-		#{rev_content}
-		)
-	</insert>
+
+
 	<select id="selectbydate" resultType="Review">
-		select * from review order
-		by REGDATE desc
+		select * from review order by REGDATE desc
+		
 	</select>
 
 	<select id="ranking" resultType="Review">
@@ -59,5 +65,28 @@
 		GROUP BY ID
 		) z
 		WHERE 5 >= RNM
+	</select>
+	<select id="checklike" parameterType="Reglike" resultType="Reglike">
+		select * from reglike where rev_num=#{rev_num} and id=#{id}
+	</select>
+	<insert id="insertCheckLike" parameterType="Reglike">
+		insert into reglike values (
+			#{rev_num}, #{id}
+		)
+	</insert>
+	<select id = "request_main_review" resultType = "Review">
+		SELECT 
+			rev_num,
+			book_title,
+			id,
+			regdate,
+			rev_title,
+			rev_content,
+			rev_like,
+			rev_scrap
+		FROM
+			REVIEW
+		WHERE
+			ROWNUM BETWEEN 1 AND 4
 	</select>
 </mapper>

@@ -17,7 +17,43 @@ $(function(){
 	$('#reviewdel').on('click', reviewDelete);
 	$('#reviewback').on('click', reviewback);
 	
+
+	
 });
+function revlike(revnum) {
+
+	var rev_num = ${rev_num};
+
+    $.ajax({
+       method : 'post',
+       url : 'addLike',
+       data : {
+          rev_num : rev_num
+       },
+       success : function(data) {
+          $("#rev_like").html("♡" + data.rev_like);
+       }
+
+    })
+
+ }
+function revlikee(revnum) {
+
+    var rev_num = ${rev_num};
+
+    $.ajax({
+       method : 'post',
+       url : 'addLike',
+       data : {
+          rev_num : rev_num
+       },
+       success : function(data) {
+          $("#rev__like").html("♡" + data.rev_like);
+       }
+
+    })
+
+ }
 function reviewback(){
 	location.href='http://localhost:8888/test/bookreview';
 }
@@ -34,6 +70,8 @@ function reviewUpdate() {
 	});
 }
 function updateView(resp) {
+	
+	
 	var write="";
 	
 	write +='	<div class="col-lg-8 review_content">';
@@ -72,10 +110,18 @@ function updateView(resp) {
    	write +='	           <button class="btn btn-link btn-info uname-st">'+resp.id+'</button>';
    	write +='	        </div>';
    	write +='	          <div class="col-lg-5" style="text-align: right; padding-top: 4px;">';
+   	write +=' <c:if test="${not empty sessionScope.loginId}">';
+   	write +='	           <button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">';
+   	write +='	                  <i class="now-ui-icons ui-2_favourite-28" style="font-size: 0.8em; font-weight: 600;"></i>';
+   	write +=	resp.rev_like;
+   	write +='	           </button>';
+   	write +=' </c:if>';
+   	write +=' <c:if test="${empty sessionScope.loginId}">';
    	write +='	           <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">';
    	write +='	                  <i class="now-ui-icons ui-2_favourite-28" style="font-size: 0.8em; font-weight: 600;"></i>';
-   	write +='	              203';
+   	write +=	resp.rev_like;
    	write +='	           </button>';
+   	write +=' </c:if>';
    	write +='	           <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">';
    	write +='	                  <i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i>';
    	write +='	              15';
@@ -89,6 +135,7 @@ function updateView(resp) {
    	
    	$("#itemwrap").html(write);
    	$('#reviewmod').on('click', update);
+   	$('#rev_like').on('click', revlike);
    	
    	
 }
@@ -161,10 +208,19 @@ function output(resp) {
 	write += "					<button class='btn btn-link btn-info uname-st'>"+resp.id+"</button>";
 	write += "				</div>";
 	write += "           	<div class='col-lg-5' style='text-align: right; padding-top: 4px;'>";
+	write += "<c:if test="${not empty sessionScope.loginId}">";
+	
+	write += "					<button class='btn btn-round' type='button' id='rev__like' style='padding: 4px 8px 4px 8px; background-color: #ec407a;'>";
+	write += "		                <i class='now-ui-icons ui-2_favourite-28' style='font-size: 0.8em; font-weight: 600;'></i>";
+	write += resp.rev_like;
+	write += "					</button>";
+	write += "</c:if>";
+	write += "<c:if test="${empty sessionScope.loginId}">";
 	write += "					<button class='btn btn-round' type='button' style='padding: 4px 8px 4px 8px; background-color: #ec407a;'>";
 	write += "		                <i class='now-ui-icons ui-2_favourite-28' style='font-size: 0.8em; font-weight: 600;'></i>";
-	write += "						203";
+	write += resp.rev_like;
 	write += "					</button>";
+	write += "</c:if>";
 	write += "					<button class='btn btn-round' type='button' style='padding: 4px 8px 4px 8px; background-color: #2CA8FF;'>";
 	write += "		                <i class='now-ui-icons ui-2_chat-round' style='font-size: 0.8em; font-weight: 600;'></i>";
 	write += "						15";
@@ -186,7 +242,8 @@ function output(resp) {
 	write += "   </div>";
 	write += "  </div>";
 	$("#itemwrap").html(write);
-	$('#reviewmod').on('click', reviewUpdate);
+	//$('#reviewmod').on('click', reviewUpdate);
+	$('#rev__like').on('click', revlikee);
  }
 
 </script>

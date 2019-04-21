@@ -88,6 +88,23 @@ public class MemberController {
 		return "member/joinForm";
 	}
 	
+	@RequestMapping("/joinUsFinal")
+	@ResponseBody
+	public String joinUsFinal(HttpSession session) {
+
+	Member member = (Member) session.getAttribute("UserInfo");
+
+		try {
+			 ms.insert_Member(member);
+			return "true";
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		return "false";  
+	}
+	
+	
 	//아이디 중복체크 
 	@RequestMapping(value="duplicateCheck", method=RequestMethod.POST)
 	public @ResponseBody int duplicateCheck(Member member) {
@@ -97,23 +114,28 @@ public class MemberController {
 		else		  return 0;		// 사용 가능한 아이디
 	}
 
-	
+
 	@RequestMapping(value="/joinus", method= RequestMethod.POST)
-	public String joinus(Member member) {
+	public String joinus(Member member, HttpSession session) {
 
 		System.out.println(member);
 		
 		try {
-			ms.insert_Member(member);
+			// ms.insert_Member(member);
+			//이거 리액트로 넘겨서 submit 하면 회원가입 되도록 만들기
+			session.setAttribute("UserInfo",  member);
 			
+	       
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		
-		return "redirect:/";
+		return "UserTasteIndex";
 	}
+
 
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	   public String logout(HttpSession session) {

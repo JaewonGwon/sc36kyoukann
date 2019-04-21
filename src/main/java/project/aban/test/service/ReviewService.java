@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import project.aban.test.dao.ReviewDao;
+import project.aban.test.vo.Reglike;
 import project.aban.test.vo.Review;
 
 @Service
@@ -35,6 +36,11 @@ public class ReviewService {
 		Review review = dao.addLike(rev_num);
 		return review;
 	}
+	
+	public Review delLike(Reglike regl) {
+		Review review = dao.delLike(regl);
+		return review ;
+	}
 
 	public int update(Review review) {
 		int a = 0;
@@ -58,9 +64,25 @@ public class ReviewService {
 		return list;
 	}
 
+
+	public List<Reglike> checklike(Reglike rl) {
+		List<Reglike> regl = new ArrayList<>();
+		regl = dao.checklike(rl);
+		// TODO Auto-generated method stub
+		return regl;
+	}
+
+	public void insertCheckLike(Reglike rl) {
+		// TODO Auto-generated method stub
+		dao.insertCheckLike(rl);
+	}
+
+	
+	
 	public List<Review> ranking() {
 		List<Review> list = new ArrayList<Review>();
 		list = dao.ranking();
 		return list;
 	}
+
 }

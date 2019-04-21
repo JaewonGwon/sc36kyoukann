@@ -4,16 +4,17 @@ const theme = {
     chipsContainer: {
       display: "flex",
       position: "relative",
-      border: "1px solid #FEFEFE",
+      border: "1px solid #191919",
       backgroundColor: 'transparent',
       font: "18px Arial",
+      fontWeight: "bold",
       minHeight: 24,
       alignItems: "center",
       flexWrap: "wrap",
       padding: "2.5px",
       borderRadius: 5,
       ':focus': {
-          border: "1px solid #FEFEFE",
+          border: "1px solid #191919",
       }
     },
     container:{
@@ -30,7 +31,8 @@ const theme = {
       padding: 5,
       margin: 2.5,
       backgroundColor: 'transparent',
-      fontcolor : '#FEFEFE'
+      fontcolor : '#191919',
+      fontWeight: "bold"
      
       
     },
