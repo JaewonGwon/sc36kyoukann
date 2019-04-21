@@ -15,13 +15,42 @@ import project.aban.test.service.MemberService;
 import project.aban.test.vo.Member;
 import project.aban.test.vo.UserTag;
 
+
 @Controller
 public class MemberController {
 
 	@Autowired
 	MemberService ms;
 
-	@RequestMapping(value = "login", method = RequestMethod.GET)
+	
+	@RequestMapping(value = "/getinfo", method = RequestMethod.GET)
+	@ResponseBody
+	public Member getinfo(String id) {
+		//System.out.println(rev_num);
+		
+		Member mem= ms.selectid(id);
+		System.out.println("블랙핑크"+mem);
+				return mem;
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/updateinfo", method= RequestMethod.POST)
+	   public String updateinfo(Member member) {
+	      System.out.println(member);
+	      int a = ms.updateMem(member);
+	      System.out.println(a);
+	      if(a==1) {
+	    	  System.out.println("성공쓰");
+	    	  return "success";  
+	      }else {
+	    	  return "fail";
+	      }
+	      
+	      }
+	
+	@RequestMapping(value="login", method=RequestMethod.GET)
+
 	public String login() {
 		return "member/loginForm";
 	}
@@ -94,7 +123,10 @@ public class MemberController {
 			return 0; // 사용 가능한 아이디
 	}
 
-	@RequestMapping(value = "/joinus", method = RequestMethod.POST)
+
+	
+	@RequestMapping(value="/joinus", method= RequestMethod.POST)
+
 	public String joinus(Member member, HttpSession session) {
 
 		System.out.println(member);
