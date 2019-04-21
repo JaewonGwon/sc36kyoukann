@@ -9,7 +9,16 @@
 <script>
 
 $(window).ready(function(){
-   $('#i_scroll_wrap').scroll(function(){
+	$.ajax({
+		url : 'profile',
+		method : 'POST',
+		success : function(resp) {
+			list(resp);
+		}
+
+	})
+	
+	$('#i_scroll_wrap').scroll(function(){
        
 	
      var scrollH = $('#i_scroll_wrap').scrollTop() + $('#i_scroll_wrap').height();
@@ -69,6 +78,27 @@ $(window).ready(function(){
 
    
 });
+
+function list(resp) {
+	var listwriter = '';
+	$.each(
+					resp,
+					function(index, tt) {
+						listwriter +='	<div class="col-3" style="padding: 6px;">';
+						listwriter +='      <img src="resources/assets/img/julie.jpg" alt="Circle Image" class="rounded-circle">';
+						listwriter +='    </div>';
+						listwriter +='     <div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">';
+						listwriter +='         <p style="font-size: 11pt; font-weight: 500; margin: 0;">'+tt.pushid+'</p>';
+						listwriter +='        <a href="#" style="text-decoration: none;">';
+						listwriter +='         <i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>';
+						listwriter +='        <span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">'+tt.regdate+'</span>';
+						listwriter +='         </a>';
+						listwriter +='        </div>';
+		
+					});
+
+	$('#likefriends').html(listwriter);
+}
 
 function updateinfo(){
    var id = '${sessionScope.m.id}';
@@ -320,62 +350,9 @@ border: 1px solid red;
                        
                                
                                   
-                                  <div class="row" style="margin:0; padding: 0px;">
+                                  <div class="row" id="likefriends" style="margin:0; padding: 0px;">
                                      
-                                     <div class="col-3" style="padding: 6px;">
-                                       <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
-                                     </div>
-                                     <div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
-                                        <p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
-                                        <a href="#" style="text-decoration: none;">
-                                        <i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
-                                        <span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
-                                        </a>
-                                     </div>
                                      
-                                     <div class="col-3" style="padding: 6px;">
-                                       <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
-                                     </div>
-                                     <div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
-                                        <p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
-                                        <a href="#" style="text-decoration: none;">
-                                        <i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
-                                        <span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
-                                        </a>
-                                     </div>
-                                     
-                                     <div class="col-3" style="padding: 6px;">
-                                       <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
-                                     </div>
-                                     <div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
-                                        <p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
-                                        <a href="#" style="text-decoration: none;">
-                                        <i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
-                                        <span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
-                                        </a>
-                                     </div>
-                                     
-                                     <div class="col-3" style="padding: 6px;">
-                                       <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
-                                     </div>
-                                     <div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
-                                        <p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
-                                        <a href="#" style="text-decoration: none;">
-                                        <i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
-                                        <span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
-                                        </a>
-                                     </div>
-                                     
-                                     <div class="col-3" style="padding: 6px;">
-                                       <img src='resources/assets/img/julie.jpg' alt='Circle Image' class='rounded-circle'>
-                                     </div>
-                                     <div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">
-                                        <p style="font-size: 11pt; font-weight: 500; margin: 0;">Paul Jason</p>
-                                        <a href="#" style="text-decoration: none;">
-                                        <i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>
-                                        <span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
-                                        </a>
-                                     </div>
                                      
                                   </div>
                                   

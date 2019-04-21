@@ -115,6 +115,7 @@ public class MemberController {
 	}
 
 
+	
 	@RequestMapping(value="/joinus", method= RequestMethod.POST)
 	public String joinus(Member member, HttpSession session) {
 
@@ -135,7 +136,6 @@ public class MemberController {
 		
 		return "UserTasteIndex";
 	}
-
 
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	   public String logout(HttpSession session) {

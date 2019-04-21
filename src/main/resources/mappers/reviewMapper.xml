@@ -4,6 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="project.aban.test.dao.ReviewMapper">
+<insert id="insertCountLike" parameterType="Reglike">
+		insert into REGLIKECOUNT values (
+			#{rev_num}, #{id},#{pushid},sysdate
+		)
+	</insert>
+	<select id="findmyfan" parameterType="String" resultType="ReglikeCheck">
+		select * from REGLIKECOUNT where ID=#{id} and pushid not like #{id} and 5>=ROWNUM order by regdate desc
+	</select>
+
 	<select id="bookreview" resultType="Review">
 		select * from review
 	</select>

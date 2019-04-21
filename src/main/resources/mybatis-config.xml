@@ -12,7 +12,7 @@
 
         <typeAlias type="project.aban.test.vo.UserTaste" alias="UserTaste"/>
 		<typeAlias type="project.aban.test.vo.Reglike" alias="Reglike"/>
-
+		<typeAlias type="project.aban.test.vo.ReglikeCheck" alias="ReglikeCheck"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/memberMapper.xml"/>
