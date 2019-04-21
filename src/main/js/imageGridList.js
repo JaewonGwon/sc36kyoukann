@@ -7,10 +7,10 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 
 
 class ImageGridList extends React.Component {
-    
+
     constructor(props) {
         super(props);
-        
+
         this.state = {
 
             tagProperties: [],
@@ -18,42 +18,59 @@ class ImageGridList extends React.Component {
             tagFinal: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             memberInfo: [],
             sendDataToFython: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            
+            sendDataToDB: [null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+
 
 
         }
-         this._submit = this._submit.bind(this);
+        this._submit = this._submit.bind(this);
     }
 
     _submit = () => {
 
-         
-        let age = this.state.sendAge
-        if(this.state.sendDataToFython[0]==0){
+
+        let age = this.state.sendAge;
+
+
+        if (this.state.sendDataToFython[0] == 0) {
             this.setState({
                 sendDataToFython: [age, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             });
         }
 
-
+        let id = this.state.sendIdData
+        if (this.state.sendDataToDB[0] == null) {
+            this.setState({
+                sendDataToFython: [id, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            });
+        }
         //place that sending Data to python
-        
-        console.log(this.state.sendDataToFython);   
 
-        axios.get('/test/joinUsFinal')
+
+
+
+        console.log(this.state.sendDataToDB);
+        console.log(this.state.sendDataToFython);
+        let sendDataToDB = this.state.sendDataToDB;
+
+
+
+       
+        axios.get('/test/joinUsFinal?sendDataToDB='+sendDataToDB)
+        
             .then(res => {
-                
-                if(res.data == true)
-                {
-                     
-                     
-                     window.location = '/test/index';
+
+                if (res.data == true) {
+
+
+                    //  window.location = '/test/index';
                 }
             })
             .catch(function (error) {
                 console.log(error);
             });
-            
+
 
 
 
@@ -96,10 +113,12 @@ class ImageGridList extends React.Component {
             }
         }
         let age = this.state.sendAge
-        
+        let id = this.state.sendIdData
+
         this.setState({
             tagFinal: tagSemiFinal,
-            sendDataToFython:[age, ...tagSemiFinal]
+            sendDataToFython: [age, ...tagSemiFinal],
+            sendDataToDB: [id, ...tagSemiFinal]
         })
         // console.log(this.state.tagFinal);
         // console.log(this.state.sendDataToFython);
@@ -115,7 +134,7 @@ class ImageGridList extends React.Component {
         }
 
         var gridList = {
-            width: '100%' ,
+            width: '100%',
             height: 965,
 
         }
@@ -138,13 +157,13 @@ class ImageGridList extends React.Component {
                                     <GridListTileBar
                                         title={tagProperty.tag}
                                         actionIcon={
-                                            
 
-                                                <UserCheckBox
-                                                    tag={tagProperty.tag}
-                                                    callbackFromParent={this.callBackList} />
 
-                                            
+                                            <UserCheckBox
+                                                tag={tagProperty.tag}
+                                                callbackFromParent={this.callBackList} />
+
+
                                         }
 
                                     />
@@ -191,36 +210,41 @@ class ImageGridList extends React.Component {
     }
 
 
-    
+
     componentDidMount() {
         axios.get('/test/getUserInfo')
             .then(res => {
                 let memberInfo = res.data
                 let sendAge = memberInfo.age
+                let sendId = memberInfo.id
                 let ageData = 0;
-                
-                if(sendAge == '10' || sendAge == '20'){
-                    ageData = 1; 
-                }else if(sendAge == '30'){
-                    ageData = 2; 
-                }else if(sendAge == '40'){
+
+                if (sendAge == '10' || sendAge == '20') {
+                    ageData = 1;
+                } else if (sendAge == '30') {
+                    ageData = 2;
+                } else if (sendAge == '40') {
                     ageData = 3;
-                }else if(sendAge == '50'){
+                } else if (sendAge == '50') {
                     ageData = 4;
-                }else if(sendAge == '60'){
+                } else if (sendAge == '60') {
                     ageData = 5;
                 };
 
                 console.log(sendAge);
                 console.log(ageData);
+                console.log(sendId);
 
                 this.setState({
 
                     memberInfo: memberInfo,
                     sendAge: ageData,
-                    sendDataToFython: [ageData, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    sendDataToFython: [ageData, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    sendIdData: sendId,
+                    sendDataToDB: [sendId, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
                 });
-            
+
 
             })
             .catch(function (error) {

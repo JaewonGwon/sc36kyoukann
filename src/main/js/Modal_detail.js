@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { Button, Icon, Label } from 'semantic-ui-react';
+import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
 
@@ -36,6 +36,8 @@ class ModalExample extends React.Component {
         let book_name = this.state.book_title;
         let url = "/test/request_modalTag?book_title=" + book_name;
 
+
+
         if (this.state.book_tags.length == 0) {
             axios.get(url)
                 .then(tags => {
@@ -65,15 +67,15 @@ class ModalExample extends React.Component {
     }
 
     _LikeCount() {
-
-        if (this.state.likeFlag == false) { //+
+        this.setState({ likeFlag: !this.state.likeFlag });
+        if (this.state.likeFlag) { //+
             
             let hitLike = "/test/request_likeAdd?book_title=" + this.state.book_title;
             axios.get(hitLike)
                 .then(viewCount => {
                     this.setState({
                         book_likecount: viewCount.data.book_likecount,
-                        likeFlag: true
+                        
                     })
                 })
                 
@@ -84,7 +86,7 @@ class ModalExample extends React.Component {
                 .then(viewCount => {
                     this.setState({
                         book_likecount: viewCount.data.book_likecount,
-                        likeFlag: false
+                        
                     })
                 })
         }
@@ -125,7 +127,10 @@ class ModalExample extends React.Component {
         return (
             <div>
                 <div className="ModalButton">
-                    <Button inverted color='orange' onClick={this.toggle}>
+
+        
+
+                    <Button variant="contained" component="span" onClick={this.toggle}>
                         {this.props.buttonLabel}Read More
                     </Button>
                 </div>
@@ -141,19 +146,6 @@ class ModalExample extends React.Component {
                         <p>{this.props.book_content}</p>
                     </ModalBody>
                     <ModalFooter>
-
-
-                        <Button as='div' labelPosition='right'>
-                            <Button basic color='blue' onClick={this._ScrapCount}>
-                                <Icon name='save' />
-                                Scrap
-                            </Button>
-                            <Label as='a' basic color='blue' pointing='left'>
-                                {this.state.book_scrapcount}
-                            </Label>
-                        </Button>
-
-
 
 
                         <Button className="btn btn-round" type="button" id="rev_like" onClick={this._LikeCount}>

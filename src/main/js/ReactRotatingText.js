@@ -163,7 +163,7 @@ ReactRotatingText.defaultProps = {
   deletingInterval: 50,
   emptyPause: 1000,
   eraseMode: 'erase',
-  items: ['find your tag', 'and you can see the recommendation', 'third', 'fourth', 'fifth'],
+  items: ['1','2'],
   pause: 1500,
   typingInterval: 50,
   random: false

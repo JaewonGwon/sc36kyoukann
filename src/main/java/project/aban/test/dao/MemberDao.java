@@ -56,10 +56,8 @@ public class MemberDao {
 	
 	public int updateMember(Member member) {
 		MemberMapper mapper = session.getMapper(MemberMapper.class);
-		int result = 0;
-		
-		result = mapper.updateMember(member);
-		return result;
+		int a = mapper.updateMember(member);
+		return a;
 	}
 	
 

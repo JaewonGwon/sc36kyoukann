@@ -22,7 +22,7 @@ let styles = {
     alignItems: "center",
     height: 32,
     boxSizing: 'border-box',
-    color: "#444",
+    color: "black",
     background: "#e0e0e0",
     margin: "2.5px",
     borderRadius: 16,

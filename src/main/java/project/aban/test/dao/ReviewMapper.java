@@ -4,9 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import project.aban.test.vo.Reglike;
+import project.aban.test.vo.ReglikeCheck;
 import project.aban.test.vo.Review;
 
 public interface ReviewMapper {
+	
+	void insertCountLike(ReglikeCheck rlc);
+
+	List<ReglikeCheck> findmyfan(String id);
+
 
 	List<Review> bookreview();
 
