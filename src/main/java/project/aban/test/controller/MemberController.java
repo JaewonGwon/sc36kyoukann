@@ -11,12 +11,40 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.aban.test.service.MemberService;
 import project.aban.test.vo.Member;
+import project.aban.test.vo.Review;
 
 @Controller
 public class MemberController {
 
 	@Autowired
 	MemberService ms;
+	
+	
+	@RequestMapping(value = "/getinfo", method = RequestMethod.GET)
+	@ResponseBody
+	public Member getinfo(String id) {
+		//System.out.println(rev_num);
+		
+		Member mem= ms.selectid(id);
+		System.out.println("블랙핑크"+mem);
+				return mem;
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/updateinfo", method= RequestMethod.POST)
+	   public String updateinfo(Member member) {
+	      System.out.println(member);
+	      int a = ms.updateMem(member);
+	      System.out.println(a);
+	      if(a==1) {
+	    	  System.out.println("성공쓰");
+	    	  return "success";  
+	      }else {
+	    	  return "fail";
+	      }
+	      
+	      }
 	
 	@RequestMapping(value="login", method=RequestMethod.GET)
 	public String login() {

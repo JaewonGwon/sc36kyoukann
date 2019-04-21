@@ -11,6 +11,7 @@
 		select *
 		from review where rev_num=#{rev_num}
 	</select>
+	
 	<update id="update" parameterType="Review">
 		update review set
 		book_title=#{book_title}, regdate=sysdate,
