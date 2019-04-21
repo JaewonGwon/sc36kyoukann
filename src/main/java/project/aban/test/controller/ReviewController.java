@@ -137,8 +137,6 @@ public class ReviewController {
 		return review;
 	}
 	
-
-	
 	@RequestMapping(value = "/addLike", method = RequestMethod.POST)
 	@ResponseBody
 	public Review addLike(int rev_num,HttpSession session) {
@@ -166,11 +164,14 @@ public class ReviewController {
 			rs.insertCountLike(rlc);
 			return review;
 		}
-
+	}
 	
-	
-
-}
-	
+	@RequestMapping("/reviewSearch")
+	@ResponseBody
+	public ArrayList<Review> reviewSearch(String input, HttpSession sess) {
+		ArrayList<Review> result = new ArrayList<>();
+		result = rs.reviewSearch(input);
+		return result;
+	}
 }
 

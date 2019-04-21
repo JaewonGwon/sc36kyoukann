@@ -23,7 +23,7 @@
 				$("#reviewSearch").select();
 			});
 			/*검색버튼 클릭시 모달창 검색 인풋박스에 포커스 주는 코드 끝*/
-		
+			
 		
 	});
 	function orderbydregdate(){
@@ -198,6 +198,27 @@
 		});
 	});
 	/* 리뷰 제목부분 툴팁 그림 나오게 하는 소스 끝*/
+	
+	/* 검색 요청 */
+	function _review_search() {
+		console.log("review search");
+		if(event.keyCode == 13) {
+			console.log("search triggered");
+			var input = 'input=' + $('#review_search').val();
+			console.log(input);
+			$.ajax({
+				method : 'get',
+				url : 'reviewSearch',
+				data : input,
+				success : function(resp) {
+					console.log(resp);
+					output(resp);
+					$("#myModal").modal("hide");
+				}
+			})
+		}
+	}
+	
 </script>
 
 

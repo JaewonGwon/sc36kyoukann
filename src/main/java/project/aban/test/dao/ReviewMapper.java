@@ -40,4 +40,10 @@ public interface ReviewMapper {
 
 	ArrayList<Review> request_main_review();
 
+	
+	//Title, Content 검색을 통해 리뷰 출력
+	ArrayList<Review> reviewTitleSearch(String input);
+
+	ArrayList<Review> reviewContentSearch(String input);
+
 }
