@@ -113,7 +113,10 @@ $(function() {
 	
 	
 	
-   	<div class="col-6" style="border: 1px solid  red;">asd</div>
+	
+   	<div class="col-6" style="border: 1px solid  red;">
+
+	</div>
    </div>
     
   </div>
