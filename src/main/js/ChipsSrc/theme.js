@@ -4,17 +4,16 @@ const theme = {
     chipsContainer: {
       display: "flex",
       position: "relative",
-      border: "1px solid #191919",
+      border: "solid 2px",
       backgroundColor: 'transparent',
       font: "18px Arial",
-      fontWeight: "bold",
       minHeight: 24,
       alignItems: "center",
       flexWrap: "wrap",
       padding: "2.5px",
       borderRadius: 5,
       ':focus': {
-          border: "1px solid #191919",
+          border: "solid 2px",
       }
     },
     container:{
@@ -31,8 +30,7 @@ const theme = {
       padding: 5,
       margin: 2.5,
       backgroundColor: 'transparent',
-      fontcolor : '#191919',
-      fontWeight: "bold"
+      fontcolor : '#333333',
      
       
     },
@@ -43,8 +41,9 @@ const theme = {
     },
     suggestionsList: {
       position: 'absolute',
-      border: '1px solid #ccc',
+      border: '2px solid gray',
       zIndex: 10,
+      fontcolor : '#000000',
       left: 0,
       top: '100%',
       width: '100%',
@@ -57,7 +56,7 @@ const theme = {
       padding: '5px 15px'
     },
     suggestionHighlighted: {
-      background: '#2d0c00'
+      background: 'rgba(0, 0, 0, 0.3)'
     },
     sectionContainer: {
   
@@ -85,7 +84,7 @@ const theme = {
       fontWeight: "bold",
       cursor: "pointer",
       ':hover': {
-        color: 'red',
+        color: 'black',
       }
     }
   }

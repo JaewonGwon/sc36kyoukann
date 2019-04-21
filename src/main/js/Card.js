@@ -22,19 +22,12 @@ const Card = ({ property }) => {
                 <img style={styles} src={book_image} alt={book_title} />
                 <div className="details">
 
-
-
                     <ul className="features">
                         <div className="allList">
-                        
+
                             <li><i className="now-ui-icons education_glasses"> {book_viewcount}</i>
-                                 
-                            </li>
-                            <li><i className="now-ui-icons ui-1_send"> {book_scrapcount}</i>
-                                 
                             </li>
                             <li><i className="now-ui-icons ui-2_favourite-28"> {book_likecount}</i>
-                                 
                             </li>
 
 
