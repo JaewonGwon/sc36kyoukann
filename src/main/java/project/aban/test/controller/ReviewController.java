@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.javassist.expr.NewArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.aban.test.service.ReviewService;
 import project.aban.test.vo.Reglike;
+import project.aban.test.vo.ReglikeCheck;
 import project.aban.test.vo.Review;
 
 @Controller
@@ -25,15 +25,15 @@ public class ReviewController {
 	ReviewService rs;
 	
 	@RequestMapping(value = "/ranking", method = RequestMethod.GET)
-    @ResponseBody
-    public List<Review> ranking(HttpSession session) {
-       List<Review> list = new ArrayList<>();
-       list=rs.ranking();
- 
-       return list;
-    }
+	   @ResponseBody
+	   public List<Review> ranking(HttpSession session) {
+	      List<Review> list = new ArrayList<>();
+	      list=rs.ranking();
 	
-	@RequestMapping(value = "/selectbydate", method = RequestMethod.GET)
+	      return list;
+	   }
+	
+	@RequestMapping(value = "/selectbydate", method = RequestMethod.GET)  	 
 	   @ResponseBody
 	   public List<Review> selectbydate(HttpSession session) {
 	      List<Review> list = new ArrayList<>();
@@ -155,19 +155,23 @@ public class ReviewController {
 			System.out.println(regl.size());
 			review =rs.selectOne(rev_num); 
 			return review;
-			
 		}else {
 			review = rs.addLike(rev_num);
+			ReglikeCheck rlc = new ReglikeCheck();
+			rlc.setRev_num(rev_num);
+			rlc.setId(review.getId());
+			rlc.setPushid((String)session.getAttribute("loginId"));
+			rs.insertCountLike(rlc);
 			return review;
 		}
-		
-		
-		
-	
-		
 	}
 	
-	
-
+	@RequestMapping("/reviewSearch")
+	@ResponseBody
+	public ArrayList<Review> reviewSearch(String input, HttpSession sess) {
+		ArrayList<Review> result = new ArrayList<>();
+		result = rs.reviewSearch(input);
+		return result;
+	}
 }
 

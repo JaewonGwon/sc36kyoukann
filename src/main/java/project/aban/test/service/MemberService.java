@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import project.aban.test.dao.MemberDao;
 import project.aban.test.vo.Member;
+import project.aban.test.vo.Review;
 
 @Service
 public class MemberService {
@@ -108,17 +109,11 @@ public class MemberService {
 	}
 
 
-	/*회원정보삽입*/
-    public void updateMem(Member vo) throws Exception {
-       
-			 System.out.println("수정된 비번 암호화...");
-
-		        String encPassword = passwordEncoder.encode(vo.getPw());
-		        vo.setPw(encPassword);
-		        //System.out.println("암호화된 비밀번호 : "+user.getUserPassword());
-
-		        dao.updateMember(vo);
-		        System.out.println(vo);
+	/*회원정보수정*/
+    public int updateMem(Member vo){
+		       int a = dao.updateMember(vo);
+		        System.out.println("여기는 서비스");
+				return a;
 		
     }
 
@@ -128,6 +123,8 @@ public Member selectid(String id) {
 	Member m = dao.selectid(id);
 	return m;
 }
+
+
 
 
 

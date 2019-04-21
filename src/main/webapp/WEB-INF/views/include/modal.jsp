@@ -9,16 +9,10 @@
             </button>
             <h5 class="title title-up mt-30 text-dark">Search for :</h5>
           </div>
-    
           <div class="modal-body modal-body-st" style="min-height: 200px;">
-  
-	  		  <form action="reviewSearch" id="searchForm" method="get">
-	            <div class="row text-center" style="border:margin-top: 70px;">
-	            	<input type="search" id="reviewSearch" class="reviewSearchBox" />
-	            	<input type="submit" class="submithidden" />
+ 	            <div class="row text-center" style="border:margin-top: 70px;">
+	            	<input type="search" class="reviewSearchBox" id="review_search" onKeyDown = "_review_search()"/>
 	            </div>
-	          </form>
-                
           </div>
           <div class="modal-footer">
            <!--  <button type="button" class="btn btn-default">Nice Button</button>

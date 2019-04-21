@@ -4,9 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import project.aban.test.vo.Reglike;
+import project.aban.test.vo.ReglikeCheck;
 import project.aban.test.vo.Review;
 
 public interface ReviewMapper {
+	
+	void insertCountLike(ReglikeCheck rlc);
+
+	List<ReglikeCheck> findmyfan(String id);
+
 
 	List<Review> bookreview();
 
@@ -24,7 +30,6 @@ public interface ReviewMapper {
 
 	List<Review> selectbydate();
 	
-	
 	List<Review> ranking();
 
 	List<Reglike> checklike(Reglike rl);
@@ -32,5 +37,13 @@ public interface ReviewMapper {
 	void insertCheckLike(Reglike rl);
 
 	void delLike(Reglike regl);
+
+	ArrayList<Review> request_main_review();
+
+	
+	//Title, Content 검색을 통해 리뷰 출력
+	ArrayList<Review> reviewTitleSearch(String input);
+
+	ArrayList<Review> reviewContentSearch(String input);
 
 }

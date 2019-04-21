@@ -8,12 +8,27 @@ import org.springframework.stereotype.Service;
 
 import project.aban.test.dao.ReviewDao;
 import project.aban.test.vo.Reglike;
+import project.aban.test.vo.ReglikeCheck;
 import project.aban.test.vo.Review;
 
 @Service
 public class ReviewService {
 	@Autowired
 	ReviewDao dao;
+	
+	public void insertCountLike(ReglikeCheck rlc) {
+		// TODO Auto-generated method stub
+		dao.insertCountLike(rlc);
+	}
+
+	public List<ReglikeCheck> findmyfan(String id) {
+		List<ReglikeCheck> list = new ArrayList<>();
+		list = dao.findmyfan(id);
+		
+		return list;
+	}
+
+
 
 	public List<Review> bookreview() {
 		List<Review> list = new ArrayList<Review>();
@@ -83,6 +98,16 @@ public class ReviewService {
 		List<Review> list = new ArrayList<Review>();
 		list = dao.ranking();
 		return list;
+	}
+
+	public ArrayList<Review> reviewSearch(String input) {
+		ArrayList<Review> reviewByTitle= dao.reviewTitleSearch(input);
+		ArrayList<Review> reviewByContent = dao.reviewContentSearch(input);
+		//reviewByTitle List에 Content로 검색된 검색결과 붙이기.
+		for(Review r : reviewByContent) {
+			reviewByTitle.add(r);
+		}
+		return reviewByTitle;
 	}
 
 }

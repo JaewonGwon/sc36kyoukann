@@ -4,21 +4,21 @@
 <html>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <script src="resources/jquery-3.3.1.min.js"></script>
-<script type="text/javascript">
-
+<script>
 //Instantiate the Bootstrap carousel
 $(function(){
 	$('.multi-item-carousel .carousel-item').each(function(){
 		  var next = $(this).next();
-		  if (!next.length) next = $(this).siblings(':first');
+		  if (!next.length) next = $(this).siblings(':first')
 		  next.children(':first-child').clone().appendTo($(this));
 		});
 		$('.multi-item-carousel .carousel-item').each(function(){
 		  var prev = $(this).prev();
-		  if (!prev.length) prev = $(this).siblings(':last');
+		  if (!prev.length) prev = $(this).siblings(':last')
 		  prev.children(':nth-last-child(2)').clone().prependTo($(this));
 		});
-		
+		reloadData();
+		reloadReview();
 		init();
 });
 
@@ -32,11 +32,9 @@ function init() {
 
 	})
 }
-
 function output(resp) {
 	var listwriter = '';
-	$
-			.each(
+	$.each(
 					resp,
 					function(index, tt) {
 						listwriter += '<div class="col-2 author_img">';
@@ -52,18 +50,41 @@ function output(resp) {
 					});
 
 	$('#ranking').html(listwriter);
-
-
 }
 
+function reloadData() {
+	$.ajax({
+		url : 'request_main_book',
+		method : 'GET',
+		success : function(resp) {
+			$.each(resp, function(index, bookData){
+				console.log('.main-carousel-span-st-title, .recom' + index + '');
+				console.log(bookData.book_title);
+				$('.main-carousel-span-st-title.recom' + index + '').text(bookData.book_title);
+				$('.main-carousel-span-st-publ.recom' + index + '').text(bookData.book_writer);
+				$('.main-carousel-span-st-cont.recom' + index + '').text(bookData.book_content);
+				$('.d-block.img-st.recom' + index + '').attr('src', bookData.book_image).attr('width', '280px');
+			});
+		}
+	});
+}
 
+function reloadReview() {
+	$.ajax({
+		url : 'request_main_review',
+		method : 'GET',
+		success : function(resp) {
+			$.each(resp, function(index, revData){
+				console.log(revData);
+				$('.main-review-title.review' + index + '').text(revData.rev_title);
+				$('.main-review-uname.review' + index + '').text(revData.id);
+				$('.main-review-content.review' + index + '').text(revData.rev_content);
+			});
+		}
+	})
+}
 </script>
-
-<body class="index-page sidebar-collapse">
-
-<!-- Navbar include -->
-  <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
-  <style type="text/css">
+<style type="text/css">
  
  
 
@@ -452,6 +473,11 @@ function output(resp) {
 }
 
  </style>
+<body class="index-page sidebar-collapse">
+
+<!-- Navbar include -->
+  <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
+
   <div class="wrapper">
      <!-- main 태크 시작 -->
     <!-- main 태크 시작 -->
@@ -470,14 +496,13 @@ function output(resp) {
 		      	<div class="row main-carousel-row-st">
 		      		<div class="row main-carousel-col12-st item-bg-pink">
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<img class="d-block img-st" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+							<img class="d-block img-st recom0" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
 						</div>
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<p class="main-carousel-span-st-title">Harry Potter And The Sorcerer's Stone</p>
-							<p class="main-carousel-span-st-publ">By J.K.ROWLING</p>
-							<p class="main-carousel-span-st-cont">
-								Since the publication of Harry Potter and the Philosopher's Stone in 1997, many publishers have created new editions of each book with new cover art provided by various illustrators. Bloomsbury is the British publication that has created both adult and children's covers. The adult edition usually depicts an object or place that plays a key part in the plot while the children's one features a major event in the book. Bloomsbury have commissioned many illustrators to design the cover. In 2013, they had woodcut artist Andrew Davidson create new cover art for the paperback adult edition.
+							<p class="main-carousel-span-st-title recom0"></p>
+							<p class="main-carousel-span-st-publ recom0"></p>
+							<p class="main-carousel-span-st-cont recom0">
 							</p>
 							<p>
 								<a href="#" class="btn btn-puple btn-round btn-md">See The Book</a>
@@ -493,14 +518,13 @@ function output(resp) {
 		      	<div class="row main-carousel-row-st">
 		      		<div class="row main-carousel-col12-st item-bg-sky">
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<img class="d-block img-st" src="resources/assets/img/book_img02.jpg" alt="First slide" style="margin: 0 auto;">
+							<img class="d-block img-st recom1" src="resources/assets/img/book_img02.jpg" alt="First slide" style="margin: 0 auto;">
 						</div>
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<p class="main-carousel-span-st-title">Twilight</p>
-							<p class="main-carousel-span-st-publ">스테파니 메이어</p>
-							<p class="main-carousel-span-st-cont">
-								트와일라잇(영어: Twilight) 시리즈는 《트와일라잇》, 《뉴문》, 《이클립스》, 《브레이킹 던》 총 4권으로 이루어진 스테프니 메이어의 뱀파이어를 소재로 한 판타지 로맨스 소설이다.
+							<p class="main-carousel-span-st-title recom1"></p>
+							<p class="main-carousel-span-st-publ recom1"></p>
+							<p class="main-carousel-span-st-cont recom1">
 							</p>
 							<p>
 								<a href="#" class="btn btn-sky btn-round btn-md">See The Book</a>
@@ -510,20 +534,19 @@ function output(resp) {
 		      	</div>
 		      </div>
 		    </div>
+		    
 		    <div class="carousel-item">
 		      <div class="item__third">
 		      	<div class="row main-carousel-row-st">
 		      		<div class="row main-carousel-col12-st item-bg-orange">
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<img class="d-block img-st" src="resources/assets/img/book_img03.jpg" alt="First slide" style="margin: 0 auto;">
+							<img class="d-block img-st recom2" src="resources/assets/img/book_img03.jpg" alt="First slide" style="margin: 0 auto;">
 						</div>
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<p class="main-carousel-span-st-title">Hell Week</p>
-							<p class="main-carousel-span-st-publ">By 에릭 라르셀</p>
-							<p class="main-carousel-span-st-cont">
-								단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
-								단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
+							<p class="main-carousel-span-st-title recom2"></p>
+							<p class="main-carousel-span-st-publ recom2"></p>
+							<p class="main-carousel-span-st-cont recom2">
 							</p>
 							<p>
 								<a href="#" class="btn btn-orange btn-round btn-md">See The Book</a>
@@ -588,10 +611,6 @@ function output(resp) {
                   <div class="tab-content text-center">
                     <div class="tab-pane active" id="home" role="tabpanel">
                       <div class="row" id="ranking">
-                     
-                       
-		                             
-		                
 	                  </div>
                     </div>
                   </div>
@@ -604,7 +623,7 @@ function output(resp) {
             <div class="col-lg-9 col-md-9 ml-auto col-xl-9 col-sm-12">
               <div class="row" style="margin: 0; padding: 0px;">
 	              <div class="col-8">
-	              	<p class="category">Popular by Genre</p>
+	              	<p class="category">인기 리뷰</p>
 	              </div>
 	              <!--Controls-->
 	              <div class="col-4">    	          		
@@ -633,15 +652,15 @@ function output(resp) {
 											<div class="col-md-6">
 											
 												<div class="card" style="box-shadow: none;">
-													<div class="row review-row-bg-st">
+													<div class="row review-row-bg-st review0">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
 															<img class="d-block img-st" src="resources/assets/img/book_img03.jpg" alt="First slide" style="margin: 0 auto;">
 														</div>
 														<div class="col-lg-7" style="padding: 10px;">
 															<div class="card-body card-body-st">
-																<p class="main-review-title">Hell Week</p>
-																<p class="main-review-uname">By 에릭 라르셀</p>
-																<p class="main-review-content" style="overflow:hidden !important;">
+																<p class="main-review-title review0">Hell Week</p>
+																<p class="main-review-uname review0">By 에릭 라르셀</p>
+																<p class="main-review-content review0" style="overflow:hidden !important;">
 																	단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
 																	단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
 																	단순하게 생각하라, 과감하게 행동하라, 일주일뒤 당신의 모든것이 새롭게 태어난다!
@@ -669,13 +688,13 @@ function output(resp) {
 																								<div class="card" style="box-shadow: none;">
 													<div class="row review-row-bg-st">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
-															<img class="d-block img-st" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+															<img class="d-block img-st review1" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
 														</div>
 														<div class="col-lg-7" style="padding: 10px;">
 															<div class="card-body card-body-st">
-																<p class="main-review-title">Harry Potter</p>
-																<p class="main-review-uname">By J.K ROWLING</p>
-																<p class="main-review-content" style="overflow:hidden !important;">
+																<p class="main-review-title review1">Harry Potter</p>
+																<p class="main-review-uname review1">By J.K ROWLING</p>
+																<p class="main-review-content review1" style="overflow:hidden !important;">
 																	해리포터시리즈에서 특별한 점이라고 생각했던 것 중 하나가 꿈에 대한 묘사이다. 해리는 자신의 이마에 있는 번개 모양의 흉터를 만들어 놓은 숙적 볼드모트와 꿈으로 연결되어 있다. 꿈은 중요한 줄거리를 담당할 뿐만 아니라 해리의 감정 상태, 그리고 캐릭터를 더욱 현실적으로 보이게 하는 역할을 한다. 복선을 담당하기도 한다.
 																</p>
 															</div>
@@ -709,15 +728,15 @@ function output(resp) {
 											<div class="col-md-6">
 											
 												<div class="card" style="box-shadow: none;">
-													<div class="row review-row-bg-st">
+													<div class="row review-row-bg-st review2">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
 															<img class="d-block img-st" src="resources/assets/img/book_img02.jpg" alt="First slide" style="margin: 0 auto;">
 														</div>
 														<div class="col-lg-7" style="padding: 10px;">
 															<div class="card-body card-body-st">
-																<p class="main-review-title">Twilight</p>
-																<p class="main-review-uname">By 스테파이 메이어</p>
-																<p class="main-review-content" style="overflow:hidden !important;">
+																<p class="main-review-title review2">Twilight</p>
+																<p class="main-review-uname review2">By 스테파이 메이어</p>
+																<p class="main-review-content review2" style="overflow:hidden !important;">
 																	영화 트와일라잇 너무 지루했어...ㅠㅠ나만 그런가...시리즈가 있는 영화들은 항상 1편이 지루하고 재미가 없다.난 그냥 책으로 만족하련다.
 																</p>
 															</div>
@@ -743,13 +762,13 @@ function output(resp) {
 																								<div class="card" style="box-shadow: none;">
 													<div class="row review-row-bg-st">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
-															<img class="d-block img-st" src="resources/assets/img/book_img04.jpg" alt="First slide" style="margin: 0 auto;">
+															<img class="d-block img-st review3" src="resources/assets/img/book_img04.jpg" alt="First slide" style="margin: 0 auto;">
 														</div>
 														<div class="col-lg-7" style="padding: 10px;">
 															<div class="card-body card-body-st">
-																<p class="main-review-title">Hell Week</p>
-																<p class="main-review-uname">By 허지원</p>
-																<p class="main-review-content" style="overflow:hidden !important;">
+																<p class="main-review-title review3">Hell Week</p>
+																<p class="main-review-uname review3">By 허지원</p>
+																<p class="main-review-content review3" style="overflow:hidden !important;">
 																	예쁜 연보라색에 트렌디한 느낌의 표지를 가진 책 <나는 아직 나를 모른다>는, 자신을 나쁘게 평가하여 몰아붙이거나 낙담하는 마음을 가진 이들에게 ‘당신은 사실 당신이 아는 것보다 훨씬 괜찮은 사람이다’라는 메시지를 전합니다.
 																</p>
 															</div>
@@ -796,15 +815,12 @@ function output(resp) {
    </div>
    <!-- main 태크 끝 -->
 
-
-
-
-
     <%@ include file="/WEB-INF/views/include/modal.jsp" %>
     <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 
-  </div>
-  <%@ include file="/WEB-INF/views/include/coreJsFile.jsp" %>
+
+</div>
+<%@ include file="/WEB-INF/views/include/coreJsFile.jsp" %>
 </body>
 
 </html>

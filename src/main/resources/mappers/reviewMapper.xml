@@ -4,6 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="project.aban.test.dao.ReviewMapper">
+<insert id="insertCountLike" parameterType="Reglike">
+		insert into REGLIKECOUNT values (
+			#{rev_num}, #{id},#{pushid},sysdate
+		)
+	</insert>
+	<select id="findmyfan" parameterType="String" resultType="ReglikeCheck">
+		select * from REGLIKECOUNT where ID=#{id} and pushid not like #{id} and 5>=ROWNUM order by regdate desc
+	</select>
+
 	<select id="bookreview" resultType="Review">
 		select * from review
 	</select>
@@ -12,6 +21,7 @@
 		select *
 		from review where rev_num=#{rev_num}
 	</select>
+	
 	<update id="update" parameterType="Review">
 		update review set
 		book_title=#{book_title}, regdate=sysdate,
@@ -73,5 +83,52 @@
 			#{rev_num}, #{id}
 		)
 	</insert>
+	<select id = "request_main_review" resultType = "Review">
+		SELECT 
+			rev_num,
+			book_title,
+			id,
+			regdate,
+			rev_title,
+			rev_content,
+			rev_like,
+			rev_scrap
+		FROM
+			REVIEW
+		WHERE
+			ROWNUM BETWEEN 1 AND 4
+		ORDER BY
+			REV_LIKE DESC
+	</select>
+	
+	<select id = "reviewTitleSearch" resultType = "Review" parameterType = "String">
+		SELECT 
+			rev_num,
+			book_title,
+			id,
+			regdate,
+			rev_title,
+			rev_content,
+			rev_like,
+			rev_scrap
+		FROM
+			REVIEW
+		WHERE
+			REV_TITLE LIKE '%' || #{input} || '%'
+	</select>
+	
+	<select id = "reviewContentSearch" resultType = "Review" parameterType = "String">
+		SELECT 
+			rev_num,
+			book_title,
+			id,
+			regdate,
+			rev_title,
+			rev_content
+		FROM
+			REVIEW
+		WHERE
+			REV_CONTENT LIKE '%' || #{input} || '%'
+	</select>
 	
 </mapper>

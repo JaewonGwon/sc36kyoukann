@@ -161,6 +161,7 @@ function formCheck() {
    
    document.getElementById("address").value = post.value+roadaddr.value+addr1+addr2.value;
    $("#joinus").submit();
+   
 }
    
 /*이메일 직접입력 선택 소스 시작*/

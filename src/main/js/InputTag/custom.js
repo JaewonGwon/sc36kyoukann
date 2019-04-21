@@ -14,7 +14,6 @@ class CustomExample extends Component {
   }
 
   onChange = value => {
-    console.log("YOU'VE CALLED ON CHANGE");
     this.setState({ value });
   }
 

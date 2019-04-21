@@ -151,6 +151,31 @@
 	delete tag
 	</delete>
 
+    <select id = "showTags" resultType = "Tag">
+		SELECT
+		    tag,tag_image
+		FROM
+		    taste_tag
+		WHERE tag in
+        (
+        '문학',
+        '장르소설',
+        '취미,오락,여행,건강',
+        '철학,사상,종교',
+        '자기계발',
+        '경제,경영',
+        '가정,육아,요리',
+        '정치,사회,시사',
+        '예술,문화',
+        '역사,지리',
+        '제태크,부동산',
+        '어학,외국어',
+        '과학,기술,컴퓨터'
+
+        )
+			
+
+	</select>
 
 	<select id = "request_modalTag" parameterType = "String" resultType = "String">
 		SELECT
