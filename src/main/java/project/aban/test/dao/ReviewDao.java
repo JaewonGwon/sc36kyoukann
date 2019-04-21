@@ -8,11 +8,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import project.aban.test.vo.Reglike;
+import project.aban.test.vo.ReglikeCheck;
 import project.aban.test.vo.Review;
 @Repository
 public class ReviewDao {
 	@Autowired
 	SqlSession session;
+
+	public void insertCountLike(ReglikeCheck rlc) {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		System.out.println(rlc);
+		mapper.insertCountLike(rlc);
+		
+		
+	}
+
+	public List<ReglikeCheck> findmyfan(String id) {
+		List<ReglikeCheck> list = new ArrayList<>();
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		list = mapper.findmyfan(id);
+		
+		return list;
+	}
+
 	
 	public List<Review> bookreview() {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
