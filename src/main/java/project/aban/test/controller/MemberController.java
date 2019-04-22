@@ -1,7 +1,5 @@
 package project.aban.test.controller;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,23 +91,24 @@ public class MemberController {
 		return "member/joinForm";
 	}
 
+
 	@RequestMapping("/joinUsFinal")
-	@ResponseBody
-	public String joinUsFinal(ArrayList<UserTag> sendDataToDB, HttpSession session) {
+	public String joinUsFinal(Member member, UserTag usertag) {
+		
 
-		System.out.println(sendDataToDB);
-
-		Member member = (Member) session.getAttribute("UserInfo");
+		
 		try {
+			System.out.println(member);
+			System.out.println(usertag);
+//			 ms.insert_Member(member);  //회원DB로 회원 정보 들어감
+//			 ms.insert_UserTaste()    //취향 정보 DB로 들어감 UserTag
+			return "redirect:/";
+			
 
-//			 ms.insert_Member(member);
-//			 ms.insert_UserTaste()
-			return "true";
 		} catch (Exception e) {
 			e.printStackTrace();
-
 		}
-		return "false";
+		return null;
 	}
 
 	// 아이디 중복체크
@@ -207,5 +206,20 @@ public class MemberController {
 			session.setAttribute("pwCheckMember", m);
 			return "member/sendEmail";
 		}
+	}
+	
+	@RequestMapping(value = "/submit_content", method = RequestMethod.POST)
+	@ResponseBody
+	public String submit_content(String content, HttpSession sess) {
+		String loginId = (String)sess.getAttribute("loginId");
+		Member m = new Member();
+		m.setId(loginId);
+		m.setContents(content);
+		sess.setAttribute("m", m);
+		int result = ms.submit_content(m);
+		if (result == 1) {
+			return "success";
+		}
+		return "success";
 	}
 }

@@ -23,7 +23,8 @@ module.exports = {
         Carousel : './Carousel.js',
         imageGridList: './imageGridList.js',
         UserCheckBox : './UserCheckBox.js',
-        ReactRotatingText : './ReactRotatingText.js'
+        ReactRotatingText : './ReactRotatingText.js',
+        BadgePage : './BadgePage.js'
 
     },
     devtool: 'sourcemaps',

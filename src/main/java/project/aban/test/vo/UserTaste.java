@@ -28,9 +28,4 @@ public class UserTaste {
 		return "UserTaste [id=" + id + ", usertag=" + usertag + "]";
 	}
 	
-	
-	 
-	
-	
-	
 }

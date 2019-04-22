@@ -50,4 +50,6 @@ public interface BookMapper {
 
 	public ArrayList<Book> request_main_book();
 
+	public ArrayList<Book> request_wr_books(String tag);
+
 }

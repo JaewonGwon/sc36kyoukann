@@ -84,4 +84,13 @@
 	<select id="selectbydate" resultType="Review">
 		select * from review order by REGDATE desc
 	</select>
+	
+	<update id = "submit_content" parameterType = "Member">
+		UPDATE
+			MEMBER
+		SET
+			CONTENTS = #{contents}
+		WHERE
+			ID = #{id}
+	</update>
 </mapper>

@@ -125,6 +125,12 @@ public Member selectid(String id) {
 }
 
 
+public int submit_content(Member m) {
+	int result = dao.submit_content(m);
+	return result;
+}
+
+
 
 
 
