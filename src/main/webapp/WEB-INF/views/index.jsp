@@ -692,10 +692,10 @@ function reloadReview() {
 													<div>
 														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
 															<p style="margin: 0 auto; padding: 0px; text-align: center;">
-																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;">
 																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
 																</button>
-																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">
+																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
 																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
 																</button>
 															</p>
@@ -724,10 +724,10 @@ function reloadReview() {
 													<div>
 														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
 															<p style="margin: 0 auto; padding: 0px; text-align: center;">
-																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;">
 																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
 																</button>
-																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">
+																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
 																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
 																</button>
 															</p>
@@ -735,14 +735,11 @@ function reloadReview() {
 													</div>
 													
 												</div>	
-
 											</div>
 				
 										</div>
 									</div>
 									<!--/.First slide-->
-
-
 									<!--Second slide-->
 									<div class="carousel-item">
 										<div class="row">
@@ -766,10 +763,10 @@ function reloadReview() {
 													<div>
 														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
 															<p style="margin: 0 auto; padding: 0px; text-align: center;">
-																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;">
 																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
 																</button>
-																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">
+																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
 																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
 																</button>
 															</p>
@@ -798,10 +795,10 @@ function reloadReview() {
 													<div>
 														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
 															<p style="margin: 0 auto; padding: 0px; text-align: center;">
-																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;">
 																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
 																</button>
-																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">
+																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
 																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
 																</button>
 															</p>

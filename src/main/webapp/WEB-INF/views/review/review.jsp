@@ -111,7 +111,7 @@
 									+ tt.id + '</button>';
 							listwriter += '</div>';
 							listwriter += '<div class="col-5" style="text-align: right; padding-top: 4px;">';
-							listwriter += '<button class="btn btn-round revlike" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;" data-value="';
+							listwriter += '<button class="btn btn-round revlike" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;" data-value="';
 							listwriter += tt.rev_num;
           					listwriter += '">';
           					listwriter += "♡ " + tt.rev_like;
