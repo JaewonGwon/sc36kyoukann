@@ -76,10 +76,9 @@ $(function(){
 
   <div class="wrapper">
   
-      <div class="section section-signup" style="background-image: url('resources/assets/img/bg13.jpg'); background-size: cover; background-position: top center; min-height: 1100px !important;">
+      <div class="section section-signup" style="background-image: url('resources/assets/img/bg13.jpg'); background-size: cover; background-position: top center; min-height: 900px !important;">
         <div class="container">
           <div class="row">
-          
           
             <div class="card card-signup" style="background:none;">
             

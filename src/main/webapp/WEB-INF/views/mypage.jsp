@@ -442,9 +442,9 @@ border: 1px solid red;
                             <div class="row" style="margin:0; padding: 0px;">
                                
 
-                               <div class="col-lg-3 col-sm-12" style="padding: 0px;">
+                               <!-- <div class="col-lg-3 col-sm-12" style="padding: 0px;">
                                   <div class="col-12 text-left" style="padding: 0px;">
-                                     <h5 style="padding: 6px;">Friends Profiles</h5><!-- or recent visitor -->
+                                     <h5 style="padding: 6px;">Friends Profiles</h5>or recent visitor
                                   </div>
                        
                        
@@ -505,13 +505,11 @@ border: 1px solid red;
                                         <span style="font-size: 9pt; color: #56B9FF; font-weight: 600;">Visit Profile</span>
                                         </a>
                                      </div>
-                                     
+                                    
                                   </div>
-                                  
-
-                            
-                               </div>
-                               <div class="col-lg-9 col-sm-12" style="padding: 0px;">
+                         
+                               </div> -->
+                               <div class="col-lg-12 col-sm-12" style="padding: 0px;">
                                   <div class="row" style="margin:0; padding: 0px;">
                                      
                                      <div class="col-12">
@@ -519,98 +517,124 @@ border: 1px solid red;
                                         <h5 style="padding: 6px;">My Books</h5><!-- or recent visitor -->
                                         </div>
                                      </div>
-                                  
-                                  
-                                      <div class="col-12 i_scroll_wrap" id="i_scroll_wrap" style="background-color: #fff; padding: 30px;">
-                           
-                              
+                                   
+                                   <div class="col-12 i_scroll_wrap" id="i_scroll_wrap" style="background-color: #fff; padding: 30px;">
                                  
-                                   <div class="row i_scroll" id="i_scroll">
-                                   
-                                   
-                                       <div class="col-lg-3 col-md-6 col-sm-12">
-                                          <figure class="snip1283 figure-margin">
-                                         <img src="resources/assets/img/book_img01.jpg" alt="book_image"/>
-                                         <figcaption>
-                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
-                                         </figcaption>
-                                       </figure>
-                                       </div> 
-                                       
-                           
-                           
-                                       <div class="col-lg-3 col-md-6 col-sm-12">
-                                          <figure class="snip1283 figure-margin">
-                                         <img src="resources/assets/img/book_img02.jpg" alt="book_image" />
-                                         <figcaption>
-                                           
-                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
-                                         </figcaption>
-                                       </figure>
-                                       </div> 
-                                       <div class="col-lg-3 col-md-6 col-sm-12">
-                                          <figure class="snip1283 figure-margin">
-                                         <img src="resources/assets/img/book_img03.jpg" alt="book_image" />
-                                         <figcaption>
-                                           
-                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
-                                         </figcaption>
-                                       </figure>
-                                       </div> 
-                                       <div class="col-lg-3 col-md-6 col-sm-12"> 
-                                          <figure class="snip1283 figure-margin">
-                                         <img src="resources/assets/img/book_img04.jpg" alt="book_image" />
-                                         <figcaption>
-                                           
-                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
-                                         </figcaption>
-                                       </figure>
-                                       </div> 
-                                       <div class="col-lg-3 col-md-6 col-sm-12"> 
-                                          <figure class="snip1283 figure-margin">
-                                         <img src="resources/assets/img/book_img05.jpg" alt="book_image" />
-                                         <figcaption>
-                                           
-                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
-                                         </figcaption>
-                                       </figure>
-                                       </div> 
-                                       <div class="col-lg-3 col-md-6 col-sm-12"> 
-                                          <figure class="snip1283 figure-margin">
-                                         <img src="resources/assets/img/book_img06.jpg" alt="book_image" />
-                                         <figcaption>
-                                           
-                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
-                                         </figcaption>
-                                       </figure>
-                                       </div> 
-                                       <div class="col-lg-3 col-md-6 col-sm-12"> 
-                                          <figure class="snip1283 figure-margin">
-                                         <img src="resources/assets/img/book_img07.jpg" alt="book_image" />
-                                         <figcaption>
-                                           
-                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
-                                         </figcaption>
-                                       </figure>
-                                       </div> 
-                                       
-                                       <div class="col-lg-3 col-md-6 col-sm-12"> 
-                                          <figure class="snip1283 figure-margin">
-                                         <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
-                                         <figcaption>
-                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
-                                         </figcaption>
-                                       </figure>
-                                       </div>                                             
-
-                                    
+	                                   <div class="row i_scroll" id="i_scroll">
+	                                   
+	                                       <div class="col-lg-2 col-md-4 col-sm-12">
+	                                          <figure class="snip1283 figure-margin">
+	                                         <img src="resources/assets/img/book_img01.jpg" alt="book_image"/>
+	                                         <figcaption>
+	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
+	                                         </figcaption>
+	                                       </figure>
+	                                       </div> 
+	                                    
+	                                       <div class="col-lg-2 col-md-4 col-sm-12">
+	                                          <figure class="snip1283 figure-margin">
+	                                         <img src="resources/assets/img/book_img02.jpg" alt="book_image" />
+	                                         <figcaption>
+	                                           
+	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
+	                                         </figcaption>
+	                                       </figure>
+	                                       </div> 
+	                                       <div class="col-lg-2 col-md-4 col-sm-12">
+	                                          <figure class="snip1283 figure-margin">
+	                                         <img src="resources/assets/img/book_img03.jpg" alt="book_image" />
+	                                         <figcaption>
+	                                           
+	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
+	                                         </figcaption>
+	                                       </figure>
+	                                       </div> 
+	                                       <div class="col-lg-2 col-md-6 col-sm-12"> 
+	                                          <figure class="snip1283 figure-margin">
+	                                         <img src="resources/assets/img/book_img04.jpg" alt="book_image" />
+	                                         <figcaption>
+	                                           
+	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
+	                                         </figcaption>
+	                                       </figure>
+	                                       </div> 
+	                                       <div class="col-lg-2 col-md-4 col-sm-12"> 
+	                                          <figure class="snip1283 figure-margin">
+	                                         <img src="resources/assets/img/book_img05.jpg" alt="book_image" />
+	                                         <figcaption>
+	                                           
+	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
+	                                         </figcaption>
+	                                       </figure>
+	                                       </div> 
+	                                       <div class="col-lg-2 col-md-4 col-sm-12"> 
+	                                          <figure class="snip1283 figure-margin">
+	                                         <img src="resources/assets/img/book_img06.jpg" alt="book_image" />
+	                                         <figcaption>
+	                                           
+	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
+	                                         </figcaption>
+	                                       </figure>
+	                                       </div> 
+	                                       <div class="col-lg-2 col-md-4 col-sm-12"> 
+	                                          <figure class="snip1283 figure-margin">
+	                                         <img src="resources/assets/img/book_img07.jpg" alt="book_image" />
+	                                         <figcaption>
+	                                           
+	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
+	                                         </figcaption>
+	                                       </figure>
+	                                       </div> 
+	                                       
+	                                       <div class="col-lg-2 col-md-4 col-sm-12"> 
+	                                          <figure class="snip1283 figure-margin">
+	                                         <img src="resources/assets/img/book_img08.jpg" alt="book_image" />
+	                                         <figcaption>
+	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
+	                                         </figcaption>
+	                                       </figure>
+	                                       </div>                                             
+	                                   
+	                                       <div class="col-lg-2 col-md-4 col-sm-12">
+	                                          <figure class="snip1283 figure-margin">
+	                                         <img src="resources/assets/img/book_img01.jpg" alt="book_image"/>
+	                                         <figcaption>
+	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
+	                                         </figcaption>
+	                                       </figure>
+	                                       </div> 
+	               
+	                                    
+	                                       <div class="col-lg-2 col-md-4 col-sm-12">
+	                                          <figure class="snip1283 figure-margin">
+	                                         <img src="resources/assets/img/book_img02.jpg" alt="book_image" />
+	                                         <figcaption>
+	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
+	                                         </figcaption>
+	                                       </figure>
+	                                       </div> 
+	 
+	                                       <div class="col-lg-2 col-md-4 col-sm-12">
+	                                          <figure class="snip1283 figure-margin">
+	                                         <img src="resources/assets/img/book_img03.jpg" alt="book_image" />
+	                                         <figcaption>
+	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
+	                                         </figcaption>
+	                                       </figure>
+	                                       </div> 
+	                                       
+	                                       <div class="col-lg-2 col-md-6 col-sm-12"> 
+	                                          <figure class="snip1283 figure-margin">
+	                                         <img src="resources/assets/img/book_img04.jpg" alt="book_image" />
+	                                         <figcaption>
+	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
+	                                         </figcaption>
+	                                       </figure>
+	                                       </div> 
+	                                    
+	                                     </div>
                                      </div>
-                                     </div>
-                                     
-                                     
                                   </div>
-                                  
-
                                </div>
                             </div>
                           </div>
