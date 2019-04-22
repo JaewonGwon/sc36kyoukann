@@ -63,11 +63,14 @@ function reloadData() {
 				$('.main-carousel-span-st-title.recom' + index + '').text(bookData.book_title);
 				$('.main-carousel-span-st-publ.recom' + index + '').text(bookData.book_writer);
 				$('.main-carousel-span-st-cont.recom' + index + '').text(bookData.book_content);
-				$('.d-block.img-st2.recom' + index + '').attr('src', bookData.book_image);
+				$('.d-block.img-st.recom' + index + '').attr('src', bookData.book_image);
 			});
 		}
 	});
 }
+
+
+
 
 function reloadReview() {
 	$.ajax({
@@ -664,7 +667,7 @@ function reloadReview() {
 												<div class="card" style="box-shadow: none;">
 													<div class="row review-row-bg-st review0">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
-															<img class="d-block img-st2" src="resources/assets/img/book_img03.jpg" alt="First slide" style="margin: 0 auto;">
+															<img class="d-block img-st" src="resources/assets/img/book_img03.jpg" alt="First slide" style="margin: 0 auto;">
 														</div>
 														<div class="col-lg-7" style="padding: 10px;">
 															<div class="card-body card-body-st">
@@ -698,7 +701,7 @@ function reloadReview() {
 												<div class="card" style="box-shadow: none;">
 													<div class="row review-row-bg-st">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
-															<img class="d-block img-st2 review1" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+															<img class="d-block img-st review1" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
 														</div>
 														<div class="col-lg-7" style="padding: 10px;">
 															<div class="card-body card-body-st">
@@ -740,7 +743,7 @@ function reloadReview() {
 												<div class="card" style="box-shadow: none;">
 													<div class="row review-row-bg-st review2">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
-															<img class="d-block img-st2" src="resources/assets/img/book_img02.jpg" alt="First slide" style="margin: 0 auto;">
+															<img class="d-block img-st" src="resources/assets/img/book_img02.jpg" alt="First slide" style="margin: 0 auto;">
 														</div>
 														<div class="col-lg-7" style="padding: 10px;">
 															<div class="card-body card-body-st">
@@ -772,7 +775,7 @@ function reloadReview() {
 																								<div class="card" style="box-shadow: none;">
 													<div class="row review-row-bg-st">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
-															<img class="d-block img-st2 review3" src="resources/assets/img/book_img04.jpg" alt="First slide" style="margin: 0 auto;">
+															<img class="d-block img-st review3" src="resources/assets/img/book_img04.jpg" alt="First slide" style="margin: 0 auto;">
 														</div>
 														<div class="col-lg-7" style="padding: 10px;">
 															<div class="card-body card-body-st">
