@@ -163,9 +163,13 @@ $(function() {
 					</ul>
 				</section>
 			</div>			
-		</div>			
+		</div>					
+	</div>
+	<div class="col-12" style="margin: 0; padding: 15px 15px 0px 15px;">
+		<p style="border-top: 1px dashed #ddd; font-size: 10pt; text-align: right; padding: 15px 15px 0px 15px; margin: 0px 0px;">
+			© 2019, Designed by Gong-Gam. Coded by Creative Gong-Gam.
+		</p>
 	</div>
    </div>
-    
   </div>
 </footer>
