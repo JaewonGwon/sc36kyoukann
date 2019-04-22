@@ -4,14 +4,14 @@ const theme = {
     chipsContainer: {
       display: "flex",
       position: "relative",
-      border: "solid 2px",
+      border: "2px solid #1c1c1c",
       backgroundColor: 'transparent',
       font: "18px Arial",
       minHeight: 24,
       alignItems: "center",
       flexWrap: "wrap",
       padding: "2.5px",
-      borderRadius: 5,
+      borderRadius: "40px",
       ':focus': {
           border: "solid 2px",
       }
@@ -26,10 +26,11 @@ const theme = {
       border: 'none',
       outline: 'none',
       boxSizing: 'border-box',
+      borderRadius: "40px",
       width: '100%',
       padding: 5,
       margin: 2.5,
-      backgroundColor: 'transparent',
+      backgroundColor: 'white',
       fontcolor : '#333333',
      
       
@@ -41,8 +42,9 @@ const theme = {
     },
     suggestionsList: {
       position: 'absolute',
-      border: '2px solid gray',
+      border: '2px solid #1c1c1c',
       zIndex: 10,
+      borderRadius: "40px",
       fontcolor : '#000000',
       left: 0,
       top: '100%',

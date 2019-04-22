@@ -115,7 +115,7 @@ class ModalExample extends React.Component {
 
 
 
-                    <Button variant="contained" component="span" onClick={this.toggle}>
+                    <Button variant="contained" color="primary" onClick={this.toggle}>
                         {this.props.buttonLabel}Read More
                     </Button>
                 </div>
