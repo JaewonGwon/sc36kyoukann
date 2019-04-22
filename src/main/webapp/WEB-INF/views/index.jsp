@@ -278,8 +278,9 @@ function reloadReview() {
   text-overflow: ellipsis !important;
   font-size: 14pt;
   max-height: 32px;
-
+  margin-bottom: 0px !important;
 }
+
 
 
 .main-carousel-span-st-publ{
@@ -515,12 +516,14 @@ function reloadReview() {
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
 							<p class="main-carousel-span-st-title recom0"></p>
+							<p style="border-top: 1px solid #fff; width: 10%; margin: 10px auto;"></p>
 							<p class="main-carousel-span-st-publ recom0"></p>
 							<p class="main-carousel-span-st-cont recom0">
 							</p>
 							<p>
 								<a href="#" class="btn btn-puple btn-round btn-md">See The Book</a>
 							</p>
+						
 						</div>
 		      		</div>
 		      	</div>
@@ -537,6 +540,7 @@ function reloadReview() {
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
 							<p class="main-carousel-span-st-title recom1"></p>
+							<p style="border-top: 1px solid #fff; width: 10%; margin: 10px auto;"></p>
 							<p class="main-carousel-span-st-publ recom1"></p>
 							<p class="main-carousel-span-st-cont recom1">
 							</p>
@@ -559,6 +563,7 @@ function reloadReview() {
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
 							<p class="main-carousel-span-st-title recom2"></p>
+							<p style="border-top: 1px solid #fff; width: 10%; margin: 10px auto;"></p>
 							<p class="main-carousel-span-st-publ recom2"></p>
 							<p class="main-carousel-span-st-cont recom2">
 							</p>
@@ -581,6 +586,7 @@ function reloadReview() {
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
+		
     
 
     <!-- 추천 리뷰 보여주는 부분 시작 -->
