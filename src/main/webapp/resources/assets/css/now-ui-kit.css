@@ -7309,13 +7309,33 @@ pt-30{
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	height: 100px !important;
+	height: 88px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
-
+	width: 180px;
   }
+
 }
 
+
+@media screen and (min-width: 1201px) and (max-width: 2400px) {
+  .text-carousel-st{
+	background-color: #fff;
+	max-height: 300px;	
+  }
+  .main-review-content{
+	font-weight: 400;
+	color: #262626;
+	text-align: left;
+	font-size: 1em;
+	display: inline-block;
+	height: 88px !important;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 230px;
+  }
+
+}
 
 
 @media screen and (min-width: 769px) and (max-width: 990px) {
@@ -7329,27 +7349,35 @@ pt-30{
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	height: 100px !important;
+	height: 88px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	width: 258px;
+		
+		
   }
 }
+
+
 @media screen and (min-width: 518px) and (max-width: 768px) {
     .text-carousel-st{
 	background-color: #fff;
 	max-height: 450px;
   }
-   .main-review-content{
+  .main-review-content{
 	font-weight: 400;
 	color: #262626;
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	height: 170px !important;
+	height: 88px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	width: 490px;
   }
 }
+
+
 @media screen and (min-width: 300px) and (max-width: 517px) {
   .text-carousel-st{
 	background-color: #fff;
@@ -7361,12 +7389,14 @@ pt-30{
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	height: 120px !important;
+	height: 88px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	overflow: auto !important;
+	width: 330px;
+	border: 1px solid red;	
   }
 }
+
 
 
 
@@ -7730,7 +7760,7 @@ figure.snip1283.hover figcaption {
 	height: 76px !important;
  	overflow: hidden;
 	text-overflow: ellipsis;
-	width: 100% !important;
+	width: 255.63px;
   }
 	.main-review-content3{
 		font-weight: 400;
@@ -7783,7 +7813,7 @@ figure.snip1283.hover figcaption {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	height: 76px !important;
-	width: 100%;
+	width: 255.63px;
   }
 	.main-review-content3{
 		font-weight: 400;
@@ -7837,7 +7867,7 @@ figure.snip1283.hover figcaption {
 	height: 76px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	width: 100%;
+	width: 255.63px;
   }
 	.main-review-content3{
 		font-weight: 400;
@@ -7884,7 +7914,7 @@ figure.snip1283.hover figcaption {
 	display: inline-block;
 	height: 76px !important;
 	overflow: hidden;
-	width: 100%;
+	width: 255.63px;
   }
  	.main-review-content3{
 		font-weight: 400;
