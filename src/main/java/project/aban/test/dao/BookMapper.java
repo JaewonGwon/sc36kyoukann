@@ -52,4 +52,6 @@ public interface BookMapper {
 
 	public ArrayList<Book> request_wr_books(String tag);
 
+	public String request_review_image(String book_title);
+
 }

@@ -58,22 +58,33 @@
 
 		})
 	}
-
+	
 	function output(resp) {
 		var listwriter = '';
-		var img = "resources/assets/img/book_img01.jpg";
+		var book_title = '';
 		var reviewlink = "'reviewDetail?rev_num=";
 		$
 				.each(
 						resp,
 						function(index, tt) {
+							var img = '';
+							console.log(tt.book_title);
+							$.ajax({
+								url : 'request_review_image',
+								method : 'GET',
+								data : 'book_title=' + tt.book_title,
+								success : function(resp){
+									console.log(resp);
+								}
+							})
+							console.log(img);
 							listwriter += '<div class="item">';
 							listwriter += '<div class="carousel-content text-carousel-st2">';
 							listwriter += '<div class="in-div-text-carousel-st2">';
 							listwriter += '<p class="main-review-title">'
 									+ tt.rev_title + '</p>';
 							listwriter += '<p class="main-review-title2">';
-							listwriter += '<a href="#" data-toggle="tooltip" title="<img src='+ img +'>">';
+							listwriter += '<a href="#" data-toggle="tooltip" title="' + tt.book_title + '">';
 
 							//<a href="boardDetail?boardnum=${board.boardnum}">${board.title}</a>
 							listwriter += tt.book_title;
@@ -206,7 +217,17 @@
 	/* 리뷰 제목부분 툴팁 그림 나오게 하는 소스 시작*/
 	$(function() {
 		$('[data-toggle="tooltip"]').tooltip({
-			html : true
+			html: true,
+			open: function(){console.log("tooltip")}
+/* 			$.ajax({
+				url : 'request_review_image',
+				method : 'GET',
+				data : 'book_title='
+				success : function(resp){
+					console.log(resp);
+				}
+			}); */
+			
 		});
 	});
 	/* 리뷰 제목부분 툴팁 그림 나오게 하는 소스 끝*/

@@ -249,5 +249,13 @@
 	order by
 		book_likecount desc
 	</select>
-
+	<select id = "request_review_image" parameterType = "string" resultType = "string">
+	select
+		book_image
+	from
+		book
+	where
+		book_title = #{book_title}
+		and rownum = 1
+	</select>
 </mapper>
