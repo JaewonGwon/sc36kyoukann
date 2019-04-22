@@ -63,11 +63,14 @@ function reloadData() {
 				$('.main-carousel-span-st-title.recom' + index + '').text(bookData.book_title);
 				$('.main-carousel-span-st-publ.recom' + index + '').text(bookData.book_writer);
 				$('.main-carousel-span-st-cont.recom' + index + '').text(bookData.book_content);
-				$('.d-block.img-st.recom' + index + '').attr('src', bookData.book_image).attr('width', '280px');
+				$('.d-block.img-st.recom' + index + '').attr('src', bookData.book_image);
 			});
 		}
 	});
 }
+
+
+
 
 function reloadReview() {
 	$.ajax({
@@ -258,6 +261,12 @@ function reloadReview() {
 
 .img-st{
   box-shadow: 0px 0px 16px 4px rgba(0, 0, 0, 0.3);
+}
+.img-st2{
+  box-shadow: 0px 0px 16px 4px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 418.91px;
+ 
 }
 
 .main-carousel-span-st-title{
@@ -499,7 +508,7 @@ function reloadReview() {
 		      	<div class="row main-carousel-row-st">
 		      		<div class="row main-carousel-col12-st item-bg-pink">
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<img class="d-block img-st recom0" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+							<img class="d-block img-st2 recom0" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
 						</div>
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
@@ -521,7 +530,7 @@ function reloadReview() {
 		      	<div class="row main-carousel-row-st">
 		      		<div class="row main-carousel-col12-st item-bg-sky">
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<img class="d-block img-st recom1" src="resources/assets/img/book_img02.jpg" alt="First slide" style="margin: 0 auto;">
+							<img class="d-block img-st2 recom1" src="resources/assets/img/book_img02.jpg" alt="First slide" style="margin: 0 auto;">
 						</div>
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
@@ -543,7 +552,7 @@ function reloadReview() {
 		      	<div class="row main-carousel-row-st">
 		      		<div class="row main-carousel-col12-st item-bg-orange">
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">
-							<img class="d-block img-st recom2" src="resources/assets/img/book_img03.jpg" alt="First slide" style="margin: 0 auto;">
+							<img class="d-block img-st2 recom2" src="resources/assets/img/book_img03.jpg" alt="First slide" style="margin: 0 auto;">
 						</div>
 				
 			      		<div class="col-lg-6 col-md-12 col-sm-12 text-center main-carousel-col6-st">

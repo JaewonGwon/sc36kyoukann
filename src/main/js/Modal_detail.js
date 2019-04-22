@@ -56,15 +56,14 @@ class ModalExample extends React.Component {
         let hitUrl = "/test/request_hitAdd?book_title=" + book_name;
 
         if (this.state.buttonViewFlag) {
-            this.setState({ likeFlag: !this.state.likeFlag });
-            console.log(this.state.book_viewcount);
+            
             axios.get(hitUrl)
                 .then(viewCount => {
                     this.setState({
                         book_viewcount: viewCount.data.book_viewcount,
                         buttonViewFlag: !this.state.buttonViewFlag
                     })
-
+                console.log(this.state.book_viewcount+"viewCount");
 
                 });
 
@@ -73,7 +72,7 @@ class ModalExample extends React.Component {
     }
 
     _LikeCount() {
-
+        
         console.log(this.state.likeFlag);
         if (this.state.likeFlag) { //+
             let hitLike = "/test/request_likeMinus?book_title=" + this.state.book_title;
@@ -163,15 +162,11 @@ class ModalExample extends React.Component {
         if (prevState.book_likecount != this.state.book_likecount) {
 
             this.setState({
-                book_likecount: this.props.book_likecount,
+                book_likecount: this.state.book_likecount,
             })
         }
-        if (prevState.book_viewcount != this.state.book_viewcount) {
-
-            this.setState({
-                book_viewcount: this.state.book_viewcount,
-            })
-        }
+     
+        
     }
 }
 
