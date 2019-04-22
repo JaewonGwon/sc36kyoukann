@@ -2,9 +2,6 @@
 
 /* General Demo Style */
 
-
-
-
 .clr{
 	clear: both;
 	padding: 0;
@@ -16,7 +13,6 @@
 	margin: 0 auto;
 	position: relative;
 }
-
 
 .container > header{
 	margin: 10px;

@@ -252,6 +252,7 @@
 	</select>
 
 
+
 <insert id="request_userLikeSave" parameterType="UserLikeSave">
 		insert 
 		into USER_HIT_LIKE
@@ -276,5 +277,16 @@
 
 
  
+
+
+	<select id = "request_review_image" parameterType = "string" resultType = "string">
+	select
+		book_image
+	from
+		book
+	where
+		book_title = #{book_title}
+		and rownum = 1
+	</select>
 
 </mapper>

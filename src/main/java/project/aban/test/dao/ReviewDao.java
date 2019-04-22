@@ -148,6 +148,12 @@ public class ReviewDao {
 		list =mapper.selectbylike();
 		return list;
 	}
+
+	public String request_review_image(String book_title) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		String result = mapper.request_review_image(book_title);
+		return result;
+	}
 	
 
 	
