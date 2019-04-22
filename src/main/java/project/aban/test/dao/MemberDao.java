@@ -75,6 +75,12 @@ public class MemberDao {
 		
 		return m;
 	}
+
+	public int submit_content(Member m) {
+		MemberMapper mapper = session.getMapper(MemberMapper.class);
+		int result = mapper.submit_content(m);
+		return result;
+	}
 	
 
 }

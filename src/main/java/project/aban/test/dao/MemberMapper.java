@@ -21,4 +21,6 @@ public interface MemberMapper {
 	public Member selectid(String id);
 
 	public Member getProfile(Member _temp);
+
+	public int submit_content(Member m);
 }

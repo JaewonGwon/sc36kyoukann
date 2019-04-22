@@ -20,15 +20,11 @@ class UserTasteApp extends Component {
             </div>
          )
     }
-
-           
-                                             
+       
     componentDidMount() {
         axios.get('/test/showTags')
             .then(tags => {
                 let taglist = tags.data
-                
-               
 
                 this.setState({
                     tagProperties: taglist,

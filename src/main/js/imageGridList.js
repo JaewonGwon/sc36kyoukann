@@ -53,11 +53,25 @@ class ImageGridList extends React.Component {
         console.log(this.state.sendDataToDB);
         console.log(this.state.sendDataToFython);
         let sendDataToDB = this.state.sendDataToDB;
-
-
-
-       
-        axios.get('/test/joinUsFinal?sendDataToDB='+sendDataToDB)
+        
+        let DBData = {
+            id : sendDataToDB[0],
+            q1 : sendDataToDB[1],
+            q2 : sendDataToDB[2],
+            q3 : sendDataToDB[3],
+            q4 : sendDataToDB[4],
+            q5 : sendDataToDB[5],
+            q6 : sendDataToDB[6],
+            q7 : sendDataToDB[7],
+            q8 : sendDataToDB[8],
+            q9 : sendDataToDB[9],
+            q10 : sendDataToDB[10],
+            q11 : sendDataToDB[11],
+            q12 : sendDataToDB[12],
+            q13 : sendDataToDB[13]
+        }
+        console.log(DBData)
+        axios.post('/test/joinUsFinal', DBData)
         
             .then(res => {
 

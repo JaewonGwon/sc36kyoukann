@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.aban.test.dao.BookDao;
@@ -165,6 +166,24 @@ public class AjaxController {
 				result.get(i).setRev_content(_temp);
 			}
 		}
+		return result;
+	}
+	
+	@RequestMapping(value = "/send_taste_data", method = RequestMethod.POST)
+	public String send_taste_data(int[] sendDataToDB) {
+		System.out.println("works");
+		for (int i = 0 ; i < sendDataToDB.length ; i++) {
+			System.out.println(sendDataToDB[i]);
+		}
+		
+		return "";
+	}
+	
+	@RequestMapping("/request_wr_books")
+	@ResponseBody
+	public ArrayList<Book> request_wr_books(String tag) {
+		System.out.println(tag);
+		ArrayList<Book> result = dao.request_wr_books(tag);
 		return result;
 	}
 }

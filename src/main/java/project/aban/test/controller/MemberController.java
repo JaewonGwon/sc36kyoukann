@@ -1,6 +1,7 @@
 package project.aban.test.controller;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -9,11 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.aban.test.service.MemberService;
 import project.aban.test.vo.Member;
-import project.aban.test.vo.UserTag;
 
 
 @Controller
@@ -93,21 +94,18 @@ public class MemberController {
 		return "member/joinForm";
 	}
 
-	@RequestMapping("/joinUsFinal")
+	@RequestMapping(value = "/joinUsFinal", method = RequestMethod.POST)
 	@ResponseBody
-	public String joinUsFinal(ArrayList<UserTag> sendDataToDB, HttpSession session) {
-
-		System.out.println(sendDataToDB);
-
+	public String joinUsFinal(ArrayList<Map<String, Object>> DBData, HttpSession session) {
+		System.out.println(DBData);
+	
 		Member member = (Member) session.getAttribute("UserInfo");
 		try {
-
 //			 ms.insert_Member(member);
 //			 ms.insert_UserTaste()
 			return "true";
 		} catch (Exception e) {
 			e.printStackTrace();
-
 		}
 		return "false";
 	}
@@ -207,5 +205,20 @@ public class MemberController {
 			session.setAttribute("pwCheckMember", m);
 			return "member/sendEmail";
 		}
+	}
+	
+	@RequestMapping(value = "/submit_content", method = RequestMethod.POST)
+	@ResponseBody
+	public String submit_content(String content, HttpSession sess) {
+		String loginId = (String)sess.getAttribute("loginId");
+		Member m = new Member();
+		m.setId(loginId);
+		m.setContents(content);
+		sess.setAttribute("m", m);
+		int result = ms.submit_content(m);
+		if (result == 1) {
+			return "success";
+		}
+		return "success";
 	}
 }

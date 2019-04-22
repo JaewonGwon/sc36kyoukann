@@ -258,5 +258,17 @@
     	book_likecount desc
     </select>
 	
+	<select id = "request_wr_books" parameterType = "string" resultType = "Book">
+	select
+		book_title,
+		book_likecount
+	from
+		book
+	where
+		book_title like '%' || #{tag} || '%'
+		and rownum between 1 and 20
+	order by
+		book_likecount desc
+	</select>
 
 </mapper>
