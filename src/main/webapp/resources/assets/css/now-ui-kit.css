@@ -7676,7 +7676,10 @@ figure.snip1283.hover figcaption {
  		height: 76px;
  		overflow: hidden;
 		text-overflow: ellipsis;
-		width: 100%;
+		width: 255.63px;
+	
+		
+		
 	}	
 	.main-review-content3{
 		font-weight: 400;
