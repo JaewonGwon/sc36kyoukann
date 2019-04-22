@@ -131,7 +131,7 @@ public class MemberController {
 		System.out.println(member);
 
 		try {
-			// ms.insert_Member(member);
+			 ms.insert_Member(member);
 			// 이거 리액트로 넘겨서 submit 하면 회원가입 되도록 만들기
 			session.setAttribute("UserInfo", member);
 
