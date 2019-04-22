@@ -11,13 +11,13 @@
 $(window).ready(function(){
 	counter();
 	submit_profile_content();
+	init();
 	$.ajax({
 		url : 'profile',
 		method : 'POST',
 		success : function(resp) {
 			list(resp);
 		}
-
 	})
 	$('#i_scroll_wrap').scroll(function(){
     
@@ -28,22 +28,16 @@ $(window).ready(function(){
      var temp = '';
      if (scrollH == documentH){
        for (var i=0; i<10; i++){
-    
           $("#i_scroll").append("<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>");
-         
        };
      };  
    });
    
-   init();
    $("#mem_modify").on("click", function(){
-	
-	   
       $( '#display_name' ).replaceWith( '<input type="text" id="display_name" name="display_name" value='+'${sessionScope.m.display_name}'+'>');
       $( '#phone' ).replaceWith( '<input type="text" id="phone" name="phone" value='+'${sessionScope.m.phone}'+'>');
       $( '#address' ).replaceWith( '<input type="textarea" id="address" name="address" value='+'${sessionScope.m.address}'+'>');
-      $( '#mem_modify' ).replaceWith( '<button class="btn btn-info" id="modify"> 정보 수정 완료</button>');
-      
+      $( '#mem_modify' ).replaceWith( '<button class="btn btn-info" id="modify"> 정보 수정 완료</button>');    
       $('#modify').on('click', updateinfo);
    });
    
@@ -109,6 +103,7 @@ function list(resp) {
 
 	$('#likefriends').html(listwriter);
 }
+
 function submit_profile_content() {
 	$('#profile_content').click(function(){
 		var content = $('#profileContent').val();
@@ -117,7 +112,7 @@ function submit_profile_content() {
 			method : 'POST',
 			data: 'content=' + content,
 			success : function() {
-				init();
+				location.reload(true);
 			}
 		})
 	})
@@ -139,10 +134,10 @@ function updateinfo(){
       type : "POST"
       ,url : "updateinfo"
       ,data : totalInfo
-      ,success : updatecheck
+      ,success : location.reload(true)
    }); 
+   
 }
-
 
 function updatecheck(resp){
 	
@@ -157,14 +152,14 @@ function init(){
 	      ,url : "getinfo"
 	      ,data : {id: id}
 	      ,success : function(resp){
-	
+			console.log(resp.display_name);
 		   $( '#display_name' ).replaceWith('<p style="font-size: 12pt; font-weight: 500;" name="display_name" id="display_name">'+resp.display_name+'</p>');
 		   $( '#phone' ).replaceWith('<a id=phone>'+resp.phone+'</a>');
 		   $( '#address' ).replaceWith('<a id=address>'+resp.address+'</a>');
-		   $( '#modify' ).replaceWith( '<button class="btn btn-info" id="mem_modify">수정완료</button>');
+		   $( '#modify' ).replaceWith( '<button class="btn btn-info" id="mem_modify">회원 정보 수정</button>');
 	      }
 	});
-
+	
 }
  
 </script>
@@ -252,7 +247,7 @@ border: 1px solid red;
 							<input type="hidden" name="id" value="${sessionScope.m.id}">                            
                   
                   
-                            <p style="font-size: 12pt; font-weight: 500;" name="display_name" id="display_name">${sessionScope.m.display_name}</p>
+                            <p style="font-size: 12pt; font-weight: 500;" name="display_name" id="display_name"></p>
                             <p></p>
                           <button class="btn btn-info" id="mem_modify">
                         회원 정보 수정
@@ -372,18 +367,10 @@ border: 1px solid red;
                                   <div class="col-12 text-left" style="padding: 0px;">
                                      <h5 style="padding: 6px;">Friends Profiles</h5><!-- or recent visitor -->
                                   </div>
-                       
-                               
-                                  
                                   <div class="row" id="likefriends" style="margin:0; padding: 0px;">
-                                     
-                                     
-                                     
                                   </div>
-                                  
-
-                                  
                                </div>
+                               
                                <div class="col-lg-9 col-sm-12" style="padding: 0px;">
                                   <div class="row" style="margin:0; padding: 0px;">
                                      
