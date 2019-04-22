@@ -402,7 +402,7 @@ function reviewreg1(){
    
                                 </p>
                                  <p class='main-review-content2'>
-                                 <textarea class="review-mod-ta-st" name="rev_content" style="" value="" id="content" maxlength="2000" placeholder="글자수는 한글 2000자로 제한 합니다."></textarea>
+                                 <textarea class="review-mod-ta-st" name="rev_content" value="" id="content" maxlength="2000" placeholder="글자수는 한글 2000자로 제한 합니다."></textarea>
                                  <span id="counter">###</span>
                               </p>                           
                                  <!-- 베스트 리뷰 태크 부분 시작 -->

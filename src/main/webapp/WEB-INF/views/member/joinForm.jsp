@@ -269,7 +269,7 @@ alert(checkData);
                    <div class="form-group">
                       <input type="text" id="display_name" name="display_name" value="" placeholder="사용할 닉네임을 입력하세요.." class="form-control" required />
                    </div>
-                   </div>
+                  </div>
                   
                   <div class="col-lg-3 text-center" style="padding: 8px 0px;">
                     <span style="color: white; font-size: 12pt; font-weight: 600;">성별</span>
@@ -421,82 +421,134 @@ alert(checkData);
                    </div>
                       <input id="address" type="hidden" name="address" value="" />
                 </div>
-                
-                
+                                  
+                  <div class="col-lg-12 text-center" style="padding: 18px 0px;">
+                    <span style="color: white; font-size: 12pt; font-weight: 600;">선호하는 태그를 선택해주세요</span>
+                  </div>
+                  
+                  
+                  
+                 
 
 
-							<div>선호하는 태그를 선택해주세요</div>
-							<div class ="form-check" id="form-check-userTaste">
-								
-									<label class="form-check-label"> <input
-										class="form-check-input" id="q1" name="userTaste" type="checkbox" value="0">
-										<span class="form-check-sign"></span> 과학,기술,컴퓨터
-									</label>
+                       
+                  <div class="col-lg-12 text-center" style="padding: 20px; background-color: rgba( 0, 0, 0, 0.5 ); border-radius: 8px;">
+                   <div class="row" style="width: 80%; margin: 0 auto;">
+                   	<div class="col-6">
+                   	
 
-									<label class="form-check-label"> <input
-										class="form-check-input" id="q2" name="userTaste" type="checkbox" value="0">
-										<span class="form-check-sign"></span> 장르소설
-									</label>
+	                    <div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="q1" name="userTaste" type="checkbox" value="0">
+		                    <span class="form-check-sign"></span>
+		                    	과학, 기술, 컴퓨터
+		                  </label>
+		                </div>
+	                </div>
+	                <div class="col-6">
+	                    <div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="q2" name="userTaste" type="checkbox" value="0">
+		                    <span class="form-check-sign"></span>
+		                    	장르소설
+		                  </label>
+		                </div>
+	                </div>
+	                <div class="col-6">
+	                    <div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="q3" name="userTaste" type="checkbox" value="0">
+		                    <span class="form-check-sign"></span>
+		                    	취미, 오락, 여행, 건강
+		                  </label>
+		                </div>
+	                </div>
+	                <div class="col-6">   
+	                    <div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="q4" name="userTaste" type="checkbox" value="0">
+		                    <span class="form-check-sign"></span>
+		                    	철학, 사상, 종교
+		                  </label>
+		                </div>
+	                </div>
+	                <div class="col-6">   
+	                    <div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="q5" name="userTaste" type="checkbox" value="0">
+		                    <span class="form-check-sign"></span>
+		                    	경제,경영
+		                  </label>
+		                </div>
+	                 </div>
+	                 <div class="col-6">
+	                    <div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="q6" name="userTaste" type="checkbox" value="0">
+		                    <span class="form-check-sign"></span>
+		                    	가정,육아,요리
+		                  </label>
+		                </div>
+	                 </div>
+	                 <div class="col-6">  
+	                    <div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="q7" name="userTaste" type="checkbox" value="0">
+		                    <span class="form-check-sign"></span>
+		                    	정치,사회,시사
+		                  </label>
+		                </div>
+	                  </div>
+	                  <div class="col-6">
+	                    <div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="q8" name="userTaste" type="checkbox" value="0">
+		                    <span class="form-check-sign"></span>
+		                    	예술,문화
+		                  </label>
+		                </div>
+	                  </div>
+	                  <div class="col-6">
+	                    <div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="q9" name="userTaste" type="checkbox" value="0">
+		                    <span class="form-check-sign"></span>
+		                    	역사,지리
+		                  </label>
+		                </div>
+	                  </div>
+	                  <div class="col-6">
+	                    <div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="q10" name="userTaste" type="checkbox" value="0">
+		                    <span class="form-check-sign"></span>
+		                    	제태크,부동산
+		                  </label>
+		                </div>
+	                  </div>
+	                  <div class="col-6"> 
+	                    <div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="q11" name="userTaste" type="checkbox" value="0">
+		                    <span class="form-check-sign"></span>
+		                    	어학,외국어
+		                  </label>
+		                </div>
+	                  </div>
+	                  
+	                  <div class="col-6"> 
+	                    <div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="q12" name="userTaste" type="checkbox" value="0">
+		                    <span class="form-check-sign"></span>
+		                    	문학
+		                  </label>
+		                </div>
+	                 </div>
+    
+	               </div>
+                  </div>
 
-									<label class="form-check-label"> <input
-										class="form-check-input" id="q3" name="userTaste" type="checkbox" value="0">
-										<span class="form-check-sign"></span> 취미,오락,여행,건강
-									</label>
-
-									<label class="form-check-label"> <input
-										class="form-check-input" id="q4" name="userTaste" type="checkbox" value="0">
-										<span class="form-check-sign"></span> 철학,사상,종교
-									</label>
-
-									<label class="form-check-label"> <input
-										class="form-check-input" id="q5" name="userTaste" type="checkbox" value="0">
-										<span class="form-check-sign"></span> 자기계발
-									</label>
-
-									<label class="form-check-label"> <input
-										class="form-check-input" id="q6" name="userTaste" type="checkbox" value="0">
-										<span class="form-check-sign"></span> 경제,경영
-									</label>
-
-									<label class="form-check-label"> <input
-										class="form-check-input" id="q7" name="userTaste" type="checkbox" value="0"> <span
-										class="form-check-sign"></span> 가정,육아,요리
-									</label>
-
-									<label class="form-check-label"> <input
-										class="form-check-input" id="q8" name="userTaste" type="checkbox" value="0">
-										<span class="form-check-sign"></span> 정치,사회,시사
-									</label>
-
-									<label class="form-check-label"> <input
-										class="form-check-input" id="q9" name="userTaste" type="checkbox" value="0"> <span
-										class="form-check-sign"></span> 예술,문화
-									</label>
-
-									<label class="form-check-label"> <input
-										class="form-check-input" id="q10" name="userTaste" type="checkbox" value="0">
-										<span class="form-check-sign"></span> 역사,지리
-									</label>
-
-
-									<label class="form-check-label"> <input
-										class="form-check-input" id="q11" name="userTaste" type="checkbox" value="0">
-										<span class="form-check-sign"></span> 제태크,부동산
-									</label>
-
-									<label class="form-check-label"> <input
-										class="form-check-input" id="q12" name="userTaste" type="checkbox" value="0">
-										<span class="form-check-sign"></span> 어학,외국어
-									</label>
-
-
-									<label class="form-check-label"> <input
-										class="form-check-input" id="q13" name="userTaste" type="checkbox" value="0">
-										<span class="form-check-sign"></span> '문학'
-									</label>
-							</div>
-                
-                
                 
                 <div class="card-footer text-center" style="background: none; border: none;">   
                            
