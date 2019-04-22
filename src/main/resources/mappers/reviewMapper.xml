@@ -65,6 +65,11 @@
 		select * from review order by REGDATE desc
 		
 	</select>
+	
+	<select id="selectbylike" resultType="Review">
+		select * from review order by rev_like desc
+		
+	</select>
 
 	<select id="ranking" resultType="Review">
 		SELECT id

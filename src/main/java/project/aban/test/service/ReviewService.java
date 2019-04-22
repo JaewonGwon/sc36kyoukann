@@ -110,4 +110,10 @@ public class ReviewService {
 		return reviewByTitle;
 	}
 
+	public List<Review> selectbylike() {
+		List<Review> list = new ArrayList<Review>();
+		list = dao.selectbylike();
+		return list;
+	}
+
 }
