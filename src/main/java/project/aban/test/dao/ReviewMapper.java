@@ -36,7 +36,7 @@ public interface ReviewMapper {
 
 	void insertCheckLike(Reglike rl);
 
-	void delLike(Reglike regl);
+	int delLike(int rev_num);
 
 	ArrayList<Review> request_main_review();
 
@@ -47,5 +47,11 @@ public interface ReviewMapper {
 	ArrayList<Review> reviewContentSearch(String input);
 
 	List<Review> selectbylike();
+
+	Reglike request_revLike(Reglike rl);
+
+	int insert_revLike(Reglike rl);
+
+	int delete_revLike(Reglike rl);
 
 }

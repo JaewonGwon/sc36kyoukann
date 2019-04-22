@@ -99,7 +99,7 @@ function list(resp) {
 					resp,
 					function(index, tt) {
 						listwriter +='	<div class="col-3" style="padding: 6px;">';
-						listwriter +='      <img src="resources/assets/img/kwon.jpg" alt="Circle Image" class="rounded-circle">';
+						listwriter +='      <img src="resources/assets/img/julie.jpg" alt="Circle Image" class="rounded-circle">';
 						listwriter +='    </div>';
 						listwriter +='     <div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">';
 						listwriter +='         <p style="font-size: 11pt; font-weight: 500; margin: 0;">'+tt.pushid+'</p>';
@@ -252,8 +252,8 @@ border: 1px solid red;
                   <div class="col-md-6">
                       <div class="row">
                           <div class="col-4" style="padding: 10px;">
-                            <img src='resources/assets/img/saram.jpg' alt='Circle Image' class='rounded-circle'>
-                          </div>
+                            <img src='resources/assets/img/author.jpg' alt='Circle Image' class='rounded-circle'>
+                        </div>
                           <div class="col-8">
                             <p style="font-size: 30pt;" id="userid">${sessionScope.m.id}</p>
 							<input type="hidden" name="id" value="${sessionScope.m.id}">                            
@@ -307,7 +307,11 @@ border: 1px solid red;
                                 <i class="fab fa-instagram" style="color: #56B9FF;"></i>
                               </a>                  
                            </div>
-
+                        
+                        
+                
+                        
+                        
                              <div class="col-12 text-center p-10">                           
                             
                             <input type="button" class="btn btn-info sns-btn" id="add_face" value="Facebook 추가">
@@ -317,14 +321,20 @@ border: 1px solid red;
                             <input type="button" class="btn btn-info sns-btn" id="add_twit" value="Twitter 추가">                  
                            </div>
                            
-                           <div class="col-12 text-center p-10 sns-addr" style="margin: 0; padding: 0px;"></div>
-
+                           <div class="col-12 text-center p-10 sns-addr">                           
+                             
+                            
+                           </div>
+                           
+                           
+                           
                         </div>
                      </form>                 
                   </div>
-
                 </div>
-   
+                  
+
+            
             </div>
          </div>
          <!-- 윗 div 끝 -->

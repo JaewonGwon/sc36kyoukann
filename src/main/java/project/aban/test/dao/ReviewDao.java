@@ -53,22 +53,18 @@ public class ReviewDao {
 		return review;
 	}
 	
-	public Review addLike(int rev_num) {
+	public int addLike(int rev_num) {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
-		mapper.addLike(rev_num);
-		Review review= mapper.selectOne(rev_num);
-		
-		return review;
+		int result = mapper.addLike(rev_num);
+		return result;
 	}
 	
-	public Review delLike(Reglike regl) {
+	public int delLike(int rev_num) {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
-		mapper.delLike(regl);
-		Review review= mapper.selectOne(regl.getRev_num());
-		
-	
-		return review;
+		int result = mapper.delLike(rev_num);
+		return result;
 	}
+	
 	public int update(Review review) {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
 		int a = 0;
@@ -152,6 +148,24 @@ public class ReviewDao {
 	public String request_review_image(String book_title) {
 		BookMapper mapper = session.getMapper(BookMapper.class);
 		String result = mapper.request_review_image(book_title);
+		return result;
+	}
+
+	public Reglike request_revLike(Reglike rl) {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		Reglike result = mapper.request_revLike(rl);
+		return result;
+	}
+
+	public int insert_revLike(Reglike rl) {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		int result = mapper.insert_revLike(rl);
+		return result;
+	}
+
+	public int delete_revLike(Reglike rl) {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		int result = mapper.delete_revLike(rl);
 		return result;
 	}
 	
