@@ -119,7 +119,6 @@ var checkData = []
 	   
 	});
 
-	alert(checkData);
 
 
 	//end of check box
@@ -334,7 +333,7 @@ function email_change(){
                   
                   <div class="col-lg-9 text-center">
                    <div class="form-group">
-                      <select id="age" name="email" class="form-control selectst" onchange="email_change()" required>
+                      <select id="email" name="email" class="form-control selectst" onchange="email_change()" required>
                       <option value="0" selected">선택하세요</option>
                       <option value="9">직접입력</option>
                       <option value="gmail.com">gmail.com</option>
@@ -440,7 +439,7 @@ function email_change(){
 
                        
                   <div class="col-lg-13 text-center" style="padding: 20px; background-color: rgba( 0, 0, 0, 0.5 ); border-radius: 8px;">
-                   <div class="row" style="width: 80%; margin: 0 auto;">
+                   <div class="row" style="width: 80%; margin: 0 auto; margin-left:7%">
                    	<div class="col-6">
                    	
 
@@ -553,8 +552,8 @@ function email_change(){
 		                </div>
 	                  </div>
 	                  <div class="form-check text-left" id="form-check-userTaste">
-		                  <label class="form-check-label">
-		                    <input class="form-check-input" id="UserTag" name="q13" type="checkbox" value="0" style="margin-left:10% !important; width: 100%;">
+		                  <label class="form-check-label" style="margin-left: 11% !important;">
+		                    <input class="form-check-input" id="UserTag" name="q13" type="checkbox" value="0" style="margin-left: 7% !important; width: 100%;">
 		                    <span class="form-check-sign"></span>
 		                    	과학, 기술, 컴퓨터
 		                  </label>
