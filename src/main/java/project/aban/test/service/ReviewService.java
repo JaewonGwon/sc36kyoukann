@@ -47,14 +47,14 @@ public class ReviewService {
 		return review;
 	}
 
-	public Review addLike(int rev_num) {
-		Review review = dao.addLike(rev_num);
-		return review;
+	public int addLike(int rev_num) {
+		int result = dao.addLike(rev_num);
+		return result;
 	}
 	
-	public Review delLike(Reglike regl) {
-		Review review = dao.delLike(regl);
-		return review ;
+	public int delLike(int rev_num) {
+		int result = dao.delLike(rev_num);
+		return result;
 	}
 
 	public int update(Review review) {
@@ -118,6 +118,29 @@ public class ReviewService {
 
 	public String request_review_image(String book_title) {
 		String result = dao.request_review_image(book_title);
+		return result;
+	}
+
+	public Reglike request_revLike(Reglike rl) {
+		Reglike result = dao.request_revLike(rl);
+		return result;	
+	}
+
+	public int insert_revLike(Reglike rl) {
+		int tester = dao.insert_revLike(rl);
+		int result = 0;
+		if(tester != 0) {
+			result = dao.selectOne(rl.getRev_num()).getRev_like();
+		}
+		return result;
+	}
+
+	public int delete_revLike(Reglike rl) {
+		int tester = dao.delete_revLike(rl);
+		int result = 0;
+		if(tester != 0) {
+			result = dao.selectOne(rl.getRev_num()).getRev_like();
+		}
 		return result;
 	}
 

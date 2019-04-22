@@ -63,12 +63,11 @@
 		var listwriter = '';
 		var book_title = '';
 		var reviewlink = "'reviewDetail?rev_num=";
-		$
-				.each(
+		$.each(
 						resp,
 						function(index, tt) {
 							var img = '';
-							console.log(tt.book_title);
+/* 							console.log(tt.book_title);
 							$.ajax({
 								url : 'request_review_image',
 								method : 'GET',
@@ -76,8 +75,7 @@
 								success : function(resp){
 									console.log(resp);
 								}
-							})
-							console.log(img);
+							}) */
 							listwriter += '<div class="item">';
 							listwriter += '<div class="carousel-content text-carousel-st2">';
 							listwriter += '<div class="in-div-text-carousel-st2">';
@@ -110,24 +108,10 @@
 									+ tt.id + '</button>';
 							listwriter += '</div>';
 							listwriter += '<div class="col-5" style="text-align: right; padding-top: 4px;">';
-							listwriter += '<c:if test="${not empty sessionScope.loginId}">';
-							listwriter += '<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;" data-value="';
+							listwriter += '<button class="btn btn-round revlike" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;" data-value="';
 							listwriter += tt.rev_num;
           					listwriter += '">';
-							listwriter += '<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i>';
-							listwriter += tt.rev_like;
-							listwriter += '</button>';
-							listwriter += '</c:if>';
-							listwriter += '<c:if test="${empty sessionScope.loginId}">';
-							listwriter += '<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;" data-value="';
-							listwriter += tt.rev_num;
-          					listwriter += '">';
-							listwriter += '<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i>';
-							listwriter += tt.rev_like;
-							listwriter += '</button>';
-							listwriter += '</c:if>';
-							listwriter += '<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">';
-							listwriter += '<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15';
+          					listwriter += "♡ " + tt.rev_like;
 							listwriter += '</button>';
 							listwriter += '</div>';
 							listwriter += '</div>';
@@ -146,7 +130,7 @@
 		})
 		/*리뷰 뿌려주는 부분 첫 10개 뿌려주기 끝*/
 		
-		$('#rev_like').on('click', revlike);
+		$('.btn.btn-round.revlike').on('click', revlike);
 
 	}
 
@@ -159,25 +143,25 @@
 			data : {
 				rev_num : rev_num
 			},
-			success : init
+			success : init()
 		})
 
 	}
 
-	   function revlike(revnum) {
-
+	   function revlike() {
 		      var rev_num = $(this).attr("data-value");
-				
-		      $.ajax({
-		         method : 'post',
+				 console.log(rev_num)
+		      	 $.ajax({
+		         method : 'POST',
 		         url : 'addLike',
 		         data : {
 		            rev_num : rev_num
 		         },
 		         success : function(data) {
-		            $("#rev_like").html("♡" + data.rev_like);
+		        	 console.log(data)
+		            $('.btn.btn-round.revlike[data-value=' + rev_num + ']').html("♡ " + data);
+		        	 init();
 		         }
-
 		      })
 		      /*Python 서버로 보낼 favor list 받기*/
 		      $.ajax({
@@ -189,13 +173,8 @@
 		      })
 		      /*해당 group number로 DB에서 book_log 기록하기 */
 			  $.ajax({
-				method : 'post',
-				url : '',
-				data : {
-					groupNumber : gn,
-					
-				}
-			  })
+
+			  }) 
 		   }
 	
 

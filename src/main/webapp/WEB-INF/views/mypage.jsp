@@ -331,10 +331,6 @@ border: 1px solid red;
                         </div>
                      </form>                 
                   </div>
-
-
-
-
                 </div>
                   
 
