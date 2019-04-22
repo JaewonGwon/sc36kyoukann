@@ -7334,9 +7334,7 @@ pt-30{
 	text-overflow: ellipsis;
 	width: 230px;
   }
-
 }
-
 
 @media screen and (min-width: 769px) and (max-width: 990px) {
   .text-carousel-st{
@@ -7353,11 +7351,9 @@ pt-30{
 	overflow: hidden;
 	text-overflow: ellipsis;
 	width: 258px;
-		
-		
+	
   }
 }
-
 
 @media screen and (min-width: 518px) and (max-width: 768px) {
     .text-carousel-st{
@@ -7377,7 +7373,6 @@ pt-30{
   }
 }
 
-
 @media screen and (min-width: 300px) and (max-width: 517px) {
   .text-carousel-st{
 	background-color: #fff;
@@ -7396,9 +7391,6 @@ pt-30{
 	border: 1px solid red;	
   }
 }
-
-
-
 
 .in-div-text-carousel-st{
 	border: 1px solid #fff;
