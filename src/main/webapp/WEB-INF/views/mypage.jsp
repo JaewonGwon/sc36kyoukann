@@ -99,7 +99,7 @@ function list(resp) {
 					resp,
 					function(index, tt) {
 						listwriter +='	<div class="col-3" style="padding: 6px;">';
-						listwriter +='      <img src="resources/assets/img/julie.jpg" alt="Circle Image" class="rounded-circle">';
+						listwriter +='      <img src="resources/assets/img/kwon.jpg" alt="Circle Image" class="rounded-circle">';
 						listwriter +='    </div>';
 						listwriter +='     <div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">';
 						listwriter +='         <p style="font-size: 11pt; font-weight: 500; margin: 0;">'+tt.pushid+'</p>';
@@ -252,13 +252,13 @@ border: 1px solid red;
                   <div class="col-md-6">
                       <div class="row">
                           <div class="col-4" style="padding: 10px;">
-                            <img src='resources/assets/img/author.jpg' alt='Circle Image' class='rounded-circle'>
+                            <img src='resources/assets/img/saram.jpg' alt='Circle Image' class='rounded-circle'>
                         </div>
                           <div class="col-8">
                             <p style="font-size: 30pt;" id="userid">${sessionScope.m.id}</p>
 							<input type="hidden" name="id" value="${sessionScope.m.id}">                            
                   
-                  
+                 
                             <p style="font-size: 12pt; font-weight: 500;" name="display_name" id="display_name"></p>
                             <p></p>
                           <button class="btn btn-info" id="mem_modify">
@@ -321,13 +321,8 @@ border: 1px solid red;
                             <input type="button" class="btn btn-info sns-btn" id="add_twit" value="Twitter 추가">                  
                            </div>
                            
-                           <div class="col-12 text-center p-10 sns-addr">                           
-                             
-                            
-                           </div>
-                           
-                           
-                           
+                           <div class="col-12 text-center p-10 sns-addr" style="padding: 0px; margin:0;"></div>
+
                         </div>
                      </form>                 
                   </div>
