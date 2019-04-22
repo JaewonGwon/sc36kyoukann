@@ -68,6 +68,7 @@ public class AjaxController {
 	@ResponseBody
 	public ArrayList<String> request_modalTag(String book_title) {
 		ArrayList<String> result = dao.request_modalTag(book_title);
+		System.out.println(dao.selectOne(book_title));
 		System.out.println(book_title);
 		System.out.println(result);
 
@@ -114,10 +115,11 @@ public class AjaxController {
 	@ResponseBody
 	public Book request_likeAdd(String book_title) {
 		int result = dao.request_likeAdd(book_title);
-
-		System.out.println(result);
+		System.out.println(result+"Add");
+		
+		
 		Book thisBook = dao.selectOne(book_title);
-
+		System.out.println(thisBook.getBook_likecount());
 		return thisBook;
 
 	}
@@ -126,9 +128,10 @@ public class AjaxController {
 	@ResponseBody
 	public Book request_likeMinus(String book_title) {
 		int result = dao.request_likeMinus(book_title);
-
-		System.out.println(result);
+		System.out.println(result+"Minus");
+		
 		Book thisBook = dao.selectOne(book_title);
+		System.out.println(thisBook.getBook_likecount());
 
 		return thisBook;
 	}

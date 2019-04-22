@@ -11,12 +11,10 @@ function execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
             // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
             // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
             var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
             var extraRoadAddr = ''; // 도로명 조합형 주소 변수
-
             // 법정동명이 있을 경우 추가한다. (법정리는 제외)
             // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
             if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
@@ -34,22 +32,18 @@ function execDaumPostcode() {
             if(fullRoadAddr !== ''){
                 fullRoadAddr += extraRoadAddr;
             }
-
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
             document.getElementById('post').value = data.zonecode; //5자리 새우편번호 사용
             document.getElementById('roadaddr').value = fullRoadAddr;
             document.getElementById('addr1').value = data.jibunAddress;
-
             // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
             if(data.autoRoadAddress) {
                 //예상되는 도로명 주소에 조합형 주소를 추가한다.
                 var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
                 document.getElementById('guide').innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-
             } else if(data.autoJibunAddress) {
                 var expJibunAddr = data.autoJibunAddress;
                 document.getElementById('guide').innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-
             } else {
                 document.getElementById('guide').innerHTML = '';
             }
@@ -57,7 +51,6 @@ function execDaumPostcode() {
     }).open();
 }
 /* 다음 주소  API 끝 */
-
 /*아이디 한글입력 안되게 하는 소스 시작*/
 $(document).ready(function(){
   
@@ -71,7 +64,6 @@ $(document).ready(function(){
   });
 });
 /*아이디 한글입력 안되게 하는 소스 끝*/
-
 /*휴대폰번호 숫자만 입력되게 하는 소스 시작*/
 function numkeyCheck(e){
    var keyValue = event.keyCode;
@@ -81,7 +73,6 @@ function numkeyCheck(e){
       return false;
    }
 /*휴대폰번호 숫자만 입력되게 하는 소스 끝*/
-
 $(function(){
    
    $("#id").on('keyup', function() {
@@ -111,13 +102,19 @@ $(function(){
    
     
 });
-
 function formCheck() {
 	var id = document.getElementById("id").value;
 	var pw = document.getElementById("pw").value;
     var repw= document.getElementById("repw").value;
     var name= document.getElementById("name").value;
     var disname= document.getElementById("display_name").value;
+    
+    
+    
+ 
+  
+   
+ 
     
     	if(id.length==0){
     		alert("아이디를 입력해주세요");
@@ -151,7 +148,6 @@ function formCheck() {
    var phone1= document.getElementById("phone1").value; 
    var phone2= document.getElementById("phone2");
    var phone3= document.getElementById("phone3");
-
    document.getElementById("phone").value = phone1+phone2.value+phone3.value;
    
    var post = document.getElementById("post");
@@ -170,7 +166,6 @@ function email_change(){
 	 document.join.email2.disabled = true;
 	 document.join.email2.value = "";
 	}
-
 	if(document.join.email.options[document.join.email.selectedIndex].value == '9'){
 	 document.join.email2.disabled = false;
 	 document.join.email2.value = "";
@@ -180,16 +175,33 @@ function email_change(){
 	 document.join.email2.value = document.join.email.options[document.join.email.selectedIndex].value;
 	}
 }
-/*이메일 직접입력 선택 소스 끝*/
 
+//checkbox data 
+var checkData = [];
+$("input[name='userTaste']:checked").each(function (){
+	
+   $(this).val("1") 
+   
+});
+$("input[name='userTaste']").each(function (){
+	
+   checkData.push($(this).val());
+   
+});
+
+checkData.unshift( id );
+alert(checkData);
+//end of check box
+
+
+
+/*이메일 직접입력 선택 소스 끝*/
 </script>
 <style>
-
  select option{
  background-color: #fff !important;
  color: #000;
  }
-
  </style> 
 <body class="index-page sidebar-collapse">
 <!-- Navbar include -->
@@ -406,13 +418,89 @@ function email_change(){
                       <input type="text" id="addr2" value="" placeholder="나머지 주소" class="form-control" required />
                    </div>
                    <span id="guide" style="color:#999"></span>
-
                    </div>
                       <input id="address" type="hidden" name="address" value="" />
                 </div>
+                
+                
+
+
+							<div>선호하는 태그를 선택해주세요</div>
+							<div class ="form-check" id="form-check-userTaste">
+								
+									<label class="form-check-label"> <input
+										class="form-check-input" id="q1" name="userTaste" type="checkbox" value="0">
+										<span class="form-check-sign"></span> 과학,기술,컴퓨터
+									</label>
+
+									<label class="form-check-label"> <input
+										class="form-check-input" id="q2" name="userTaste" type="checkbox" value="0">
+										<span class="form-check-sign"></span> 장르소설
+									</label>
+
+									<label class="form-check-label"> <input
+										class="form-check-input" id="q3" name="userTaste" type="checkbox" value="0">
+										<span class="form-check-sign"></span> 취미,오락,여행,건강
+									</label>
+
+									<label class="form-check-label"> <input
+										class="form-check-input" id="q4" name="userTaste" type="checkbox" value="0">
+										<span class="form-check-sign"></span> 철학,사상,종교
+									</label>
+
+									<label class="form-check-label"> <input
+										class="form-check-input" id="q5" name="userTaste" type="checkbox" value="0">
+										<span class="form-check-sign"></span> 자기계발
+									</label>
+
+									<label class="form-check-label"> <input
+										class="form-check-input" id="q6" name="userTaste" type="checkbox" value="0">
+										<span class="form-check-sign"></span> 경제,경영
+									</label>
+
+									<label class="form-check-label"> <input
+										class="form-check-input" id="q7" name="userTaste" type="checkbox" value="0"> <span
+										class="form-check-sign"></span> 가정,육아,요리
+									</label>
+
+									<label class="form-check-label"> <input
+										class="form-check-input" id="q8" name="userTaste" type="checkbox" value="0">
+										<span class="form-check-sign"></span> 정치,사회,시사
+									</label>
+
+									<label class="form-check-label"> <input
+										class="form-check-input" id="q9" name="userTaste" type="checkbox" value="0"> <span
+										class="form-check-sign"></span> 예술,문화
+									</label>
+
+									<label class="form-check-label"> <input
+										class="form-check-input" id="q10" name="userTaste" type="checkbox" value="0">
+										<span class="form-check-sign"></span> 역사,지리
+									</label>
+
+
+									<label class="form-check-label"> <input
+										class="form-check-input" id="q11" name="userTaste" type="checkbox" value="0">
+										<span class="form-check-sign"></span> 제태크,부동산
+									</label>
+
+									<label class="form-check-label"> <input
+										class="form-check-input" id="q12" name="userTaste" type="checkbox" value="0">
+										<span class="form-check-sign"></span> 어학,외국어
+									</label>
+
+
+									<label class="form-check-label"> <input
+										class="form-check-input" id="q13" name="userTaste" type="checkbox" value="0">
+										<span class="form-check-sign"></span> '문학'
+									</label>
+							</div>
+                
+                
+                
                 <div class="card-footer text-center" style="background: none; border: none;">   
                            
-                  <a href="javascript: formCheck();" id="send" class="btn btn-login btn-round btn-lg">다 음 <i class="now-ui-icons arrows-1_minimal-right"></i></a> 
+                  <a href="javascript: formCheck();" id="send" class="btn btn-login btn-round btn-lg">회원 가입 완료 <i class="now-ui-icons arrows-1_minimal-right"></i></a> 
                               
                 </div>
                           
@@ -426,11 +514,9 @@ function email_change(){
         </div>
       </div>
    <!-- main 태크 끝 -->
-
     <%@ include file="/WEB-INF/views/include/modal.jsp" %>
     <%@ include file="/WEB-INF/views/include/footer.jsp" %>
   </div>
   <%@ include file="/WEB-INF/views/include/coreJsFile.jsp" %>
 </body>
-
 </html>

@@ -200,36 +200,15 @@
 
     </update>
 
-        <update id="request_scrapAdd" parameterType ="String">
-
-    update 
-        book 
-    set 
-        BOOK_SCRAPCOUNT = BOOK_SCRAPCOUNT+1
-    where 
-        BOOK_TITLE = #{book_title}
-
-    </update>
-
-        <update id="request_scrapMinus" parameterType ="String">
-
-    update 
-        book 
-    set 
-        BOOK_SCRAPCOUNT = BOOK_SCRAPCOUNT-1
-    where 
-        BOOK_TITLE = #{book_title}
-
-    </update>
 
      <update id="request_likeAdd" parameterType ="String">
 
     update 
         book 
     set 
-        BOOK_LIKECOUNT = BOOK_LIKECOUNT - 1
+        BOOK_LIKECOUNT = BOOK_LIKECOUNT + 1
     where 
-        BOOK_NUM = #{book_num}
+        BOOK_TITLE = #{book_title}
 
     </update> 
 
@@ -238,7 +217,7 @@
     update 
         book 
     set 
-        BOOK_LIKECOUNT = BOOK_LIKECOUNT + 1 
+        BOOK_LIKECOUNT = BOOK_LIKECOUNT - 1 
     where 
         BOOK_TITLE = #{book_title}
 

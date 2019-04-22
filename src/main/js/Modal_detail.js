@@ -2,35 +2,34 @@ import React from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
-
+import BadgePage from './BadgePage';
 
 
 class ModalExample extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this._ScrapCount = this._ScrapCount.bind(this);
         this._LikeCount = this._LikeCount.bind(this);
 
 
         this.state = {
             modal: false,
-            book_title: this.props.book_title,
             book_tags: [],
             book_viewcount: this.props.book_viewcount,
-            book_scrapcount: this.props.book_scrapcount,
             book_likecount: this.props.book_likecount,
-            scrapFlag: false,
+            book_title: this.props.book_title,
             likeFlag: false,
-            buttonViewFlag: false
+            buttonViewFlag: true
         };
 
         this.toggle = this.toggle.bind(this);
     }
 
     toggle() {
+
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
+
 
 
         let book_name = this.state.book_title;
@@ -51,74 +50,61 @@ class ModalExample extends React.Component {
                     console.log(error);
                 });
         }
+        console.log(this.state.book_tags);
+
+
         let hitUrl = "/test/request_hitAdd?book_title=" + book_name;
 
-        if (this.state.buttonViewFlag == false) {
+        if (this.state.buttonViewFlag) {
+            this.setState({ likeFlag: !this.state.likeFlag });
+            console.log(this.state.book_viewcount);
             axios.get(hitUrl)
                 .then(viewCount => {
                     this.setState({
                         book_viewcount: viewCount.data.book_viewcount,
-                        buttonViewFlag: true
+                        buttonViewFlag: !this.state.buttonViewFlag
                     })
 
+
                 });
+
         }
 
     }
 
     _LikeCount() {
-        this.setState({ likeFlag: !this.state.likeFlag });
+
+        console.log(this.state.likeFlag);
         if (this.state.likeFlag) { //+
-            
-            let hitLike = "/test/request_likeAdd?book_title=" + this.state.book_title;
-            axios.get(hitLike)
-                .then(viewCount => {
-                    this.setState({
-                        book_likecount: viewCount.data.book_likecount,
-                        
-                    })
-                })
-                
-        } else {
-            //-
             let hitLike = "/test/request_likeMinus?book_title=" + this.state.book_title;
             axios.get(hitLike)
-                .then(viewCount => {
+                .then(thisBook => {
+                    
                     this.setState({
-                        book_likecount: viewCount.data.book_likecount,
-                        
+                        book_likecount: thisBook.data.book_likecount,
+                        likeFlag: !this.state.likeFlag
                     })
+                    console.log(this.state.book_likecount);
                 })
-        }
 
-
-    }
-
-    _ScrapCount() {
-
-
-        if (this.state.scrapFlag == false) { //+
-            let hitScrap = "/test/request_scrapAdd?book_title=" + this.state.book_title;
-            axios.get(hitScrap)
-                .then(viewCount => {
-                    this.setState({
-                        book_scrapcount: viewCount.data.book_scrapcount,
-                        scrapFlag: true
-                    })
-                })
         } else {
             //-
-            let hitScrap = "/test/request_scrapMinus?book_title=" + this.state.book_title;
-            axios.get(hitScrap)
-                .then(viewCount => {
+            let hitLike = "/test/request_likeAdd?book_title=" + this.state.book_title;
+            axios.get(hitLike)
+                .then(thisBook => {
+                    console.log(thisBook);
                     this.setState({
-                        book_scrapcount: viewCount.data.book_scrapcount,
-                        scrapFlag: false
+                        book_likecount: thisBook.data.book_likecount,
+                        likeFlag: !this.state.likeFlag
                     })
+                    console.log(this.state.book_likecount);
                 })
         }
 
+
     }
+
+  
 
 
 
@@ -128,7 +114,7 @@ class ModalExample extends React.Component {
             <div>
                 <div className="ModalButton">
 
-        
+
 
                     <Button variant="contained" component="span" onClick={this.toggle}>
                         {this.props.buttonLabel}Read More
@@ -136,26 +122,35 @@ class ModalExample extends React.Component {
                 </div>
 
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.toggle}>{this.props.book_title}</ModalHeader>
+                    <ModalHeader className="modalheader" toggle={this.toggle}>{this.props.book_title}</ModalHeader>
                     <ModalBody>
-                        <img src={this.props.book_image} />
-                        <b>{this.state.book_tags}</b>
-                        <b>{this.props.book_date}</b>
-                        <b>{this.props.book_publisher}</b>
-                        <b>{this.props.book_writer}</b>
-                        <p>{this.props.book_content}</p>
+                        <div className="imgandtag">
+                            <img className="modalImage" src={this.props.book_image} />
+                            <div className="modalTagsContent">
+                                <BadgePage tags={this.state.book_tags} />
+                            </div>
+                        </div>
+                        <p className="modalContent"><b>{this.props.book_content}</b></p>
+
+                        <hr />
+                        <a className="writer">{this.props.book_writer}</a>
+                        <a className="publisher">{this.props.book_publisher}</a>
+                        <a className="date">{this.props.book_date}</a>
                     </ModalBody>
-                    <ModalFooter>
+                    <ModalFooter className="modalFooter">
 
 
-                        <Button className="btn btn-round" type="button" id="rev_like" onClick={this._LikeCount}>
-							<i className="now-ui-icons ui-2_favourite-28" id="revlike"></i>{this.state.book_likecount}
-					    </Button>
+
+
+                        <Button className="btn btn-primary btn-icon btn-round" type="button" id="rev_like" onClick={this._LikeCount}>
+                            <i className="now-ui-icons ui-2_favourite-28" id="revlike"></i>
+                        </Button><div className="heartCount">{this.state.book_likecount}</div>
+
 
 
 
                         <div className="modalButtonsClose">
-                            <Button color="orange" onClick={this.toggle}>Close</Button>
+                            <Button variant="contained" color="secondary" onClick={this.toggle}>Close</Button>
                         </div>
                     </ModalFooter>
 
@@ -164,7 +159,22 @@ class ModalExample extends React.Component {
         );
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.book_likecount != this.state.book_likecount) {
 
+            this.setState({
+                book_likecount: this.props.book_likecount,
+            })
+        }
+        if (prevState.book_viewcount != this.state.book_viewcount) {
+
+            this.setState({
+                book_viewcount: this.state.book_viewcount,
+            })
+        }
+    }
 }
+
+
 
 export default ModalExample;

@@ -26,6 +26,63 @@ body {
     
 }
 
+.modal-content .modal-body{
+    background-color: #fffae0 !important;
+    font-family: 'Inder', sans-serif; line-height: 28px; margin-bottom: 15px; color: #666;
+    padding: 2% !important;
+     
+    
+}
+
+.modal-title {
+margin-bottom: 3% ;
+font-weight: bold;
+
+}
+
+.modal-content .modal-body img{
+   width: 35%;
+}
+
+.modal-content .modal-header {
+    font-weight: bold;
+
+}
+
+
+p{
+    padding: 2%;
+}
+
+.modalContent{
+   
+}
+
+
+.writer{
+float: right;
+font-family: 'Inder', sans-serif; font-style: italic; color: #666; font-size: 16px;
+}
+.publisher{
+float: left; font-style: italic;
+    margin-right: 2%;
+}
+.date{
+float: left; font-style: italic;
+}
+
+.modalTagsContent{
+        position: relative;
+    float: right;
+    width: 62%;
+    margin-top: 7%;
+}
+
+.heartCount{
+        margin-left: -65% !important;
+    font-weight: bold;
+}
+
 .MuiButton-contained-12{
 
     font-weight: bold !important;

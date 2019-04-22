@@ -94,22 +94,22 @@ public class MemberController {
 	}
 
 	@RequestMapping("/joinUsFinal")
-	@ResponseBody
-	public String joinUsFinal(ArrayList<UserTag> sendDataToDB, HttpSession session) {
+	public String joinUsFinal(Member member, UserTag usertag) {
+		
 
-		System.out.println(sendDataToDB);
-
-		Member member = (Member) session.getAttribute("UserInfo");
+		
 		try {
-
-//			 ms.insert_Member(member);
-//			 ms.insert_UserTaste()
-			return "true";
+			System.out.println(member);
+			System.out.println(usertag);
+//			 ms.insert_Member(member);  //회원DB로 회원 정보 들어감
+//			 ms.insert_UserTaste()    //취향 정보 DB로 들어감 UserTag
+			return "redirect:/";
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 
 		}
-		return "false";
+		return null;
 	}
 
 	// 아이디 중복체크
