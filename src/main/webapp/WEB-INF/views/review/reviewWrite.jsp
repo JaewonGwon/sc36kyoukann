@@ -401,10 +401,11 @@ function reviewreg1(){
                                  <input class="review-mod-input-st" id="myInput" value="" type="text" name="book_title" placeholder="책 제목을 입력 해주세요." />
    
                                 </p>
-                                 <p class='main-review-content2'>
+                                 <p class='main-review-content3'>
                                  <textarea class="review-mod-ta-st" name="rev_content" value="" id="content" maxlength="2000" placeholder="글자수는 한글 2000자로 제한 합니다."></textarea>
                                  <span id="counter">###</span>
-                              </p>                           
+                              </p>                 
+                                        
                                  <!-- 베스트 리뷰 태크 부분 시작 -->
                                  <p class='main-review-tag' style="padding-bottom: 15px;">
                                     <!-- <input class="review-mod-input-st" type="text" name="booktag" /> -->
