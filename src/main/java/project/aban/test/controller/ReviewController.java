@@ -38,8 +38,6 @@ public class ReviewController {
 	   public List<Review> selectbylike(HttpSession session) {
 	      List<Review> list = new ArrayList<>();
 	      list=rs.selectbylike();
-	      
-	      
 	      return list;
 	   }
 	
@@ -181,6 +179,13 @@ public class ReviewController {
 	public ArrayList<Review> reviewSearch(String input, HttpSession sess) {
 		ArrayList<Review> result = new ArrayList<>();
 		result = rs.reviewSearch(input);
+		return result;
+	}
+	
+	@RequestMapping("/request_review_image")
+	@ResponseBody
+	public String request_review_image(String book_title) {
+		String result = rs.request_review_image(book_title);
 		return result;
 	}
 }

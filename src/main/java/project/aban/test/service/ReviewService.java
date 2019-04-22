@@ -116,4 +116,9 @@ public class ReviewService {
 		return list;
 	}
 
+	public String request_review_image(String book_title) {
+		String result = dao.request_review_image(book_title);
+		return result;
+	}
+
 }
