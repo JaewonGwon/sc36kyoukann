@@ -7677,9 +7677,7 @@ figure.snip1283.hover figcaption {
  		overflow: hidden;
 		text-overflow: ellipsis;
 		width: 255.63px;
-	
-		
-		
+
 	}	
 	.main-review-content3{
 		font-weight: 400;
@@ -7689,7 +7687,17 @@ figure.snip1283.hover figcaption {
 		display: inline-block;
 		width: 100%;
 	}	
-	
+	.main-review-content4{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+ 		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 100%;
+	}	
 	.item.active {
     display: inline-block;
     /*visibility:hidden !important; <->  visible */
@@ -7732,7 +7740,17 @@ figure.snip1283.hover figcaption {
 		display: inline-block;
 		width: 100%;
 	}	
-	
+	.main-review-content4{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+ 		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 100%;
+	}	
   .item.active {
     display: inline-block;
     /*visibility:hidden !important; <->  visible */
@@ -7773,6 +7791,17 @@ figure.snip1283.hover figcaption {
 		text-align: left;
 		font-size: 1em;
 		display: inline-block;
+		width: 100%;
+	}	
+	.main-review-content4{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+ 		overflow: hidden;
+		text-overflow: ellipsis;
 		width: 100%;
 	}	
   .item.active {
@@ -7818,6 +7847,17 @@ figure.snip1283.hover figcaption {
 		display: inline-block;
 		width: 100%;
 	}	
+	.main-review-content4{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+ 		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 100%;
+	}	
   .item.active {
     display: inline-block;
     /*visibility:hidden !important; <->  visible */
@@ -7852,6 +7892,17 @@ figure.snip1283.hover figcaption {
 		text-align: left;
 		font-size: 1em;
 		display: inline-block;
+		width: 100%;
+	}	
+	.main-review-content4{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+ 		overflow: hidden;
+		text-overflow: ellipsis;
 		width: 100%;
 	}	
   
@@ -7953,15 +8004,17 @@ figure.snip1283.hover figcaption {
 .item.active:nth-child(1n+1) {
   width: 250px;
 }
-.item.active:nth-child(1n+1):nth-child(1n+2) {
+.item.active:nth-child(1n+1):nth-child(4n+2) {
   width: 325px;
 }
-.item.active:nth-child(1n+1):nth-child(1n+3) {
+.item.active:nth-child(1n+1):nth-child(4n+3) {
   width: 250px;
 }
-.item.active:nth-child(1n+1):nth-child(1n+4) {
-  width: 380px;
+ .item.active:nth-child(1n+1):nth-child(4n+4) {
+  width: 300px;
 }
+
+
 
 
 .item img{max-width:100%;}
@@ -8065,7 +8118,7 @@ figure.snip1283.hover figcaption {
 	overflow: auto;
 	min-height: 50px;
 	display:block;
-	height: 100px;
+	height: 200px;
 } 		
 
 /* 리뷰 디테일 수정페이지 책 제목 검색부분 CSS 끝*/

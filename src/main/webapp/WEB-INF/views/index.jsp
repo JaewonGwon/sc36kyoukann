@@ -22,6 +22,8 @@ $(function(){
 		init();
 });
 
+
+
 function init() {
 	$.ajax({
 		url : 'ranking',
@@ -63,7 +65,7 @@ function reloadData() {
 				$('.main-carousel-span-st-title.recom' + index + '').text(bookData.book_title);
 				$('.main-carousel-span-st-publ.recom' + index + '').text(bookData.book_writer);
 				$('.main-carousel-span-st-cont.recom' + index + '').text(bookData.book_content);
-				$('.d-block.img-st.recom' + index + '').attr('src', bookData.book_image);
+				$('.d-block.img-st2.recom' + index + '').attr('src', bookData.book_image);
 			});
 		}
 	});

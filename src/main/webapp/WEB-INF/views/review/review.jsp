@@ -92,7 +92,10 @@
 							listwriter += '</p>';
 							listwriter += '<a href="reviewDetail?rev_num='
 									+ tt.rev_num + '">';
-							listwriter += "<p class='main-review-content2'>";
+							listwriter += "<p class='main-review-content4'>";
+
+		
+							
 							listwriter += tt.rev_content;
 							listwriter += '</p>';
 							listwriter += '</a>';
