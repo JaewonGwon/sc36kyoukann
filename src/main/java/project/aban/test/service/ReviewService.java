@@ -100,4 +100,20 @@ public class ReviewService {
 		return list;
 	}
 
+	public ArrayList<Review> reviewSearch(String input) {
+		ArrayList<Review> reviewByTitle= dao.reviewTitleSearch(input);
+		ArrayList<Review> reviewByContent = dao.reviewContentSearch(input);
+		//reviewByTitle List에 Content로 검색된 검색결과 붙이기.
+		for(Review r : reviewByContent) {
+			reviewByTitle.add(r);
+		}
+		return reviewByTitle;
+	}
+
+	public List<Review> selectbylike() {
+		List<Review> list = new ArrayList<Review>();
+		list = dao.selectbylike();
+		return list;
+	}
+
 }

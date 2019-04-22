@@ -350,7 +350,10 @@ function reloadReview() {
 	 margin: 0;
 	 overflow: hidden;
 	 height: 170px;
+	 width: 255.63px; 
 	}
+	
+	
 	.author_img{
 	margin:0;
 	padding: 0px;
@@ -620,10 +623,10 @@ function reloadReview() {
               </div>
             </div>
             
-            <div class="col-lg-9 col-md-9 ml-auto col-xl-9 col-sm-12">
+            <div class="col-lg-9 col-md-9 col-xl-9 col-sm-12">
               <div class="row" style="margin: 0; padding: 0px;">
 	              <div class="col-8">
-	              	<p class="category">Popular by Genre</p>
+	              	<p class="category">인기 리뷰</p>
 	              </div>
 	              <!--Controls-->
 	              <div class="col-4">    	          		
@@ -637,9 +640,10 @@ function reloadReview() {
               <div class="card" style="background-color: #eee; box-shadow: none;">
                                 
 
+
 				<div class="container mt-3 mb-5">
 					<div class="row">
-						<div class="col">
+						<div class="col-12">
 							<!--Carousel Wrapper-->
 							<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
 
@@ -685,7 +689,7 @@ function reloadReview() {
 												
 											</div>
 											<div class="col-md-6 clearfix d-none d-md-block">
-																								<div class="card" style="box-shadow: none;">
+												<div class="card" style="box-shadow: none;">
 													<div class="row review-row-bg-st">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
 															<img class="d-block img-st review1" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">

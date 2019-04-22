@@ -65,6 +65,11 @@
 		select * from review order by REGDATE desc
 		
 	</select>
+	
+	<select id="selectbylike" resultType="Review">
+		select * from review order by rev_like desc
+		
+	</select>
 
 	<select id="ranking" resultType="Review">
 		SELECT id
@@ -97,5 +102,38 @@
 			REVIEW
 		WHERE
 			ROWNUM BETWEEN 1 AND 4
+		ORDER BY
+			REV_LIKE DESC
 	</select>
+	
+	<select id = "reviewTitleSearch" resultType = "Review" parameterType = "String">
+		SELECT 
+			rev_num,
+			book_title,
+			id,
+			regdate,
+			rev_title,
+			rev_content,
+			rev_like,
+			rev_scrap
+		FROM
+			REVIEW
+		WHERE
+			REV_TITLE LIKE '%' || #{input} || '%'
+	</select>
+	
+	<select id = "reviewContentSearch" resultType = "Review" parameterType = "String">
+		SELECT 
+			rev_num,
+			book_title,
+			id,
+			regdate,
+			rev_title,
+			rev_content
+		FROM
+			REVIEW
+		WHERE
+			REV_CONTENT LIKE '%' || #{input} || '%'
+	</select>
+	
 </mapper>

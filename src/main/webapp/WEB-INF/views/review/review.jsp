@@ -11,6 +11,7 @@
 
 	$(document).ready(function() {
 		$("#test").on("click", orderbydregdate);
+		$("#test1").on("click", orderbylike);
 		
 		
 			init();
@@ -23,9 +24,20 @@
 				$("#reviewSearch").select();
 			});
 			/*검색버튼 클릭시 모달창 검색 인풋박스에 포커스 주는 코드 끝*/
-		
+			
 		
 	});
+	function orderbylike(){
+		$.ajax({
+			url : 'selectbylike',
+			method : 'GET',
+			success : function(resp) {
+				output(resp);
+			}
+
+		})
+	}
+
 	function orderbydregdate(){
 		$.ajax({
 			url : 'selectbydate',
@@ -144,7 +156,7 @@
 	   function revlike(revnum) {
 
 		      var rev_num = $(this).attr("data-value");
-
+				
 		      $.ajax({
 		         method : 'post',
 		         url : 'addLike',
@@ -156,7 +168,23 @@
 		         }
 
 		      })
-
+		      /*Python 서버로 보낼 favor list 받기*/
+		      $.ajax({
+		    	  
+		      })
+		      /*Python 서버로 연결하여 group number 받기 */
+		      $.ajax({
+		    	 
+		      })
+		      /*해당 group number로 DB에서 book_log 기록하기 */
+			  $.ajax({
+				method : 'post',
+				url : '',
+				data : {
+					groupNumber : gn,
+					
+				}
+			  })
 		   }
 	
 
@@ -182,6 +210,26 @@
 		});
 	});
 	/* 리뷰 제목부분 툴팁 그림 나오게 하는 소스 끝*/
+	
+	/* 검색 요청 */
+	function _review_search() {
+		console.log("review search");
+		if(event.keyCode == 13) {
+			console.log("search triggered");
+			var input = 'input=' + $('#review_search').val();
+			console.log(input);
+			$.ajax({
+				method : 'get',
+				url : 'reviewSearch',
+				data : input,
+				success : function(resp) {
+					console.log(resp);
+					output(resp);
+					$("#myModal").modal("hide");
+				}
+			})
+		}
+	}
 </script>
 
 
@@ -216,7 +264,7 @@
 													날짜순
 											</a></li>
 											<li role="presentation"><a role="menuitem" tabindex="-1"
-												href="#"> <i class="now-ui-icons ui-2_favourite-28"></i>
+												href="#" id="test1"> <i class="now-ui-icons ui-2_favourite-28"></i>
 													인기순
 											</a></li>
 											<li role="presentation"><a role="menuitem" tabindex="-1"

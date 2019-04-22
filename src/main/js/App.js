@@ -29,6 +29,14 @@ class App extends Component {
         console.log(this.state)
     }
 
+    _loadingSpinner = () => {
+        return (
+            <div className="wrapper">
+              
+            </div>
+        );
+    }
+
     _renderingCards = () => {
         console.log("rendered")
         return (
@@ -54,7 +62,7 @@ class App extends Component {
     //값 받아서 render
     render() {
         return (
-            this.state.properties ? this._renderingCards() : 'Loading...'
+            this.state.properties ? this._renderingCards() : this._loadingSpinner()
         );
     }
         

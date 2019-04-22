@@ -126,6 +126,28 @@ public class ReviewDao {
 		return result;
 	}
 
+	public ArrayList<Review> reviewTitleSearch(String input) {
+		
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		ArrayList<Review> result = mapper.reviewTitleSearch(input);
+		
+		return result;
+	}
+	
+	public ArrayList<Review> reviewContentSearch(String input) {
+		
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		ArrayList<Review> result = mapper.reviewContentSearch(input);
+		
+		return result;
+	}
+
+	public List<Review> selectbylike() {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		List<Review> list = new ArrayList<Review>();
+		list =mapper.selectbylike();
+		return list;
+	}
 	
 
 	

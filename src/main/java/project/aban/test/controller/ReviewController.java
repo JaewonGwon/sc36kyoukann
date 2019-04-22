@@ -33,6 +33,16 @@ public class ReviewController {
 	      return list;
 	   }
 	
+	@RequestMapping(value = "/selectbylike", method = RequestMethod.GET)  	 
+	   @ResponseBody
+	   public List<Review> selectbylike(HttpSession session) {
+	      List<Review> list = new ArrayList<>();
+	      list=rs.selectbylike();
+	      
+	      
+	      return list;
+	   }
+	
 	@RequestMapping(value = "/selectbydate", method = RequestMethod.GET)  	 
 	   @ResponseBody
 	   public List<Review> selectbydate(HttpSession session) {
@@ -137,8 +147,6 @@ public class ReviewController {
 		return review;
 	}
 	
-
-	
 	@RequestMapping(value = "/addLike", method = RequestMethod.POST)
 	@ResponseBody
 	public Review addLike(int rev_num,HttpSession session) {
@@ -166,11 +174,14 @@ public class ReviewController {
 			rs.insertCountLike(rlc);
 			return review;
 		}
-
+	}
 	
-	
-
-}
-	
+	@RequestMapping("/reviewSearch")
+	@ResponseBody
+	public ArrayList<Review> reviewSearch(String input, HttpSession sess) {
+		ArrayList<Review> result = new ArrayList<>();
+		result = rs.reviewSearch(input);
+		return result;
+	}
 }
 
