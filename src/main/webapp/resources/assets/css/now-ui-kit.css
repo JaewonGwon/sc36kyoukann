@@ -7309,13 +7309,33 @@ pt-30{
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	height: 100px !important;
+	height: 88px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
-
+	width: 180px;
   }
+
 }
 
+
+@media screen and (min-width: 1201px) and (max-width: 2400px) {
+  .text-carousel-st{
+	background-color: #fff;
+	max-height: 300px;	
+  }
+  .main-review-content{
+	font-weight: 400;
+	color: #262626;
+	text-align: left;
+	font-size: 1em;
+	display: inline-block;
+	height: 88px !important;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 230px;
+  }
+
+}
 
 
 @media screen and (min-width: 769px) and (max-width: 990px) {
@@ -7329,27 +7349,35 @@ pt-30{
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	height: 100px !important;
+	height: 88px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	width: 258px;
+		
+		
   }
 }
+
+
 @media screen and (min-width: 518px) and (max-width: 768px) {
     .text-carousel-st{
 	background-color: #fff;
 	max-height: 450px;
   }
-   .main-review-content{
+  .main-review-content{
 	font-weight: 400;
 	color: #262626;
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	height: 170px !important;
+	height: 88px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	width: 490px;
   }
 }
+
+
 @media screen and (min-width: 300px) and (max-width: 517px) {
   .text-carousel-st{
 	background-color: #fff;
@@ -7361,12 +7389,14 @@ pt-30{
 	text-align: left;
 	font-size: 1em;
 	display: inline-block;
-	height: 120px !important;
+	height: 88px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	overflow: auto !important;
+	width: 330px;
+	border: 1px solid red;	
   }
 }
+
 
 
 
@@ -7677,9 +7707,7 @@ figure.snip1283.hover figcaption {
  		overflow: hidden;
 		text-overflow: ellipsis;
 		width: 255.63px;
-	
-		
-		
+
 	}	
 	.main-review-content3{
 		font-weight: 400;
@@ -7689,7 +7717,17 @@ figure.snip1283.hover figcaption {
 		display: inline-block;
 		width: 100%;
 	}	
-	
+	.main-review-content4{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+ 		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 100%;
+	}	
 	.item.active {
     display: inline-block;
     /*visibility:hidden !important; <->  visible */
@@ -7722,7 +7760,7 @@ figure.snip1283.hover figcaption {
 	height: 76px !important;
  	overflow: hidden;
 	text-overflow: ellipsis;
-	width: 100% !important;
+	width: 255.63px;
   }
 	.main-review-content3{
 		font-weight: 400;
@@ -7732,7 +7770,17 @@ figure.snip1283.hover figcaption {
 		display: inline-block;
 		width: 100%;
 	}	
-	
+	.main-review-content4{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+ 		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 100%;
+	}	
   .item.active {
     display: inline-block;
     /*visibility:hidden !important; <->  visible */
@@ -7765,7 +7813,7 @@ figure.snip1283.hover figcaption {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	height: 76px !important;
-	width: 100%;
+	width: 255.63px;
   }
 	.main-review-content3{
 		font-weight: 400;
@@ -7773,6 +7821,17 @@ figure.snip1283.hover figcaption {
 		text-align: left;
 		font-size: 1em;
 		display: inline-block;
+		width: 100%;
+	}	
+	.main-review-content4{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+ 		overflow: hidden;
+		text-overflow: ellipsis;
 		width: 100%;
 	}	
   .item.active {
@@ -7808,7 +7867,7 @@ figure.snip1283.hover figcaption {
 	height: 76px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	width: 100%;
+	width: 255.63px;
   }
 	.main-review-content3{
 		font-weight: 400;
@@ -7816,6 +7875,17 @@ figure.snip1283.hover figcaption {
 		text-align: left;
 		font-size: 1em;
 		display: inline-block;
+		width: 100%;
+	}	
+	.main-review-content4{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+ 		overflow: hidden;
+		text-overflow: ellipsis;
 		width: 100%;
 	}	
   .item.active {
@@ -7844,7 +7914,7 @@ figure.snip1283.hover figcaption {
 	display: inline-block;
 	height: 76px !important;
 	overflow: hidden;
-	width: 100%;
+	width: 255.63px;
   }
  	.main-review-content3{
 		font-weight: 400;
@@ -7852,6 +7922,17 @@ figure.snip1283.hover figcaption {
 		text-align: left;
 		font-size: 1em;
 		display: inline-block;
+		width: 100%;
+	}	
+	.main-review-content4{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		height: 76px;
+ 		overflow: hidden;
+		text-overflow: ellipsis;
 		width: 100%;
 	}	
   
@@ -7953,15 +8034,17 @@ figure.snip1283.hover figcaption {
 .item.active:nth-child(1n+1) {
   width: 250px;
 }
-.item.active:nth-child(1n+1):nth-child(1n+2) {
+.item.active:nth-child(1n+1):nth-child(4n+2) {
   width: 325px;
 }
-.item.active:nth-child(1n+1):nth-child(1n+3) {
+.item.active:nth-child(1n+1):nth-child(4n+3) {
   width: 250px;
 }
-.item.active:nth-child(1n+1):nth-child(1n+4) {
-  width: 380px;
+ .item.active:nth-child(1n+1):nth-child(4n+4) {
+  width: 300px;
 }
+
+
 
 
 .item img{max-width:100%;}
@@ -8065,7 +8148,7 @@ figure.snip1283.hover figcaption {
 	overflow: auto;
 	min-height: 50px;
 	display:block;
-	height: 100px;
+	height: 200px;
 } 		
 
 /* 리뷰 디테일 수정페이지 책 제목 검색부분 CSS 끝*/
