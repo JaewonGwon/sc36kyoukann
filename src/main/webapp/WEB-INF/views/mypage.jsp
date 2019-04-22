@@ -9,6 +9,8 @@
 <script>
 
 $(window).ready(function(){
+	counter();
+	submit_profile_content();
 	$.ajax({
 		url : 'profile',
 		method : 'POST',
@@ -17,9 +19,8 @@ $(window).ready(function(){
 		}
 
 	})
-	
 	$('#i_scroll_wrap').scroll(function(){
-       
+    
 	
      var scrollH = $('#i_scroll_wrap').scrollTop() + $('#i_scroll_wrap').height();
      var documentH = $('#i_scroll').height();
@@ -45,9 +46,6 @@ $(window).ready(function(){
       
       $('#modify').on('click', updateinfo);
    });
-   
-
-   
    
    $("#add_face").on("click", function(){
         var temp = '';
@@ -76,18 +74,20 @@ $(window).ready(function(){
         $("#add_insta").css('display', 'none');
    });
    
-   /* Profile summary counter */
-   function() {
-	    $('#profileContent').keyup(function (e){
-	        var content = $(this).val();
-	        $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
-	        $('#counter').html(content.length + '/300');
-	    });
-	    $('#profileContent').keyup();
-	}
-
+	
+	
    
 });
+
+/* Profile summary counter */
+function counter() {
+    $('#profileContent').keyup(function (e){
+        var content = $(this).val();
+        $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
+        $('#counter').html(content.length + '/300');
+    });
+    $('#profileContent').keyup();
+}
 
 function list(resp) {
 	var listwriter = '';
@@ -108,6 +108,19 @@ function list(resp) {
 					});
 
 	$('#likefriends').html(listwriter);
+}
+function submit_profile_content() {
+	$('#profile_content').click(function(){
+		var content = $('#profileContent').val();
+		$.ajax({
+			url : 'submit_content',
+			method : 'POST',
+			data: 'content=' + content,
+			success : function() {
+				init();
+			}
+		})
+	})
 }
 
 function updateinfo(){
@@ -222,9 +235,6 @@ border: 1px solid red;
    <div class="wrapper">
       <!-- main 태크 시작 -->
       <div class="main">
-   
-   
-      
          <div class="section section-signup"   style="background-color: #eee; padding-top: 15vh !important">
             <div class="container">
             
@@ -393,7 +403,7 @@ border: 1px solid red;
                                      <div class="col-12 text-left" style="background-color: #fff;line-height: 18pt; padding: 20px;">
                                         <div class="wrapper">
 										    <label for="profileContent">Profile summary</label>
-  											<textarea class="form-control" rows="5" id="profileContent" style="background-color: #fff !important; color: black !important;"></textarea>
+  											<textarea class="form-control" maxlength="300" rows="5" id="profileContent" style="background-color: #fff !important; color: black !important;"></textarea>
 										    <span id="counter">###</span>
 										</div>
                                         <button class="btn btn-info" id="profile_content">
@@ -401,7 +411,6 @@ border: 1px solid red;
                                     	</button>
                                      </div>
                                      </c:if>
-                                     
                                      <div class="col-12 text-left" style="background-color: #fff; margin-top: 20px; padding: 20px;">
                                         <div class="col-12 text-left" style="padding: 0px;">
                                         <h5 style="padding: 6px;">My Tag</h5><!-- or recent visitor -->

@@ -282,14 +282,28 @@ $(function (){
    })();
 
 
-
-
    new autoComplete({
        selector: '#myInput',
        minChars: 1,
        source: function(term, suggest){
            term = term.toLowerCase();
-           var choices = ["AppleScript",
+           var choices = [];
+	       var matches = [];
+           $.ajax({
+   			url : 'request_wr_books',
+   			method : 'GET',
+   			data: 'tag=' + term,
+   			success : function(resp) {
+   				for(var i = 0 ; i < resp.length ; i++){
+   					choices.push(resp[i]['book_title']);
+   				}
+
+   	            for (i=0; i<choices.length; i++)
+   	               if (~choices[i].indexOf(term)) matches.push(choices[i]);
+   	            suggest(matches);
+   			}
+           });
+           /* choices = ["AppleScript",
                            "Asp",
                            "BASIC",
                            "C",
@@ -310,11 +324,8 @@ $(function (){
                            "Ruby",
                            "Scala",
                            "Scheme"
-                         ];
-           var matches = [];
-           for (i=0; i<choices.length; i++)
-               if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
-           suggest(matches);
+                         ]; */
+
        }
    });
 

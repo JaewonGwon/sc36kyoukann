@@ -165,6 +165,15 @@ public class BookDao {
 	}
 
 
+	public ArrayList<Book> request_wr_books(String tag) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		
+		ArrayList<Book> result = mapper.request_wr_books(tag);
+		
+		return result;
+	}
+
+
 
 
 

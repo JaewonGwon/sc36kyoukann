@@ -1,7 +1,5 @@
 package project.aban.test.controller;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,6 +91,7 @@ public class MemberController {
 		return "member/joinForm";
 	}
 
+
 	@RequestMapping("/joinUsFinal")
 	public String joinUsFinal(Member member, UserTag usertag) {
 		
@@ -105,9 +104,9 @@ public class MemberController {
 //			 ms.insert_UserTaste()    //취향 정보 DB로 들어감 UserTag
 			return "redirect:/";
 			
+
 		} catch (Exception e) {
 			e.printStackTrace();
-
 		}
 		return null;
 	}
@@ -207,5 +206,20 @@ public class MemberController {
 			session.setAttribute("pwCheckMember", m);
 			return "member/sendEmail";
 		}
+	}
+	
+	@RequestMapping(value = "/submit_content", method = RequestMethod.POST)
+	@ResponseBody
+	public String submit_content(String content, HttpSession sess) {
+		String loginId = (String)sess.getAttribute("loginId");
+		Member m = new Member();
+		m.setId(loginId);
+		m.setContents(content);
+		sess.setAttribute("m", m);
+		int result = ms.submit_content(m);
+		if (result == 1) {
+			return "success";
+		}
+		return "success";
 	}
 }
