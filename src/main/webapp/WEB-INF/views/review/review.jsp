@@ -163,7 +163,6 @@
 		         success : function(data) {
 		        	 console.log(data)
 		            $('.btn.btn-round.revlike[data-value=' + rev_num + ']').html("♡ " + data);
-		        	 init();
 		         }
 		      })
 		      /*Python 서버로 보낼 favor list 받기*/

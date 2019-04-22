@@ -1,6 +1,7 @@
 package project.aban.test.dao;
 
 import project.aban.test.vo.Member;
+import project.aban.test.vo.UserTag;
 
 public interface MemberMapper {
 
@@ -23,4 +24,6 @@ public interface MemberMapper {
 	public Member getProfile(Member _temp);
 
 	public int submit_content(Member m);
+
+	public int insert_UserTag(UserTag usertag1);
 }

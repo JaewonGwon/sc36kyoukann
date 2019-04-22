@@ -118,6 +118,8 @@ public class AjaxController {
 	public Book request_likeAdd(String book_title, HttpSession session) {
 		String id = (String) session.getAttribute("loginId");
 		
+		
+		
 		int result = dao.request_likeAdd(book_title);
 		
 		UserLikeSave userinfo1 = new UserLikeSave();

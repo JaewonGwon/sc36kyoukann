@@ -1,5 +1,7 @@
 package project.aban.test.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.aban.test.service.MemberService;
@@ -92,25 +95,6 @@ public class MemberController {
 	}
 
 
-	@RequestMapping("/joinUsFinal")
-	public String joinUsFinal(Member member, UserTag usertag) {
-		
-
-		
-		try {
-			System.out.println(member);
-			System.out.println(usertag);
-//			 ms.insert_Member(member);  //회원DB로 회원 정보 들어감
-//			 ms.insert_UserTaste()    //취향 정보 DB로 들어감 UserTag
-			return "redirect:/";
-			
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 	// 아이디 중복체크
 	@RequestMapping(value = "duplicateCheck", method = RequestMethod.POST)
 	public @ResponseBody int duplicateCheck(Member member) {
@@ -126,21 +110,31 @@ public class MemberController {
 	
 	@RequestMapping(value="/joinus", method= RequestMethod.POST)
 
-	public String joinus(Member member, HttpSession session) {
+	public String joinus(Member member,
+			UserTag usertag, HttpSession session) {
 
-		System.out.println(member);
+		
 
+		
+		
+		
+			
 		try {
-			 ms.insert_Member(member);
-			// 이거 리액트로 넘겨서 submit 하면 회원가입 되도록 만들기
 			session.setAttribute("UserInfo", member);
-
+			ms.insert_Member(member);
+			int result1 = ms.insert_UserTag(usertag);
+			System.out.println(result1+"DB삽입");
+			System.out.println(member);
+			
+			
+			
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		return "UserTasteIndex";
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "logout", method = RequestMethod.GET)

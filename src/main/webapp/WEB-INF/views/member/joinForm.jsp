@@ -103,6 +103,27 @@ $(function(){
     
 });
 function formCheck() {
+	
+	//checkbox data 
+	
+var checkData = []
+	
+	$("input[id='UserTag']:checked").each(function (){
+		
+	   $(this).val("1") 
+	   
+	});
+	$("input[id='UserTag']").each(function (){
+		
+		checkData.push($(this).val());
+	   
+	});
+
+	alert(checkData);
+
+
+	//end of check box
+	
 	var id = document.getElementById("id").value;
 	var pw = document.getElementById("pw").value;
     var repw= document.getElementById("repw").value;
@@ -156,6 +177,7 @@ function formCheck() {
    var addr2= document.getElementById("addr2");
    
    document.getElementById("address").value = post.value+roadaddr.value+addr1+addr2.value;
+   
    $("#joinus").submit();
    
 }
@@ -176,22 +198,7 @@ function email_change(){
 	}
 }
 
-//checkbox data 
-var checkData = [];
-$("input[name='userTaste']:checked").each(function (){
-	
-   $(this).val("1") 
-   
-});
-$("input[name='userTaste']").each(function (){
-	
-   checkData.push($(this).val());
-   
-});
 
-checkData.unshift( id );
-alert(checkData);
-//end of check box
 
 
 
@@ -432,23 +439,23 @@ alert(checkData);
 
 
                        
-                  <div class="col-lg-12 text-center" style="padding: 20px; background-color: rgba( 0, 0, 0, 0.5 ); border-radius: 8px;">
+                  <div class="col-lg-13 text-center" style="padding: 20px; background-color: rgba( 0, 0, 0, 0.5 ); border-radius: 8px;">
                    <div class="row" style="width: 80%; margin: 0 auto;">
                    	<div class="col-6">
                    	
 
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
-		                    <input class="form-check-input" id="q1" name="userTaste" type="checkbox" value="0">
+		                    <input class="form-check-input" id="UserTag" name="q1" type="checkbox" value="0">
 		                    <span class="form-check-sign"></span>
-		                    	과학, 기술, 컴퓨터
+		                    	문학
 		                  </label>
 		                </div>
 	                </div>
 	                <div class="col-6">
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
-		                    <input class="form-check-input" id="q2" name="userTaste" type="checkbox" value="0">
+		                    <input class="form-check-input" id="UserTag" name="q2" type="checkbox" value="0">
 		                    <span class="form-check-sign"></span>
 		                    	장르소설
 		                  </label>
@@ -457,25 +464,35 @@ alert(checkData);
 	                <div class="col-6">
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
-		                    <input class="form-check-input" id="q3" name="userTaste" type="checkbox" value="0">
+		                    <input class="form-check-input" id="UserTag" name="q3" type="checkbox" value="0">
 		                    <span class="form-check-sign"></span>
 		                    	취미, 오락, 여행, 건강
 		                  </label>
 		                </div>
 	                </div>
+	            
 	                <div class="col-6">   
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
-		                    <input class="form-check-input" id="q4" name="userTaste" type="checkbox" value="0">
+		                    <input class="form-check-input" id="UserTag" name="q4" type="checkbox" value="0">
 		                    <span class="form-check-sign"></span>
 		                    	철학, 사상, 종교
+		                  </label>
+		                </div>
+	                </div>
+	                 <div class="col-6">   
+	                    <div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="UserTag" name="q5" type="checkbox" value="0">
+		                    <span class="form-check-sign"></span>
+		                    	자기계발
 		                  </label>
 		                </div>
 	                </div>
 	                <div class="col-6">   
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
-		                    <input class="form-check-input" id="q5" name="userTaste" type="checkbox" value="0">
+		                    <input class="form-check-input" id="UserTag" name="q6" type="checkbox" value="0">
 		                    <span class="form-check-sign"></span>
 		                    	경제,경영
 		                  </label>
@@ -484,7 +501,7 @@ alert(checkData);
 	                 <div class="col-6">
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
-		                    <input class="form-check-input" id="q6" name="userTaste" type="checkbox" value="0">
+		                    <input class="form-check-input" id="UserTag" name="q7" type="checkbox" value="0">
 		                    <span class="form-check-sign"></span>
 		                    	가정,육아,요리
 		                  </label>
@@ -493,7 +510,7 @@ alert(checkData);
 	                 <div class="col-6">  
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
-		                    <input class="form-check-input" id="q7" name="userTaste" type="checkbox" value="0">
+		                    <input class="form-check-input" id="UserTag" name="q8" type="checkbox" value="0">
 		                    <span class="form-check-sign"></span>
 		                    	정치,사회,시사
 		                  </label>
@@ -502,7 +519,7 @@ alert(checkData);
 	                  <div class="col-6">
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
-		                    <input class="form-check-input" id="q8" name="userTaste" type="checkbox" value="0">
+		                    <input class="form-check-input" id="UserTag" name="q9" type="checkbox" value="0">
 		                    <span class="form-check-sign"></span>
 		                    	예술,문화
 		                  </label>
@@ -511,7 +528,7 @@ alert(checkData);
 	                  <div class="col-6">
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
-		                    <input class="form-check-input" id="q9" name="userTaste" type="checkbox" value="0">
+		                    <input class="form-check-input" id="UserTag" name="q10" type="checkbox" value="0">
 		                    <span class="form-check-sign"></span>
 		                    	역사,지리
 		                  </label>
@@ -520,7 +537,7 @@ alert(checkData);
 	                  <div class="col-6">
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
-		                    <input class="form-check-input" id="q10" name="userTaste" type="checkbox" value="0">
+		                    <input class="form-check-input" id="UserTag" name="q11" type="checkbox" value="0">
 		                    <span class="form-check-sign"></span>
 		                    	제태크,부동산
 		                  </label>
@@ -529,26 +546,24 @@ alert(checkData);
 	                  <div class="col-6"> 
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
-		                    <input class="form-check-input" id="q11" name="userTaste" type="checkbox" value="0">
+		                    <input class="form-check-input" id="UserTag" name="q12" type="checkbox" value="0">
 		                    <span class="form-check-sign"></span>
 		                    	어학,외국어
 		                  </label>
 		                </div>
 	                  </div>
-	                  
-	                  <div class="col-6"> 
-	                    <div class="form-check text-left" id="form-check-userTaste">
+	                  <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
-		                    <input class="form-check-input" id="q12" name="userTaste" type="checkbox" value="0">
+		                    <input class="form-check-input" id="UserTag" name="q13" type="checkbox" value="0" style="margin-left:10% !important; width: 100%;">
 		                    <span class="form-check-sign"></span>
-		                    	문학
+		                    	과학, 기술, 컴퓨터
 		                  </label>
 		                </div>
-	                 </div>
+	                  
+	                  
     
 	               </div>
                   </div>
-
                 
                 <div class="card-footer text-center" style="background: none; border: none;">   
                            
