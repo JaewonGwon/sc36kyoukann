@@ -34,11 +34,21 @@ $(window).ready(function(){
    });
    
    $("#mem_modify").on("click", function(){
-      $( '#display_name' ).replaceWith( '<input type="text" id="display_name" name="display_name" value='+'${sessionScope.m.display_name}'+'>');
-      $( '#phone' ).replaceWith( '<input type="text" id="phone" name="phone" value='+'${sessionScope.m.phone}'+'>');
-      $( '#address' ).replaceWith( '<input type="textarea" id="address" name="address" value='+'${sessionScope.m.address}'+'>');
-      $( '#mem_modify' ).replaceWith( '<button class="btn btn-info" id="modify"> 정보 수정 완료</button>');    
-      $('#modify').on('click', updateinfo);
+	   var id = '${sessionScope.m.id}';
+		$.ajax({
+		      type : "GET"
+		      ,url : "getinfo"
+		      ,data : {id: id}
+		      ,success : function(resp){
+				console.log(resp.display_name);
+			   $( '#display_name' ).replaceWith( '<input type="text" id="display_name" name="display_name" value="'+resp.display_name+'">');
+			   $( '#phone' ).replaceWith( '<input type="text" id="phone" name="phone" value="'+resp.phone+'">');
+			   $( '#address' ).replaceWith( '<input type="textarea" id="address" name="address" value="'+resp.address+'">');
+			   $( '#mem_modify' ).replaceWith( '<button class="btn btn-info" id="modify"> 정보 수정 완료</button>');
+			   $('#modify').on('click', updateinfo);
+		      }
+		});
+        
    });
    
    $("#add_face").on("click", function(){
@@ -89,7 +99,7 @@ function list(resp) {
 					resp,
 					function(index, tt) {
 						listwriter +='	<div class="col-3" style="padding: 6px;">';
-						listwriter +='      <img src="resources/assets/img/julie.jpg" alt="Circle Image" class="rounded-circle">';
+						listwriter +='      <img src="resources/assets/img/kwon.jpg" alt="Circle Image" class="rounded-circle">';
 						listwriter +='    </div>';
 						listwriter +='     <div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">';
 						listwriter +='         <p style="font-size: 11pt; font-weight: 500; margin: 0;">'+tt.pushid+'</p>';
@@ -119,6 +129,7 @@ function submit_profile_content() {
 }
 
 function updateinfo(){
+	console.log("updateInfo")
    var id = '${sessionScope.m.id}';
    var display_name = $('#display_name').val();
    var phone = $('#phone').val();
@@ -157,6 +168,7 @@ function init(){
 		   $( '#phone' ).replaceWith('<a id=phone>'+resp.phone+'</a>');
 		   $( '#address' ).replaceWith('<a id=address>'+resp.address+'</a>');
 		   $( '#modify' ).replaceWith( '<button class="btn btn-info" id="mem_modify">회원 정보 수정</button>');
+		   $( '#point' ).replaceWith('<a id="point">'+ resp.point +'</a>')
 	      }
 	});
 	
@@ -240,13 +252,13 @@ border: 1px solid red;
                   <div class="col-md-6">
                       <div class="row">
                           <div class="col-4" style="padding: 10px;">
-                            <img src='resources/assets/img/author.jpg' alt='Circle Image' class='rounded-circle'>
+                            <img src='resources/assets/img/saram.jpg' alt='Circle Image' class='rounded-circle'>
                         </div>
                           <div class="col-8">
                             <p style="font-size: 30pt;" id="userid">${sessionScope.m.id}</p>
 							<input type="hidden" name="id" value="${sessionScope.m.id}">                            
                   
-                  
+                 
                             <p style="font-size: 12pt; font-weight: 500;" name="display_name" id="display_name"></p>
                             <p></p>
                           <button class="btn btn-info" id="mem_modify">
@@ -263,19 +275,19 @@ border: 1px solid red;
                         휴대폰 번호
                         </div>
                         <div class="col-8 p-10">
-                        <a id=phone>${sessionScope.m.phone}</a>
+                        <a id=phone></a>
                         </div>
                         <div class="col-4 p-10">
                         주소
                         </div>
                         <div class="col-8 p-10">
-                        <a id="address">${sessionScope.m.address}</a>
+                        <a id="address"></a>
                         </div>
                         <div class="col-4 p-10">
                         포인트
                         </div>
                         <div class="col-8 p-10">
-                        <a id="point">${sessionScope.m.point}</a>
+                        <a id="point"></a>
                         </div>
                      </div>
                      <form id="face_form" action="post" class="sns-form">
@@ -309,20 +321,11 @@ border: 1px solid red;
                             <input type="button" class="btn btn-info sns-btn" id="add_twit" value="Twitter 추가">                  
                            </div>
                            
-                           <div class="col-12 text-center p-10 sns-addr">                           
-                             
-                            
-                           </div>
-                           
-                           
-                           
+                           <div class="col-12 text-center p-10 sns-addr" style="padding: 0px; margin:0;"></div>
+
                         </div>
                      </form>                 
                   </div>
-
-
-
-
                 </div>
                   
 
@@ -535,29 +538,29 @@ border: 1px solid red;
 	                                          <figure class="snip1283 figure-margin">
 	                                         <img src="resources/assets/img/book_img02.jpg" alt="book_image" />
 	                                         <figcaption>
-	                                           
 	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
 	                                         </figcaption>
 	                                       </figure>
 	                                       </div> 
+	                                       
 	                                       <div class="col-lg-2 col-md-4 col-sm-12">
 	                                          <figure class="snip1283 figure-margin">
 	                                         <img src="resources/assets/img/book_img03.jpg" alt="book_image" />
 	                                         <figcaption>
-	                                           
 	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
 	                                         </figcaption>
 	                                       </figure>
 	                                       </div> 
+	                                       
 	                                       <div class="col-lg-2 col-md-6 col-sm-12"> 
 	                                          <figure class="snip1283 figure-margin">
 	                                         <img src="resources/assets/img/book_img04.jpg" alt="book_image" />
 	                                         <figcaption>
-	                                           
 	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
 	                                         </figcaption>
 	                                       </figure>
 	                                       </div> 
+	                                       
 	                                       <div class="col-lg-2 col-md-4 col-sm-12"> 
 	                                          <figure class="snip1283 figure-margin">
 	                                         <img src="resources/assets/img/book_img05.jpg" alt="book_image" />

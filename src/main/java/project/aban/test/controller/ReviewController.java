@@ -147,31 +147,27 @@ public class ReviewController {
 	
 	@RequestMapping(value = "/addLike", method = RequestMethod.POST)
 	@ResponseBody
-	public Review addLike(int rev_num,HttpSession session) {
-		//System.out.println(rev_num);
+	public int addLike(int rev_num, HttpSession session) {
+		System.out.println(rev_num);
 		
 		Reglike rl = new Reglike();
-		String id = (String)session.getAttribute("loginId");
-		rl.setId(id);
-		rl.setRev_num(rev_num);
-		rs.insertCheckLike(rl);
-		List <Reglike> regl= new ArrayList<>();
-		regl = rs.checklike(rl);
-		Review review;
-		
-		if (regl.size()>=2) {
-			System.out.println(regl.size());
-			review =rs.selectOne(rev_num); 
-			return review;
-		}else {
-			review = rs.addLike(rev_num);
-			ReglikeCheck rlc = new ReglikeCheck();
-			rlc.setRev_num(rev_num);
-			rlc.setId(review.getId());
-			rlc.setPushid((String)session.getAttribute("loginId"));
-			rs.insertCountLike(rlc);
-			return review;
+		if (session.getAttribute("loginId") != null) {
+			String id = (String)session.getAttribute("loginId");
+			rl.setId(id);
+			rl.setRev_num(rev_num);
+			Reglike result = rs.request_revLike(rl);
+			if (result == null) {
+				int status = rs.insert_revLike(rl);
+				int tester = rs.addLike(rl.getRev_num());
+				return status+1;
+			} else {
+				int status = rs.delete_revLike(rl);
+				int tester = rs.delLike(rev_num);
+				return status-1;
+			}
 		}
+		
+		return 0;
 	}
 	
 	@RequestMapping("/reviewSearch")

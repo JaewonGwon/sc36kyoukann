@@ -35,7 +35,7 @@
 	</delete>
 	
 
-	   <update id="addLike" parameterType="int">
+	<update id="addLike" parameterType="int">
       update
          review
       set
@@ -43,9 +43,15 @@
       where
          rev_num = #{rev_num}
    </update>
-   <delete id="delLike" parameterType="int">
-      delete reglike where rev_num=#{rev_num}
-   </delete>
+   
+   <update id="delLike" parameterType="int">
+      update 
+      	review
+      set
+      	rev_like = rev_like - 1
+      where
+      	rev_num = #{rev_num}
+   </update>
    
    
    <insert id="reviewWrite" parameterType="Review">
@@ -136,4 +142,30 @@
 			REV_CONTENT LIKE '%' || #{input} || '%'
 	</select>
 	
+	<select id = "request_revLike" parameterType = "Reglike" resultType = "Reglike">
+		SELECT
+			*
+		FROM
+			REGLIKE
+		WHERE
+			REV_NUM = #{rev_num}
+			and ID = #{id}
+	</select>
+	
+	<insert id = "insert_revLike" parameterType = "Reglike">
+		INSERT INTO
+			REGLIKE
+		VALUES(
+			#{rev_num},
+			#{id}
+		)
+	</insert>
+	
+	<delete id = "delete_revLike" parameterType = "Reglike">
+		DELETE
+			REGLIKE
+		WHERE
+			REV_NUM = #{rev_num}
+			AND ID = #{id}
+	</delete>
 </mapper>
