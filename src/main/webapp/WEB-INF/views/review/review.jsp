@@ -1,4 +1,4 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,6 +11,7 @@
 
 	$(document).ready(function() {
 		$("#test").on("click", orderbydregdate);
+		$("#test1").on("click", orderbylike);
 		
 		
 			init();
@@ -26,6 +27,17 @@
 			
 		
 	});
+	function orderbylike(){
+		$.ajax({
+			url : 'selectbylike',
+			method : 'GET',
+			success : function(resp) {
+				output(resp);
+			}
+
+		})
+	}
+
 	function orderbydregdate(){
 		$.ajax({
 			url : 'selectbydate',
@@ -252,7 +264,7 @@
 													날짜순
 											</a></li>
 											<li role="presentation"><a role="menuitem" tabindex="-1"
-												href="#"> <i class="now-ui-icons ui-2_favourite-28"></i>
+												href="#" id="test1"> <i class="now-ui-icons ui-2_favourite-28"></i>
 													인기순
 											</a></li>
 											<li role="presentation"><a role="menuitem" tabindex="-1"
