@@ -17,6 +17,7 @@ import project.aban.test.vo.Book;
 import project.aban.test.vo.Member;
 import project.aban.test.vo.Review;
 import project.aban.test.vo.Tag;
+import project.aban.test.vo.UserLikeSave;
 
 @Controller
 public class AjaxController {
@@ -114,9 +115,21 @@ public class AjaxController {
 
 	@RequestMapping("/request_likeAdd")
 	@ResponseBody
-	public Book request_likeAdd(String book_title) {
+	public Book request_likeAdd(String book_title, HttpSession session) {
+		String id = (String) session.getAttribute("loginId");
+		
 		int result = dao.request_likeAdd(book_title);
+		
+		UserLikeSave userinfo1 = new UserLikeSave();
+		userinfo1.setId(id);
+		userinfo1.setBook_title(book_title);
+		
+		int addResult = dao.request_userLikeSave(userinfo1);
+		
+		System.out.println(addResult+"save완료");
 		System.out.println(result+"Add");
+		
+		
 		
 		
 		Book thisBook = dao.selectOne(book_title);
@@ -127,9 +140,24 @@ public class AjaxController {
 
 	@RequestMapping("/request_likeMinus")
 	@ResponseBody
-	public Book request_likeMinus(String book_title) {
+	public Book request_likeMinus(String book_title, HttpSession session) {
+		String id = (String) session.getAttribute("loginId");
+		
 		int result = dao.request_likeMinus(book_title);
 		System.out.println(result+"Minus");
+		
+		
+		UserLikeSave userinfo1 = new UserLikeSave();
+		userinfo1.setId(id);
+		userinfo1.setBook_title(book_title);
+		
+		int addResult = dao.request_userLikeDelete(userinfo1);
+		
+		System.out.println(addResult+"save완료");
+		System.out.println(result+"Add");
+		
+		
+		
 		
 		Book thisBook = dao.selectOne(book_title);
 		System.out.println(thisBook.getBook_likecount());

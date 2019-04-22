@@ -12,6 +12,7 @@ import project.aban.test.vo.Book;
 import project.aban.test.vo.Review;
 import project.aban.test.vo.Tag;
 import project.aban.test.vo.TagList;
+import project.aban.test.vo.UserLikeSave;
 
 @Repository
 public class BookDao {
@@ -170,6 +171,24 @@ public class BookDao {
 		
 		ArrayList<Book> result = mapper.request_wr_books(tag);
 		
+		return result;
+	}
+
+
+
+
+
+
+	public int request_userLikeSave(UserLikeSave userinfo1) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		int result = mapper.request_userLikeSave(userinfo1);
+		return result;
+	}
+
+
+	public int request_userLikeDelete(UserLikeSave userinfo1) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		int result = mapper.request_userLikeDelete(userinfo1);
 		return result;
 	}
 
