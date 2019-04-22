@@ -269,6 +269,8 @@
 </insert>
 
 
+
+
     <delete id="request_userLikeDelete" parameterType="UserLikeSave">
         delete from user_hit_like 
         where id = #{id} AND book_title = #{book_title}

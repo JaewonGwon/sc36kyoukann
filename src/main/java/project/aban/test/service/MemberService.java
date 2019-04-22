@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import project.aban.test.dao.MemberDao;
 import project.aban.test.vo.Member;
 import project.aban.test.vo.Review;
+import project.aban.test.vo.UserTag;
 
 @Service
 public class MemberService {
@@ -129,6 +130,14 @@ public int submit_content(Member m) {
 	int result = dao.submit_content(m);
 	return result;
 }
+
+
+public int insert_UserTag(UserTag usertag1) {
+	int result = dao.insert_UserTag(usertag1);
+	return result;
+}
+
+
 
 
 
