@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 
 import project.aban.test.vo.Book;
 import project.aban.test.vo.Tag;
+import project.aban.test.vo.UserLikeSave;
 
 public interface BookMapper {
 	public int insert_book(ArrayList<Book> buffer_data);
@@ -51,5 +52,9 @@ public interface BookMapper {
 	public ArrayList<Book> request_main_book();
 
 	public ArrayList<Book> request_wr_books(String tag);
+
+	public int request_userLikeSave(UserLikeSave userinfo1);
+
+	public int request_userLikeDelete(UserLikeSave userinfo1);
 
 }

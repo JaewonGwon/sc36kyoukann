@@ -120,7 +120,8 @@
 			A.book_date,
 			A.book_publisher,
 			A.book_likecount,
-			A.book_content
+			A.book_content,
+            A.book_viewcount
 	FROM BOOK A,
 	(select * from
 	(select book_num,  count(book_num) as cnt from (select * from taglist where 
@@ -194,7 +195,7 @@
     update 
         book 
     set 
-        BOOK_VIEWCOUNT = BOOK_VIEWCOUNT+1
+        BOOK_VIEWCOUNT = BOOK_VIEWCOUNT + 1
     where 
         BOOK_TITLE = #{book_title}
 
@@ -249,5 +250,31 @@
 	order by
 		book_likecount desc
 	</select>
+
+
+<insert id="request_userLikeSave" parameterType="UserLikeSave">
+		insert 
+		into USER_HIT_LIKE
+        (
+			id,
+			book_title
+			
+		)values
+        (
+			#{id},
+			#{book_title}
+		)
+	
+</insert>
+
+
+    <delete id="request_userLikeDelete" parameterType="UserLikeSave">
+        delete from user_hit_like 
+        where id = #{id} AND book_title = #{book_title}
+    </delete>
+
+
+
+ 
 
 </mapper>

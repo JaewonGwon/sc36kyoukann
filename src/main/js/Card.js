@@ -16,7 +16,7 @@ const Card = ({ property }) => {
 
     const { book_index, book_num, book_title, book_image, book_writer, book_date, book_publisher, book_content, book_likecount, book_viewcount, book_scrapcount } = property;
    
-    
+   
     return (
 
         <div className="cardlist">
