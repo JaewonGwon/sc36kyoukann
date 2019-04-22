@@ -46,4 +46,6 @@ public interface ReviewMapper {
 
 	ArrayList<Review> reviewContentSearch(String input);
 
+	List<Review> selectbylike();
+
 }

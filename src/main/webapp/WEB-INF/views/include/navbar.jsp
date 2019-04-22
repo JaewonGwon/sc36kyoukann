@@ -35,7 +35,7 @@
   <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="index" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom">
+        <a class="navbar-brand" href="index" rel="tooltip" title="공감  - 당신의 사적인 독서생활을 채우다!" data-placement="bottom">
           	Reed Books : Gong-Gam
           	<div class="shine"></div>
         </a>

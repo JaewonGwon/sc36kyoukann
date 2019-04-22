@@ -141,6 +141,13 @@ public class ReviewDao {
 		
 		return result;
 	}
+
+	public List<Review> selectbylike() {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		List<Review> list = new ArrayList<Review>();
+		list =mapper.selectbylike();
+		return list;
+	}
 	
 
 	

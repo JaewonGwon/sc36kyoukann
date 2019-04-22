@@ -33,6 +33,16 @@ public class ReviewController {
 	      return list;
 	   }
 	
+	@RequestMapping(value = "/selectbylike", method = RequestMethod.GET)  	 
+	   @ResponseBody
+	   public List<Review> selectbylike(HttpSession session) {
+	      List<Review> list = new ArrayList<>();
+	      list=rs.selectbylike();
+	      
+	      
+	      return list;
+	   }
+	
 	@RequestMapping(value = "/selectbydate", method = RequestMethod.GET)  	 
 	   @ResponseBody
 	   public List<Review> selectbydate(HttpSession session) {
