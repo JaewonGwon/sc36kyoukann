@@ -27,7 +27,7 @@ public class ReviewDao {
 		List<ReglikeCheck> list = new ArrayList<>();
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
 		list = mapper.findmyfan(id);
-		
+		System.out.println(list);
 		return list;
 	}
 
@@ -167,6 +167,15 @@ public class ReviewDao {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
 		int result = mapper.delete_revLike(rl);
 		return result;
+	}
+
+	public int whopushlike(ReglikeCheck rlc) {
+		int a =0;
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		a = mapper.whopushlike(rlc);
+		
+		
+		return a;
 	}
 	
 

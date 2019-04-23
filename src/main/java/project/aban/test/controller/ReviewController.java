@@ -156,10 +156,16 @@ public class ReviewController {
 			rl.setId(id);
 			rl.setRev_num(rev_num);
 			Reglike result = rs.request_revLike(rl);
+			Review review = rs.selectOne(rev_num);
+			ReglikeCheck rlc = new ReglikeCheck();
+			rlc.setId(review.getId());
+			rlc.setPushid(id);
+			rlc.setRev_num(rev_num);
+			
 			if (result == null) {
 				int status = rs.insert_revLike(rl);
 				int tester = rs.addLike(rl.getRev_num());
-				
+				int whopush = rs.whopushlike(rlc);
 				return status+1;
 			} else {
 				int status = rs.delete_revLike(rl);

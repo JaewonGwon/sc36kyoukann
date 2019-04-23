@@ -144,4 +144,11 @@ public class ReviewService {
 		return result;
 	}
 
+	public int whopushlike(ReglikeCheck rlc) {
+		int a =0;
+		a = dao.whopushlike(rlc);
+		
+		return a;
+	}
+
 }

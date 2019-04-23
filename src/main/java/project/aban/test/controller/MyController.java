@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.javassist.compiler.ast.NewExpr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,6 +56,7 @@ public class MyController {
 		String id =(String)session.getAttribute("loginId");
 	
 		List<ReglikeCheck> list = new ArrayList<>(); 
+		
 		list = rs.findmyfan(id);
 		
 		
