@@ -85,7 +85,7 @@ function updateView(resp) {
 	write +='	     <input class="review-mod-input-st" id="myInput" type="text" name="booktitle" value='+resp.book_title+' />';//책제목
 
 	write +='	       </p>';
-	write +='	     <p class="main-review-content2">';
+	write +='	     <p class="main-review-content5">';
 	write +='	     <textarea class="review-mod-ta-st" id="tt" style="width: 50vw;">';
 	write +=		 resp.rev_content;
 	write +='	     </textarea>';
@@ -122,10 +122,10 @@ function updateView(resp) {
    	write +=	resp.rev_like;
    	write +='	           </button>';
    	write +=' </c:if>';
-   	write +='	           <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">';
+/*    	write +='	           <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF;">';
    	write +='	                  <i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i>';
    	write +='	              15';
-   	write +='	           </button>';
+   	write +='	           </button>'; */
    	write +='	        </div>';
    	write +='	       </div>';
    	write +='	        </p>';

@@ -255,9 +255,8 @@
 								
 								<div class="col-12 text-center p-20">
 									<div class="dropdown m-30" style="display: inline;">
-										<a id="dropdownMenu1" class="latest-st" data-toggle="dropdown"
-											aria-expanded="true" href="#"> <i
-											class="now-ui-icons tech_watch-time"></i> <span>조회</span>
+										<a id="dropdownMenu1" class="latest-st" data-toggle="dropdown" aria-expanded="true" href="#">
+											<i class="now-ui-icons tech_watch-time"></i> <span>조회</span>
 										</a>
 										<ul class="dropdown-menu latest-drop-ui" role="menu"
 											aria-labelledby="dropdownMenu1">
