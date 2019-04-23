@@ -297,6 +297,7 @@ text-shadow: horizontal-offset vertical-offset blur color;
 .allList{
         text-align: center;
     color: white;
+    visibility: hidden;
     font-weight: bold;
     position: absolute;
     right: 8px;

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.aban.test.dao.BookDao;
@@ -29,7 +30,7 @@ public class AjaxController {
 	
 	@Autowired
 	BookDao dao;
-	
+
 	@Autowired
 	ReviewDao rDao;
 
@@ -81,7 +82,7 @@ public class AjaxController {
 
 		return result;
 	}
-	
+
 	@RequestMapping("/request_hitAdd")
 	@ResponseBody
 	public Book request_hitAdd(String book_title) {
@@ -134,7 +135,7 @@ public class AjaxController {
 		UserLikeSave userinfo1 = new UserLikeSave();
 		userinfo1.setId(id);
 		userinfo1.setBook_title(book_title);
-		
+
 		int addResult = dao.request_userLikeSave(userinfo1);
 		String gn = session.getAttribute("gn").toString();
 		HashMap<String, String> inputMap = new HashMap<>();
@@ -148,7 +149,6 @@ public class AjaxController {
 		int logResult = dao.request_logSaver(inputMap);
 		System.out.println(addResult+"save완료");
 		System.out.println(result+"Add");
-		
 		return thisBook;
 	}
 
@@ -159,13 +159,12 @@ public class AjaxController {
 		Book thisBook = dao.selectOne(book_title);
 		
 		int result = dao.request_likeMinus(book_title);
-		System.out.println(result+"Minus");
-		
-		
+		System.out.println(result + "Minus");
+
 		UserLikeSave userinfo1 = new UserLikeSave();
 		userinfo1.setId(id);
 		userinfo1.setBook_title(book_title);
-		
+
 		int addResult = dao.request_userLikeDelete(userinfo1);
 		
 		System.out.println(addResult+"save완료");
@@ -197,20 +196,31 @@ public class AjaxController {
 
 		return UserInfo;
 	}
-	
+
 	@RequestMapping("/request_main_review")
 	@ResponseBody
 	public ArrayList<Review> request_main_review() {
 		ArrayList<Review> result = rDao.request_main_review();
-		for (int i = 0 ; i < result.size(); i++) {
+		for (int i = 0; i < result.size(); i++) {
 			if (result.get(i).getRev_content().length() > 100) {
-				String _temp = result.get(i).getRev_content().substring(0,  100) + "...";
+				String _temp = result.get(i).getRev_content().substring(0, 100) + "...";
 				result.get(i).setRev_content(_temp);
 			}
 		}
 		return result;
 	}
-	
+
+
+	@RequestMapping(value = "/send_taste_data", method = RequestMethod.POST)
+	public String send_taste_data(int[] sendDataToDB) {
+		System.out.println("works");
+		for (int i = 0; i < sendDataToDB.length; i++) {
+			System.out.println(sendDataToDB[i]);
+		}
+
+		return "";
+	}
+
 	@RequestMapping("/request_wr_books")
 	@ResponseBody
 	public ArrayList<Book> request_wr_books(String tag) {
