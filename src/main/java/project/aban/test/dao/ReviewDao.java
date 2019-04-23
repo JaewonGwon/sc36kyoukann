@@ -173,8 +173,6 @@ public class ReviewDao {
 		int a =0;
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
 		a = mapper.whopushlike(rlc);
-		
-		
 		return a;
 	}
 	
