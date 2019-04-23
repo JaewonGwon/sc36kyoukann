@@ -50,7 +50,7 @@ $(function(){
   <%@ include file="/WEB-INF/views/include/navbar.jsp" %>
 
   <div class="wrapper">
-      <div class="section section-signup" style="background-image: url('resources/assets/img/bg13.jpg'); background-size: cover; background-position: top center; min-height: 650px;">
+      <div class="section section-signup" style="background-image: url('resources/assets/img/bg13.jpg'); background-size: cover; background-position: top center; min-height: 850px;">
         <div class="container">
           <div class="row">
             <div class="card card-signup" style="background:none;">
@@ -67,7 +67,7 @@ $(function(){
                       </span>
                     </div>
                     
-                    <input type="text" class="form-control" name="name" id="name" placeholder="이름을 입력하세요...">
+                    <input type="text" autocomplete="off" class="form-control" name="name" id="name" placeholder="이름을 입력하세요...">
                   </div>
                   <div class="input-group no-border" >
                     <div class="input-group-prepend">
@@ -75,7 +75,7 @@ $(function(){
                         <i class="now-ui-icons ui-1_lock-circle-open"></i>
                       </span>
                     </div>
-                    <input type="text" placeholder="닉네임을 입력하세요..." name="display_name" id="display_name" class="form-control" />
+                    <input type="text" autocomplete="off" placeholder="닉네임을 입력하세요..." name="display_name" id="display_name" class="form-control" />
                   </div>
                 </div>
                 <div class="card-footer text-center">               

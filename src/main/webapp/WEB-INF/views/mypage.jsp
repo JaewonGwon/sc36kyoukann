@@ -50,7 +50,29 @@ $(window).ready(function(){
 		});
         
    });
-   
+   $("#reedit").on("click", function(){
+	      $( '#newedit' ).replaceWith( '<textarea class="form-control" maxlength="300" rows="5" id="profileContent" style="padding: 20px; background-color: #fff !important; color: black !important;">${sessionScope.m.contents}</textarea>');
+	      $( '#reedit' ).replaceWith( ' <button class="btn btn-info" id="resend">완료 </button>');    
+	         $('#resend').on('click', editnew);   
+	   
+	   });
+	   
+	   function editnew(){
+	      var content= $('#profileContent').val();
+	      alert(content);
+	         $.ajax({
+	            url : 'submit_content',
+	            method : 'POST',
+	            data: 'content=' + content,
+	            success : function(resp) {
+	               $( '#profileContent' ).replaceWith( '<div id="newedit"class="col-12 text-left" style="background-color: #fff;line-height: 18pt; padding: 20px;">'+content+'</div>');
+	              $( '#resend' ).replaceWith('<button class="btn btn-info" id="reedit">자기소개 등록 </button>'); 
+	              location.reload();
+	            }
+	         })
+	      
+	   }
+
    $("#add_face").on("click", function(){
         var temp = '';
         temp += '<p><input class="sns-input" type="text" id="faddr" placeholder="Facebook 주소를 입력해주세요." /></p>'
@@ -383,22 +405,26 @@ border: 1px solid red;
                                         </div>
                                      </div>
                                      
-                                     <c:if test="${sessionScope.m.contents != null}">
-                                     <div class="col-12 text-left" style="background-color: #fff;line-height: 18pt; padding: 20px;">
+                                    <c:if test="${sessionScope.m.contents != null}">
+                                     <div id="newedit"class="col-12 text-left" style="background-color: #fff;line-height: 18pt; padding: 20px;">
+          
                                         ${sessionScope.m.contents}
                                      </div>
+                                     <button class="btn btn-info" id="reedit">
+                                       자기소개 등록
+                                       </button>
                                      </c:if>
                                      
                                      <c:if test="${sessionScope.m.contents == null}">
                                      <div class="col-12 text-left" style="background-color: #fff;line-height: 18pt; padding: 20px;">
                                         <div class="wrapper">
-										    <label for="profileContent">Profile summary</label>
-  											<textarea class="form-control" maxlength="300" rows="5" id="profileContent" style="background-color: #fff !important; color: black !important;"></textarea>
-										    <span id="counter">###</span>
-										</div>
+                                  <label for="profileContent">Profile summary</label>
+                                   <textarea class="form-control" maxlength="300" rows="5" id="profileContent" style="background-color: #fff !important; color: black !important;"></textarea>
+                                  <span id="counter">###</span>
+                              </div>
                                         <button class="btn btn-info" id="profile_content">
-                                    	자기소개 등록
-                                    	</button>
+                                       자기소개 등록
+                                       </button>
                                      </div>
                                      </c:if>
                                      <div class="col-12 text-left" style="background-color: #fff; margin-top: 20px; padding: 20px;">

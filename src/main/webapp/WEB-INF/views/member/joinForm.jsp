@@ -235,7 +235,7 @@ function email_change(){
                  
                   <div class="col-lg-9 text-center">
                    <div class="form-group" id="successDiv" >
-                     <input type="text" value="" id="id" name="id" placeholder="사용가능한 경우 ✓ , 사용불가의 경우 X " class="form-control" required />
+                     <input type="text" autocomplete="off" value="" id="id" name="id" placeholder="사용가능한 경우 ✓ , 사용불가의 경우 X " class="form-control" required />
                    </div>
                    
                    </div>
@@ -264,7 +264,7 @@ function email_change(){
                   </div>
                   <div class="col-lg-9 text-center">
                    <div class="form-group">
-                      <input type="text" id="name" name="name" value="" placeholder="이름을 입력하세요.." class="form-control" required />
+                      <input type="text" autocomplete="off" id="name" name="name" value="" placeholder="이름을 입력하세요.." class="form-control" required />
                    </div>
                    </div>
                   
@@ -273,7 +273,7 @@ function email_change(){
                   </div>
                   <div class="col-lg-9 text-center">
                    <div class="form-group">
-                      <input type="text" id="display_name" name="display_name" value="" placeholder="사용할 닉네임을 입력하세요.." class="form-control" required />
+                      <input type="text" autocomplete="off" id="display_name" name="display_name" value="" placeholder="사용할 닉네임을 입력하세요.." class="form-control" required />
                    </div>
                   </div>
                   
@@ -310,7 +310,7 @@ function email_change(){
  					<div class="row" style="padding: 8px 0px; margin-bottom: -16px;">
                    	
 	                   	<div class="col-5" style="padding-right: 0px;">
-	                     <input type="text" id="email1" name="email1" placeholder="이메일을 입력하세요.." class="form-control emailst" required  onfocus="this.value='';"/>
+	                     <input type="text" autocomplete="off" id="email1" name="email1" placeholder="이메일을 입력하세요.." class="form-control emailst" required  onfocus="this.value='';"/>
 	                    </div>
  
  	                   	<div class="col-2" style="padding-top: 4px;">
@@ -318,7 +318,7 @@ function email_change(){
 	                    </div>
    
 	                   	<div class="col-5" style="padding-left: 0px;">
-	                     <input type="text" id="email2" name="email2" placeholder="이메일을 입력하세요.." class="form-control emailst" required disabled />                   
+	                     <input type="text" autocomplete="off" id="email2" name="email2" placeholder="이메일을 입력하세요.." class="form-control emailst" required disabled />                   
 	                    </div>
                     
                     </div>
@@ -382,13 +382,13 @@ function email_change(){
                    </div>
                   <div class="col-lg-3 text-center mt-10" style="padding: 0x 4x;">
                    <div class="form-group">
-                      <input type="text" id="phone2" value="" placeholder="휴대폰 번호" class="form-control" maxlength="4" required onKeyPress="return numkeyCheck(event)" />
+                      <input type="text" autocomplete="off" id="phone2" value="" placeholder="휴대폰 번호" class="form-control" maxlength="4" required onKeyPress="return numkeyCheck(event)" />
                    </div>
                    </div>
                    
                   <div class="col-lg-3 text-center mt-10" style="padding: 0x 4px;">
                    <div class="form-group">
-                      <input type="text" id="phone3" value="" placeholder="휴대폰 번호" class="form-control"  maxlength="4" required onKeyPress="return numkeyCheck(event)" />
+                      <input type="text" autocomplete="off" id="phone3" value="" placeholder="휴대폰 번호" class="form-control"  maxlength="4" required onKeyPress="return numkeyCheck(event)" />
                    </div>
                    </div>
                   <input id="phone" type="hidden" name="phone" value="" />
@@ -415,13 +415,13 @@ function email_change(){
                   </div>
                   <div class="col-lg-9 text-center">
                    <div class="form-group">
-                      <input type="text" id="roadaddr" value="" placeholder="도로명 주소" class="form-control" required />
+                      <input type="text" autocomplete="off" readonly id="roadaddr" value="" placeholder="도로명 주소" class="form-control" required />
                    </div>
                    <div class="form-group">
-                      <input type="text" id="addr1" value="" placeholder="지번 주소" class="form-control" required />
+                      <input type="text" autocomplete="off" readonly id="addr1" value="" placeholder="지번 주소" class="form-control" required />
                    </div>
                    <div class="form-group">
-                      <input type="text" id="addr2" value="" placeholder="나머지 주소" class="form-control" required />
+                      <input type="text" autocomplete="off" id="addr2" value="" placeholder="나머지 주소" class="form-control" required />
                    </div>
                    <span id="guide" style="color:#999"></span>
                    </div>
@@ -431,18 +431,11 @@ function email_change(){
                   <div class="col-lg-12 text-center" style="padding: 18px 0px;">
                     <span style="color: white; font-size: 12pt; font-weight: 600;">선호하는 태그를 선택해주세요</span>
                   </div>
-                  
-                  
-                  
-                 
-
-
                        
                   <div class="col-lg-13 text-center" style="padding: 20px; background-color: rgba( 0, 0, 0, 0.5 ); border-radius: 8px;">
                    <div class="row" style="width: 80%; margin: 0 auto; margin-left:7%">
-                   	<div class="col-6">
+                   	<div class="col-7">
                    	
-
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
 		                    <input class="form-check-input" id="UserTag" name="q1" type="checkbox" value="0">
@@ -451,7 +444,7 @@ function email_change(){
 		                  </label>
 		                </div>
 	                </div>
-	                <div class="col-6">
+	                <div class="col-5">
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
 		                    <input class="form-check-input" id="UserTag" name="q2" type="checkbox" value="0">
@@ -460,7 +453,7 @@ function email_change(){
 		                  </label>
 		                </div>
 	                </div>
-	                <div class="col-6">
+	                <div class="col-7">
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
 		                    <input class="form-check-input" id="UserTag" name="q3" type="checkbox" value="0">
@@ -470,7 +463,7 @@ function email_change(){
 		                </div>
 	                </div>
 	            
-	                <div class="col-6">   
+	                <div class="col-5">   
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
 		                    <input class="form-check-input" id="UserTag" name="q4" type="checkbox" value="0">
@@ -479,7 +472,7 @@ function email_change(){
 		                  </label>
 		                </div>
 	                </div>
-	                 <div class="col-6">   
+	                 <div class="col-7">   
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
 		                    <input class="form-check-input" id="UserTag" name="q5" type="checkbox" value="0">
@@ -488,7 +481,7 @@ function email_change(){
 		                  </label>
 		                </div>
 	                </div>
-	                <div class="col-6">   
+	                <div class="col-5">   
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
 		                    <input class="form-check-input" id="UserTag" name="q6" type="checkbox" value="0">
@@ -497,7 +490,7 @@ function email_change(){
 		                  </label>
 		                </div>
 	                 </div>
-	                 <div class="col-6">
+	                 <div class="col-7">
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
 		                    <input class="form-check-input" id="UserTag" name="q7" type="checkbox" value="0">
@@ -506,7 +499,7 @@ function email_change(){
 		                  </label>
 		                </div>
 	                 </div>
-	                 <div class="col-6">  
+	                 <div class="col-5">  
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
 		                    <input class="form-check-input" id="UserTag" name="q8" type="checkbox" value="0">
@@ -515,7 +508,7 @@ function email_change(){
 		                  </label>
 		                </div>
 	                  </div>
-	                  <div class="col-6">
+	                  <div class="col-7">
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
 		                    <input class="form-check-input" id="UserTag" name="q9" type="checkbox" value="0">
@@ -524,7 +517,7 @@ function email_change(){
 		                  </label>
 		                </div>
 	                  </div>
-	                  <div class="col-6">
+	                  <div class="col-5">
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
 		                    <input class="form-check-input" id="UserTag" name="q10" type="checkbox" value="0">
@@ -533,7 +526,7 @@ function email_change(){
 		                  </label>
 		                </div>
 	                  </div>
-	                  <div class="col-6">
+	                  <div class="col-7">
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
 		                    <input class="form-check-input" id="UserTag" name="q11" type="checkbox" value="0">
@@ -542,7 +535,7 @@ function email_change(){
 		                  </label>
 		                </div>
 	                  </div>
-	                  <div class="col-6"> 
+	                  <div class="col-5"> 
 	                    <div class="form-check text-left" id="form-check-userTaste">
 		                  <label class="form-check-label">
 		                    <input class="form-check-input" id="UserTag" name="q12" type="checkbox" value="0">
@@ -551,13 +544,20 @@ function email_change(){
 		                  </label>
 		                </div>
 	                  </div>
-	                  <div class="form-check text-left" id="form-check-userTaste">
-		                  <label class="form-check-label" style="margin-left: 11% !important;">
-		                    <input class="form-check-input" id="UserTag" name="q13" type="checkbox" value="0" style="margin-left: 7% !important; width: 100%;">
+	                  <div class="col-7">
+	                  	<div class="form-check text-left" id="form-check-userTaste">
+		                  <label class="form-check-label">
+		                    <input class="form-check-input" id="UserTag" name="q13" type="checkbox" value="0">
 		                    <span class="form-check-sign"></span>
 		                    	과학, 기술, 컴퓨터
 		                  </label>
 		                </div>
+		              </div>
+		              <div class="col-5">
+		              </div>
+		              
+		              
+		             
 	                  
 	                  
     

@@ -7709,6 +7709,7 @@ figure.snip1283.hover figcaption {
 		display: inline-block;
 		width: 100%;
 	}	
+	
 	.main-review-content4{
 		font-weight: 400;
 		color: #262626;
@@ -7718,6 +7719,15 @@ figure.snip1283.hover figcaption {
  		height: 76px;
  		overflow: hidden;
 		text-overflow: ellipsis;
+		width: 100%;
+	}	
+	.main-review-content5{
+		font-weight: 400;
+		color: #262626;
+		text-align: left;
+		font-size: 1em;
+		display: inline-block;
+ 		overflow: auto;
 		width: 100%;
 	}	
 	.item.active {

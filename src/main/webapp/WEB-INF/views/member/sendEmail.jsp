@@ -31,9 +31,10 @@ $(function(){
 
 
   <div class="wrapper">
-      <div class="section section-signup" style="background-image: url('resources/assets/img/bg13.jpg'); background-size: cover; background-position: top center; min-height: 650px;">
+      <div class="section section-signup" style="background-image: url('resources/assets/img/bg13.jpg'); background-size: cover; background-position: top center; min-height: 850px;">
         <div class="container">
           <div class="row">
+          
             <div class="card card-signup" style="background:none;">
              
               <form class="form" method="post" action="emailSend" style="background-color: rgba(0, 0, 0, 0.4); border-radius:10px;">
@@ -54,7 +55,7 @@ $(function(){
                       </span>
                       
                     </div>
-                    <input type="text" placeholder="이메일 주소를 입력하세요..." name="email" id="email" class="form-control" />
+                    <input type="text" autocomplete="off" placeholder="이메일 주소를 입력하세요..." name="email" id="email" class="form-control" />
                   </div>
                 </div>
                 <div class="card-footer text-center">               

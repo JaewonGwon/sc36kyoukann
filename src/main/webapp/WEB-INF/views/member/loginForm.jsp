@@ -107,7 +107,7 @@ $(function(){
                       </span>
                     </div>
                     
-                    <input type="text" class="form-control" name="id" id="id" placeholder="아이디를 입력하세요...">
+                    <input type="text" autocomplete="off" class="form-control" name="id" id="id" placeholder="아이디를 입력하세요...">
                   </div>
                   <div class="input-group no-border" >
                     <div class="input-group-prepend">
@@ -115,7 +115,7 @@ $(function(){
                         <i class="now-ui-icons ui-1_lock-circle-open"></i>
                       </span>
                     </div>
-                    <input type="password" placeholder="패스워드를 입력하세요..." name="pw" id="pw" class="form-control" />
+                    <input type="password" autocomplete="off" placeholder="패스워드를 입력하세요..." name="pw" id="pw" class="form-control" />
                   </div>
                   <!-- <div class="input-group no-border">
                     <div class="input-group-prepend">
