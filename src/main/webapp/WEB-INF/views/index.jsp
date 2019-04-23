@@ -85,6 +85,7 @@ function reloadReview() {
 				$('.main-review-title.review' + index + '').text(revData.rev_title);
 				$('.main-review-uname.review' + index + '').text(revData.id);
 				$('.main-review-content.review' + index + '').text(revData.rev_content);
+				$('.main-review-like.review' + index + '').text(revData.rev_like);
 			});
 		}
 	})
@@ -514,6 +515,14 @@ function reloadDataToModal() {
 	}
 }
 
+.main-review-like{
+	padding: 0px 0px 0px 2px;
+	margin: 0; color: #fff;
+	font-size: 1em;
+	font-weight: 500;
+	display: inline;
+}
+
  </style>
 <body class="index-page sidebar-collapse">
 
@@ -695,13 +704,13 @@ function reloadDataToModal() {
 													</div>
 													<div>
 														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
-															<p style="margin: 0 auto; padding: 0px; text-align: center;">
-																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;">
-																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
+															<p style="margin: 0 auto; padding: 0px; text-align: right;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 12px 4px 12px; background-color: #ec407a; color: #fff;">
+																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i><p class="main-review-like review0"></p>
 																</button>
-																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
+																<!-- <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
 																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
-																</button>
+																</button> -->
 															</p>
 														</div>
 													</div>
@@ -727,13 +736,13 @@ function reloadDataToModal() {
 													</div>
 													<div>
 														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
-															<p style="margin: 0 auto; padding: 0px; text-align: center;">
-																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;">
-																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
+															<p style="margin: 0 auto; padding: 0px; text-align: right;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 12px 4px 12px; background-color: #ec407a; color: #fff;">
+																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i><p class="main-review-like review1"></p>
 																</button>
-																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
+																<!-- <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
 																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
-																</button>
+																</button> -->
 															</p>
 														</div>
 													</div>
@@ -771,13 +780,13 @@ function reloadDataToModal() {
 													</div>
 													<div>
 														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
-															<p style="margin: 0 auto; padding: 0px; text-align: center;">
-																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;">
-																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
+															<p style="margin: 0 auto; padding: 0px; text-align: right;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 12px 4px 12px; background-color: #ec407a; color: #fff;">
+																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i><p class="main-review-like review2"></p>
 																</button>
-																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
+																<!-- <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
 																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
-																</button>
+																</button> -->
 															</p>
 														</div>
 													</div>
@@ -786,7 +795,7 @@ function reloadDataToModal() {
 												
 											</div>
 											<div class="col-md-6 clearfix d-none d-md-block">
-																								<div class="card" style="box-shadow: none;">
+												<div class="card" style="box-shadow: none;">
 													<div class="row review-row-bg-st">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
 															<img class="d-block img-st review3" src="resources/assets/img/book_img04.jpg" alt="First slide" style="margin: 0 auto;">
@@ -803,13 +812,13 @@ function reloadDataToModal() {
 													</div>
 													<div>
 														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
-															<p style="margin: 0 auto; padding: 0px; text-align: center;">
-																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;">
-																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
+															<p style="margin: 0 auto; padding: 0px; text-align: right;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 12px 4px 12px; background-color: #ec407a; color: #fff;">
+																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i><p class="main-review-like review3"></p>
 																</button>
-																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
+																<!-- <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
 																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
-																</button>
+																</button> -->
 															</p>
 														</div>
 													</div>
