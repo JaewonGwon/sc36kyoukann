@@ -318,11 +318,20 @@
 		)
 	</insert>
 	
-	<select id = "request_recommend_list" parameterType = "String">
+	<select id = "request_recommend_list" parameterType = "String" resultType = "Book">
 		SELECT DISTINCT
-	    BOOK_TITLE
-	    FROM DATA_LOG
-		WHERE gn = 1
+		    A.book_title,
+			B.book_num,
+			B.book_image,
+			B.book_writer,
+			B.book_date,
+			B.book_publisher,
+			B.book_likecount,
+			B.book_content,
+	        B.book_viewcount
+	    FROM DATA_LOG A, BOOK B
+		WHERE a.gn = #{gn}
+        and a.book_title = b.book_title
 	    AND ROWNUM BETWEEN 1 AND 30
 	</select>
 

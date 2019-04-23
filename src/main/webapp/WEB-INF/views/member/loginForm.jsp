@@ -47,13 +47,40 @@ $(function(){
 	            , data : form_data
 	            , success : function(resp) {
 	               if(resp.trim() == "fail") {
-	             
 	                  $("#id").val('일치하는 회원정보가 없습니다!');
 	                  $("#id").css("color", "red");
 	                  return false;
 	               } else {
-	            	  $("#loginForm").submit();
-	                  location.href='http://localhost:8888/test/index';
+	            	   var id = $("#id").val()
+	            	   console.log(id)
+	            	  //$("#loginForm").submit();
+	            	  $.ajax({
+	            		  metod : 'get',
+	            		  url : 'favor',
+	            		  data : "id=" + id,
+	            		  success : function(resp){
+	            			  $.ajax({
+	            				  method : 'post',
+	            				  url : 'http://localhost:5000/groupNumber',
+	            				  datatype : 'json',
+	            			      data : {
+	            			    		favor : JSON.stringify(resp)
+	            			    	},
+	            			      success : function(newresp) {
+	            			    	  var input = JSON.parse(newresp);
+	            			    	  $.ajax({
+	            			    		  method : 'get',
+	            			    		  url : 'ai_recommend',
+	            			    		  data : "gn=" + input['groupNumber'],
+	            			    		  success : function(resp2) {
+	            			    			  console.log(resp2);
+	            			    		  }
+	            			    	  })
+	            			      }
+	            			  })
+	            		  }
+	            	  })
+	                  //location.href='http://localhost:8888/test/index';
 	                 
 	               }
 	            }

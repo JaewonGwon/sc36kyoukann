@@ -215,12 +215,14 @@ public class DataService {
 		return result;
 	}
 
-	public ArrayList<Book> request_recommend_list(String gn) {
-		ArrayList<Book> log_list = dao.request_recommend_list(gn);
+	public ArrayList<Book> request_recommend_list(int gn) {
+		ArrayList<Book> log_list = dao.request_recommend_list("" + gn);
 		// Group Number 기반 log_list 검색 -> 이를 바탕으로 log_list에 부족한 부분 추천해서 return
 		for(int i = 0 ; i < log_list.size(); i++) {
 			System.out.println(log_list.get(i));
 		}
-		return null;
+		return log_list;
 	}
+
+	
 }

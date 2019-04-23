@@ -83,20 +83,12 @@ public class AjaxController {
 		return result;
 	}
 
-	@RequestMapping("/request_hitAdd")
-	@ResponseBody
-	public Book request_hitAdd(String book_title) {
+
+	public void request_hitAdd(String book_title) {
 		int result = dao.request_hitAdd(book_title);
-
-		System.out.println(result);
-		Book thisBook = dao.selectOne(book_title);
-
-		return thisBook;
-
 	}
 
-	@RequestMapping("/request_scrapAdd")
-	@ResponseBody
+
 	public Book request_scrapAdd(String book_title) {
 		int result = dao.request_scrapAdd(book_title);
 
@@ -245,11 +237,10 @@ public class AjaxController {
 	
 	@RequestMapping("/favor")
 	@ResponseBody
-	public ArrayList<Integer> request_favor(HttpSession sess) {
-		String id = (String)sess.getAttribute("loginId");
+	public ArrayList<Integer> request_favor(String id, HttpSession sess) {
 		int userAge = 0;
 		UserTag result = new UserTag();
-		System.out.println(id);
+		System.out.println("favor : " + id);
 		if(id != null) {
 			result = dao.request_favor(id);
 			Member member = new Member();
@@ -295,9 +286,12 @@ public class AjaxController {
 	
 	@RequestMapping("/request_recommend_list")
 	@ResponseBody
-	public ArrayList<Book> request_recommend_list(String gn) {
+	public ArrayList<Book> request_recommend_list(HttpSession sess) {
+		int gn = 0;
+		if(sess.getAttribute("gn") != null )
+			gn = (Integer)sess.getAttribute("gn");
 		ArrayList<Book> result = ds.request_recommend_list(gn);
-		
-		return null;
+		return result;
 	}
+	
 }
