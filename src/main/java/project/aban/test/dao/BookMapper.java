@@ -62,4 +62,6 @@ public interface BookMapper {
 
 	public int request_logSaver(HashMap<String, String> inputMap);
 
+	public ArrayList<Book> request_recommend_list(String gn);
+
 }

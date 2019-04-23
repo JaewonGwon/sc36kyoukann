@@ -205,7 +205,8 @@ public class BookDao {
 
 
 	public ArrayList<Book> request_recommend_list(String gn) {
-		
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		ArrayList<Book> result = mapper.request_recommend_list(gn);
 		return null;
 	}
 
