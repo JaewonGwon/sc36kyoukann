@@ -828,7 +828,7 @@ function reloadDataToModal() {
 											</div>
 				
 										</div>
-				z					</div>
+									</div>
 									<!--/.Third slide-->
 								</div>
 								<!--/.Slides-->
