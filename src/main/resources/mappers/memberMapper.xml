@@ -40,7 +40,7 @@
 	</insert>
 
 	<select id="getOne" parameterType="Member" resultType="Member">
-		select id, pw from member where id=#{id}
+		select id, pw, age from member where id=#{id}
 	</select>
 	<select id="idFind" parameterType="Member" resultType="Member">
 		select * from member where name=#{name} and display_name=#{display_name}
@@ -96,7 +96,7 @@
 
     <insert id="insert_UserTag" parameterType="UserTag">
 		insert 
-		into usertaste
+		into usertag
         (
 			id,
 			q1,
@@ -135,5 +135,10 @@
 		)
 	
 </insert>
+<select id = "request_favor" parameterType = "String" resultType = "UserTag">
+	SELECT * FROM USERTAG
+	WHERE ID = #{id}
+</select>
+
 
 </mapper>

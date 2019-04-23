@@ -275,9 +275,6 @@
         delete from user_hit_like 
         where id = #{id} AND book_title = #{book_title}
     </delete>
-
-
-
  
 
 

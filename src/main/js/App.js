@@ -23,8 +23,11 @@ class App extends Component {
         for (var i = 0; i < booklist.length; i++) {
             booklist[i].book_index = i;
         }
-        this.setState({properties : booklist,
-                       property : booklist[0]
+        this.setState({
+            search:
+            {properties : booklist,
+            property : booklist[0]
+            }
         });
         console.log(this.state)
     }
@@ -48,12 +51,12 @@ class App extends Component {
                 <div className="recommand_search">
                 <div className="titleText1"><ReactRotatingText items={this.state.item}/></div>
                 
-                    <Carousel bookData = {this.state}/>
+                    <Carousel bookData = {this.state.search}/>
                 </div>
                 
                 <div className="recommand_tag">
                <div className="titleText2"><ReactRotatingText items={this.state.item2} /></div>
-                    <Carousel bookData = {this.state}/>
+                    <Carousel bookData = {this.state.search}/>
                 </div>
             </div>
         );
@@ -62,7 +65,7 @@ class App extends Component {
     //값 받아서 render
     render() {
         return (
-            this.state.properties ? this._renderingCards() : this._loadingSpinner()
+            this.state.search ? this._renderingCards() : this._loadingSpinner()
         );
     }
         
@@ -80,12 +83,51 @@ class App extends Component {
                     book_list[i].book_index = i;
                 }
                 this.setState({
+                    search:{
                     properties: book_list,
                     property: book_list[0]
+                    }
                 });
+                console.log(this.state.search);
 
                 console.log(book_list);
             })
+            .catch(function (error) {
+                console.log(error);
+            });
+        axios.get('/test/favor')
+            .then(data => {
+                let need_gn = new FormData();
+                let gn = 0;
+                need_gn.append('favor', data.data);
+                console.log("need_gn : " + need_gn);
+                axios.post('http://localhost:5000/groupNumber', need_gn).then(resp => {
+                    console.log(resp);
+                    gn = resp.data.groupNumber
+                    console.log(gn)
+                    axios.get('/test/ai_recommend?gn=' + gn)
+                        .then(resp => {
+                            console.log(resp);
+                        })
+                }).catch(error => {
+                    console.log(error);
+                })
+            })
+            // .then(books => {
+            //     let book_list = books.data
+
+            //     for (var i = 0; i < book_list.length; i++) {
+            //         book_list[i].book_index = i;
+            //     }
+            //     // this.setState({
+            //     //     recommend:{
+            //     //     properties: book_list,
+            //     //     property: book_list[0]
+            //     //     }
+            //     // });
+            
+            //     console.log(book_list);
+            // })
             .catch(function (error) {
                 console.log(error);
             });

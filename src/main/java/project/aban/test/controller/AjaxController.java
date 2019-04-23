@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.aban.test.dao.BookDao;
@@ -18,6 +17,7 @@ import project.aban.test.vo.Member;
 import project.aban.test.vo.Review;
 import project.aban.test.vo.Tag;
 import project.aban.test.vo.UserLikeSave;
+import project.aban.test.vo.UserTag;
 
 @Controller
 public class AjaxController {
@@ -157,10 +157,7 @@ public class AjaxController {
 		
 		System.out.println(addResult+"save완료");
 		System.out.println(result+"Add");
-		
-		
-		
-		
+				
 		Book thisBook = dao.selectOne(book_title);
 		System.out.println(thisBook.getBook_likecount());
 
@@ -202,21 +199,62 @@ public class AjaxController {
 		return result;
 	}
 	
-	@RequestMapping(value = "/send_taste_data", method = RequestMethod.POST)
-	public String send_taste_data(int[] sendDataToDB) {
-		System.out.println("works");
-		for (int i = 0 ; i < sendDataToDB.length ; i++) {
-			System.out.println(sendDataToDB[i]);
-		}
-		
-		return "";
-	}
-	
 	@RequestMapping("/request_wr_books")
 	@ResponseBody
 	public ArrayList<Book> request_wr_books(String tag) {
 		System.out.println(tag);
 		ArrayList<Book> result = dao.request_wr_books(tag);
+		return result;
+	}
+	
+	@RequestMapping("/favor")
+	@ResponseBody
+	public ArrayList<Integer> request_favor(HttpSession sess) {
+		String id = (String)sess.getAttribute("loginId");
+		int userAge = 0;
+		UserTag result = new UserTag();
+		System.out.println(id);
+		if(id != null) {
+			result = dao.request_favor(id);
+			Member member = new Member();
+			member.setId(id);
+			userAge = mDao.getOne(member).getAge();
+		}
+		ArrayList<Integer> resultList = new ArrayList<>();
+		if(userAge == 10 || userAge == 20) {
+			userAge = 1;
+		} else if(userAge == 30) {
+			userAge = 2;
+		} else if(userAge == 40) {
+			userAge = 3;
+		} else if(userAge == 50) {
+			userAge = 4;
+		} else if(userAge == 60) {
+			userAge = 5;
+		}
+		resultList.add(userAge);
+		resultList.add(result.getQ1());
+		resultList.add(result.getQ2());
+		resultList.add(result.getQ3());
+		resultList.add(result.getQ4());
+		resultList.add(result.getQ5());
+		resultList.add(result.getQ6());
+		resultList.add(result.getQ7());
+		resultList.add(result.getQ8());
+		resultList.add(result.getQ9());
+		resultList.add(result.getQ10());
+		resultList.add(result.getQ11());
+		resultList.add(result.getQ12());
+		resultList.add(result.getQ13());
+		return resultList;
+	}
+	
+	@RequestMapping(value = "/ai_recommend")
+	@ResponseBody
+	public ArrayList<Book> ai_recommend(int gn, HttpSession sess) {
+		ArrayList<Book> result = new ArrayList<>();
+		System.out.println("지급받은 Groupnumber : " + gn);
+		sess.setAttribute("gn", gn);
 		return result;
 	}
 }

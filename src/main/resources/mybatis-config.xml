@@ -11,8 +11,6 @@
         <typeAlias type="project.aban.test.vo.Tag" alias="Tag"/>
         <typeAlias type="project.aban.test.vo.UserLikeSave" alias="UserLikeSave"/>
         <typeAlias type="project.aban.test.vo.UserTag" alias="UserTag"/>
-
-        <typeAlias type="project.aban.test.vo.UserTaste" alias="UserTaste"/>
 		<typeAlias type="project.aban.test.vo.Reglike" alias="Reglike"/>
 		<typeAlias type="project.aban.test.vo.ReglikeCheck" alias="ReglikeCheck"/>
 	</typeAliases>

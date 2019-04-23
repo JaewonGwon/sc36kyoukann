@@ -119,8 +119,6 @@ var checkData = []
 	   
 	});
 
-	alert(checkData);
-
 
 	//end of check box
 	
@@ -129,13 +127,35 @@ var checkData = []
     var repw= document.getElementById("repw").value;
     var name= document.getElementById("name").value;
     var disname= document.getElementById("display_name").value;
+ 	
+    var age = $('#age').val();
+    console.log(age);
+    if (age == 10 || age == 20){
+ 		checkData.unshift("1")
+    } else if (age == 30) {
+ 		checkData.unshift("2")
+    } else if (age == 40) {
+    	checkData.unshift("3")
+    } else if (age == 50) {
+    	checkData.unshift("4")
+    } else if (age == 60) {
+    	checkData.unshift("5")
+    }
+ 	
+    console.log(checkData)
+    $.ajax ({
+    	url : 'http://localhost:5000/regist_member',
+    	datatype : 'json',
+    	data : {
+    		favor : JSON.stringify(checkData)
+    	},
+    	method : 'POST',
+    	success : function(resp) {
+    		console.log(resp)
+    	}
+    })
     
     
-    
- 
-  
-   
- 
     
     	if(id.length==0){
     		alert("아이디를 입력해주세요");
@@ -201,8 +221,8 @@ function email_change(){
 
 
 
-
 /*이메일 직접입력 선택 소스 끝*/
+
 </script>
 <style>
  select option{
@@ -334,7 +354,7 @@ function email_change(){
                   
                   <div class="col-lg-9 text-center">
                    <div class="form-group">
-                      <select id="age" name="email" class="form-control selectst" onchange="email_change()" required>
+                      <select id="email" name="email" class="form-control selectst" onchange="email_change()" required>
                       <option value="0" selected">선택하세요</option>
                       <option value="9">직접입력</option>
                       <option value="gmail.com">gmail.com</option>

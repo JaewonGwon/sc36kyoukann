@@ -12,18 +12,23 @@ public class UserLikeSave {
 		this.id = id;
 		this.book_title = book_title;
 	}
+	
 	public String getId() {
 		return id;
 	}
+	
 	public void setId(String id) {
 		this.id = id;
 	}
+	
 	public String getBook_title() {
 		return book_title;
 	}
+	
 	public void setBook_title(String book_title) {
 		this.book_title = book_title;
 	}
+	
 	@Override
 	public String toString() {
 		return "UserLikeSave [id=" + id + ", book_title=" + book_title + "]";
