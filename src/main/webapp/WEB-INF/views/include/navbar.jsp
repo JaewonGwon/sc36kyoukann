@@ -12,7 +12,7 @@
   margin-left:-150px;
   margin-top:-26px;
   transform:rotate(-20deg);
-  animation: shine 4s infinite ease-in-out;
+  animation: shine 5s infinite ease-in-out;
   opacity:0.85;
 }
 
@@ -23,7 +23,7 @@
   }
   
   25%, 100% {
-    left:700px;
+    left:800px;
     width:8px;
   }
 }

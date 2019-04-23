@@ -317,5 +317,13 @@
 			sysdate
 		)
 	</insert>
+	
+	<select id = "request_recommend_list" parameterType = "String">
+		SELECT DISTINCT
+	    BOOK_TITLE
+	    FROM DATA_LOG
+		WHERE gn = 1
+	    AND ROWNUM BETWEEN 1 AND 30
+	</select>
 
 </mapper>

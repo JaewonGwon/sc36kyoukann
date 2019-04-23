@@ -98,21 +98,28 @@
 		)
 	</insert>
 	<select id = "request_main_review" resultType = "Review">
-		SELECT 
-			rev_num,
-			book_title,
-			id,
-			regdate,
-			rev_title,
-			rev_content,
-			rev_like,
-			rev_scrap
-		FROM
-			REVIEW
-		WHERE
-			ROWNUM BETWEEN 1 AND 4
-		ORDER BY
-			REV_LIKE DESC
+		select 
+		    rev_num,
+		    book_title,
+		    id,
+		    regdate,
+		    rev_title,
+		    rev_content,
+		    rev_like,
+		    rev_scrap
+		from (
+		    select 
+		        rev_num,
+		        book_title,
+		        id,
+		        regdate,
+		        rev_title,
+		        rev_content,
+		        rev_like,
+		        rev_scrap
+		    from review
+		    order by rev_like desc
+		    ) where 4 >= rownum
 	</select>
 	
 	<select id = "reviewTitleSearch" resultType = "Review" parameterType = "String">
