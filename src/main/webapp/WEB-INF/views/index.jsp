@@ -19,6 +19,7 @@ $(function(){
 		});
 		reloadData();
 		reloadReview();
+		reloadDataToModal();
 		init();
 });
 
@@ -88,6 +89,29 @@ function reloadReview() {
 		}
 	})
 }
+
+
+function reloadDataToModal() {
+	$.ajax({
+		url : 'request_main_book_modal',
+		method : 'GET',
+		success : function(resp) {
+			$.each(resp, function(index, bookData){
+				console.log('.main-carousel-span-st-title, .recom' + index + '');
+				console.log(bookData.book_title+"모달값 체크");
+				$('.main-carousel-span-st-title1.recom' + index + '').text(bookData.book_title);
+				$('.main-carousel-span-st-publ1.recom' + index + '').text(bookData.book_writer);
+				$('.main-carousel-span-st-cont1.recom' + index + '').text(bookData.book_content);
+				
+				$('.main-carousel-span-st-book_date.recom' + index + '').text(bookData.book_date);
+				$('.main-carousel-span-st-book_publisher.recom' + index + '').text(bookData.book_publisher);
+				$('.main-carousel-span-st-book_likecount.recom' + index + '').text(bookData.book_likecount);
+				$('.d-block.img-st21.recom' + index + '').attr('src', bookData.book_image);
+			});
+		}
+	});
+}
+
 </script>
 <style type="text/css">
  
@@ -524,7 +548,7 @@ function reloadReview() {
 							<p class="main-carousel-span-st-cont recom0">
 							</p>
 							<p>
-								<a href="#" class="btn btn-puple btn-round btn-md">See The Book</a>
+								<button type="button" class="btn btn-puple btn-round btn-md" data-toggle="modal" data-target="#myModal0">See The Book</button>
 							</p>
 						
 						</div>
@@ -548,7 +572,7 @@ function reloadReview() {
 							<p class="main-carousel-span-st-cont recom1">
 							</p>
 							<p>
-								<a href="#" class="btn btn-sky btn-round btn-md">See The Book</a>
+								<button type="button" class="btn btn-puple btn-round btn-md" data-toggle="modal" data-target="#myModal1">See The Book</button>
 							</p>
 						</div>
 		      		</div>
@@ -571,7 +595,7 @@ function reloadReview() {
 							<p class="main-carousel-span-st-cont recom2">
 							</p>
 							<p>
-								<a href="#" class="btn btn-orange btn-round btn-md">See The Book</a>
+								<button type="button" class="btn btn-puple btn-round btn-md" data-toggle="modal" data-target="#myModal2">See The Book</button>
 							</p>
 						</div>
 		      		</div>
@@ -808,6 +832,80 @@ function reloadReview() {
 
               </div>
               <!-- End Tabs on plain Card -->
+                          								  <!-- Sart Modal -->
+    <div class="modal fade" id="myModal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              <i class="now-ui-icons ui-1_simple-remove"></i>
+            </button>
+            <h4 class="title title-up"><p class="main-carousel-span-st-title1 recom0"></p></h4>
+          </div>
+          <div class="modal-body">
+            <img class="d-block img-st21 recom0" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+            <p class="main-carousel-span-st-publ1 recom0"></p>
+            <p class="main-carousel-span-st-cont1 recom0">						</p>
+            <p class="main-carousel-span-st-book_date recom0"></p>
+            <p class="main-carousel-span-st-publisher recom0"></p>
+            <p class="main-carousel-span-st-book_likecount recom0"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default">Nice Button</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              <i class="now-ui-icons ui-1_simple-remove"></i>
+            </button>
+            <h4 class="title title-up"><p class="main-carousel-span-st-title1 recom1"></p></h4>
+          </div>
+          <div class="modal-body">
+            <img class="d-block img-st21 recom1" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+            <p class="main-carousel-span-st-publ1 recom1"></p>
+            <p class="main-carousel-span-st-cont1 recom1">							</p>
+            <p class="main-carousel-span-st-book_date recom1"></p>
+            <p class="main-carousel-span-st-publisher recom1"></p>
+            <p class="main-carousel-span-st-book_likecount recom1"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default">Nice Button</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              <i class="now-ui-icons ui-1_simple-remove"></i>
+            </button>
+            <h4 class="title title-up"><p class="main-carousel-span-st-title1 recom2"></p></h4>
+          </div>
+          <div class="modal-body">
+            <img class="d-block img-st21 recom2" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+            <p class="main-carousel-span-st-publ1 recom2"></p>
+            <p class="main-carousel-span-st-cont1 recom2">							</p>
+            <p class="main-carousel-span-st-book_date recom2"></p>
+            <p class="main-carousel-span-st-publisher recom2"></p>
+            <p class="main-carousel-span-st-book_likecount recom2"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default">Nice Button</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of modal -->
             </div>
           </div>
         </div>
