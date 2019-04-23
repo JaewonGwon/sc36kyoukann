@@ -116,8 +116,6 @@ function reloadReview() {
 .carousel-inner .carousel-item-left{ 
   transform: translateX(0);
 }
-
-
 @media screen and (min-width: 1201px) and (max-width: 2400px) {
 	.item__third {
 	  float: left;
