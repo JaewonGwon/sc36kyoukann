@@ -75,11 +75,11 @@ public class ReviewController {
 	public List<Review> bookreview(HttpSession session) {
 		List<Review> list = new ArrayList<>();
 		list=rs.bookreview();
-		if (list==null) {
+/*		if (list==null) {
 			System.out.println("비어있음");
 		}else {
 			System.out.println("들어있음");
-		}
+		}*/
 		
 		return list;
 	}
