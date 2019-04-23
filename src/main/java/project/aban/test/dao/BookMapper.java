@@ -1,6 +1,7 @@
 package project.aban.test.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -53,12 +54,12 @@ public interface BookMapper {
 
 	public ArrayList<Book> request_wr_books(String tag);
 
-
 	public int request_userLikeSave(UserLikeSave userinfo1);
 
 	public int request_userLikeDelete(UserLikeSave userinfo1);
 
 	public String request_review_image(String book_title);
 
+	public int request_logSaver(HashMap<String, String> inputMap);
 
 }

@@ -6,7 +6,6 @@ import CustomExample from './InputTag/custom';
 import Carousel from './Carousel';
 import ReactRotatingText from './ReactRotatingText';
 
-
 class App extends Component {
     
     constructor(props) {
@@ -39,7 +38,7 @@ class App extends Component {
             </div>
         );
     }
-
+    
     _renderingCards = () => {
         console.log("rendered")
         return (
@@ -55,7 +54,7 @@ class App extends Component {
                 </div>
                 
                 <div className="recommand_tag">
-               <div className="titleText2"><ReactRotatingText items={this.state.item2} /></div>
+                <div className="titleText2"><ReactRotatingText items={this.state.item2} /></div>
                     <Carousel bookData = {this.state.search}/>
                 </div>
             </div>
@@ -89,7 +88,6 @@ class App extends Component {
                     }
                 });
                 console.log(this.state.search);
-
                 console.log(book_list);
             })
             .catch(function (error) {

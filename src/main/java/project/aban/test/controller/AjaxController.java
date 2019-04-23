@@ -1,6 +1,7 @@
 package project.aban.test.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import project.aban.test.dao.BookDao;
 import project.aban.test.dao.MemberDao;
 import project.aban.test.dao.ReviewDao;
+import project.aban.test.service.DataService;
 import project.aban.test.vo.Book;
 import project.aban.test.vo.Member;
 import project.aban.test.vo.Review;
@@ -22,6 +24,9 @@ import project.aban.test.vo.UserTag;
 @Controller
 public class AjaxController {
 
+	@Autowired
+	DataService ds;
+	
 	@Autowired
 	BookDao dao;
 	
@@ -117,33 +122,41 @@ public class AjaxController {
 	@ResponseBody
 	public Book request_likeAdd(String book_title, HttpSession session) {
 		String id = (String) session.getAttribute("loginId");
-		
-		
-		
 		int result = dao.request_likeAdd(book_title);
-		
+		Book thisBook = dao.selectOne(book_title);
+
+		UserLikeSave uls = new UserLikeSave();
+		uls.setBook_title(book_title);
+		uls.setId(id);
+		if (mDao.request_userLike(uls) != null) {
+			return request_likeMinus(book_title, session);
+		}
 		UserLikeSave userinfo1 = new UserLikeSave();
 		userinfo1.setId(id);
 		userinfo1.setBook_title(book_title);
 		
 		int addResult = dao.request_userLikeSave(userinfo1);
+		String gn = session.getAttribute("gn").toString();
+		HashMap<String, String> inputMap = new HashMap<>();
+		String ls = ds.book_num_gen(book_title);
 		
+		inputMap.put("log_seq", ls);
+		inputMap.put("gn", gn);
+		inputMap.put("book_title", book_title);
+		System.out.println(inputMap);
+		
+		int logResult = dao.request_logSaver(inputMap);
 		System.out.println(addResult+"save완료");
 		System.out.println(result+"Add");
 		
-		
-		
-		
-		Book thisBook = dao.selectOne(book_title);
-		System.out.println(thisBook.getBook_likecount());
 		return thisBook;
-
 	}
 
 	@RequestMapping("/request_likeMinus")
 	@ResponseBody
 	public Book request_likeMinus(String book_title, HttpSession session) {
 		String id = (String) session.getAttribute("loginId");
+		Book thisBook = dao.selectOne(book_title);
 		
 		int result = dao.request_likeMinus(book_title);
 		System.out.println(result+"Minus");
@@ -158,7 +171,6 @@ public class AjaxController {
 		System.out.println(addResult+"save완료");
 		System.out.println(result+"Add");
 				
-		Book thisBook = dao.selectOne(book_title);
 		System.out.println(thisBook.getBook_likecount());
 
 		return thisBook;
@@ -249,12 +261,19 @@ public class AjaxController {
 		return resultList;
 	}
 	
-	@RequestMapping(value = "/ai_recommend")
+	@RequestMapping("/ai_recommend")
 	@ResponseBody
-	public ArrayList<Book> ai_recommend(int gn, HttpSession sess) {
-		ArrayList<Book> result = new ArrayList<>();
+	public String ai_recommend(int gn, HttpSession sess) {
 		System.out.println("지급받은 Groupnumber : " + gn);
 		sess.setAttribute("gn", gn);
-		return result;
+		return gn + "";
+	}
+	
+	@RequestMapping("/request_recommend_list")
+	@ResponseBody
+	public ArrayList<Book> request_recommend_list(String gn) {
+		ArrayList<Book> result = ds.request_recommend_list(gn);
+		
+		return null;
 	}
 }

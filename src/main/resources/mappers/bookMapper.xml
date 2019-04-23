@@ -287,5 +287,16 @@
 		book_title = #{book_title}
 		and rownum = 1
 	</select>
+	
+	<insert id = "request_logSaver" parameterType = "Map">
+	INSERT INTO
+		DATA_LOG
+		VALUES(
+			#{log_seq},
+			#{gn},
+			#{book_title},
+			sysdate
+		)
+	</insert>
 
 </mapper>

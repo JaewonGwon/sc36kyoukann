@@ -50,11 +50,11 @@ $(window).ready(function(){
 		});
         
    });
-   $("#reedit").on("click", function(){
+   /* $("#reedit").on("click", function(){
 	      $( '#newedit' ).replaceWith( '<textarea class="form-control" maxlength="300" rows="5" id="profileContent" style="padding: 20px; background-color: #fff !important; color: black !important;">${sessionScope.m.contents}</textarea>');
 	      $( '#reedit' ).replaceWith( ' <button class="btn btn-info" id="resend">완료 </button>');    
-	         $('#resend').on('click', editnew);   
-	   
+	         $('#resend').on('click', editnew); 
+	       location.reload();
 	   });
 	   
 	   function editnew(){
@@ -71,7 +71,7 @@ $(window).ready(function(){
 	            }
 	         })
 	      
-	   }
+	   } */
 
    $("#add_face").on("click", function(){
         var temp = '';
@@ -410,9 +410,6 @@ border: 1px solid red;
           
                                         ${sessionScope.m.contents}
                                      </div>
-                                     <button class="btn btn-info" id="reedit">
-                                       자기소개 등록
-                                       </button>
                                      </c:if>
                                      
                                      <c:if test="${sessionScope.m.contents == null}">

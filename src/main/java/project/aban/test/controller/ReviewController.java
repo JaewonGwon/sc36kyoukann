@@ -159,6 +159,7 @@ public class ReviewController {
 			if (result == null) {
 				int status = rs.insert_revLike(rl);
 				int tester = rs.addLike(rl.getRev_num());
+				
 				return status+1;
 			} else {
 				int status = rs.delete_revLike(rl);

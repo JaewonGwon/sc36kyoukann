@@ -140,5 +140,10 @@
 	WHERE ID = #{id}
 </select>
 
+<select id = "request_userLike" parameterType = "UserLikeSave" resultType = "UserLikeSave">
+	select * from user_hit_like
+	where id = #{id}
+	and book_title = #{book_title}
+</select>
 
 </mapper>

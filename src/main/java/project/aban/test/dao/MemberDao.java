@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import project.aban.test.vo.Member;
+import project.aban.test.vo.UserLikeSave;
 import project.aban.test.vo.UserTag;
 
 @Repository
@@ -87,6 +88,12 @@ public class MemberDao {
 		MemberMapper mapper = session.getMapper(MemberMapper.class);
 		int result = mapper.insert_UserTag(usertag1);
 		
+		return result;
+	}
+
+	public UserLikeSave request_userLike(UserLikeSave uls) {
+		MemberMapper mapper = session.getMapper(MemberMapper.class);
+		UserLikeSave result = mapper.request_userLike(uls);
 		return result;
 	}
 	

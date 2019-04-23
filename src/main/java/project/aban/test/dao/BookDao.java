@@ -1,6 +1,7 @@
 package project.aban.test.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -194,6 +195,20 @@ public class BookDao {
 		UserTag result = mapper.request_favor(id);
 		return result;
 	}
+
+
+	public int request_logSaver(HashMap<String, String> inputMap) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		int result = mapper.request_logSaver(inputMap);
+		return result;
+	}
+
+
+	public ArrayList<Book> request_recommend_list(String gn) {
+		
+		return null;
+	}
+
 
 
 }
