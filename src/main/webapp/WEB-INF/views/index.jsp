@@ -810,7 +810,7 @@ function reloadReview() {
 											</div>
 				
 										</div>
-									</div>
+				z					</div>
 									<!--/.Third slide-->
 								</div>
 								<!--/.Slides-->
