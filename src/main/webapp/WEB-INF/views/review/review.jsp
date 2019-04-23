@@ -111,7 +111,7 @@
 									+ tt.id + '</button>';
 							listwriter += '</div>';
 							listwriter += '<div class="col-5" style="text-align: right; padding-top: 4px;">';
-							listwriter += '<button class="btn btn-round revlike" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;" data-value="';
+							listwriter += '<button class="btn btn-round revlike" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;" data-value="';
 							listwriter += tt.rev_num;
           					listwriter += '">';
           					listwriter += "♡ " + tt.rev_like;
@@ -255,9 +255,8 @@
 								
 								<div class="col-12 text-center p-20">
 									<div class="dropdown m-30" style="display: inline;">
-										<a id="dropdownMenu1" class="latest-st" data-toggle="dropdown"
-											aria-expanded="true" href="#"> <i
-											class="now-ui-icons tech_watch-time"></i> <span>조회</span>
+										<a id="dropdownMenu1" class="latest-st" data-toggle="dropdown" aria-expanded="true" href="#">
+											<i class="now-ui-icons tech_watch-time"></i> <span>조회</span>
 										</a>
 										<ul class="dropdown-menu latest-drop-ui" role="menu"
 											aria-labelledby="dropdownMenu1">
