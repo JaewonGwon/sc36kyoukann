@@ -36,7 +36,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="index" rel="tooltip" title="공감  - 당신의 사적인 독서생활을 채우다!" data-placement="bottom">
-          	Reed Books : Gong-Gam
+          	Read Books : Gong-Gam
           	<div class="shine"></div>
         </a>
         <c:if test="${sessionScope.loginId != null}">
