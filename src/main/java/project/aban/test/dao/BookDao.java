@@ -210,5 +210,12 @@ public class BookDao {
 	}
 
 
+	public ArrayList<Book> request_main_book_modal() {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		ArrayList<Book> result = mapper.request_main_book_modal();
+		return result;
+	}
+
+
 
 }
