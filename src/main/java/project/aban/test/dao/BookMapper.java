@@ -64,4 +64,6 @@ public interface BookMapper {
 
 	public ArrayList<Book> request_recommend_list(String gn);
 
+	public ArrayList<Book> request_main_book_modal();
+
 }

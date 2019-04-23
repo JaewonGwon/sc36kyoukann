@@ -10,8 +10,11 @@
 		)
 	</insert>
 	<select id="findmyfan" parameterType="String" resultType="ReglikeCheck">
-		select * from REGLIKECOUNT where ID=#{id} and pushid not like #{id} and 5>=ROWNUM order by regdate desc
+		select * from(select * from REGLIKECOUNT where id=#{id} and pushid not like #{id} order by REGDATE desc) where 5>=rownum
 	</select>
+	<insert id="whopushlike" parameterType="ReglikeCheck">
+		insert into REGLIKECOUNT values(#{rev_num},#{id},#{pushid},sysdate)
+	</insert>
 
 	<select id="bookreview" resultType="Review">
 		select * from review

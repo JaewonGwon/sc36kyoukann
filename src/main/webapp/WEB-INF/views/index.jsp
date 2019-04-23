@@ -19,6 +19,7 @@ $(function(){
 		});
 		reloadData();
 		reloadReview();
+		reloadDataToModal();
 		init();
 });
 
@@ -84,10 +85,34 @@ function reloadReview() {
 				$('.main-review-title.review' + index + '').text(revData.rev_title);
 				$('.main-review-uname.review' + index + '').text(revData.id);
 				$('.main-review-content.review' + index + '').text(revData.rev_content);
+				$('.main-review-like.review' + index + '').text(revData.rev_like);
 			});
 		}
 	})
 }
+
+
+function reloadDataToModal() {
+	$.ajax({
+		url : 'request_main_book_modal',
+		method : 'GET',
+		success : function(resp) {
+			$.each(resp, function(index, bookData){
+				console.log('.main-carousel-span-st-title, .recom' + index + '');
+				console.log(bookData.book_title+"모달값 체크");
+				$('.main-carousel-span-st-title1.recom' + index + '').text(bookData.book_title);
+				$('.main-carousel-span-st-publ1.recom' + index + '').text(bookData.book_writer);
+				$('.main-carousel-span-st-cont1.recom' + index + '').text(bookData.book_content);
+				
+				$('.main-carousel-span-st-book_date.recom' + index + '').text(bookData.book_date);
+				$('.main-carousel-span-st-book_publisher.recom' + index + '').text(bookData.book_publisher);
+				$('.main-carousel-span-st-book_likecount.recom' + index + '').text(bookData.book_likecount);
+				$('.d-block.img-st21.recom' + index + '').attr('src', bookData.book_image);
+			});
+		}
+	});
+}
+
 </script>
 <style type="text/css">
  
@@ -101,18 +126,21 @@ function reloadReview() {
 .carousel-inner .carousel-item-right.active,
 .carousel-inner .carousel-item-next {
   transform: translateX(33.33%);
+  z-index: 999; 
 }
+
 
 .carousel-inner .carousel-item-left.active, 
 .carousel-inner .carousel-item-prev {
-  transform: translateX(-33.33%)
+  transform: translateX(-33.33%);
+  /* z-index: 999; */
+  
 }
 
 .carousel-inner .carousel-item-right,
 .carousel-inner .carousel-item-left{ 
   transform: translateX(0);
 }
-
 @media screen and (min-width: 1201px) and (max-width: 2400px) {
 	.item__third {
 	  float: left;
@@ -487,6 +515,14 @@ function reloadReview() {
 	}
 }
 
+.main-review-like{
+	padding: 0px 0px 0px 2px;
+	margin: 0; color: #fff;
+	font-size: 1em;
+	font-weight: 500;
+	display: inline;
+}
+
  </style>
 <body class="index-page sidebar-collapse">
 
@@ -521,7 +557,7 @@ function reloadReview() {
 							<p class="main-carousel-span-st-cont recom0">
 							</p>
 							<p>
-								<a href="#" class="btn btn-puple btn-round btn-md">See The Book</a>
+								<button type="button" class="btn btn-puple btn-round btn-md" data-toggle="modal" data-target="#myModal0">See The Book</button>
 							</p>
 						
 						</div>
@@ -545,7 +581,7 @@ function reloadReview() {
 							<p class="main-carousel-span-st-cont recom1">
 							</p>
 							<p>
-								<a href="#" class="btn btn-sky btn-round btn-md">See The Book</a>
+								<button type="button" class="btn btn-sky btn-round btn-md" data-toggle="modal" data-target="#myModal1">See The Book</button>
 							</p>
 						</div>
 		      		</div>
@@ -568,7 +604,7 @@ function reloadReview() {
 							<p class="main-carousel-span-st-cont recom2">
 							</p>
 							<p>
-								<a href="#" class="btn btn-orange btn-round btn-md">See The Book</a>
+								<button type="button" class="btn btn-orange btn-round btn-md" data-toggle="modal" data-target="#myModal2">See The Book</button>
 							</p>
 						</div>
 		      		</div>
@@ -599,32 +635,6 @@ function reloadReview() {
               <!-- Nav tabs -->
               <div class="card">
 
-                <div class="card-header">
-                  <!-- <ul class="nav nav-tabs justify-content-center" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
-                        <i class="now-ui-icons objects_umbrella-13"></i> Home
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
-                        <i class="now-ui-icons shopping_cart-simple"></i> Profile
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" href="#messages" role="tab">
-                        <i class="now-ui-icons shopping_shop"></i> Messages
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" href="#settings" role="tab">
-                        <i class="now-ui-icons ui-2_settings-90"></i> Settings
-                      </a>
-                    </li>
-                  </ul> -->
-                </div>
-   
-                
                 
                 <div class="card-body cs-st">
                   <!-- Tab panes -->
@@ -654,7 +664,7 @@ function reloadReview() {
 				  <!--/.Controls-->
 			  </div>
               <!-- Tabs with Background on Card -->
-              <div class="card" style="background-color: #eee; box-shadow: none;">
+              <div style="background-color: #eee; box-shadow: none;">
                                 
 
 
@@ -664,12 +674,15 @@ function reloadReview() {
 							<!--Carousel Wrapper-->
 							<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
 
-								<!--Slides-->
+							<!--Slides-->
+							
+								
+				
 								
 								<div class="carousel-inner" role="listbox" style="background-color: none; box-shadow: none;">
 									<!--First slide-->
 									<div class="carousel-item active">
-										<div class="row">
+										<div class="row" style="background-color: #eee;">
 											<div class="col-md-6">
 											
 												<div class="card" style="box-shadow: none;">
@@ -691,13 +704,13 @@ function reloadReview() {
 													</div>
 													<div>
 														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
-															<p style="margin: 0 auto; padding: 0px; text-align: center;">
-																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;">
-																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
+															<p style="margin: 0 auto; padding: 0px; text-align: right;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 12px 4px 12px; background-color: #ec407a; color: #fff;">
+																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i><p class="main-review-like review0"></p>
 																</button>
-																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
+																<!-- <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
 																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
-																</button>
+																</button> -->
 															</p>
 														</div>
 													</div>
@@ -723,13 +736,13 @@ function reloadReview() {
 													</div>
 													<div>
 														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
-															<p style="margin: 0 auto; padding: 0px; text-align: center;">
-																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;">
-																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
+															<p style="margin: 0 auto; padding: 0px; text-align: right;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 12px 4px 12px; background-color: #ec407a; color: #fff;">
+																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i><p class="main-review-like review1"></p>
 																</button>
-																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
+																<!-- <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
 																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
-																</button>
+																</button> -->
 															</p>
 														</div>
 													</div>
@@ -740,9 +753,14 @@ function reloadReview() {
 										</div>
 									</div>
 									<!--/.First slide-->
+									
+									
+									
+									
+									
 									<!--Second slide-->
 									<div class="carousel-item">
-										<div class="row">
+										<div class="row" style="background-color: #eee;">
 											<div class="col-md-6">
 											
 												<div class="card" style="box-shadow: none;">
@@ -762,13 +780,13 @@ function reloadReview() {
 													</div>
 													<div>
 														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
-															<p style="margin: 0 auto; padding: 0px; text-align: center;">
-																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;">
-																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
+															<p style="margin: 0 auto; padding: 0px; text-align: right;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 12px 4px 12px; background-color: #ec407a; color: #fff;">
+																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i><p class="main-review-like review2"></p>
 																</button>
-																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
+																<!-- <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
 																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
-																</button>
+																</button> -->
 															</p>
 														</div>
 													</div>
@@ -777,7 +795,7 @@ function reloadReview() {
 												
 											</div>
 											<div class="col-md-6 clearfix d-none d-md-block">
-																								<div class="card" style="box-shadow: none;">
+												<div class="card" style="box-shadow: none;">
 													<div class="row review-row-bg-st">
 														<div class="col-lg-5" style="margin-top: -50px; padding: 20px;">
 															<img class="d-block img-st review3" src="resources/assets/img/book_img04.jpg" alt="First slide" style="margin: 0 auto;">
@@ -794,13 +812,13 @@ function reloadReview() {
 													</div>
 													<div>
 														<div class="col-12" style="border-top: 1px dashed #ddd; height: 100%;">
-															<p style="margin: 0 auto; padding: 0px; text-align: center;">
-																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a; color: #fff;">
-																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i> 35
+															<p style="margin: 0 auto; padding: 0px; text-align: right;">
+																<button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 12px 4px 12px; background-color: #ec407a; color: #fff;">
+																	<i class="now-ui-icons ui-2_favourite-28" id="revlike" style="font-size: 0.8em; font-weight: 600;"></i><p class="main-review-like review3"></p>
 																</button>
-																<button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
+																<!-- <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #2CA8FF; color: #fff;">
 																	<i class="now-ui-icons ui-2_chat-round" style="font-size: 0.8em; font-weight: 600;"></i> 15
-																</button>
+																</button> -->
 															</p>
 														</div>
 													</div>
@@ -823,6 +841,80 @@ function reloadReview() {
 
               </div>
               <!-- End Tabs on plain Card -->
+                          								  <!-- Sart Modal -->
+    <div class="modal fade" id="myModal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              <i class="now-ui-icons ui-1_simple-remove"></i>
+            </button>
+            <h4 class="title title-up"><p class="main-carousel-span-st-title1 recom0"></p></h4>
+          </div>
+          <div class="modal-body">
+            <img class="d-block img-st21 recom0" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+            <p class="main-carousel-span-st-publ1 recom0"></p>
+            <p class="main-carousel-span-st-cont1 recom0">						</p>
+            <p class="main-carousel-span-st-book_date recom0"></p>
+            <p class="main-carousel-span-st-publisher recom0"></p>
+            <p class="main-carousel-span-st-book_likecount recom0"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default">Nice Button</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              <i class="now-ui-icons ui-1_simple-remove"></i>
+            </button>
+            <h4 class="title title-up"><p class="main-carousel-span-st-title1 recom1"></p></h4>
+          </div>
+          <div class="modal-body">
+            <img class="d-block img-st21 recom1" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+            <p class="main-carousel-span-st-publ1 recom1"></p>
+            <p class="main-carousel-span-st-cont1 recom1">							</p>
+            <p class="main-carousel-span-st-book_date recom1"></p>
+            <p class="main-carousel-span-st-publisher recom1"></p>
+            <p class="main-carousel-span-st-book_likecount recom1"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default">Nice Button</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              <i class="now-ui-icons ui-1_simple-remove"></i>
+            </button>
+            <h4 class="title title-up"><p class="main-carousel-span-st-title1 recom2"></p></h4>
+          </div>
+          <div class="modal-body">
+            <img class="d-block img-st21 recom2" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+            <p class="main-carousel-span-st-publ1 recom2"></p>
+            <p class="main-carousel-span-st-cont1 recom2">							</p>
+            <p class="main-carousel-span-st-book_date recom2"></p>
+            <p class="main-carousel-span-st-publisher recom2"></p>
+            <p class="main-carousel-span-st-book_likecount recom2"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default">Nice Button</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of modal -->
             </div>
           </div>
         </div>

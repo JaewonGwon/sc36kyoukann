@@ -175,6 +175,18 @@ public class AjaxController {
 		return thisBook;
 	}
 
+	
+	
+	@RequestMapping("/request_main_book_modal")
+	@ResponseBody
+	public ArrayList<Book> request_main_book_modal() {
+		ArrayList<Book> result = dao.request_main_book_modal();
+
+		System.out.println(result+"모달값 체크");
+		return result;
+	}
+	
+	
 	@RequestMapping("/request_main_book")
 	@ResponseBody
 	public ArrayList<Book> request_main_book() {
@@ -185,6 +197,7 @@ public class AjaxController {
 				result.get(i).setBook_content(_temp);
 			}
 		}
+		System.out.println(result);
 		return result;
 	}
 
@@ -207,6 +220,7 @@ public class AjaxController {
 				result.get(i).setRev_content(_temp);
 			}
 		}
+		System.out.println(result+"값 체크 ");
 		return result;
 	}
 

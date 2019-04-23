@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    max-width: 90% !important;
+    /* max-width: 90% !important; */
 }
 
 .recommand_search{
@@ -51,7 +51,7 @@ font-weight: bold;
 
 
 p{
-    padding: 2%;
+   /*  padding: 2%; */
 }
 
 .modalContent{
@@ -98,7 +98,7 @@ float: left; font-style: italic;
     color: #333333;
     font-style: italic;
     position: absolute;
-    margin-top: 10%;
+    margin-top: 6%;
     z-index: 3;
 }
 
@@ -108,7 +108,7 @@ float: left; font-style: italic;
     color: #333333;
     font-style: italic;
     position: absolute;
-    margin-top: 10%;
+    margin-top: 6%;
     z-index: 3;
 }
 
@@ -171,8 +171,10 @@ float: left; font-style: italic;
 
 /* DEMO STYLES */
 .nav {
-  padding: 30px 0;
+  /* padding: 30px 0; */
   background-color: #222; }
+
+
 
 .nav a {
   display: inline-block;

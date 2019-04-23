@@ -7794,7 +7794,6 @@ figure.snip1283.hover figcaption {
     flex: auto;
     height: 280px;
     min-width: 200px;
-    z-index: 1;
     overflow: visible;
 	}
 }

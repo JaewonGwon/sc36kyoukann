@@ -237,6 +237,25 @@
     order by
     	book_likecount desc
     </select>
+    
+    <select id = "request_main_book_modal" resultType = "Book">
+ 	select
+ 		BOOK_NUM,
+    	book_title,
+    	book_image,
+    	book_writer,
+    	book_content,
+    	BOOK_DATE,
+    	BOOK_PUBLISHER,
+    	BOOK_LIKECOUNT
+    from 
+    	book
+    where
+    	rownum between 1 and 3
+    order by
+    	book_likecount desc
+			
+    </select>
 	
 	<select id = "request_wr_books" parameterType = "string" resultType = "Book">
 	select
