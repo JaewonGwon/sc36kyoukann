@@ -515,6 +515,46 @@ function reloadDataToModal() {
 	}
 }
 
+.modal-body{
+    background-color: #fffae0 !important;
+    font-family: 'Inder', sans-serif; line-height: 28px; margin-bottom: 15px; color: #666;
+    padding: 4% !important;
+    
+
+}
+
+.main-carousel-span-st-title1{
+	font-weight:bold;
+	font-family: 'Inder', sans-serif;
+	
+}
+
+
+
+.main-carousel-span-st-book_publisher{
+	float : right;
+	font-style: italic;
+}
+
+.main-carousel-span-st-book_date{
+	float: left;
+    font-family: 'Inder', sans-serif;
+    font-style: italic;
+    color: #666;
+    font-size: 16px;
+}
+.modal-body img{
+	padding: 2% !important;
+	width: 42%;
+}
+.modal-footer .likes{
+
+    margin-right: 54% !important;
+    margin-bottom: 12% !important;
+}
+
+/* modalStyle */
+
 .main-review-like{
 	padding: 0px 0px 0px 2px;
 	margin: 0; color: #fff;
@@ -522,6 +562,7 @@ function reloadDataToModal() {
 	font-weight: 500;
 	display: inline;
 }
+
 
  </style>
 <body class="index-page sidebar-collapse">
@@ -853,14 +894,17 @@ function reloadDataToModal() {
           </div>
           <div class="modal-body">
             <img class="d-block img-st21 recom0" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
-            <p class="main-carousel-span-st-publ1 recom0"></p>
             <p class="main-carousel-span-st-cont1 recom0">						</p>
+            <hr/>
+            <p class="main-carousel-span-st-publ1 recom0"></p>
             <p class="main-carousel-span-st-book_date recom0"></p>
-            <p class="main-carousel-span-st-publisher recom0"></p>
-            <p class="main-carousel-span-st-book_likecount recom0"></p>
+            <p class="main-carousel-span-st-book_publisher recom0"></p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default">Nice Button</button>
+            <div class="social-description">
+            <h1><p class="main-carousel-span-st-book_likecount recom0"></p></h1>
+          </div>
+          <div class="likes">Likes</div>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -877,14 +921,18 @@ function reloadDataToModal() {
           </div>
           <div class="modal-body">
             <img class="d-block img-st21 recom1" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
+            <p class="main-carousel-span-st-cont1 recom1">	            						</p>
+                        <hr/>
             <p class="main-carousel-span-st-publ1 recom1"></p>
-            <p class="main-carousel-span-st-cont1 recom1">							</p>
             <p class="main-carousel-span-st-book_date recom1"></p>
-            <p class="main-carousel-span-st-publisher recom1"></p>
-            <p class="main-carousel-span-st-book_likecount recom1"></p>
+            <p class="main-carousel-span-st-book_publisher recom1"></p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default">Nice Button</button>
+            <div class="social-description">
+            <h1><p class="main-carousel-span-st-book_likecount recom1"></p></h1>
+            
+          </div>
+          <div class="likes">Likes</div>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -901,14 +949,20 @@ function reloadDataToModal() {
           </div>
           <div class="modal-body">
             <img class="d-block img-st21 recom2" src="resources/assets/img/book_img01.jpg" alt="First slide" style="margin: 0 auto;">
-            <p class="main-carousel-span-st-publ1 recom2"></p>
             <p class="main-carousel-span-st-cont1 recom2">							</p>
+                        <hr/>
+            <p class="main-carousel-span-st-publ1 recom2"></p>
             <p class="main-carousel-span-st-book_date recom2"></p>
-            <p class="main-carousel-span-st-publisher recom2"></p>
+            <p class="main-carousel-span-st-book_publisher recom2"></p>
+            
+            
             <p class="main-carousel-span-st-book_likecount recom2"></p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default">Nice Button</button>
+            <div class="social-description">
+            <h1><p class="main-carousel-span-st-book_likecount recom2"></p></h1>
+          </div>
+          <div class="likes">Likes</div>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
         </div>
