@@ -76,6 +76,7 @@
 									console.log(resp);
 								}
 							}) */
+							
 							listwriter += '<div class="item">';
 							listwriter += '<div class="carousel-content text-carousel-st2">';
 							listwriter += '<div class="in-div-text-carousel-st2">';
@@ -97,12 +98,15 @@
 							listwriter += tt.rev_content;
 							listwriter += '</p>';
 							listwriter += '</a>';
-							listwriter += '<p class="main-review-tag">';
+/* 							listwriter += '<p class="main-review-tag">';
 							listwriter += '<span class="badge badge-success">SF</span>';
 							listwriter += '<span class="badge badge-success">환타지</span>';
 							listwriter += '<span class="badge badge-success">호구와트</span>';
 							listwriter += '<span class="badge badge-success">마법</span>';
 							listwriter += '<span class="badge badge-success">해리포터</span>';
+							listwriter += '</p>'; */
+							
+							listwriter += '<p class="main-review-tag" style="border-top: 1px dashed #ddd;">';
 							listwriter += '</p>';
 							listwriter += '<p class="main-review-tag">';
 							listwriter += '<div class="row">';

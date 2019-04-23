@@ -7334,7 +7334,18 @@ pt-30{
 	text-overflow: ellipsis;
 	width: 230px;
   }
+  .main-review-title{
+	font-size: 1.2em;
+	text-align: left;
+	color: #000;
+	font-weight: 400;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	}
 }
+
+
+
 
 @media screen and (min-width: 769px) and (max-width: 990px) {
   .text-carousel-st{
@@ -7411,7 +7422,13 @@ pt-30{
 	text-align: left;
 	color: #000;
 	font-weight: 400;
+	/* overflow: hidden !important; */
+	text-overflow: ellipsis !important;
+	height: 22.4px;
 }
+
+
+
 .main-review-title2{
 	font-size: 1.0em;
 	text-align: left;
@@ -7716,11 +7733,18 @@ figure.snip1283.hover figcaption {
 		text-align: left;
 		font-size: 1em;
 		display: inline-block;
- 		height: 76px;
+ 		height: 113px;
  		overflow: hidden;
 		text-overflow: ellipsis;
 		width: 100%;
 	}	
+	
+	
+	
+	
+	
+	
+	
 	.main-review-content5{
 		font-weight: 400;
 		color: #262626;
@@ -7778,7 +7802,7 @@ figure.snip1283.hover figcaption {
 		text-align: left;
 		font-size: 1em;
 		display: inline-block;
- 		height: 76px;
+ 		height: 90px;
  		overflow: hidden;
 		text-overflow: ellipsis;
 		width: 100%;
@@ -7830,7 +7854,7 @@ figure.snip1283.hover figcaption {
 		text-align: left;
 		font-size: 1em;
 		display: inline-block;
- 		height: 76px;
+ 		height: 90px;
  		overflow: hidden;
 		text-overflow: ellipsis;
 		width: 100%;
