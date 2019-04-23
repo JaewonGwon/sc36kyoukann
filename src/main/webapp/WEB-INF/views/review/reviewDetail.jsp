@@ -91,16 +91,19 @@ function updateView(resp) {
 	write +='	     </textarea>';
 	write +='	    </p>';                           
         // 베스트 리뷰 태크 부분 시작
-    write +='	     <p class="main-review-tag">';
+/*     write +='	     <p class="main-review-tag">';
     write +='	        <span class="badge badge-success">SF</span>';
     write +='	        <span class="badge badge-success">환타지</span>';
     write +='	        <span class="badge badge-success">호구와트</span>';
     write +='	        <span class="badge badge-success">마법</span>';
     write +='	        <span class="badge badge-success">해리포터</span>';
-    write +='	     </p>';
+    write +='	     </p>'; */
+    
     write +='	     <p class="tags">';
          
     write +='	     </p>';
+    
+   
    //베스트 리뷰 태크 부분 끝
    //베스트 리뷰  태크, user name, hitcount 있는부분 시작
     write +='	     <p class="main-review-tag">';                           
@@ -111,13 +114,13 @@ function updateView(resp) {
    	write +='	        </div>';
    	write +='	          <div class="col-lg-5" style="text-align: right; padding-top: 4px;">';
    	write +=' <c:if test="${not empty sessionScope.loginId}">';
-   	write +='	           <button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">';
+   	write +='	           <button class="btn btn-round" type="button" id="rev_like" style="padding: 4px 12px 4px 12px; background-color: #ec407a; color: #fff;">';
    	write +='	                  <i class="now-ui-icons ui-2_favourite-28" style="font-size: 0.8em; font-weight: 600;"></i>';
    	write +=	resp.rev_like;
    	write +='	           </button>';
    	write +=' </c:if>';
    	write +=' <c:if test="${empty sessionScope.loginId}">';
-   	write +='	           <button class="btn btn-round" type="button" style="padding: 4px 8px 4px 8px; background-color: #ec407a;">';
+   	write +='	           <button class="btn btn-round" type="button" style="padding: 4px 12px 4px 12px; background-color: #ec407a; color: #fff;">';
    	write +='	                  <i class="now-ui-icons ui-2_favourite-28" style="font-size: 0.8em; font-weight: 600;"></i>';
    	write +=	resp.rev_like;
    	write +='	           </button>';
@@ -193,12 +196,14 @@ function output(resp) {
 	write += 				resp.rev_content;
 	write += "			</p>";
 	write += "         <!-- 베스트 리뷰 태크 부분 시작 -->";
-	write += "         <p class='main-review-tag'>";
+/* 	write += "         <p class='main-review-tag'>";
 	write += "         	<span class='badge badge-success'>SF</span>";
 	write += "         	<span class='badge badge-success'>환타지</span>";
 	write += "         	<span class='badge badge-success'>호구와트</span>";
 	write += "         	<span class='badge badge-success'>마법</span>";
 	write += "         	<span class='badge badge-success'>해리포터</span>";
+	write += "         </p>"; */
+	write += "         <p class='main-review-tag' style='border-top: 1px dashed #ddd;'>";
 	write += "         </p>";
 	write += "         <!-- 베스트 리뷰 태크 부분 끝 -->";
 	write += "         <!-- 베스트 리뷰  태크, user name, hitcount 있는부분 시작-->";
@@ -210,14 +215,14 @@ function output(resp) {
 	write += "				</div>";
 	write += "           	<div class='col-lg-5' style='text-align: right; padding-top: 4px;'>";
 	write += "<c:if test="${not empty sessionScope.loginId}">";
-	
-	write += "					<button class='btn btn-round' type='button' id='rev__like' style='padding: 4px 8px 4px 8px; background-color: #ec407a;'>";
+
+	write += "					<button class='btn btn-round' type='button' id='rev__like' style='padding: 4px 12px 4px 12px; background-color: #ec407a; color: #fff;'>";
 	write += "		                <i class='now-ui-icons ui-2_favourite-28' style='font-size: 0.8em; font-weight: 600;'></i>";
 	write += resp.rev_like;
 	write += "					</button>";
 	write += "</c:if>";
 	write += "<c:if test="${empty sessionScope.loginId}">";
-	write += "					<button class='btn btn-round' type='button' style='padding: 4px 8px 4px 8px; background-color: #ec407a;'>";
+	write += "					<button class='btn btn-round' type='button' style='padding: 4px 12px 4px 12px; background-color: #ec407a; color: #fff;'>";
 	write += "		                <i class='now-ui-icons ui-2_favourite-28' style='font-size: 0.8em; font-weight: 600;'></i>";
 	write += resp.rev_like;
 	write += "					</button>";

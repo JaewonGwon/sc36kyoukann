@@ -120,10 +120,10 @@ function list(resp) {
 	$.each(
 					resp,
 					function(index, tt) {
-						listwriter +='	<div class="col-3" style="padding: 6px;">';
-						listwriter +='      <img src="resources/assets/img/kwon.jpg" alt="Circle Image" class="rounded-circle">';
+						listwriter +='	<div class="col-2" style="padding: 20px 6px 20px 6px;">';
+						listwriter +='      <img src="resources/assets/img/saram.jpg" alt="Circle Image" class="rounded-circle">';
 						listwriter +='    </div>';
-						listwriter +='     <div class="col-9 text-left" style="padding: 10px 6px; font-size:11pt;">';
+						listwriter +='     <div class="col-10 text-left" style="padding: 10px 6px; font-size:11pt;">';
 						listwriter +='         <p style="font-size: 11pt; font-weight: 500; margin: 0;">'+tt.pushid+'</p>';
 						listwriter +='        <a href="#" style="text-decoration: none;">';
 						listwriter +='         <i class="now-ui-icons shopping_shop" style="font-weight: 600; font-size: 9pt; color: #56B9FF;"></i>';
@@ -430,26 +430,16 @@ border: 1px solid red;
                                         </div>
                                         
                                         
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">SF</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">환타지</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">영웅</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">사람</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">로맨스</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">무협</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">지구</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">UI</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">안드로이드</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">파이썬</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">자바</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">아이폰</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">스프링</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">HTML</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">CSS</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">PHP</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">UX</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">AI</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">Phothshop</a>
-                                        <a href="#" class="btn btn-simple btn-round btn-sm">C#</a>
+                                        <a href="#" class="btn btn-simple btn-round btn-sm">문학</a>
+                                        <a href="#" class="btn btn-simple btn-round btn-sm">취미</a>
+                                        <a href="#" class="btn btn-simple btn-round btn-sm">오락</a>
+                                        <a href="#" class="btn btn-simple btn-round btn-sm">여행</a>
+                                        <a href="#" class="btn btn-simple btn-round btn-sm">건강</a>
+                                        <a href="#" class="btn btn-simple btn-round btn-sm">자기계발</a>
+                                        <a href="#" class="btn btn-simple btn-round btn-sm">가정</a>
+                                        <a href="#" class="btn btn-simple btn-round btn-sm">육아</a>
+                                        <a href="#" class="btn btn-simple btn-round btn-sm">요리</a>
+
                                      </div>
                                      
                                   </div>

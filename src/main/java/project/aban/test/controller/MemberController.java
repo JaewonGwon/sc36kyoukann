@@ -30,7 +30,7 @@ public class MemberController {
 		//System.out.println(rev_num);
 		
 		Member mem= ms.selectid(id);
-		System.out.println("블랙핑크"+mem);
+		/*System.out.println("블랙핑크"+mem);*/
 				return mem;
 	}
 	
@@ -42,7 +42,7 @@ public class MemberController {
 	      int a = ms.updateMem(member);
 	      System.out.println(a);
 	      if(a==1) {
-	    	  System.out.println("성공쓰");
+	    	 /* System.out.println("성공쓰");*/
 	    	  return "success";  
 	      }else {
 	    	  return "fail";
