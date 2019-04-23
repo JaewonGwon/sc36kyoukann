@@ -9,7 +9,7 @@
 <body class="index-page sidebar-collapse">
 	<!-- Navbar include -->
 	<%@ include file="/WEB-INF/views/include/navbar.jsp"%>
-	<div class="wrapper" style="border: 1px solid blue;">
+	<div class="wrapper" >
 		<!-- main 태크 시작 -->
 		<div class="main">
 			<div class="section section-signup"
