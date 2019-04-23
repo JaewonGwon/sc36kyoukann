@@ -572,7 +572,7 @@ function reloadDataToModal() {
 							<p class="main-carousel-span-st-cont recom1">
 							</p>
 							<p>
-								<button type="button" class="btn btn-puple btn-round btn-md" data-toggle="modal" data-target="#myModal1">See The Book</button>
+								<button type="button" class="btn btn-sky btn-round btn-md" data-toggle="modal" data-target="#myModal1">See The Book</button>
 							</p>
 						</div>
 		      		</div>
@@ -595,7 +595,7 @@ function reloadDataToModal() {
 							<p class="main-carousel-span-st-cont recom2">
 							</p>
 							<p>
-								<button type="button" class="btn btn-puple btn-round btn-md" data-toggle="modal" data-target="#myModal2">See The Book</button>
+								<button type="button" class="btn btn-orange btn-round btn-md" data-toggle="modal" data-target="#myModal2">See The Book</button>
 							</p>
 						</div>
 		      		</div>
