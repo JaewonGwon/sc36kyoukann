@@ -54,4 +54,6 @@ public interface ReviewMapper {
 
 	int delete_revLike(Reglike rl);
 
+	int whopushlike(ReglikeCheck rlc);
+
 }
