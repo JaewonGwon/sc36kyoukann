@@ -119,8 +119,6 @@ var checkData = []
 	   
 	});
 
-
-
 	//end of check box
 	
 	var id = document.getElementById("id").value;
@@ -128,13 +126,35 @@ var checkData = []
     var repw= document.getElementById("repw").value;
     var name= document.getElementById("name").value;
     var disname= document.getElementById("display_name").value;
+ 	
+    var age = $('#age').val();
+    console.log(age);
+    if (age == 10 || age == 20){
+ 		checkData.unshift("1")
+    } else if (age == 30) {
+ 		checkData.unshift("2")
+    } else if (age == 40) {
+    	checkData.unshift("3")
+    } else if (age == 50) {
+    	checkData.unshift("4")
+    } else if (age == 60) {
+    	checkData.unshift("5")
+    }
+ 	
+    console.log(checkData)
+    $.ajax ({
+    	url : 'http://localhost:5000/regist_member',
+    	datatype : 'json',
+    	data : {
+    		favor : JSON.stringify(checkData)
+    	},
+    	method : 'POST',
+    	success : function(resp) {
+    		console.log(resp)
+    	}
+    })
     
     
-    
- 
-  
-   
- 
     
     	if(id.length==0){
     		alert("아이디를 입력해주세요");
@@ -200,8 +220,8 @@ function email_change(){
 
 
 
-
 /*이메일 직접입력 선택 소스 끝*/
+
 </script>
 <style>
  select option{

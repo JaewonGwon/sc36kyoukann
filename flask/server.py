@@ -74,10 +74,16 @@ def hello_world():
 @crossdomain(origin='*')
 def recommend_me():
     req_data = request.form.to_dict()
-    account_data = req_data['favor']
-    gn = rm.groupNumber(account_data)    
-    input_data['groupNumber'] = gn
-    return json.dumps(input_data)
+    account_data = eval(req_data['favor'])
+    account_data = list(account_data)
+    print (account_data)
+    for i in range(len(account_data)):
+        account_data[i] = int(account_data[i])
+    gn = rm.groupNumber(account_data)
+    print(gn)
+    result_data = {}
+    result_data['groupNumber'] = gn
+    return json.dumps(result_data)
 
 @app.route('/welcome_data', methods = ['POST'])
 @crossdomain(origin='*')
@@ -94,7 +100,9 @@ def welcome_data():
 def regist_member():
     req_data = request.form.to_dict()
     #req_data를 length 14 배열로 만들어서 TF 요청할 것!
-    account_data = req_data['favor']
+    account_data = eval(req_data['favor'])
+    for i in range(len(account_data)):
+        account_data[i] = int(account_data[i])
     
     if os.path.isfile('./buffer.dat'):
         f = open('./buffer.dat', 'rb')
@@ -120,7 +128,7 @@ def regist_member():
         #버퍼 넘치기 전에 kmeans 소환
         print("Tensorflow re-training 트리거가 작동되었습니다.")
         #km.keeplearning(buffer)
-        os.remove('/buffer.dat')
+        os.remove('./buffer.dat')
     return json.dumps(account_data)
 
 if __name__ == '__main__':

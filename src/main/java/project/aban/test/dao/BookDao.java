@@ -1,6 +1,7 @@
 package project.aban.test.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +14,8 @@ import project.aban.test.vo.Review;
 import project.aban.test.vo.Tag;
 import project.aban.test.vo.TagList;
 import project.aban.test.vo.UserLikeSave;
+import project.aban.test.vo.UserTag;
+import project.aban.test.vo.UserTaste;
 
 @Repository
 public class BookDao {
@@ -82,7 +85,6 @@ public class BookDao {
 
 		return result;
 	}
-
 
 	public List<Book> select_book_recommend() {
 		BookMapper mapper = session.getMapper(BookMapper.class);
@@ -174,17 +176,11 @@ public class BookDao {
 		return result;
 	}
 
-
-
-
-
-
 	public int request_userLikeSave(UserLikeSave userinfo1) {
 		BookMapper mapper = session.getMapper(BookMapper.class);
 		int result = mapper.request_userLikeSave(userinfo1);
 		return result;
 	}
-
 
 	public int request_userLikeDelete(UserLikeSave userinfo1) {
 		BookMapper mapper = session.getMapper(BookMapper.class);
@@ -193,6 +189,25 @@ public class BookDao {
 	}
 
 
+	public UserTag request_favor(String id) {
+		MemberMapper mapper = session.getMapper(MemberMapper.class);
+		System.out.println(id);
+		UserTag result = mapper.request_favor(id);
+		return result;
+	}
+
+
+	public int request_logSaver(HashMap<String, String> inputMap) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		int result = mapper.request_logSaver(inputMap);
+		return result;
+	}
+
+
+	public ArrayList<Book> request_recommend_list(String gn) {
+		
+		return null;
+	}
 
 
 

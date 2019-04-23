@@ -101,18 +101,21 @@ function reloadReview() {
 .carousel-inner .carousel-item-right.active,
 .carousel-inner .carousel-item-next {
   transform: translateX(33.33%);
+  z-index: 999; 
 }
+
 
 .carousel-inner .carousel-item-left.active, 
 .carousel-inner .carousel-item-prev {
-  transform: translateX(-33.33%)
+  transform: translateX(-33.33%);
+  /* z-index: 999; */
+  
 }
 
 .carousel-inner .carousel-item-right,
 .carousel-inner .carousel-item-left{ 
   transform: translateX(0);
 }
-
 @media screen and (min-width: 1201px) and (max-width: 2400px) {
 	.item__third {
 	  float: left;
@@ -599,32 +602,6 @@ function reloadReview() {
               <!-- Nav tabs -->
               <div class="card">
 
-                <div class="card-header">
-                  <!-- <ul class="nav nav-tabs justify-content-center" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
-                        <i class="now-ui-icons objects_umbrella-13"></i> Home
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
-                        <i class="now-ui-icons shopping_cart-simple"></i> Profile
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" href="#messages" role="tab">
-                        <i class="now-ui-icons shopping_shop"></i> Messages
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" href="#settings" role="tab">
-                        <i class="now-ui-icons ui-2_settings-90"></i> Settings
-                      </a>
-                    </li>
-                  </ul> -->
-                </div>
-   
-                
                 
                 <div class="card-body cs-st">
                   <!-- Tab panes -->
@@ -654,7 +631,7 @@ function reloadReview() {
 				  <!--/.Controls-->
 			  </div>
               <!-- Tabs with Background on Card -->
-              <div class="card" style="background-color: #eee; box-shadow: none;">
+              <div style="background-color: #eee; box-shadow: none;">
                                 
 
 
@@ -664,12 +641,15 @@ function reloadReview() {
 							<!--Carousel Wrapper-->
 							<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
 
-								<!--Slides-->
+							<!--Slides-->
+							
+								
+				
 								
 								<div class="carousel-inner" role="listbox" style="background-color: none; box-shadow: none;">
 									<!--First slide-->
 									<div class="carousel-item active">
-										<div class="row">
+										<div class="row" style="background-color: #eee;">
 											<div class="col-md-6">
 											
 												<div class="card" style="box-shadow: none;">
@@ -740,9 +720,14 @@ function reloadReview() {
 										</div>
 									</div>
 									<!--/.First slide-->
+									
+									
+									
+									
+									
 									<!--Second slide-->
 									<div class="carousel-item">
-										<div class="row">
+										<div class="row" style="background-color: #eee;">
 											<div class="col-md-6">
 											
 												<div class="card" style="box-shadow: none;">

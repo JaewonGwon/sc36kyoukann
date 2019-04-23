@@ -1,7 +1,9 @@
 package project.aban.test.dao;
 
 import project.aban.test.vo.Member;
+import project.aban.test.vo.UserLikeSave;
 import project.aban.test.vo.UserTag;
+import project.aban.test.vo.UserTaste;
 
 public interface MemberMapper {
 
@@ -26,4 +28,9 @@ public interface MemberMapper {
 	public int submit_content(Member m);
 
 	public int insert_UserTag(UserTag usertag1);
+
+	public UserTag request_favor(String id);
+
+	public UserLikeSave request_userLike(UserLikeSave uls);
+
 }
