@@ -27,7 +27,7 @@ const theme = {
       outline: 'none',
       boxSizing: 'border-box',
       borderRadius: "10px",
-      width: '100%',
+      width: '99%',
       padding: 5,
       margin: 2.5,
       backgroundColor: 'white',

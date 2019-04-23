@@ -214,4 +214,9 @@ public class DataService {
 		}
 		return result;
 	}
+
+	public ArrayList<Book> request_recommend_list(String gn) {
+		ArrayList<Book> log_list = dao.request_recommend_list(gn);
+		return null;
+	}
 }
