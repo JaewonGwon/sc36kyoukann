@@ -74,6 +74,7 @@ $(function(){
 	            			    		  data : "gn=" + input['groupNumber'],
 	            			    		  success : function(resp2) {
 	            			    			  console.log(resp2);
+	            			    			  location.href='http://localhost:8888/test/index';
 	            			    		  }
 	            			    	  })
 	            			      }

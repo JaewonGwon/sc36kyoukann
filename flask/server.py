@@ -80,7 +80,7 @@ def recommend_me():
     for i in range(len(account_data)):
         account_data[i] = int(account_data[i])
     gn = rm.groupNumber(account_data)
-    print(gn)
+    print("지급할 Group number : ", gn)
     result_data = {}
     result_data['groupNumber'] = gn
     return json.dumps(result_data)

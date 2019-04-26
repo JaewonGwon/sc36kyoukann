@@ -114,20 +114,22 @@ public class AjaxController {
 	@RequestMapping("/request_likeAdd")
 	@ResponseBody
 	public Book request_likeAdd(String book_title, HttpSession session) {
+		
 		String id = (String) session.getAttribute("loginId");
-		int result = dao.request_likeAdd(book_title);
+		
 		Book thisBook = dao.selectOne(book_title);
-
+		
 		UserLikeSave uls = new UserLikeSave();
 		uls.setBook_title(book_title);
 		uls.setId(id);
-		if (mDao.request_userLike(uls) != null) {
+		if (mDao.request_userLike(uls)!=null) {
 			return request_likeMinus(book_title, session);
-		}
+		} else {
+		int result = dao.request_likeAdd(book_title);
 		UserLikeSave userinfo1 = new UserLikeSave();
 		userinfo1.setId(id);
 		userinfo1.setBook_title(book_title);
-
+		
 		int addResult = dao.request_userLikeSave(userinfo1);
 		String gn = session.getAttribute("gn").toString();
 		HashMap<String, String> inputMap = new HashMap<>();
@@ -141,7 +143,9 @@ public class AjaxController {
 		int logResult = dao.request_logSaver(inputMap);
 		System.out.println(addResult+"save완료");
 		System.out.println(result+"Add");
+		
 		return thisBook;
+		}
 	}
 
 	@RequestMapping("/request_likeMinus")
@@ -291,6 +295,16 @@ public class AjaxController {
 		if(sess.getAttribute("gn") != null )
 			gn = (Integer)sess.getAttribute("gn");
 		ArrayList<Book> result = ds.request_recommend_list(gn);
+		return result;
+	}
+	
+	@RequestMapping("/request_mypage_book")
+	@ResponseBody
+	public ArrayList<Book> request_mypage_book(HttpSession sess) {
+		String id = "";
+		if(sess.getAttribute("loginId") != null )
+			id = (String)sess.getAttribute("loginId");
+		ArrayList<Book> result = dao.request_mypage_book(id);
 		return result;
 	}
 	

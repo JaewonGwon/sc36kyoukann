@@ -334,5 +334,21 @@
         and a.book_title = b.book_title
 	    AND ROWNUM BETWEEN 1 AND 30
 	</select>
+	
+	<select id = "request_mypage_book" parameterType = "String" resultType = "Book">
+		SELECT DISTINCT
+		    A.book_title,
+			B.book_num,
+			B.book_image,
+			B.book_writer,
+			B.book_date,
+			B.book_publisher,
+			B.book_likecount,
+			B.book_content,
+	        B.book_viewcount
+	    FROM USER_HIT_LIKE A, BOOK B
+		WHERE a.id = #{id}
+        and a.book_title = b.book_title
+	</select>
 
 </mapper>

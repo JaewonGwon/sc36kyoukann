@@ -216,6 +216,12 @@ public class BookDao {
 		ArrayList<Book> result = mapper.request_main_book_modal();
 		return result;
 	}
+	
+	public ArrayList<Book> request_mypage_book(String id) {
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		ArrayList<Book> result = mapper.request_mypage_book(id);
+		return result;
+	}
 
 
 }

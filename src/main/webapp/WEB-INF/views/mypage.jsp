@@ -19,6 +19,17 @@ $(window).ready(function(){
 			list(resp);
 		}
 	})
+	$('.nav-link.tab-a-st.mybooks').on("click", function() {
+		$.ajax({
+			url : 'request_mypage_book',
+			method : 'GET',
+			success : function(resp) {
+				booklist(resp)
+			}
+		})
+	})
+
+	
 	$('#i_scroll_wrap').scroll(function(){
     
 	
@@ -26,11 +37,11 @@ $(window).ready(function(){
      var documentH = $('#i_scroll').height();
       /* alert(scrollH); */
      var temp = '';
-     if (scrollH == documentH){
+/*      if (scrollH == documentH){
        for (var i=0; i<10; i++){
           $("#i_scroll").append("<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>");
        };
-     };  
+     };   */
    });
    
    $("#mem_modify").on("click", function(){
@@ -72,7 +83,7 @@ $(window).ready(function(){
 	         })
 	      
 	   } */
-
+/* 
    $("#add_face").on("click", function(){
         var temp = '';
         temp += '<p><input class="sns-input" type="text" id="faddr" placeholder="Facebook 주소를 입력해주세요." /></p>'
@@ -98,13 +109,25 @@ $(window).ready(function(){
         $("#add_twit").val('Twitter 등록');
         $("#add_face").css('display', 'none');
         $("#add_insta").css('display', 'none');
-   });
+   }); */
    
-	
+
 	
    
 });
+function booklist(resp) {
+	var mpbooklist = '';
+	$.each(
+					resp,
+					function(index, tt) {
+						mpbooklist +='<div class="col-lg-2 col-md-4 col-sm-12" style="padding-bottom: 10px;">';
+						mpbooklist +='<img src="'+ tt.book_image +'" alt="book_image"/>';
+						mpbooklist +='</div>';
+		
+					});
 
+	$('#i_scroll').html(mpbooklist);
+}
 /* Profile summary counter */
 function counter() {
     $('#profileContent').keyup(function (e){
@@ -373,7 +396,7 @@ border: 1px solid red;
                           </li>
                           
                           <li class="nav-item">
-                            <a class="nav-link tab-a-st" data-toggle="tab" href="#profile1" role="tab">My Books</a>
+                            <a class="nav-link tab-a-st mybooks" data-toggle="tab" href="#profile1" role="tab">My Books</a>
                           </li>
                         </ul>
                       </div>
@@ -538,7 +561,7 @@ border: 1px solid red;
                                  
 	                                   <div class="row i_scroll" id="i_scroll">
 	                                   
-	                                       <div class="col-lg-2 col-md-4 col-sm-12">
+	                                       <!-- <div class="col-lg-2 col-md-4 col-sm-12">
 	                                          <figure class="snip1283 figure-margin">
 	                                         <img src="resources/assets/img/book_img01.jpg" alt="book_image"/>
 	                                         <figcaption>
@@ -646,7 +669,7 @@ border: 1px solid red;
 	                                           <a href="#" class="read-more">책정보<br/>보러가기</a>
 	                                         </figcaption>
 	                                       </figure>
-	                                       </div> 
+	                                       </div>  -->
 	                                    
 	                                     </div>
                                      </div>

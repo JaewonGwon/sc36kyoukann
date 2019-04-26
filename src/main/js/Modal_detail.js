@@ -52,22 +52,6 @@ class ModalExample extends React.Component {
         console.log(this.state.book_tags);
 
 
-        let hitUrl = "/test/request_hitAdd?book_title=" + book_name;
-
-        if (this.state.buttonViewFlag) {
-            
-            axios.get(hitUrl)
-                .then(viewCount => {
-                    this.setState({
-                        book_viewcount: viewCount.data.book_viewcount,
-                        buttonViewFlag: !this.state.buttonViewFlag
-                    })
-                console.log(this.state.book_viewcount+"viewCount");
-
-                });
-
-        }
-
     }
 
     _LikeCount() {
@@ -79,7 +63,6 @@ class ModalExample extends React.Component {
                     console.log(thisBook);
                     this.setState({
                         book_likecount: thisBook.data.book_likecount,
-                   
                     })
                     console.log(this.state.book_likecount);
                 })
