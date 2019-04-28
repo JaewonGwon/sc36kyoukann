@@ -9,6 +9,7 @@
 <script>
 
 $(window).ready(function(){
+
 	counter();
 	submit_profile_content();
 	init();
@@ -28,6 +29,8 @@ $(window).ready(function(){
 			}
 		})
 	})
+	
+
 
 	
 	$('#i_scroll_wrap').scroll(function(){
@@ -309,6 +312,8 @@ border: 1px solid red;
                           <button class="btn btn-info" id="mem_modify">
                         회원 정보 수정
                           </button>
+                          
+                          <input type="file" name="upload" value="파일 첨부하기"/>
 
                         </div>
                      </div>

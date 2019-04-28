@@ -53,8 +53,19 @@ $(function(){
 	               } else {
 	            	   var id = $("#id").val()
 	            	   console.log(id)
+	            	   
+        			    	  $.ajax({
+        			    		  method : 'get',
+        			    		  url : 'ai_recommend',
+        			    		  data : "gn=" + 1,
+        			    		  success : function(resp2) {
+        			    			  console.log(resp2);
+        			    			  location.href='http://localhost:8888/test/index';
+        			    		  }
+        			    	  })
+        			      }
 	            	  //$("#loginForm").submit();
-	            	  $.ajax({
+	            	  /* $.ajax({
 	            		  metod : 'get',
 	            		  url : 'favor',
 	            		  data : "id=" + id,
@@ -80,10 +91,10 @@ $(function(){
 	            			      }
 	            			  })
 	            		  }
-	            	  })
+	            	  }) */
 	                  //location.href='http://localhost:8888/test/index';
 	                 
-	               }
+	               
 	            }
 	         });
 	   });
