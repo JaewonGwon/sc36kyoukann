@@ -31,8 +31,10 @@ $(window).ready(function(){
 	})
 	
 
+	$("#mem_modify").click(function (){
+  	$("#profileform").toggle();
 
-	
+	});
 	$('#i_scroll_wrap').scroll(function(){
     
 	
@@ -300,7 +302,26 @@ border: 1px solid red;
                   <div class="col-md-6">
                       <div class="row">
                           <div class="col-4" style="padding: 10px;">
-                            <img src='resources/assets/img/saram.jpg' alt='Circle Image' class='rounded-circle'>
+                          
+              			 
+                         <c:choose>
+
+						     <c:when test="${mime == '1'}">
+						        <img src="download?id=${sessionScope.loginId}" alt='Circle Image' class='rounded-circle'>
+						     </c:when>
+						 
+						
+						     <c:otherwise>
+						       <img src='resources/assets/img/saram.jpg' alt='Circle Image' class='rounded-circle'>
+						    </c:otherwise> 
+						
+						
+					 	</c:choose> 
+					 	
+
+                        </div>
+                        <div>
+                     
                         </div>
                           <div class="col-8">
                             <p style="font-size: 30pt;" id="userid">${sessionScope.m.id}</p>
@@ -313,7 +334,13 @@ border: 1px solid red;
                         회원 정보 수정
                           </button>
                           
-                          <input type="file" name="upload" value="파일 첨부하기"/>
+                          <form id="profileform" style="display: none;" action="profileUpdate" method="POST" enctype="multipart/form-data"> 
+                          
+                          	<input type="file" name="upload" class="btn btn-info" value="파일 첨부하기" style="width: 80%;"/>
+                          	 <input type="submit" class="btn btn-info"  id="" value="사진 등록"/>
+                          	 
+                          </form>
+                          
 
                         </div>
                      </div>

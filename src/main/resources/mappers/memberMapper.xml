@@ -143,4 +143,25 @@
 	and book_title = #{book_title}
 </select>
 
+
+<insert id= "insertUserProfile" parameterType = "String">
+
+INSERT INTO userprofile
+(
+	
+	id
+	
+
+)
+VALUES
+(
+	 #{id}
+	
+)
+
+</insert>
+
+
+
+
 </mapper>

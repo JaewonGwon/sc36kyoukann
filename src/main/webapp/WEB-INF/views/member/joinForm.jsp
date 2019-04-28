@@ -107,9 +107,13 @@ function formCheck() {
 	//checkbox data 
 	
 var checkData = []
+/* var checkStringData =  getElementById('abc'); */
+
+	
+	
 	
 	$("input[id='UserTag']:checked").each(function (){
-		
+		alert($(this).innerHTML);
 	   $(this).val("1") 
 	   
 	});
@@ -195,7 +199,7 @@ var checkData = []
    
    document.getElementById("address").value = post.value+roadaddr.value+addr1+addr2.value;
    
-   $("#joinus").submit();
+ /*   $("#joinus").submit(); */
    
 }
    

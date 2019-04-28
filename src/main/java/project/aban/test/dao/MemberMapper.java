@@ -35,4 +35,6 @@ public interface MemberMapper {
 
 	public UserLikeSave request_userLike(UserLikeSave uls);
 
+	public int insertUserProfile(String id);
+
 }

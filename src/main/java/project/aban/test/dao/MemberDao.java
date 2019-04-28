@@ -96,6 +96,12 @@ public class MemberDao {
 		UserLikeSave result = mapper.request_userLike(uls);
 		return result;
 	}
+
+	public int insertUserProfile(String id) {
+		MemberMapper mapper = session.getMapper(MemberMapper.class);
+		int result = mapper.insertUserProfile(id);
+		return result;
+	}
 	
 
 }

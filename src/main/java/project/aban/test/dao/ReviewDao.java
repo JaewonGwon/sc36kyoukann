@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import project.aban.test.vo.Reglike;
 import project.aban.test.vo.ReglikeCheck;
 import project.aban.test.vo.Review;
+import project.aban.test.vo.UserProfile;
 @Repository
 public class ReviewDao {
 	@Autowired
@@ -174,6 +175,18 @@ public class ReviewDao {
 		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
 		a = mapper.whopushlike(rlc);
 		return a;
+	}
+
+	public int insertProfile(UserProfile userProfile) {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		int result = mapper.insertProfile(userProfile);
+		return 0;
+	}
+
+	public UserProfile selectProfile(String id) {
+		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+		UserProfile result = mapper.selectProfile(id);
+		return result;
 	}
 	
 

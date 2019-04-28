@@ -10,6 +10,7 @@ import project.aban.test.dao.ReviewDao;
 import project.aban.test.vo.Reglike;
 import project.aban.test.vo.ReglikeCheck;
 import project.aban.test.vo.Review;
+import project.aban.test.vo.UserProfile;
 
 @Service
 public class ReviewService {
@@ -149,6 +150,16 @@ public class ReviewService {
 		a = dao.whopushlike(rlc);
 		
 		return a;
+	}
+
+	public int profileUpdate(UserProfile userProfile) {
+		int result = dao.insertProfile(userProfile);
+		return result;
+	}
+
+	public UserProfile selectProfile(String id) {
+		UserProfile result = dao.selectProfile(id);
+		return result;
 	}
 
 }
