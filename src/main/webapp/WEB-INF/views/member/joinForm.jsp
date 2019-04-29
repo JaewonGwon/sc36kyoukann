@@ -199,7 +199,7 @@ var checkData = []
    
    document.getElementById("address").value = post.value+roadaddr.value+addr1+addr2.value;
    
- /*   $("#joinus").submit(); */
+    $("#joinus").submit(); 
    
 }
    
@@ -537,6 +537,7 @@ function email_change(){
 		                    <span class="form-check-sign"></span>
 		                    	예술,문화
 		                  </label>
+		                  
 		                </div>
 	                  </div>
 	                  <div class="col-5">
