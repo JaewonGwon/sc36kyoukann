@@ -357,8 +357,7 @@ border: 1px solid red;
                 
                         
                         
-                             <div class="col-12 text-center p-10">                           
-                            
+                            <div class="col-12 text-center p-10">          
                             <input type="button" class="btn btn-info sns-btn" id="add_face" value="Facebook 추가">
    
                             <input type="button" class="btn btn-info sns-btn" id="add_insta" value="Instagram 추가">

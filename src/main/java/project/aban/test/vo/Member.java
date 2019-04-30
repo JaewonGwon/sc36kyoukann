@@ -11,13 +11,16 @@ public class Member {
 	private String address;
 	private int point;
 	private String contents;
+	private String fb_url;
+	private String tw_url;
+	private String ins_url;
 	
 	public Member() {
 		super();
 	}
 
 	public Member(String id, String pw, String name, String display_name, String gender, int age, String phone,
-			String address, int point, String contents) {
+			String address, int point, String contents, String fb_url, String tw_url, String ins_url) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -29,6 +32,9 @@ public class Member {
 		this.address = address;
 		this.point = point;
 		this.contents = contents;
+		this.fb_url = fb_url;
+		this.tw_url = tw_url;
+		this.ins_url = ins_url;
 	}
 
 	public String getId() {
@@ -111,11 +117,36 @@ public class Member {
 		this.contents = contents;
 	}
 
+	
+	public String getFb_url() {
+		return fb_url;
+	}
+
+	public void setFb_url(String fb_url) {
+		this.fb_url = fb_url;
+	}
+
+	public String getTw_url() {
+		return tw_url;
+	}
+
+	public void setTw_url(String tw_url) {
+		this.tw_url = tw_url;
+	}
+
+	public String getIns_url() {
+		return ins_url;
+	}
+
+	public void setIns_url(String ins_url) {
+		this.ins_url = ins_url;
+	}
+
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", display_name=" + display_name + ", gender="
 				+ gender + ", age=" + age + ", phone=" + phone + ", address=" + address + ", point=" + point
-				+ ", contents=" + contents + "]";
+				+ ", contents=" + contents + ", fb_url=" + fb_url + ", tw_url=" + tw_url + ", ins_url=" + ins_url + "]";
 	}
 	
 }
