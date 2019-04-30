@@ -114,7 +114,7 @@ public class MemberController {
 			UserTag usertag, HttpSession session) {
 
 		
-
+		String id = member.getId();
 		
 		
 		
@@ -123,8 +123,11 @@ public class MemberController {
 			session.setAttribute("UserInfo", member);
 			ms.insert_Member(member);
 			int result1 = ms.insert_UserTag(usertag);
+			int result = ms.insertUserProfile(id);
+			
 			System.out.println(result1+"DB삽입");
 			System.out.println(member);
+			System.out.println(result+"profile 삽입");
 			
 			
 			

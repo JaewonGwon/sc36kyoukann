@@ -138,6 +138,12 @@ public int insert_UserTag(UserTag usertag1) {
 }
 
 
+public int insertUserProfile(String id) {
+	int result = dao.insertUserProfile(id);
+	return result;
+}
+
+
 
 
 

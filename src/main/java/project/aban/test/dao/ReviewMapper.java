@@ -6,6 +6,7 @@ import java.util.List;
 import project.aban.test.vo.Reglike;
 import project.aban.test.vo.ReglikeCheck;
 import project.aban.test.vo.Review;
+import project.aban.test.vo.UserProfile;
 
 public interface ReviewMapper {
 	
@@ -55,5 +56,9 @@ public interface ReviewMapper {
 	int delete_revLike(Reglike rl);
 
 	int whopushlike(ReglikeCheck rlc);
+
+	int insertProfile(UserProfile userProfile);
+
+	UserProfile selectProfile(String id);
 
 }

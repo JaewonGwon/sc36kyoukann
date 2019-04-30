@@ -178,4 +178,31 @@
 			REV_NUM = #{rev_num}
 			AND ID = #{id}
 	</delete>
+	
+	
+<update id= "insertProfile" parameterType = "UserProfile">
+
+update userprofile set
+
+
+	 <if test="originalfile != null">
+	 originalfile = #{originalfile},
+	 savedfile = #{savedfile}
+	 </if>
+	 where id = #{id}
+
+
+</update>
+
+	
+	
+	<select id="selectProfile" resultType="UserProfile" parameterType="String">
+		select * from userprofile
+		where id= #{id}
+	</select>
+	
+	
+	
+	
+	
 </mapper>
